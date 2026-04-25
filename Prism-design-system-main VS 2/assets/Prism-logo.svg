@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <g clip-path="url(#prism-logo__a)">
+    <path fill="url(#prism-logo__b)" d="M15.998 0 0 27.713h32L15.998 0Zm0 4.154L28.052 25.03H3.944L15.998 4.154Z"/>
+    <path fill="url(#prism-logo__c)" d="m15.998 4.154 12.054 20.881h-.009l3.914 2.61L15.997 0l-.017.034v4.154l.018-.034Z"/>
+    <path fill="url(#prism-logo__d)" d="m15.998 4.154 12.054 20.881h-.009l3.914 2.61L15.997 0l-.017.034v4.154l.018-.034Z" style="mix-blend-mode:screen"/>
+    <path fill="url(#prism-logo__e)" d="M28.043 25.035h-24.1L15.982 4.188V.034L0 27.713h32l-.043-.069-3.914-2.609Z" style="mix-blend-mode:multiply"/>
+    <path fill="url(#prism-logo__f)" d="M1.691 28.906c-.656 1.137.163 2.562 1.48 2.562h26.083c1.313 0 2.137-1.425 1.48-2.562H1.692Z" style="mix-blend-mode:screen"/>
+    <path fill="url(#prism-logo__g)" d="M6.596 23.735h2.399l7.2-12.47V7.106l-9.6 16.63Z"/>
+    <path fill="url(#prism-logo__h)" d="m16.208 7.08-.013.026v4.159l.013-.03 7.218 12.5h2.399L16.208 7.081Z"/>
+  </g>
+  <defs>
+    <linearGradient id="prism-logo__b" x1="0" x2="32" y1="13.857" y2="13.857" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__c" x1="15.98" x2="31.957" y1="13.822" y2="13.822" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__d" x1="15.98" x2="31.957" y1="13.822" y2="13.822" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__e" x1="0" x2=".429" y1="13.873" y2="13.873" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__f" x1="1.459" x2="30.962" y1="30.185" y2="30.185" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__g" x1="6.596" x2="16.195" y1="15.419" y2="15.419" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <linearGradient id="prism-logo__h" x1="16.195" x2="25.825" y1="15.406" y2="15.406" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#085BC1"/>
+      <stop offset=".98" stop-color="#1CD183"/>
+    </linearGradient>
+    <clipPath id="prism-logo__a">
+      <rect width="32" height="31.468" fill="#fff"/>
+    </clipPath>
+  </defs>
+</svg>

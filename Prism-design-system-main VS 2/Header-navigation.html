@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Navigation — UEMS Design System</title>
+<link rel="stylesheet" href="css/common/globals.css">
+<link rel="stylesheet" href="css/common/components.css">
+</head>
+<body class="page-header-navigation">
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+<img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+<span class="nav-logo-text">
+  <span class="nav-logo-mark">Prism</span>
+  <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+</span>
+    </a>
+    <div class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html" class="active">Components</a>
+      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a>
+      <div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div style="width:16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search..."><span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 class="sidebar-heading">Components</h3>
+      <ul class="sidebar-nav">
+        <li><a href="Accordion.html" class="sidebar-link">Accordion</a></li>
+        <li><a href="Avatar.html" class="sidebar-link">Avatar</a></li>
+        <li><a href="Badges.html" class="sidebar-link">Badges</a></li>
+        <li><a href="Breadcrumbs.html" class="sidebar-link">Breadcrumbs</a></li>
+        <li><a href="Button.html" class="sidebar-link">Button</a></li>
+        <li><a href="Calendar.html" class="sidebar-link">Calendar</a></li>
+        <li><a href="Checkbox.html" class="sidebar-link">Checkbox</a></li>
+        <li><a href="Counter.html" class="sidebar-link">Counter</a></li>
+        <li><a href="Data-table.html" class="sidebar-link">Data table</a></li>
+        <li><a href="Date-picker.html" class="sidebar-link">Date picker</a></li>
+        <li><a href="Divider.html" class="sidebar-link">Divider</a></li>
+        <li><a href="Dropdown.html" class="sidebar-link">Dropdown</a></li>
+        <li><a href="Empty-state.html" class="sidebar-link">Empty state</a></li>
+        <li><a href="Header-navigation.html" class="sidebar-link active">Header navigation</a></li>
+        <li><a href="Icon.html" class="sidebar-link">Icon</a></li>
+        <li><a href="Inline-message.html" class="sidebar-link">Inline message</a></li>
+        <li><a href="Left-sidebar-navigation-level-1.html" class="sidebar-link">Sidebar Nav L1</a></li>
+        <li><a href="Left-sidebar-navigation-level-2.html" class="sidebar-link">Sidebar Nav L2</a></li>
+        <li><a href="Link.html" class="sidebar-link">Link</a></li>
+        <li><a href="OTP-input.html" class="sidebar-link">OTP input</a></li>
+        <li><a href="Page-header.html" class="sidebar-link">Page header</a></li>
+        <li><a href="Progress-bar.html" class="sidebar-link">Progress bar</a></li>
+        <li><a href="Radio-button.html" class="sidebar-link">Radio button</a></li>
+        <li><a href="Rich-text-editor.html" class="sidebar-link">Rich text editor</a></li>
+        <li><a href="Right-pane.html" class="sidebar-link">Right pane</a></li>
+        <li><a href="Script-editor.html" class="sidebar-link">Script editor</a></li>
+        <li><a href="Slider.html" class="sidebar-link">Slider</a></li>
+        <li><a href="Snackbar.html" class="sidebar-link">Toast Message</a></li>
+        <li><a href="Split-button.html" class="sidebar-link">Split button</a></li>
+        <li><a href="Status-indicator.html" class="sidebar-link">Status indicator</a></li>
+        <li><a href="Switch.html" class="sidebar-link">Toggle</a></li>
+        <li><a href="Tag.html" class="sidebar-link">Tag</a></li>
+        <li><a href="Text-area.html" class="sidebar-link">Text area</a></li>
+        <li><a href="Text-field.html" class="sidebar-link">Text field</a></li>
+        <li><a href="Tooltip.html" class="sidebar-link">Tooltip</a></li>
+        <li style="padding:16px 12px 8px;"><span style="font-size:10px;font-weight:700;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;">In-progress</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action button</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action list</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Alert banner</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">App bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Autocomplete</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Bottom sheet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Button group</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Cards</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Code snippet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Combobox</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Dialog</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Drawer</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Filter input</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Form</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Help text</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Label</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">List</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Menus</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Modal</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Navigation bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Pagination</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Popover</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Progress indicator</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Search</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Segmented control</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Select</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Sidebar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tabs</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tree view</span></li>
+      </ul>
+    </aside>
+
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Header Navigation</h1>
+        <p class="page-desc">A fixed full-width top bar that provides product identity, primary navigation links, global search, and quick-access utility actions.</p>
+        </div>
+        <nav class="content-tabs">
+          <button class="tab-item active">Overview</button>
+          <button class="tab-item">Style</button>
+          <button class="tab-item">Usage</button>
+          <button class="tab-item">Code</button>
+          <button class="tab-item">Accessibility</button>
+        </nav>
+
+      <div class="main-content-area">
+        <div class="main-content-inner">
+
+        <!-- ========== OVERVIEW ========== -->
+        <div class="tab-content" id="tab-overview">
+          <h3 id="anatomy" class="doc-h3">Anatomy</h3>
+
+          <!-- Anatomy: Endpoint Central (top nav) -->
+          <p style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Endpoint Central (Top Nav Tabs)</p>
+          <div class="anatomy-diagram">
+            <div style="display:flex;justify-content:center;margin:20px 0;">
+              <div style="position:relative;width:100%;max-width:700px;">
+                <!-- Header bar representation -->
+                <div class="hdr-demo" style="border-radius:8px;">
+                  <!-- Logo zone -->
+                  <div style="display:flex;align-items:center;gap:6px;padding:0 14px;border-right:1px solid var(--prism-border);height:100%;flex-shrink:0;">
+                    <img src="assets/Endpoint Central.svg" alt="Endpoint Central" style="width:18px;height:18px;">
+                    <span style="font-size:12px;font-weight:600;color:var(--prism-text);">Endpoint Central</span>
+                  </div>
+                  <!-- Tab nav zone -->
+                  <div style="display:flex;align-items:center;height:100%;gap:0;flex:1;">
+                    <div style="padding:0 12px;font-size:11px;color:var(--prism-violet);font-weight:600;height:100%;display:flex;align-items:center;position:relative;"><span>Home</span><div style="position:absolute;bottom:0;left:6px;right:6px;height:2px;background:var(--prism-violet);border-radius:2px 2px 0 0;"></div></div>
+                    <div style="padding:0 12px;font-size:11px;color:var(--prism-text);font-weight:500;height:100%;display:flex;align-items:center;">Configs</div>
+                    <div style="padding:0 12px;font-size:11px;color:var(--prism-text);font-weight:500;height:100%;display:flex;align-items:center;">Inventory</div>
+                    <div style="padding:0 12px;font-size:11px;color:var(--prism-text);font-weight:500;height:100%;display:flex;align-items:center;">Tools</div>
+                    <div style="padding:0 8px;font-size:11px;color:var(--prism-text);font-weight:500;height:100%;display:flex;align-items:center;">&#8943;</div>
+                  </div>
+                  <!-- Utility cluster -->
+                  <div style="display:flex;align-items:center;gap:4px;padding:0 12px;flex-shrink:0;">
+                    <div style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+                    </div>
+                    <div style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    </div>
+                    <div style="width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#0C66E4,#60a5fa);margin-left:2px;"></div>
+                  </div>
+                </div>
+                <!-- Markers -->
+                <div style="position:absolute;top:-28px;left:60px;display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">1</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+                <div style="position:absolute;top:-28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">2</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+                <div style="position:absolute;top:-28px;right:40px;display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">3</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anatomy: Left-nav variants (search bar) -->
+          <p style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;margin-top:32px;">EC Left Only / MDM / Patch Manager Plus (Search Bar)</p>
+          <div class="anatomy-diagram">
+            <div style="display:flex;justify-content:center;margin:20px 0;">
+              <div style="position:relative;width:100%;max-width:700px;">
+                <div class="hdr-demo" style="border-radius:8px;">
+                  <!-- Logo zone -->
+                  <div style="display:flex;align-items:center;gap:6px;padding:0 14px;border-right:1px solid var(--prism-border);height:100%;flex-shrink:0;">
+                    <img src="assets/Product Logo/Mobile Device Manager Plus_Appicon.svg" alt="MDM" style="width:18px;height:18px;border-radius:4px;object-fit:cover;">
+                    <span style="font-size:12px;font-weight:600;color:var(--prism-text);">Mobile Device Manager Plus</span>
+                  </div>
+                  <!-- Search bar zone -->
+                  <div style="flex:1;display:flex;align-items:center;padding:0 16px;">
+                    <div style="flex:1;max-width:480px;height:26px;display:flex;align-items:center;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:6px;padding:0 10px;gap:6px;">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+                      <span style="font-size:11px;color:var(--prism-text-muted);flex:1;">Search...</span>
+                      <span style="font-size:9px;color:var(--prism-text-muted);background:#fff;border:1px solid var(--prism-border);border-radius:3px;padding:0 4px;">&#8984;K</span>
+                    </div>
+                  </div>
+                  <!-- Utility cluster -->
+                  <div style="display:flex;align-items:center;gap:4px;padding:0 12px;flex-shrink:0;">
+                    <div style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    </div>
+                    <div style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                    </div>
+                    <div style="width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#0C66E4,#60a5fa);margin-left:2px;"></div>
+                  </div>
+                </div>
+                <!-- Markers -->
+                <div style="position:absolute;top:-28px;left:50px;display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">1</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+                <div style="position:absolute;top:-28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">2</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+                <div style="position:absolute;top:-28px;right:40px;display:flex;flex-direction:column;align-items:center;gap:2px;"><span class="anat-marker-inline">3</span><div style="width:2px;height:8px;background:#2563eb;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="anat-legend" style="grid-template-columns:repeat(3,1fr);">
+            <div class="anat-legend-item"><span class="anat-marker-inline">1</span><div><strong>Logo Zone</strong><span>Product icon and product name. Identifies the current application. Always visible.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">2</span><div><strong>Tab Navigation / Search Bar</strong><span>Centre zone. Endpoint Central uses horizontal tab links (Nav 1&#8211;8 + overflow). Left-nav variants use a full-width search bar with &#8984;K hint.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">3</span><div><strong>Right Utility Cluster</strong><span>Customer Selector, Search icon, Settings, Bookmark, Link, Notifications, Avatar, and Bento grid. Boolean toggles show/hide each.</span></div></div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <!-- Live Demo -->
+          <div style="margin-bottom:64px;">
+            <h2 id="live-demo" class="doc-section-title" style="margin-bottom:8px;">Preview</h2>
+            <p class="doc-section-subtitle" style="margin-bottom:28px;">All four header navigation variants as they appear in the Figma design system.</p>
+
+            <div class="demo-container">
+<div class="demo-canvas" style="padding:32px 24px;gap:0;min-height:auto;">
+
+                <!-- Variant 1: Endpoint Central — Top Nav -->
+                <div class="hdr-demo" style="border-radius:0;border:none;border-bottom:1px solid var(--prism-border);">
+                  <div class="hdr-demo-logo">
+                    <img src="assets/Endpoint Central.svg" alt="Endpoint Central" style="width:20px;height:20px;">
+                    <span class="hdr-demo-logo-text">Endpoint Central</span>
+                  </div>
+                  <div class="hdr-demo-tabs">
+                    <div class="hdr-demo-tab active">Home</div>
+                    <div class="hdr-demo-tab">Configurations</div>
+                    <div class="hdr-demo-tab">Inventory</div>
+                    <div class="hdr-demo-tab">Threats &amp; Patches</div>
+                    <div class="hdr-demo-tab">MDM</div>
+                    <div class="hdr-demo-tab">OSD</div>
+                    <div class="hdr-demo-tab">Software Deployment</div>
+                    <div class="hdr-demo-tab">Tools</div>
+                    <div class="hdr-demo-tab" style="font-weight:700;letter-spacing:2px;font-size:14px;">&#8943;</div>
+                  </div>
+                  <div class="hdr-demo-utils">
+                    <div class="hdr-demo-cust">All Customers <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <!-- Search icon -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+                    <!-- ⌘K hint -->
+                    <kbd style="font-size:10px;font-family:inherit;color:inherit;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:3px;padding:1px 5px;line-height:1.4;">&#8984;K</kbd>
+                    <!-- Settings -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+                    <!-- Bookmark -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></div>
+                    <!-- Link -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                    <!-- Notification -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+                    <!-- Avatar -->
+                    <div class="hdr-demo-avatar" style="background:linear-gradient(135deg,#e8927c,#d4735e);color:#fff;">
+                      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                    </div>
+                    <!-- Bento -->
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg></div>
+                  </div>
+                </div>
+
+                <!-- Variant 2: Endpoint Central — Left Nav (Search) -->
+                <div class="hdr-demo" style="border-radius:0;border:none;border-bottom:1px solid var(--prism-border);">
+                  <div class="hdr-demo-logo">
+                    <img src="assets/Endpoint Central.svg" alt="Endpoint Central" style="width:20px;height:20px;">
+                    <span class="hdr-demo-logo-text">Endpoint Central</span>
+                  </div>
+                  <div class="hdr-demo-search-zone">
+                    <div class="hdr-demo-searchbar">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+                      <span>Search...</span>
+                      <kbd>&#8984;K</kbd>
+                    </div>
+                  </div>
+                  <div class="hdr-demo-utils">
+                    <div class="hdr-demo-cust">All Customers <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+                    <div class="hdr-demo-avatar" style="background:linear-gradient(135deg,#e8927c,#d4735e);color:#fff;"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg></div>
+                  </div>
+                </div>
+
+                <!-- Variant 3: Mobile Device Manager Plus MSP -->
+                <div class="hdr-demo" style="border-radius:0;border:none;border-bottom:1px solid var(--prism-border);">
+                  <div class="hdr-demo-logo">
+                    <img src="assets/Product Logo/Mobile Device Manager Plus_Appicon.svg" alt="Mobile Device Manager Plus MSP" style="width:20px;height:20px;border-radius:4px;object-fit:cover;">
+                    <span class="hdr-demo-logo-text">Mobile Device Manager Plus MSP</span>
+                  </div>
+                  <div class="hdr-demo-search-zone">
+                    <div class="hdr-demo-searchbar">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+                      <span>Search...</span>
+                      <kbd>&#8984;K</kbd>
+                    </div>
+                  </div>
+                  <div class="hdr-demo-utils">
+                    <div class="hdr-demo-cust">All Customers <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+                    <div class="hdr-demo-avatar" style="background:linear-gradient(135deg,#e8927c,#d4735e);color:#fff;"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg></div>
+                  </div>
+                </div>
+
+                <!-- Variant 4: Patch Manager Plus -->
+                <div class="hdr-demo" style="border-radius:0;border:none;">
+                  <div class="hdr-demo-logo">
+                    <img src="assets/Product Logo/Patch Manager Plus (1).svg" alt="Patch Manager Plus" style="width:20px;height:20px;">
+                    <span class="hdr-demo-logo-text">Patch Manager Plus</span>
+                  </div>
+                  <div class="hdr-demo-search-zone">
+                    <div class="hdr-demo-searchbar">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+                      <span>Search...</span>
+                      <kbd>K</kbd>
+                    </div>
+                  </div>
+                  <div class="hdr-demo-utils">
+                    <div class="hdr-demo-cust">All Customers <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+                    <div class="hdr-demo-avatar" style="background:linear-gradient(135deg,#e8927c,#d4735e);color:#fff;"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+                    <div class="hdr-demo-util-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Guidelines -->
+          <div class="doc-section">
+            <h3 id="content-guidelines" class="doc-h3">Content Guidelines<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">Recommended</span></h3>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li>Keep navigation labels concise and recognizable (1&#8211;2 words).</li>
+                <li>Use the correct variant for the product's navigation architecture.</li>
+                <li>Always show the active tab state so users know where they are.</li>
+                <li>Turn off unused Nav slots to prevent empty spacing in the tab row.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li>Use long multi-word labels that cause tab overflow prematurely.</li>
+                <li>Use the Endpoint Central variant in a left-nav product or vice versa.</li>
+                <li>Leave all tabs in the inactive state &#8212; users lose wayfinding context.</li>
+                <li>Hide search purely for visual tidiness &#8212; it is a core utility.</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STYLE ========== -->
+        <div class="tab-content" id="tab-style" style="display:none;padding-top:32px;">
+          <h2 id="style-overview" class="doc-section-title">Style</h2>
+          <p class="doc-section-subtitle">Design tokens, color mappings, and spacing tokens that define the Header Navigation's visual language.</p>
+
+          <div class="doc-section">
+            <h2 id="variants" class="doc-section-title">Variants</h2>
+            <p class="doc-section-subtitle">4 product-specific variants on a single Property 1 axis. They share the same right-side utility cluster and differ in branding and centre zone layout.</p>
+            <table class="size-table">
+              <thead><tr><th>Variant</th><th>Centre Zone</th><th>Nav Style</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Endpoint Central</strong></td><td>Horizontal tab navigation (Nav 1&#8211;8 + overflow <code>&#8943;</code>)</td><td>Top nav</td></tr>
+                <tr><td><strong>EC left only navigation</strong></td><td>Full-width search bar</td><td>Left sidebar</td></tr>
+                <tr><td><strong>MDM</strong></td><td>Full-width search bar</td><td>Left sidebar</td></tr>
+                <tr><td><strong>Patch Manager Plus</strong></td><td>Full-width search bar</td><td>Left sidebar</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="states" class="doc-section-title">States</h2>
+            <p class="doc-section-subtitle">Interactive states for tab navigation items (Endpoint Central variant).</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;">
+              <div style="padding:24px 16px;border-radius:14px;background:var(--prism-surface);border:1px solid var(--prism-border);text-align:center;">
+                <div style="display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;position:relative;margin-bottom:12px;">
+                  <span style="font-size:13px;font-weight:600;color:var(--prism-violet);">Home</span>
+                  <div style="position:absolute;bottom:0;left:4px;right:4px;height:2px;background:var(--prism-violet);border-radius:2px 2px 0 0;"></div>
+                </div>
+                <div style="font-size:13px;font-weight:600;color:var(--prism-text);margin-top:8px;">Active Tab</div>
+                <div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;">#0C66E4 + 2px underline</div>
+              </div>
+              <div style="padding:24px 16px;border-radius:14px;background:var(--prism-surface);border:1px solid var(--prism-border);text-align:center;">
+                <div style="display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;margin-bottom:12px;">
+                  <span style="font-size:13px;font-weight:500;color:var(--prism-text);">Configs</span>
+                </div>
+                <div style="font-size:13px;font-weight:600;color:var(--prism-text);margin-top:8px;">Inactive Tab</div>
+                <div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;">#292A2E, no underline</div>
+              </div>
+              <div style="padding:24px 16px;border-radius:14px;background:var(--prism-surface);border:1px solid var(--prism-border);text-align:center;">
+                <div style="display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;margin-bottom:12px;">
+                  <span style="font-size:13px;font-weight:500;color:var(--prism-text-muted);">Inventory</span>
+                </div>
+                <div style="font-size:13px;font-weight:600;color:var(--prism-text);margin-top:8px;">Hover</div>
+                <div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;">#44546F (Text Subtle)</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="sizes" class="doc-section-title">Sizes</h2>
+            <p class="doc-section-subtitle">The Header Navigation uses a single compact height for all variants.</p>
+            <table class="size-table">
+              <thead><tr><th>Property</th><th>Value</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Height</strong></td><td><code>40px</code></td><td>Compact &#8212; fits within a constrained chrome</td></tr>
+                <tr><td><strong>Width</strong></td><td><code>1440px</code></td><td>Full viewport; stretches to container</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="color-tokens" class="doc-h3">Color Tokens<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">Tokens</span></h3>
+            <table class="size-table">
+              <thead><tr><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Background</strong></td><td><code>#FFFFFF</code></td><td>BG-White &#8212; header background across all variants</td></tr>
+                <tr><td><strong>Active Tab Text</strong></td><td><code>#0C66E4</code></td><td>Brand Blue with 2px underline</td></tr>
+                <tr><td><strong>Inactive Tab Text</strong></td><td><code>#292A2E</code></td><td>Text Default &#8212; no underline</td></tr>
+                <tr><td><strong>Utility Icons</strong></td><td><code>#626870</code></td><td>Text Subtle &#8212; 20px outlined icons</td></tr>
+                <tr><td><strong>Search Placeholder</strong></td><td><code>#8993A4</code></td><td>Text Subtlest &#8212; keyboard shortcut hint</td></tr>
+                <tr><td><strong>Bottom Border</strong></td><td>Border-Secondary</td><td>Subtle separator from page content</td></tr>
+                <tr><td><strong>Customer Selector</strong></td><td><code>#292A2E</code></td><td>Text + chevron dropdown trigger</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="spacing-tokens" class="doc-h3">Spacing Tokens</h3>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Spacing</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Logo zone padding</td><td><code>0 16px</code></td><td>Horizontal padding around logo + product name</td></tr>
+                <tr><td>Tab item padding</td><td><code>0 14px</code></td><td>Horizontal padding per tab</td></tr>
+                <tr><td>Utility cluster gap</td><td><code>4px</code></td><td>Between utility icon buttons</td></tr>
+                <tr><td>Search bar padding</td><td><code>0 10px</code></td><td>Inner padding of search input</td></tr>
+                <tr><td>Overall right padding</td><td><code>12px</code></td><td>Right edge spacing for utility cluster</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="corner-radius-border-radius" class="doc-h3">Corner Radius (Border Radius)</h3>
+            <p class="doc-section-subtitle">The header is a full-width bar with no corner radius in production. The search bar within left-nav variants uses a subtle radius.</p>
+            <div style="display:flex;gap:24px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:200px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;text-align:center;">
+                <div style="width:80px;height:24px;border:2px dashed #006AFF;border-radius:0;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;background:rgba(0,106,255,0.05);color:#006AFF;font-weight:600;font-size:11px;">0</div>
+                <div style="font-size:14px;font-weight:600;color:var(--prism-text);">Header Bar</div>
+                <div style="font-size:12px;color:var(--prism-text-muted);margin-top:4px;">No radius (full-width)</div>
+              </div>
+              <div style="flex:1;min-width:200px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;text-align:center;">
+                <div style="width:80px;height:24px;border:2px dashed #006AFF;border-radius:6px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;background:rgba(0,106,255,0.05);color:#006AFF;font-weight:600;font-size:11px;">6</div>
+                <div style="font-size:14px;font-weight:600;color:var(--prism-text);">Search Bar</div>
+                <div style="font-size:12px;color:var(--prism-text-muted);margin-top:4px;">radius/6px</div>
+              </div>
+              <div style="flex:1;min-width:200px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;text-align:center;">
+                <div style="width:32px;height:32px;border:2px dashed #006AFF;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;background:rgba(0,106,255,0.05);color:#006AFF;font-weight:600;font-size:10px;">50%</div>
+                <div style="font-size:14px;font-weight:600;color:var(--prism-text);">Avatar</div>
+                <div style="font-size:12px;color:var(--prism-text-muted);margin-top:4px;">radius/full (circle)</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="typography-family" class="doc-h3">Typography Family</h3>
+            <p class="doc-section-subtitle">All header text uses <strong>Zoho Puvi</strong>.</p>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Font Size</th><th>Weight</th><th>Color</th></tr></thead>
+              <tbody>
+                <tr><td>Product name</td><td>13px</td><td>600 (SemiBold)</td><td>#292A2E</td></tr>
+                <tr><td>Active tab</td><td>13px</td><td>600 (SemiBold)</td><td>#0C66E4</td></tr>
+                <tr><td>Inactive tab</td><td>13px</td><td>500 (Medium)</td><td>#292A2E</td></tr>
+                <tr><td>Search placeholder</td><td>12px</td><td>400 (Regular)</td><td>#8993A4</td></tr>
+                <tr><td>Customer selector</td><td>12px</td><td>500 (Medium)</td><td>#292A2E</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ========== USAGE ========== -->
+        <div class="tab-content" id="tab-usage" style="display:none;padding-top:32px;">
+          <div class="doc-section">
+            <h2 id="when-to-use" class="doc-section-title">When and Where to Use</h2>
+            <p class="doc-section-subtitle">The Header Navigation is the primary persistent chrome for every product page.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h3 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><svg width="20" height="20" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>When to use</h3>
+                <ul class="doc-list" style="border:none;background:transparent;padding-left:20px;font-size:14.5px;">
+                  <li style="border:none;background:transparent;margin-bottom:8px;">As the single persistent top bar for every page in a product.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Use <strong>Endpoint Central</strong> when the product has top-level horizontal navigation (8 items or fewer).</li>
+                  <li style="border:none;background:transparent;">Use the left-nav variants (<strong>EC left only</strong>, <strong>MDM</strong>, <strong>Patch Manager Plus</strong>) when primary navigation is in a left sidebar.</li>
+                </ul>
+              </div>
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h3 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><svg width="20" height="20" fill="none" stroke="#e42527" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>When NOT to use</h3>
+                <ul class="doc-list" style="border:none;background:transparent;padding-left:20px;font-size:14.5px;">
+                  <li style="border:none;background:transparent;margin-bottom:8px;">As a secondary navigation bar within a page &#8212; use Tabs or a Section Header instead.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Inside a modal or flyout &#8212; navigation is not needed inside overlay contexts.</li>
+                  <li style="border:none;background:transparent;">As a mobile top bar &#8212; this component is designed for desktop/1440px viewports.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="alignment-placement" class="doc-section-title">Alignment &amp; Placement</h2>
+            <p class="doc-section-subtitle">Consistent placement ensures predictable navigation across all products.</p>
+            <ul class="doc-list">
+              <li><strong>Position:</strong> Always fixed at the top of the viewport. The header persists across all page scrolls.</li>
+              <li><strong>Width:</strong> Full viewport width (1440px design, stretches to container).</li>
+              <li><strong>Z-index:</strong> Above all page content. Modals and drawers may overlay the header.</li>
+              <li><strong>Logo zone:</strong> Always at the far left. The product icon and name are not interactive beyond acting as a home link.</li>
+              <li><strong>Utility cluster:</strong> Always at the far right. Icon order is consistent across all variants.</li>
+            </ul>
+          </div>
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="detailed-guidelines" class="doc-section-title">Complete Do's and Don'ts</h2>
+            <p class="doc-section-subtitle">Guidelines for effective header navigation usage.</p>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li><strong>Match the variant to the product:</strong> Use Endpoint Central for top-nav products, left-nav variants for sidebar products.</li>
+                <li><strong>Keep Nav slot count accurate:</strong> Turn off unused Nav N props to avoid empty spacing.</li>
+                <li><strong>Show Customer Selector for multi-tenant:</strong> It allows switching between tenants/accounts.</li>
+                <li><strong>Set the correct active tab:</strong> Coordinate with the current page to show the right active state.</li>
+                <li><strong>Keep search visible:</strong> Only use Show Search=OFF when search is genuinely unavailable.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li><strong>Don't leave unused Nav slots ON:</strong> They create empty spacing in the tab row.</li>
+                <li><strong>Don't mix navigation architectures:</strong> Using Endpoint Central in a left-nav product creates confusion.</li>
+                <li><strong>Don't show Customer Selector in single-tenant:</strong> It is unnecessary for personal-account products.</li>
+                <li><strong>Don't leave all tabs inactive:</strong> Users lose wayfinding context without an active indicator.</li>
+                <li><strong>Don't hide search for aesthetics:</strong> Search is a core utility expected by users.</li>
+              </ul></div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="related" class="doc-section-title">Related</h2>
+            <p class="doc-section-subtitle">Components that complement or can be used alongside the Header Navigation.</p>
+            <div class="related-grid">
+              <a href="Sidebar.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg> Left Sidebar Navigation</a>
+              <a href="Dropdown.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg> Dropdown Menu</a>
+              <a href="Avatar.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Avatar</a>
+              <a href="Search.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search</a>
+              <a href="Tabs.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h8"/></svg> Tabs</a>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="references" class="doc-section-title">References</h2>
+            <p class="doc-section-subtitle">Design tokens and resources for implementing the Header Navigation component.</p>
+            <ul class="doc-list">
+              <li><strong>Figma Node:</strong> <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">16884:665483</code> &#8212; Component Set: Header Navigation</li>
+              <li><strong>Total Variants:</strong> 4 product-specific variants on a single Property 1 axis</li>
+              <li><strong>Dimensions:</strong> 40px height &times; 1440px width (full viewport)</li>
+              <li><strong>Typography:</strong> Zoho Puvi SemiBold (600) for active tabs and product name, Medium (500) for inactive tabs</li>
+              <li><strong>Nav Slots:</strong> 8 boolean toggles (Nav 1&#8211;8) for Endpoint Central tab navigation</li>
+              <li><strong>Utility Cluster:</strong> 8 boolean toggles (Search, Notifications, Settings, Customer Selector, Avatar, Bento, Bookmark, Link)</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ========== CODE ========== -->
+        <div class="tab-content" id="tab-code" style="display:none;padding-top:32px;">
+          <h2 id="live-demo-code" class="doc-section-title">Live demo (Code)</h2>
+          <p class="doc-section-subtitle">Configure the Header Navigation component and view generated HTML.</p>
+          <div class="code-playground">
+            <div class="cp-toolbar">
+              <div class="cp-control-group">
+                <label class="cp-label">Variant</label>
+                <select class="cp-select" id="pg-variant">
+                  <option value="ec">Endpoint Central</option>
+                  <option value="mdm">MDM</option>
+                  <option value="pmp">Patch Manager Plus</option>
+                  <option value="ecleft">EC left only</option>
+                </select>
+              </div>
+              <div class="cp-control-group">
+                <label class="cp-toggle"><input type="checkbox" id="pg-search" checked><span class="cp-toggle-track"></span><span class="cp-toggle-label">Show Search</span></label>
+              </div>
+              <div class="cp-control-group">
+                <label class="cp-toggle"><input type="checkbox" id="pg-notif" checked><span class="cp-toggle-track"></span><span class="cp-toggle-label">Show Notifications</span></label>
+              </div>
+              <div class="cp-control-group">
+                <label class="cp-toggle"><input type="checkbox" id="pg-settings" checked><span class="cp-toggle-track"></span><span class="cp-toggle-label">Show Settings</span></label>
+              </div>
+              <div class="cp-control-group">
+                <label class="cp-toggle"><input type="checkbox" id="pg-customer" checked><span class="cp-toggle-track"></span><span class="cp-toggle-label">Show Customer Selector</span></label>
+              </div>
+            </div>
+            <div class="cp-preview" id="pg-preview-area" style="padding:32px 16px;min-height:100px;">
+              <div id="pg-header-el" style="width:100%;max-width:780px;"></div>
+            </div>
+            <div class="cp-code-header">
+              <div style="font-size:13.5px;font-weight:600;color:var(--prism-text);">HTML</div>
+              <button class="cp-action-btn" id="pg-copy-btn"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg> Copy code</button>
+            </div>
+            <div class="cp-code-area" id="pg-code-output"></div>
+          </div>
+          <script>
+          (function(){
+            var variantEl=document.getElementById('pg-variant'),
+                searchEl=document.getElementById('pg-search'),
+                notifEl=document.getElementById('pg-notif'),
+                settingsEl=document.getElementById('pg-settings'),
+                customerEl=document.getElementById('pg-customer'),
+                previewEl=document.getElementById('pg-header-el'),
+                codeOut=document.getElementById('pg-code-output'),
+                copyBtn=document.getElementById('pg-copy-btn');
+
+            var logos={
+              ec:{img:'assets/Endpoint Central.svg',name:'Endpoint Central',letter:'E'},
+              mdm:{bg:'#16A34A',name:'MDM',letter:'M'},
+              pmp:{bg:'#0891B2',name:'Patch Manager Plus',letter:'P'},
+              ecleft:{img:'assets/Endpoint Central.svg',name:'Endpoint Central',letter:'E'}
+            };
+
+            function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+            function update(){
+              var v=variantEl.value,showSearch=searchEl.checked,showNotif=notifEl.checked,showSettings=settingsEl.checked,showCust=customerEl.checked;
+              var logo=logos[v];
+              var isTopNav=(v==='ec');
+              var html='';
+
+              // Build preview
+              html+='<div class="hdr-demo" style="box-shadow:0 1px 4px rgba(0,0,0,0.06);">';
+              if(logo.img){
+                html+='<div class="hdr-demo-logo"><img src="'+logo.img+'" alt="'+logo.name+'" style="width:20px;height:20px;"><span class="hdr-demo-logo-text">'+logo.name+'</span></div>';
+              } else {
+                html+='<div class="hdr-demo-logo"><div class="hdr-demo-logo-icon" style="background:'+logo.bg+';"></div><span class="hdr-demo-logo-text">'+logo.name+'</span></div>';
+              }
+
+              if(isTopNav){
+                html+='<div class="hdr-demo-tabs">';
+                html+='<div class="hdr-demo-tab active">Home</div>';
+                html+='<div class="hdr-demo-tab">Configs</div>';
+                html+='<div class="hdr-demo-tab">Inventory</div>';
+                html+='<div class="hdr-demo-tab">Patch Mgmt</div>';
+                html+='<div class="hdr-demo-tab">Tools</div>';
+                html+='<div class="hdr-demo-tab" style="font-size:14px;">&#8943;</div>';
+                html+='</div>';
+              }else{
+                html+='<div class="hdr-demo-search-zone"><div class="hdr-demo-searchbar">';
+                html+='<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>';
+                html+='<span>Search...</span><kbd>&#8984;K</kbd></div></div>';
+              }
+
+              html+='<div class="hdr-demo-utils">';
+              if(showCust) html+='<div class="hdr-demo-cust">All Customers <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>';
+              if(showSearch && isTopNav) html+='<div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>';
+              if(showSettings) html+='<div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>';
+              if(showNotif) html+='<div class="hdr-demo-util-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>';
+              html+='<div class="hdr-demo-avatar">'+logo.letter+'</div>';
+              html+='</div></div>';
+
+              previewEl.innerHTML=html;
+
+              // Build code output
+              var codeStr='<header role="banner" class="uems-header-nav" data-variant="'+v+'">\n';
+              var logoSrc=logo.img||('logo-'+v+'.svg');
+              codeStr+='  <div class="header-logo">\n    <img src="'+logoSrc+'" alt="'+logo.name+'" />\n    <span>'+logo.name+'</span>\n  </div>\n';
+              if(isTopNav){
+                codeStr+='  <nav aria-label="Primary navigation">\n';
+                codeStr+='    <a href="/home" aria-current="page">Home</a>\n';
+                codeStr+='    <a href="/configs">Configs</a>\n';
+                codeStr+='    <a href="/inventory">Inventory</a>\n';
+                codeStr+='    <button aria-label="More navigation items" aria-expanded="false">&#8230;</button>\n';
+                codeStr+='  </nav>\n';
+              }else{
+                codeStr+='  <div role="search" aria-label="Search">\n';
+                codeStr+='    <input type="search" placeholder="Search..." />\n';
+                codeStr+='  </div>\n';
+              }
+              codeStr+='  <div class="header-utils">\n';
+              if(showCust) codeStr+='    <button aria-haspopup="listbox" aria-expanded="false">All Customers</button>\n';
+              if(showSearch && isTopNav) codeStr+='    <button aria-label="Search">&#128269;</button>\n';
+              if(showSettings) codeStr+='    <button aria-label="Settings">&#9881;</button>\n';
+              if(showNotif) codeStr+='    <button aria-label="Notifications">&#128276;</button>\n';
+              codeStr+='    <button aria-label="User menu"><img class="avatar" alt="User" /></button>\n';
+              codeStr+='  </div>\n';
+              codeStr+='</header>';
+
+              codeOut.innerHTML=esc(codeStr)
+                .replace(/class=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/role=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">role</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-label=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-label</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-current=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-current</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-haspopup=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-haspopup</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-expanded=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-expanded</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/data-variant=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">data-variant</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/&lt;(\/?)(header|div|nav|a|button|input|img|span)([\s&])/g,'&lt;$1<span style="color:#a78bfa;">$2</span>$3')
+                .replace(/&lt;(\/?)(header|div|nav|a|button|input|img|span)&gt;/g,'&lt;$1<span style="color:#a78bfa;">$2</span>&gt;');
+            }
+
+            [variantEl].forEach(function(e){e.addEventListener('change',update);});
+            [searchEl,notifEl,settingsEl,customerEl].forEach(function(e){e.addEventListener('change',update);});
+            copyBtn.addEventListener('click',function(){
+              var r=document.createElement('div');r.innerHTML=codeOut.innerHTML;
+              navigator.clipboard.writeText(r.innerText).then(function(){
+                var o=copyBtn.innerHTML;copyBtn.innerHTML='<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';setTimeout(function(){copyBtn.innerHTML=o;},2000);
+              });
+            });
+            update();
+          })();
+          </script>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="component-api-properties" class="doc-h3">Component API &amp; Properties</h3>
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Navigation Slots (Endpoint Central only)</h4>
+            <table class="size-table" style="margin-bottom:32px;">
+              <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>Nav 1</code></td><td>Boolean</td><td>ON</td><td>First nav tab slot</td></tr>
+                <tr><td><code>Nav 2</code></td><td>Boolean</td><td>ON</td><td>Second nav tab slot</td></tr>
+                <tr><td><code>Nav 3</code></td><td>Boolean</td><td>ON</td><td>Third nav tab slot</td></tr>
+                <tr><td><code>Nav 4</code></td><td>Boolean</td><td>ON</td><td>Fourth nav tab slot</td></tr>
+                <tr><td><code>Nav 5</code></td><td>Boolean</td><td>ON</td><td>Fifth nav tab slot</td></tr>
+                <tr><td><code>Nav 6</code></td><td>Boolean</td><td>ON</td><td>Sixth nav tab slot</td></tr>
+                <tr><td><code>Nav 7</code></td><td>Boolean</td><td>ON</td><td>Seventh nav tab slot</td></tr>
+                <tr><td><code>Nav 8</code></td><td>Boolean</td><td>ON</td><td>Eighth nav tab slot</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:14px;color:var(--prism-text-muted);margin-bottom:32px;padding:12px 16px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:10px;">Tabs beyond the visible count collapse into the <code style="font-family:monospace;font-size:13px;padding:2px 6px;border-radius:4px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&#8943;</code> overflow menu automatically. Turn off unused slots to reflect the actual link count.</p>
+
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Right Utility Cluster</h4>
+            <table class="size-table">
+              <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>Show Search</code></td><td>Boolean</td><td>ON</td><td>Toggles the search icon / search bar</td></tr>
+                <tr><td><code>Show Notifications</code></td><td>Boolean</td><td>ON</td><td>Toggles the bell notification icon</td></tr>
+                <tr><td><code>Show Settings</code></td><td>Boolean</td><td>ON</td><td>Toggles the settings gear icon</td></tr>
+                <tr><td><code>Show Customer Selector</code></td><td>Boolean</td><td>ON</td><td>Toggles the "All Customers" dropdown</td></tr>
+                <tr><td><code>Show Avatar</code></td><td>Boolean</td><td>ON</td><td>Toggles the user avatar</td></tr>
+                <tr><td><code>Show Bento</code></td><td>Boolean</td><td>ON</td><td>Toggles the bento grid icon</td></tr>
+                <tr><td><code>Show Bookmark</code></td><td>Boolean</td><td>ON</td><td>Toggles the bookmark icon</td></tr>
+                <tr><td><code>Show Link</code></td><td>Boolean</td><td>ON</td><td>Toggles the link icon</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="implementation-idea-ember-hook-form" class="doc-h3">Implementation Idea: Ember Hook Form</h3>
+            <div class="cp-code-area" style="border-radius:12px;margin-top:16px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;">
+                <span style="color:#94a3b8;">&lt;!-- header-navigation.hbs --&gt;</span><br>
+                <span style="color:#ABB2BF;">&lt;</span><span style="color:#E06C75;">UemsHeaderNav</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@variant</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"endpoint-central"</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@showSearch</span><span style="color:#56B6C2;">=</span><span style="color:#C678DD;">{{</span><span style="color:#E5C07B;">true</span><span style="color:#C678DD;">}}</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@showNotifications</span><span style="color:#56B6C2;">=</span><span style="color:#C678DD;">{{</span><span style="color:#E5C07B;">true</span><span style="color:#C678DD;">}}</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@showSettings</span><span style="color:#56B6C2;">=</span><span style="color:#C678DD;">{{</span><span style="color:#E5C07B;">true</span><span style="color:#C678DD;">}}</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@showCustomerSelector</span><span style="color:#56B6C2;">=</span><span style="color:#C678DD;">{{</span><span style="color:#E5C07B;">this.isMultiTenant</span><span style="color:#C678DD;">}}</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@activeTab</span><span style="color:#56B6C2;">=</span><span style="color:#C678DD;">{{</span><span style="color:#E5C07B;">this.currentRoute</span><span style="color:#C678DD;">}}</span><br>
+                <span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;:</span><span style="color:#E06C75;">nav</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#E06C75;">LinkTo</span> <span style="color:#D19A66;">@route</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"home"</span><span style="color:#ABB2BF;">&gt;</span>Home<span style="color:#ABB2BF;">&lt;/</span><span style="color:#E06C75;">LinkTo</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#E06C75;">LinkTo</span> <span style="color:#D19A66;">@route</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"configs"</span><span style="color:#ABB2BF;">&gt;</span>Configs<span style="color:#ABB2BF;">&lt;/</span><span style="color:#E06C75;">LinkTo</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;/:</span><span style="color:#E06C75;">nav</span><span style="color:#ABB2BF;">&gt;</span><br>
+                <span style="color:#ABB2BF;">&lt;/</span><span style="color:#E06C75;">UemsHeaderNav</span><span style="color:#ABB2BF;">&gt;</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="rtl-support" class="doc-h3">RTL Support</h3>
+            <ul class="doc-list">
+              <li>In RTL layouts, the logo zone moves to the far right and the utility cluster to the far left. Tab order is reversed visually.</li>
+              <li>The search bar placeholder text and &#8984;K hint badge align correctly in RTL via the <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">dir="rtl"</code> attribute on the header or page root.</li>
+              <li>Icon-only utility buttons (Search, Settings, Notifications, etc.) are direction-neutral and require no mirroring.</li>
+              <li>The Customer Selector chevron direction should flip to indicate dropdown direction in RTL contexts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========== ACCESSIBILITY ========== -->
+        <div class="tab-content" id="tab-accessibility" style="display:none;padding-top:32px;">
+          <h2 id="accessibility" class="doc-section-title">Accessibility</h2>
+          <p class="doc-section-subtitle">Guidelines for ensuring the Header Navigation is accessible across assistive technologies.</p>
+
+          <div class="doc-section">
+            <h3 id="keyboard-interaction" class="doc-h3">Keyboard Interaction</h3>
+            <table class="size-table">
+              <thead><tr><th>Key</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><code>Tab</code></td><td>Moves focus through interactive elements: logo (home link), nav tabs, utility buttons, avatar.</td></tr>
+                <tr><td><code>Shift+Tab</code></td><td>Moves focus backward through the header's interactive elements.</td></tr>
+                <tr><td><code>Enter</code></td><td>Activates the focused tab link, utility button, or opens the customer selector dropdown.</td></tr>
+                <tr><td><code>Escape</code></td><td>Closes the overflow menu (<code>&#8943;</code>) or customer selector dropdown if open.</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:16px;padding:16px 20px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px;">
+              <p style="font-size:14px;color:var(--prism-text);line-height:1.6;margin:0;">Provide a visually hidden "Skip to main content" link before the header so keyboard users can bypass the full navigation.</p>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="aria-attributes-screen-reader-guidance" class="doc-h3">ARIA Attributes &amp; Screen Reader Guidance</h3>
+            <ul class="doc-list">
+              <li><strong>Landmark:</strong> Wrap the header in <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;header role="banner"&gt;</code> for proper landmark identification.</li>
+              <li><strong>Nav landmark:</strong> The tab group must be in <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;nav aria-label="Primary navigation"&gt;</code>.</li>
+              <li><strong>Active tab:</strong> The active tab link gets <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-current="page"</code>.</li>
+              <li><strong>Icon-only buttons:</strong> Settings, Notifications, Bookmark, Link, Bento, and Search icons must each have <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label</code> describing their purpose.</li>
+              <li><strong>Customer Selector:</strong> Must use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-haspopup="listbox"</code> and <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-expanded</code> on the trigger.</li>
+              <li><strong>Overflow menu:</strong> The <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&#8943;</code> button needs <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label="More navigation items"</code> and <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-expanded</code> toggled.</li>
+              <li><strong>Avatar:</strong> Must have <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label="User menu"</code>; opens a dropdown when activated.</li>
+              <li><strong>Skip link:</strong> Provide a visually hidden "Skip to main content" link before the header for keyboard users.</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="focus-state-design" class="doc-h3">Focus State Design</h3>
+            <ul class="doc-list">
+              <li>All interactive items (tabs, utility buttons, avatar, customer selector) must have a visible <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">:focus-visible</code> outline.</li>
+              <li>Use a 2px offset focus ring in Brand Blue (#0C66E4) or the system default for high visibility against the white header background.</li>
+              <li>Focus order should follow the visual layout: Logo &#8594; Nav tabs / Search &#8594; Utility cluster (left to right).</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="color-contrast-minimums" class="doc-h3">Color Contrast Minimums<span class="h3-badge" style="background:rgba(34,197,94,0.15);color:#16a34a;">WCAG AA Pass</span></h3>
+            <p class="doc-section-subtitle">Active tab blue (#0C66E4) on white (#FFFFFF) meets WCAG AA for normal text.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:24px;">
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:var(--prism-violet);padding:28px 24px;text-align:center;color:#fff;"><div style="font-size:24px;font-weight:600;">Home</div></div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);"><div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">ACTIVE TAB</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#0C66E4 on #FFF</div></div><div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);color:#16a34a;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> ~4.6:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">WCAG AA Pass</div></div></div>
+              </div>
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:var(--prism-surface);padding:28px 24px;text-align:center;color:var(--prism-text);border-bottom:1px solid var(--prism-border);"><div style="font-size:24px;font-weight:600;">Configs</div></div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);"><div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">INACTIVE TAB</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#292A2E on #FFF</div></div><div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);color:#16a34a;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 15.5:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">WCAG AAA Pass</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="touch-target-size" class="doc-h3">Touch Target Size</h3>
+            <p class="doc-section-subtitle">All interactive elements in the header must meet minimum touch target guidelines.</p>
+            <div style="margin-top:16px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;display:flex;align-items:center;gap:24px;">
+              <div style="width:44px;height:44px;background:rgba(37,99,235,0.1);border:1px dashed var(--prism-violet);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--prism-violet);font-size:13px;font-weight:600;flex-shrink:0;">44px</div>
+              <div><div style="font-weight:600;font-size:15px;color:var(--prism-text);">Minimum touch target: 44&times;44px</div><div style="font-size:14px;color:var(--prism-text-muted);margin-top:4px;">Although the header is 40px tall, utility icon buttons should use 44px hit areas (extending above/below the visible icon) to meet WCAG 2.5.5 Target Size requirements. Tab links should have sufficient inline padding.</div></div>
+            </div>
+          </div>
+        </div>
+
+        </div><!-- main-content-inner -->
+
+        <aside class="toc-sidebar">
+          <h4 class="toc-heading">On this page</h4>
+          <ul class="toc-nav" id="toc-nav"></ul>
+          <div class="quick-actions-card">
+            <div class="quick-actions-title">Resources</div>
+            <a href="MD/header-navigation.md" download="header-navigation.md" class="action-link"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download MD</a>
+            <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0?node-id=16884-665483" target="_blank" class="action-link"><img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;"> Figma Design</a>
+          </div>
+        </aside>
+      </div><!-- main-content-area -->
+
+    <div id="feedback" class="feedback-banner" style="display: none;">
+    <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+    <div style="display:flex;gap:10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+    </div>
+
+    </main>
+  </div>
+
+  
+
+<!-- Floating Feedback Button -->
+
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+<script src="js/components/toc.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+(function(){
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  const moon = document.getElementById('moonIcon');
+  const sun = document.getElementById('sunIcon');
+  const apply = (light) => {
+    if (light) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (moon) moon.style.display = 'none';
+      if (sun) sun.style.display = 'block';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (moon) moon.style.display = 'block';
+      if (sun) sun.style.display = 'none';
+    }
+  };
+  apply((localStorage.getItem('theme') || 'light') === 'light');
+  btn.addEventListener('click', () => {
+    const newLight = document.documentElement.getAttribute('data-theme') !== 'light';
+    localStorage.setItem('theme', newLight ? 'light' : 'dark');
+    apply(newLight);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divider — UEMS Design System</title>
+<style>
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_thin.woff2') format('woff2'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extralight.woff2') format('woff2'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrabold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrablack.woff2') format('woff2'); font-weight: 950; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular_italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold_italic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold_italic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --prism-black: #0a0a0c; --prism-violet: #2563eb; --prism-violet-light: #60a5fa;
+    --prism-fuchsia: #0ea5e9; --prism-cyan: #06b6d4;
+    --prism-surface: rgba(255,255,255,0.05); --prism-surface-hover: rgba(255,255,255,0.09);
+    --prism-border: rgba(255,255,255,0.07); --prism-text: rgba(255,255,255,0.92);
+    --prism-text-muted: rgba(255,255,255,0.48); --nav-bg: rgba(10,10,12,0.75);
+    --nav-link-color: var(--prism-text-muted);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --radius: 20px;
+  }
+  [data-theme="light"] {
+    --prism-black: #ffffff; --prism-violet: #2563eb; --prism-violet-light: #1d4ed8;
+    --prism-fuchsia: #0284c7; --prism-cyan: #0891b2;
+    --prism-surface: rgba(37,99,235,0.028); --prism-surface-hover: rgba(37,99,235,0.055);
+    --prism-border: rgba(37,99,235,0.10); --prism-text: #1a1a2e;
+    --prism-text-muted: #64748b; --nav-bg: rgba(255,255,255,0.82);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --nav-link-color: #475569;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body { font-family: 'Zoho Puvi', sans-serif; background: var(--prism-black); color: var(--prism-text); transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.4s ease; }
+  [data-theme="light"] body { background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%); }
+  [data-theme="light"] .nav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+  [data-theme="light"] .nav.scrolled { background: rgba(255, 255, 255, 0.78); border-bottom: 1px solid rgba(37, 99, 235, 0.06); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04), 0 4px 24px rgba(37, 99, 235, 0.03); }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  [data-theme="light"] .sidebar { border-right: 1px solid rgba(37,99,235,0.06); background: linear-gradient(180deg, rgba(248,250,255,0.6) 0%, rgba(255,255,255,0.4) 100%); }
+  [data-theme="light"] .sidebar-link { color: #64748b; }
+  [data-theme="light"] .sidebar-link:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .sidebar-link.active { color: #2563eb; background: rgba(37,99,235,0.06); box-shadow: 0 1px 4px rgba(37,99,235,0.08); }
+  [data-theme="light"] .sidebar-search { background: rgba(255,255,255,0.8); border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  [data-theme="light"] .sidebar-search:focus-within { background: #fff; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .content-tabs { background: rgba(255,255,255,0.7); border: 1px solid rgba(37,99,235,0.08); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  [data-theme="light"] .tab-item:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .tab-item.active { color: #fff; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); box-shadow: 0 2px 8px rgba(37,99,235,0.30), 0 1px 2px rgba(37,99,235,0.15); }
+  [data-theme="light"] .doc-list li { background: #fff; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 6px rgba(37,99,235,0.06); }
+  [data-theme="light"] .doc-list li:hover { background: rgba(37,99,235,0.025); border-color: rgba(37,99,235,0.22); box-shadow: 0 4px 16px rgba(37,99,235,0.10); }
+  [data-theme="light"] .do-card, [data-theme="light"] .dont-card { background: #fff; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  [data-theme="light"] .do-card:hover, [data-theme="light"] .dont-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  [data-theme="light"] .do-card { border-top: 3px solid #16a34a; }
+  [data-theme="light"] .dont-card { border-top: 3px solid #dc2626; }
+  [data-theme="light"] .related-chip { background: #fff; border: 1px solid rgba(0,0,0,0.10); box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  [data-theme="light"] .related-chip:hover { background: rgba(37,99,235,0.03); border-color: rgba(37,99,235,0.30); box-shadow: 0 6px 24px rgba(37,99,235,0.12); }
+  [data-theme="light"] .feedback-banner { background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(6,182,212,0.05) 100%); border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 2px 12px rgba(37,99,235,0.06); }
+  [data-theme="light"] .feedback-btn { background: #fff; border: 1px solid rgba(37,99,235,0.12); box-shadow: 0 1px 3px rgba(37,99,235,0.04); }
+  [data-theme="light"] .feedback-btn:hover { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.25); }
+  [data-theme="light"] .feedback-btn.primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-color: transparent; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+  [data-theme="light"] .feedback-btn.primary:hover { box-shadow: 0 4px 20px rgba(37,99,235,0.35); }
+  [data-theme="light"] .toc-sidebar { background: transparent; }
+  [data-theme="light"] .toc-link { color: #94a3b8; }
+  [data-theme="light"] .toc-link:hover { color: #475569; }
+  [data-theme="light"] .toc-link.active { color: #2563eb; font-weight: 600; }
+  [data-theme="light"] .toc-nav { border-left: 2px solid rgba(37,99,235,0.08); }
+  [data-theme="light"] .quick-actions-card { border-top: 1px solid rgba(37,99,235,0.06); }
+  [data-theme="light"] .action-link { color: #94a3b8; }
+  [data-theme="light"] .action-link:hover { color: #1e293b; }
+  [data-theme="light"] .doc-divider { border-top: 1px solid rgba(37,99,235,0.06); }
+  [data-theme="light"] .icon-btn { color: #94a3b8; }
+  [data-theme="light"] .icon-btn:hover { color: #1e293b; background: rgba(37,99,235,0.06); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+  [data-theme="light"] .nav-links a { color: #64748b; }
+  [data-theme="light"] .nav-links a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-links a.active { color: #2563eb; background: rgba(37,99,235,0.06); }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .nav-logo { display: inline-flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+  .nav-logo-img { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+  .nav-logo-text { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+   .nav-logo-mark { font-size: 26px; font-weight: 900; letter-spacing: 0.02em; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-right: 0.1em; padding-bottom: 0.05em; line-height: 1; }
+  .nav-logo-sub { font-size: 10px; font-weight: 600; color: var(--prism-text-muted); letter-spacing: 0.08em; text-transform: none; margin-top: 2px; }
+  .nav-logo-sub .caps { text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a { color: var(--nav-link-color, var(--prism-text-muted)); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 999px; transition: all 0.3s ease; border: none; }
+  .nav-links a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-links a.active { color: var(--prism-violet); background: rgba(37,99,235,0.08); border: none; }
+  .icon-btn { background: transparent; border: none; cursor: pointer; color: var(--prism-text-muted); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; margin-left: 4px; }
+  .icon-btn:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+
+  .components-layout { display: grid; grid-template-columns: 260px 1fr; width: 100%; padding-top: 72px; min-height: 100vh; }
+  .sidebar { grid-column: 1; grid-row: 1; width: 260px; border-right: 1px solid var(--prism-border); padding: 32px 24px 64px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--prism-border); border-radius: 4px; }
+  .sidebar-heading { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; padding-left: 12px; }
+  .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .sidebar-link { display: flex; align-items: center; padding: 8px 12px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+  .sidebar-link:hover { color: var(--prism-text); background: var(--prism-surface-hover); transform: translateX(4px); }
+  .sidebar-link.active { color: var(--prism-violet); background: rgba(37,99,235,0.08); font-weight: 600; }
+  .sidebar-link.active::before { content: ''; width: 4px; height: 16px; background: var(--prism-violet); border-radius: 4px; margin-right: 12px; margin-left: -4px; }
+  .main-panel { grid-column: 2; grid-row: 1; padding: 48px 64px 0 64px; display: flex; flex-direction: column; }
+  .page-header-area { width: 100%; max-width: none; }
+  .page-title { font-size: 48px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding-right: 8px; padding-bottom: 4px; }
+  .page-desc { color: var(--prism-text); font-size: 20px; font-weight: 400; line-height: 1.5; margin-bottom: 32px; margin-top: 8px; max-width: 900px; }
+  .main-content-area { display: grid; grid-template-columns: 1fr 240px; gap: 0; flex: 1; align-items: start; }
+  .main-content-inner { padding-bottom: 64px; min-width: 0; }
+  .bg-glow { position: fixed; border-radius: 50%; width: 60vw; height: 60vh; filter: blur(140px); z-index: -1; pointer-events: none; opacity: 0.15; transition: opacity 0.6s ease, filter 0.6s ease; }
+  .glow-1 { top: -20%; right: -10%; background: var(--prism-violet); }
+  .glow-2 { bottom: -20%; left: -10%; background: var(--prism-cyan); }
+  [data-theme="light"] .bg-glow { opacity: 0.09; filter: blur(180px); }
+  .sidebar, .toc-sidebar { background: transparent; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  .sidebar-search { display: flex; align-items: center; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 999px; padding: 8px 16px; margin-bottom: 24px; transition: all 0.2s ease; }
+  .sidebar-search:focus-within { border-color: var(--prism-violet); background: transparent; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  .sidebar-search svg { color: var(--prism-text-muted); }
+  .sidebar-search input { background: transparent; border: none; outline: none; color: var(--prism-text); font-family: inherit; font-size: 14px; width: 100%; margin-left: 10px; }
+  .sidebar-search input::placeholder { color: var(--prism-text-muted); }
+  .search-shortcut { font-size: 11px; font-weight: 600; color: var(--prism-text-muted); background: var(--prism-surface-hover); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--prism-border); }
+  .toc-sidebar { width: 240px; padding: 20px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; align-self: start; }
+  .toc-heading { font-size: 11px; font-weight: 700; color: var(--prism-text); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .toc-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid var(--prism-border); padding-left: 16px; margin-left: 4px; line-height: 1.6; }
+  .toc-link { display: block; font-size: 13px; font-weight: 400; color: var(--prism-text-muted); text-decoration: none; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+  .toc-link:hover { color: var(--prism-text); }
+  .toc-link.active { color: var(--prism-violet); font-weight: 600; }
+  .quick-actions-card { margin-top: 32px; padding: 20px; border-top: 1px solid var(--prism-border); display: flex; flex-direction: column; gap: 4px; }
+  .quick-actions-title { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .action-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--prism-text-muted); text-decoration: none; padding: 6px 0; transition: all 0.2s cubic-bezier(0.4,0,0.2,1); }
+  .action-link svg { opacity: 0.8; transition: all 0.2s ease; }
+  .action-link:hover { color: var(--prism-text); transform: translateX(2px); }
+  .action-link:hover svg { opacity: 1; transform: scale(1.05); color: var(--prism-violet); }
+  .content-tabs { display: flex; gap: 4px; margin-bottom: 40px; background: var(--prism-surface); padding: 4px; border-radius: 999px; width: max-content; border: 1px solid var(--prism-border); }
+  .tab-item { background: transparent; border: none; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--prism-text-muted); padding: 10px 24px; cursor: pointer; transition: all 0.3s ease; border-radius: 999px; }
+  .tab-item:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .tab-item.active { color: #fff; background: var(--prism-violet); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+  .doc-section { margin-bottom: 64px; }
+  .doc-section-title { font-size: 32px; font-weight: 400; color: var(--prism-text); margin-bottom: 12px; }
+  .doc-section-subtitle { font-size: 16px; color: var(--prism-text-muted); line-height: 1.6; margin-bottom: 32px; max-width: 720px; }
+  .doc-h3 { font-size: 20px; font-weight: 600; color: var(--prism-text); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .doc-h3 .h3-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; }
+  .doc-divider { border: none; border-top: 1px solid var(--prism-border); margin: 56px 0; }
+  .doc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .doc-list li { font-size: 15px; line-height: 1.65; color: var(--prism-text); padding: 14px 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 10px; border-left: 3px solid var(--prism-violet); transition: all 0.2s ease; }
+  .doc-list li:hover { border-left-color: var(--prism-cyan); background: var(--prism-surface-hover); transform: translateX(4px); }
+  .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .do-card, .dont-card { padding: 24px; border-radius: 12px; border: 1px solid var(--prism-border); background: var(--prism-surface); transition: all 0.25s ease; }
+  .do-card { border-top: 3px solid #22c55e; }
+  .dont-card { border-top: 3px solid #ef4444; }
+  .do-card .card-label, .dont-card .card-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .do-card .card-label { color: #22c55e; }
+  .dont-card .card-label { color: #ef4444; }
+  .do-card ul, .dont-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .do-card li, .dont-card li { font-size: 14.5px; line-height: 1.6; color: var(--prism-text-muted); padding-left: 20px; position: relative; }
+  .do-card li::before { content: '\2713'; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+  .dont-card li::before { content: '\2717'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+  .related-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .related-chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+  .related-chip:hover { border-color: var(--prism-violet); color: var(--prism-violet); background: rgba(37,99,235,0.06); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.1); }
+  .related-chip svg { color: var(--prism-text-muted); transition: color 0.2s; }
+  .related-chip:hover svg { color: var(--prism-violet); }
+  .feedback-banner { margin-top: 72px; padding: 32px; border-radius: 16px; background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.06) 100%); border: 1px solid var(--prism-border); display: flex; align-items: center; justify-content: space-between; }
+  .feedback-banner .fb-text { font-size: 16px; font-weight: 600; color: var(--prism-text); }
+  .feedback-banner .fb-sub { font-size: 13.5px; color: var(--prism-text-muted); margin-top: 4px; }
+  .feedback-btn { padding: 10px 28px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; border: 1px solid var(--prism-border); background: var(--prism-surface); color: var(--prism-text); }
+  .feedback-btn:hover { border-color: var(--prism-violet); color: var(--prism-violet); background: rgba(37,99,235,0.08); }
+  .feedback-btn.primary { background: var(--prism-violet); color: #fff; border-color: var(--prism-violet); }
+  .feedback-btn.primary:hover { background: #1d4ed8; box-shadow: 0 4px 16px rgba(37,99,235,0.3); transform: translateY(-1px); }
+
+  /* Divider component styles */
+  .divider-h { display: block; width: 100%; height: 1px; background-color: #E1E4EB; border: none; }
+  .divider-h--medium { height: 2px; }
+  .divider-h--dashed { height: 0; border-top: 1px dashed #C3C9D6; background: none; }
+  .divider-h--dashed.divider-h--medium { border-top-width: 2px; }
+  .divider-h--dotted { height: 0; border-top: 1px dotted #C3C9D6; background: none; }
+  .divider-h--dotted.divider-h--medium { border-top-width: 2px; }
+  .divider-h--inset { margin-left: 16px; }
+  .divider-h--m-inset { margin-left: 16px; margin-right: 16px; }
+  .divider-v { display: inline-block; width: 1px; height: 100%; background-color: #E1E4EB; }
+  .divider-v--medium { width: 2px; }
+  .divider-v--dashed { width: 0; border-left: 1px dashed #C3C9D6; background: none; }
+  .divider-v--dashed.divider-v--medium { border-left-width: 2px; }
+  .divider-v--dotted { width: 0; border-left: 1px dotted #C3C9D6; background: none; }
+  .divider-v--dotted.divider-v--medium { border-left-width: 2px; }
+  .divider-v--inset { margin-top: 16px; }
+  .divider-v--m-inset { margin-top: 16px; margin-bottom: 16px; }
+  .divider-with-text { display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Zoho Puvi', sans-serif; }
+  .divider-with-text::before, .divider-with-text::after { content: ''; flex: 1; height: 1px; background-color: #C3C9D6; }
+  .divider-with-text--medium::before, .divider-with-text--medium::after { height: 2px; }
+  .divider-with-text--dashed::before, .divider-with-text--dashed::after { height: 0; border-top: 1px dashed #C3C9D6; background: none; }
+  .divider-with-text--dashed.divider-with-text--medium::before, .divider-with-text--dashed.divider-with-text--medium::after { border-top-width: 2px; }
+  .divider-with-text--dotted::before, .divider-with-text--dotted::after { height: 0; border-top: 1px dotted #C3C9D6; background: none; }
+  .divider-with-text--dotted.divider-with-text--medium::before, .divider-with-text--dotted.divider-with-text--medium::after { border-top-width: 2px; }
+  .divider-with-text-v { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #64748b; font-size: 12px; font-weight: 400; line-height: 16px; font-family: 'Zoho Puvi', sans-serif; height: 100%; }
+  .divider-with-text-v::before, .divider-with-text-v::after { content: ''; flex: 1; width: 1px; background-color: #C3C9D6; }
+  .divider-with-text-v--medium::before, .divider-with-text-v--medium::after { width: 2px; }
+
+  /* Dark theme divider overrides */
+  html:not([data-theme="light"]) .divider-h { background-color: rgba(255,255,255,0.12); }
+  html:not([data-theme="light"]) .divider-h--dashed { border-top-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-h--dotted { border-top-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-v { background-color: rgba(255,255,255,0.12); }
+  html:not([data-theme="light"]) .divider-v--dashed { border-left-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-v--dotted { border-left-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-with-text::before, html:not([data-theme="light"]) .divider-with-text::after { background-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-with-text--dashed::before, html:not([data-theme="light"]) .divider-with-text--dashed::after { border-top-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-with-text--dotted::before, html:not([data-theme="light"]) .divider-with-text--dotted::after { border-top-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-with-text { color: rgba(255,255,255,0.48); }
+  html:not([data-theme="light"]) .divider-with-text-v::before, html:not([data-theme="light"]) .divider-with-text-v::after { background-color: rgba(255,255,255,0.20); }
+  html:not([data-theme="light"]) .divider-with-text-v { color: rgba(255,255,255,0.48); }
+
+  /* Anatomy */
+  .anatomy-diagram { background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 16px; padding: 48px 40px; margin-bottom: 28px; position: relative; overflow: hidden; }
+  [data-theme="light"] .anatomy-diagram { background: #fff; border: 1px solid rgba(37,99,235,0.07); box-shadow: 0 2px 12px rgba(37,99,235,0.05); }
+  .anatomy-diagram::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #60a5fa, #06b6d4); }
+  .anat-marker-inline { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff !important; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(37,99,235,0.35); }
+  .anat-legend { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .anat-legend-item { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 14px; }
+  [data-theme="light"] .anat-legend-item { background: #fff; border: 1px solid rgba(37,99,235,0.07); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  .anat-legend-item strong { display: block; font-size: 14.5px; font-weight: 600; color: var(--prism-text); margin-bottom: 6px; }
+  .anat-legend-item span { font-size: 13px; line-height: 1.55; color: var(--prism-text-muted); }
+
+  /* Demo */
+  .demo-container { border: 1px solid var(--prism-border); border-radius: 16px; overflow: hidden; }
+  .demo-toolbar { display: flex; align-items: center; padding: 12px 20px; background: var(--prism-surface); border-bottom: 1px solid var(--prism-border); }
+  [data-theme="light"] .demo-container { border: 1px solid rgba(37,99,235,0.14); box-shadow: 0 2px 16px rgba(37,99,235,0.08); }
+  [data-theme="light"] .demo-toolbar { background: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(37,99,235,0.06); }
+  .demo-theme-pill { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; background: rgba(37,99,235,0.08); color: var(--prism-violet); border: 1px solid rgba(37,99,235,0.2); }
+  .demo-canvas { padding: 64px; background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px; background-color: #0a0a0c66; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; gap: 28px; transition: background-color 0.5s ease; }
+  [data-theme="light"] .demo-canvas { background-color: #f4f6fb; background-image: radial-gradient(circle, rgba(37,99,235,0.08) 1px, transparent 1px); }
+
+  /* Tables */
+  .size-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .size-table th { text-align: left; padding: 14px 12px; color: var(--prism-text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--prism-border); }
+  .size-table td { padding: 16px 12px; border-bottom: 1px solid var(--prism-border); color: var(--prism-text); vertical-align: middle; }
+  .size-table tr:hover td { background: rgba(37,99,235,0.02); }
+  .size-table code { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet); }
+
+  /* Code playground */
+  .code-playground { border: 1px solid var(--prism-border); border-radius: 12px; overflow: hidden; background: var(--prism-surface); margin-bottom: 40px; }
+  [data-theme="light"] .code-playground { background: #fff; border: 1px solid rgba(37,99,235,0.1); box-shadow: 0 8px 30px rgba(37,99,235,0.08); }
+  .cp-toolbar { display: flex; flex-wrap: wrap; gap: 20px; padding: 16px 24px; border-bottom: 1px solid var(--prism-border); background: var(--prism-surface-hover); }
+  [data-theme="light"] .cp-toolbar { background: rgba(248,250,255,0.6); border-bottom: 1px solid rgba(37,99,235,0.1); }
+  .cp-control-group { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 120px; }
+  .cp-label { font-size: 13px; font-weight: 600; color: var(--prism-text-muted); }
+  .cp-select { background: var(--prism-surface); border: 1px solid var(--prism-border); color: var(--prism-text); padding: 8px 12px; border-radius: 8px; outline: none; font-family: inherit; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+  [data-theme="light"] .cp-select { background: #fff; border-color: rgba(37,99,235,0.15); color: #1e293b; }
+  .cp-select:focus { border-color: var(--prism-violet); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  .cp-preview { padding: 60px; min-height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0c; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; transition: background 0.3s ease; }
+  [data-theme="light"] .cp-preview { background: #fff; background-image: radial-gradient(circle, rgba(37,99,235,0.08) 1px, transparent 1px); }
+  .cp-code-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: var(--prism-surface); border-top: 1px solid var(--prism-border); border-bottom: 1px solid var(--prism-border); }
+  [data-theme="light"] .cp-code-header { background: rgba(248,250,255,0.8); border-color: rgba(37,99,235,0.1); }
+  .cp-action-btn { display: flex; align-items: center; gap: 8px; background: transparent; border: none; font-family: inherit; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); cursor: pointer; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+  .cp-action-btn:hover { background: var(--prism-surface-hover); color: var(--prism-text); }
+  .cp-code-area { background: #0a0a0c; padding: 24px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: #e2e8f0; }
+
+  /* ══ Mobile responsive (added globally) ══ */
+  .nav-hamburger { display: none; background: transparent; border: none; color: var(--prism-text); padding: 8px; margin-right: 8px; cursor: pointer; border-radius: 8px; align-items: center; justify-content: center; }
+  .nav-hamburger:hover { background: var(--prism-surface-hover); }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; opacity: 0; transition: opacity 0.25s ease; }
+  .sidebar-backdrop.open { display: block; opacity: 1; }
+  .sidebar-mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 16px; height: 64px; justify-content: flex-start; gap: 4px; }
+    .nav-links { margin-left: auto; }
+    .nav-hamburger { display: inline-flex; order: -1; margin-right: 4px; }
+    .nav-logo-mark { font-size: 22px; }
+    .nav-logo-sub { font-size: 9px; }
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > div[style] { display: none !important; }
+    .nav-links { gap: 0; }
+
+    .components-layout { display: block; padding-top: 64px; grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 64px; left: 0; width: 300px; max-width: 86vw; height: calc(100vh - 64px); max-height: none; padding: 20px 18px 32px; border-right: 1px solid var(--prism-border); border-bottom: none; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 96; background: var(--prism-black); }
+    [data-theme="light"] .sidebar { background: #ffffff; }
+    .sidebar.open { transform: translateX(0); box-shadow: 12px 0 40px rgba(0,0,0,0.25); }
+    body.sidebar-locked { overflow: hidden; }
+
+    .sidebar-mobile-nav { display: block; margin: 0 -18px 16px; padding: 0 18px 18px; border-bottom: 1px solid var(--prism-border); }
+    .sidebar-mobile-nav h4 { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 4px; }
+    .sidebar-mobile-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-mobile-nav a { display: block; padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+    .sidebar-mobile-nav a:hover { background: var(--prism-surface-hover); color: var(--prism-violet); }
+    .sidebar-mobile-nav a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); }
+
+    .main-panel { padding: 24px 20px 48px; grid-column: auto; grid-row: auto; }
+    /* mobile-width-safety v4 — collapse any inline grid on narrow viewports */
+    .main-panel, .main-content-inner, .main-content-area { max-width: 100%; width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner > *, .doc-section, .doc-section > * { max-width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner img, .main-content-inner svg:not(.inline-svg) { max-width: 100%; height: auto; }
+    .main-content-inner pre, .main-content-inner code { white-space: pre-wrap; word-break: break-word; }
+    .main-content-inner pre { overflow-x: auto; }
+    .anatomy-diagram { overflow: visible !important; padding: 48px 40px !important; zoom: 0.82; }
+    .anatomy-diagram > * { max-width: 100%; }
+    .demo-container { overflow: hidden; }
+    .demo-canvas { padding: 32px 20px !important; overflow-x: auto; }
+    .code-playground, .cp-code-area { overflow-x: auto; }
+    /* Foundation inner-page grids: collapse every multi-column inline grid */
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: repeat(4, 1fr)"],
+    [style*="grid-template-columns: repeat(5, 1fr)"],
+    [style*="grid-template-columns: repeat(6, 1fr)"],
+    [style*="grid-template-columns: 320px 1fr"],
+    [style*="grid-template-columns: 280px 1fr"],
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+    /* Flex rows with heavy fixed widths should wrap */
+    [style*="display: flex"][style*="gap"] { flex-wrap: wrap; }
+    .main-content-area { display: flex; flex-direction: column; grid-template-columns: 1fr; }
+    .main-content-inner { padding-bottom: 32px; }
+    .toc-sidebar { display: none; }
+
+    .page-header-area .page-title,
+    .page-title { font-size: 30px; line-height: 1.15; }
+    .page-desc { font-size: 16px; }
+    .doc-section h2, .doc-section-title { font-size: 22px; }
+
+    .do-dont-grid,
+    .illus-type-grid,
+    .comp-grid,
+    .density-grid,
+    .illus-showcase-grid,
+    .pattern-category-grid,
+    .tone-grid,
+    .voice-traits,
+    .principles-grid,
+    .theme-grid,
+    .message-grid,
+    .weight-grid,
+    .pattern-grid,
+    .collection-grid,
+    .anti-pattern-list,
+    .dodont-grid,
+    .icon-metaphor-grid { grid-template-columns: 1fr !important; }
+
+    table { display: block; overflow-x: auto; }
+    .size-table, .token-table, .anatomy-table, .doc-table, .tone-table { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+
+    .feedback-banner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .illus-type-card { grid-template-columns: 1fr !important; }
+    .illus-type-preview { min-height: 180px; padding: 24px 16px; }
+
+    /* Component detail page grids */
+    .state-grid,
+    .anatomy-grid,
+    .usecase-grid,
+    .anat-legend,
+    /* Zia Experience hub grids */
+    .zia-prompt-grid,
+    /* Resource hub grids */
+    .lib-grid,
+    .lib-grid-logo,
+    .lib-grid-illust { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* Inline-styled 2- or 3-column grids */
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Resource hub outer padding */
+    .page-content { padding: 88px 16px 48px !important; }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 0 12px; height: 60px; }
+    .components-layout { padding-top: 60px; }
+    .sidebar { top: 60px; height: calc(100vh - 60px); }
+    .nav-logo-mark { font-size: 20px; }
+    .main-panel { padding: 18px 14px 36px; }
+    /* mobile-width-safety v3 */
+    .main-panel { padding: 16px 10px 24px !important; }
+    .anatomy-diagram { padding: 40px 28px !important; overflow: visible !important; zoom: 0.66; }
+    .demo-canvas { padding: 24px 12px !important; }
+    .page-header-area .page-title,
+    .page-title { font-size: 26px; }
+    .page-desc { font-size: 15px; }
+    .sidebar-heading { font-size: 10px; }
+    .search-shortcut { display: none; }
+    .page-content { padding: 72px 12px 32px !important; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+<img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+<span class="nav-logo-text">
+  <span class="nav-logo-mark">Prism</span>
+  <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+</span>
+    </a>
+    <div class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html" class="active">Components</a>
+      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a>
+      <div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div style="width:16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search..."><span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 class="sidebar-heading">Components</h3>
+      <ul class="sidebar-nav">
+        <li><a href="Accordion.html" class="sidebar-link">Accordion</a></li>
+        <li><a href="Avatar.html" class="sidebar-link">Avatar</a></li>
+        <li><a href="Badges.html" class="sidebar-link">Badges</a></li>
+        <li><a href="Breadcrumbs.html" class="sidebar-link">Breadcrumbs</a></li>
+        <li><a href="Button.html" class="sidebar-link">Button</a></li>
+        <li><a href="Calendar.html" class="sidebar-link">Calendar</a></li>
+        <li><a href="Checkbox.html" class="sidebar-link">Checkbox</a></li>
+        <li><a href="Counter.html" class="sidebar-link">Counter</a></li>
+        <li><a href="Data-table.html" class="sidebar-link">Data table</a></li>
+        <li><a href="Date-picker.html" class="sidebar-link">Date picker</a></li>
+        <li><a href="Divider.html" class="sidebar-link active">Divider</a></li>
+        <li><a href="Dropdown.html" class="sidebar-link">Dropdown</a></li>
+        <li><a href="Empty-state.html" class="sidebar-link">Empty state</a></li>
+        <li><a href="Header-navigation.html" class="sidebar-link">Header navigation</a></li>
+        <li><a href="Icon.html" class="sidebar-link">Icon</a></li>
+        <li><a href="Inline-message.html" class="sidebar-link">Inline message</a></li>
+        <li><a href="Left-sidebar-navigation-level-1.html" class="sidebar-link">Sidebar Nav L1</a></li>
+        <li><a href="Left-sidebar-navigation-level-2.html" class="sidebar-link">Sidebar Nav L2</a></li>
+        <li><a href="Link.html" class="sidebar-link">Link</a></li>
+        <li><a href="OTP-input.html" class="sidebar-link">OTP input</a></li>
+        <li><a href="Page-header.html" class="sidebar-link">Page header</a></li>
+        <li><a href="Progress-bar.html" class="sidebar-link">Progress bar</a></li>
+        <li><a href="Radio-button.html" class="sidebar-link">Radio button</a></li>
+        <li><a href="Rich-text-editor.html" class="sidebar-link">Rich text editor</a></li>
+        <li><a href="Right-pane.html" class="sidebar-link">Right pane</a></li>
+        <li><a href="Script-editor.html" class="sidebar-link">Script editor</a></li>
+        <li><a href="Slider.html" class="sidebar-link">Slider</a></li>
+        <li><a href="Snackbar.html" class="sidebar-link">Toast Message</a></li>
+        <li><a href="Split-button.html" class="sidebar-link">Split button</a></li>
+        <li><a href="Status-indicator.html" class="sidebar-link">Status indicator</a></li>
+        <li><a href="Switch.html" class="sidebar-link">Toggle</a></li>
+        <li><a href="Tag.html" class="sidebar-link">Tag</a></li>
+        <li><a href="Text-area.html" class="sidebar-link">Text area</a></li>
+        <li><a href="Text-field.html" class="sidebar-link">Text field</a></li>
+        <li><a href="Tooltip.html" class="sidebar-link">Tooltip</a></li>
+        <li style="padding:16px 12px 8px;"><span style="font-size:10px;font-weight:700;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;">In-progress</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action button</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action list</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Alert banner</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">App bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Autocomplete</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Bottom sheet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Button group</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Cards</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Code snippet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Combobox</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Dialog</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Drawer</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Filter input</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Form</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Help text</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Label</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">List</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Menus</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Modal</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Navigation bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Pagination</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Popover</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Progress indicator</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Search</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Segmented control</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Select</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Sidebar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tabs</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tree view</span></li>
+      </ul>
+    </aside>
+
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Divider</h1>
+        <p class="page-desc">A thin line used to visually separate content sections, list items, or layout regions. Supports horizontal and vertical orientations, three line styles, two thickness levels, four layout types including a centred label variant, and inset spacing options.</p>
+        <nav class="content-tabs">
+          <button class="tab-item active">Overview</button>
+          <button class="tab-item">Style</button>
+          <button class="tab-item">Usage</button>
+          <button class="tab-item">Code</button>
+          <button class="tab-item">Accessibility</button>
+        </nav>
+      </div>
+
+      <div class="main-content-area">
+        <div class="main-content-inner">
+
+        <!-- ========== OVERVIEW ========== -->
+        <div class="tab-content" id="tab-overview">
+          <h3 id="anatomy" class="doc-h3">Anatomy</h3>
+          <div class="anatomy-diagram" style="padding-left:100px;">
+            <!-- Horizontal Full Width -->
+            <div style="margin-bottom:32px;">
+              <div style="font-size:12px;font-weight:600;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Horizontal &mdash; Full Width</div>
+              <div style="position:relative;padding:20px 0;">
+                <div style="position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">1</span><div style="width:36px;height:2px;background:#2563eb;"></div></div>
+                <div class="divider-h" style="width:100%;"></div>
+              </div>
+            </div>
+            <!-- Horizontal With Text -->
+            <div style="margin-bottom:32px;">
+              <div style="font-size:12px;font-weight:600;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Horizontal &mdash; With Text</div>
+              <div style="position:relative;padding:20px 0;">
+                <div style="position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">2</span><div style="width:36px;height:2px;background:#2563eb;"></div></div>
+                <div class="divider-with-text">Label</div>
+              </div>
+            </div>
+            <!-- Vertical Full Width -->
+            <div style="display:flex;gap:48px;align-items:flex-start;">
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Vertical &mdash; Full Width</div>
+                <div style="position:relative;display:flex;align-items:center;gap:6px;height:80px;">
+                  <span class="anat-marker-inline">3</span>
+                  <div style="width:20px;height:2px;background:#2563eb;"></div>
+                  <div class="divider-v" style="height:80px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">Vertical &mdash; With Text</div>
+                <div style="position:relative;display:flex;align-items:center;gap:6px;">
+                  <span class="anat-marker-inline">4</span>
+                  <div style="width:20px;height:2px;background:#2563eb;"></div>
+                  <div class="divider-with-text-v" style="height:120px;">Label</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anat-legend">
+            <div class="anat-legend-item"><span class="anat-marker-inline">1</span><div><strong>Line</strong><span>The dividing rule. A single frame rendered as a stroke (non-With Text) or a filled frame (With Text).</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">2</span><div><strong>Label</strong><span>Optional centred text label splitting the line into two equal segments. 12 px Regular, Text/Text-Secondary. Present only in With Text type.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">3</span><div><strong>Line Left / Line Right</strong><span>The two line segments flanking the label in horizontal With Text variants. Each fills equally.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">4</span><div><strong>Line Top / Line Bottom</strong><span>The two line segments flanking the label in vertical With Text variants. Each fills equally.</span></div></div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div style="margin-bottom:64px;">
+            <h2 id="live-demo" class="doc-section-title" style="margin-bottom:8px;">Preview</h2>
+            <p class="doc-section-subtitle" style="margin-bottom:28px;">Explore all divider variants across orientations, types, styles, and thicknesses.</p>
+            <div class="demo-container">
+<div class="demo-canvas" style="gap:32px;">
+                <!-- Full Width Solid Thin -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Full Width &middot; Solid &middot; Thin</div>
+                  <div class="divider-h"></div>
+                </div>
+                <!-- Full Width Solid Medium -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Full Width &middot; Solid &middot; Medium</div>
+                  <div class="divider-h divider-h--medium"></div>
+                </div>
+                <!-- Dashed Thin -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Full Width &middot; Dashed &middot; Thin</div>
+                  <div class="divider-h divider-h--dashed"></div>
+                </div>
+                <!-- Dotted Thin -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Full Width &middot; Dotted &middot; Thin</div>
+                  <div class="divider-h divider-h--dotted"></div>
+                </div>
+                <!-- Inset -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Inset &middot; Solid &middot; Thin</div>
+                  <div class="divider-h divider-h--inset"></div>
+                </div>
+                <!-- Middle Inset -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Middle Inset &middot; Solid &middot; Thin</div>
+                  <div class="divider-h divider-h--m-inset"></div>
+                </div>
+                <!-- With Text -->
+                <div style="width:100%;max-width:400px;">
+                  <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">With Text &middot; Solid &middot; Thin</div>
+                  <div class="divider-with-text">Or</div>
+                </div>
+                <!-- Vertical row -->
+                <div style="display:flex;gap:40px;align-items:center;height:80px;">
+                  <div style="text-align:center;">
+                    <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Vertical Thin</div>
+                    <div style="display:flex;justify-content:center;height:60px;"><div class="divider-v" style="height:60px;"></div></div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Vertical Medium</div>
+                    <div style="display:flex;justify-content:center;height:60px;"><div class="divider-v divider-v--medium" style="height:60px;"></div></div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:11px;font-weight:600;color:var(--prism-text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">Vertical Dashed</div>
+                    <div style="display:flex;justify-content:center;height:60px;"><div class="divider-v divider-v--dashed" style="height:60px;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h3 id="content-guidelines" class="doc-h3">Content Guidelines<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">Recommended</span></h3>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li>Keep With Text labels very short (1-3 words, e.g. "Or", "Today", "Continue").</li>
+                <li>Use Thin as the default thickness -- it is the least intrusive.</li>
+                <li>Use Solid as the default style; reach for Dashed/Dotted for softer boundaries.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li>Write full sentences as divider labels.</li>
+                <li>Use dividers as a substitute for vertical spacing -- use Spacing tokens instead.</li>
+                <li>Overuse dividers -- too many fragment a layout and increase visual noise.</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STYLE ========== -->
+        <div class="tab-content" id="tab-style" style="display:none;padding-top:32px;">
+          <h2 id="style-overview" class="doc-section-title">Style</h2>
+          <p class="doc-section-subtitle">Design tokens, color mappings, and spacing tokens that define the Divider's visual language.</p>
+
+          <div class="doc-section">
+            <h2 id="variants" class="doc-section-title">Variants</h2>
+            <p class="doc-section-subtitle">48 variants across Orientation (2) &times; Type (4) &times; Style (3) &times; Thickness (2).</p>
+            <table class="size-table">
+              <thead><tr><th>Axis</th><th>Values</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Orientation</strong></td><td><code>Horizontal</code>, <code>Vertical</code></td><td>Horizontal spans width; Vertical spans height of container.</td></tr>
+                <tr><td><strong>Type</strong></td><td><code>Full Width</code>, <code>Inset</code>, <code>Middle Inset</code>, <code>With Text</code></td><td>Controls indent and whether a label is shown.</td></tr>
+                <tr><td><strong>Style</strong></td><td><code>Solid</code>, <code>Dashed</code>, <code>Dotted</code></td><td>Visual line style: continuous rule, dashes, or dots.</td></tr>
+                <tr><td><strong>Thickness</strong></td><td><code>Thin</code>, <code>Medium</code></td><td>Thin = 1 px (default). Medium = 2 px for stronger visual weight.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="states" class="doc-section-title">States</h2>
+            <p class="doc-section-subtitle">The Divider is a non-interactive element with no hover, focus, or active states. Its appearance is entirely determined by the variant properties.</p>
+            <div style="margin-top:24px;padding:16px 20px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px;">
+              <p style="font-size:14px;color:var(--prism-text);line-height:1.6;margin:0;">Dividers have no Boolean or Instance Swap properties -- all four axes are pure variant switches. The divider has no interactive states.</p>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="sizes" class="doc-section-title">Sizes</h2>
+            <p class="doc-section-subtitle">Two thickness levels to fit different layout contexts.</p>
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Horizontal Variants</h4>
+            <table class="size-table" style="margin-bottom:32px;">
+              <thead><tr><th>Type</th><th>Thickness</th><th>Component Size</th><th>Line</th><th>Padding</th></tr></thead>
+              <tbody>
+                <tr><td>Full Width</td><td>Thin</td><td>280 &times; 1 px</td><td>1 px</td><td>&mdash;</td></tr>
+                <tr><td>Full Width</td><td>Medium</td><td>280 &times; 2 px</td><td>2 px</td><td>&mdash;</td></tr>
+                <tr><td>Inset</td><td>Thin</td><td>280 &times; 1 px</td><td>1 px</td><td>Left 16 px</td></tr>
+                <tr><td>Inset</td><td>Medium</td><td>280 &times; 2 px</td><td>2 px</td><td>Left 16 px</td></tr>
+                <tr><td>Middle Inset</td><td>Thin</td><td>280 &times; 1 px</td><td>1 px</td><td>Left + Right 16 px</td></tr>
+                <tr><td>Middle Inset</td><td>Medium</td><td>280 &times; 2 px</td><td>2 px</td><td>Left + Right 16 px</td></tr>
+                <tr><td>With Text</td><td>Thin</td><td>280 &times; 20 px</td><td>1 px</td><td>Gap 8 px each side</td></tr>
+                <tr><td>With Text</td><td>Medium</td><td>280 &times; 20 px</td><td>2 px</td><td>Gap 8 px each side</td></tr>
+              </tbody>
+            </table>
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Vertical Variants</h4>
+            <table class="size-table">
+              <thead><tr><th>Type</th><th>Thickness</th><th>Component Size</th><th>Line</th><th>Padding</th></tr></thead>
+              <tbody>
+                <tr><td>Full Width</td><td>Thin</td><td>1 &times; 80 px</td><td>1 px</td><td>&mdash;</td></tr>
+                <tr><td>Full Width</td><td>Medium</td><td>2 &times; 80 px</td><td>2 px</td><td>&mdash;</td></tr>
+                <tr><td>Inset</td><td>Thin</td><td>1 &times; 80 px</td><td>1 px</td><td>Top 16 px</td></tr>
+                <tr><td>Inset</td><td>Medium</td><td>2 &times; 80 px</td><td>2 px</td><td>Top 16 px</td></tr>
+                <tr><td>Middle Inset</td><td>Thin</td><td>1 &times; 80 px</td><td>1 px</td><td>Top + Bottom 16 px</td></tr>
+                <tr><td>Middle Inset</td><td>Medium</td><td>2 &times; 80 px</td><td>2 px</td><td>Top + Bottom 16 px</td></tr>
+                <tr><td>With Text</td><td>Thin</td><td>20 &times; 120 px</td><td>1 px</td><td>Gap 8 px each side</td></tr>
+                <tr><td>With Text</td><td>Medium</td><td>20 &times; 120 px</td><td>2 px</td><td>Gap 8 px each side</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="color-tokens" class="doc-h3">Color Tokens<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">Tokens</span></h3>
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Line Colour</h4>
+            <table class="size-table" style="margin-bottom:32px;">
+              <thead><tr><th>Token</th><th>Usage</th><th>Hex</th></tr></thead>
+              <tbody>
+                <tr><td><code>Border/Border-Tertiary</code></td><td>Solid line colour (all non-With-Text variants)</td><td>#E1E4EB</td></tr>
+                <tr><td><code>Border/Border-Secondary</code></td><td>Dashed + Dotted line colour; all With-Text line segment fills</td><td>#C3C9D6</td></tr>
+              </tbody>
+            </table>
+            <h4 style="font-size:16px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Text Colour</h4>
+            <table class="size-table">
+              <thead><tr><th>Token</th><th>Usage</th><th>Hex</th></tr></thead>
+              <tbody>
+                <tr><td><code>Text/Text-Secondary</code></td><td>Label text in With Text variants</td><td>#64748B</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="spacing-tokens" class="doc-h3">Spacing Tokens</h3>
+            <table class="size-table">
+              <thead><tr><th>Value</th><th>Usage</th><th>Suggested Token</th></tr></thead>
+              <tbody>
+                <tr><td>16 px</td><td>Leading indent for Inset; both-side indent for Middle Inset</td><td><code>spacing/16</code></td></tr>
+                <tr><td>8 px</td><td>Gap between line segments and label in With Text variants</td><td><code>spacing/8</code></td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:16px;padding:16px 20px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px;">
+              <p style="font-size:14px;color:var(--prism-text);line-height:1.6;margin:0;">No spacing design tokens are applied directly -- padding and itemSpacing are set as raw values in the component. When implementing, consider mapping these to <code>spacing/16</code> and <code>spacing/8</code> from the UEMS Global Tokens collection for consistency.</p>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="corner-radius-border-radius" class="doc-h3">Corner Radius (Border Radius)</h3>
+            <p class="doc-section-subtitle">Dividers do not use border radius. They are rendered as simple line elements.</p>
+            <div style="display:flex;gap:24px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:200px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;text-align:center;">
+                <div style="width:80px;height:2px;background:#2563eb;margin:16px auto;"></div>
+                <div style="font-size:14px;font-weight:600;color:var(--prism-text);">radius/none</div>
+                <div style="font-size:12px;color:var(--prism-text-muted);margin-top:4px;">0 px &mdash; straight line</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="typography-family" class="doc-h3">Typography Family</h3>
+            <p class="doc-section-subtitle">Only the With Text variant uses typography for the centred label.</p>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Token</th><th>Font</th><th>Size</th><th>Weight</th><th>Line Height</th></tr></thead>
+              <tbody>
+                <tr><td>Label</td><td><code>body/Small/Default</code></td><td>Zoho Puvi</td><td>12 px</td><td>Regular (400)</td><td>16 px</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ========== USAGE ========== -->
+        <div class="tab-content" id="tab-usage" style="display:none;padding-top:32px;">
+          <div class="doc-section">
+            <h2 id="when-to-use" class="doc-section-title">When and Where to Use</h2>
+            <p class="doc-section-subtitle">Dividers separate content sections, group related items, and define visual boundaries in layouts.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h3 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><svg width="20" height="20" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>When to use</h3>
+                <ul class="doc-list" style="border:none;background:transparent;padding-left:20px;font-size:14.5px;">
+                  <li style="border:none;background:transparent;margin-bottom:8px;">To visually separate distinct sections of a page, card, panel, or list.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">To group related content -- a divider signals a boundary between two logical groups.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Use With Text to label a section transition (e.g. "Or", "Today", "More options").</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Use Inset or Middle Inset inside lists where items have leading icons or avatars.</li>
+                  <li style="border:none;background:transparent;">Use Vertical to separate items in a horizontal row (e.g. toolbar actions, breadcrumb segments).</li>
+                </ul>
+              </div>
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h3 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;display:flex;align-items:center;gap:8px;"><svg width="20" height="20" fill="none" stroke="#e42527" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>When NOT to use</h3>
+                <ul class="doc-list" style="border:none;background:transparent;padding-left:20px;font-size:14.5px;">
+                  <li style="border:none;background:transparent;margin-bottom:8px;">As a padding substitute -- use a Spacing token instead.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Inside dense data tables -- row borders serve the same purpose more efficiently.</li>
+                  <li style="border:none;background:transparent;margin-bottom:8px;">Decoratively -- a divider communicates a semantic boundary; if there is no logical separation, omit it.</li>
+                  <li style="border:none;background:transparent;">Overuse -- too many dividers fragment a layout and increase visual noise.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h2 id="alignment-placement" class="doc-section-title">Alignment &amp; Placement</h2>
+            <p class="doc-section-subtitle">Consistent placement ensures dividers are predictable and effective.</p>
+            <ul class="doc-list">
+              <li><strong>Full Width:</strong> Line spans the full available width or height. Use as the default for section separators.</li>
+              <li><strong>Inset:</strong> 16 px indent on the leading edge only (left for horizontal, top for vertical). Use inside lists with leading icons.</li>
+              <li><strong>Middle Inset:</strong> 16 px indent on both edges. Use when content has leading and trailing padding.</li>
+              <li><strong>With Text:</strong> Line is split by a centred label with 8 px gaps. Use to label section transitions.</li>
+              <li><strong>Vertical:</strong> Use between inline items in a horizontal row (toolbar actions, stat figures).</li>
+            </ul>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h2 id="detailed-guidelines" class="doc-section-title">Complete Do's and Don'ts</h2>
+            <p class="doc-section-subtitle">Guidelines for effective divider usage.</p>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li><strong>Use Thin for most separators:</strong> It is the default and least intrusive.</li>
+                <li><strong>Use Solid as the default:</strong> Reach for Dashed/Dotted to signal softer or provisional boundaries.</li>
+                <li><strong>Use Inset inside lists:</strong> Align the rule to the text column when items have leading icons or avatars.</li>
+                <li><strong>Keep With Text labels short:</strong> 1-3 words (e.g. "Or", "Today", "Continue").</li>
+                <li><strong>Let the Divider fill its container:</strong> Use CSS flex: 1 or width: 100%.</li>
+                <li><strong>Use Vertical for inline items:</strong> Toolbar buttons, stats, and breadcrumb segments.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li><strong>Default to Medium everywhere:</strong> Reserve it for major section breaks.</li>
+                <li><strong>Use Dashed/Dotted without reason:</strong> Only use with a clear semantic purpose.</li>
+                <li><strong>Use Full Width in icon lists:</strong> Use Inset instead when items have left-aligned icons or avatars.</li>
+                <li><strong>Write full sentences as labels:</strong> Keep divider text extremely brief.</li>
+                <li><strong>Use Vertical in vertical stacks:</strong> Use Horizontal there instead.</li>
+                <li><strong>Hard-code fixed pixel width:</strong> Let horizontal dividers flow with their container.</li>
+              </ul></div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h2 id="related" class="doc-section-title">Related</h2>
+            <p class="doc-section-subtitle">Components that complement or can be used alongside the Divider.</p>
+            <div class="related-grid">
+              <a href="Accordion.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg> Accordion</a>
+              <a href="Data-table.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg> Data Table</a>
+              <a href="List.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> List</a>
+              <a href="Tabs.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h8"/></svg> Tabs</a>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h2 id="references" class="doc-section-title">References</h2>
+            <p class="doc-section-subtitle">Design tokens and resources for implementing the Divider component.</p>
+            <ul class="doc-list">
+              <li><strong>Figma Node:</strong> <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">17009:925007</code> &mdash; Component Set: Divider</li>
+              <li><strong>Total Variants:</strong> 2 Orientations &times; 4 Types &times; 3 Styles &times; 2 Thicknesses = <strong>48 variants</strong></li>
+              <li><strong>Typography:</strong> Zoho Puvi Regular (400) &mdash; 12 px / 16 px for With Text label only</li>
+              <li><strong>Thickness:</strong> Thin = <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">1px</code>, Medium = <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">2px</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========== CODE ========== -->
+        <div class="tab-content" id="tab-code" style="display:none;padding-top:32px;">
+          <h2 id="live-demo-code" class="doc-section-title">Live demo (Code)</h2>
+          <p class="doc-section-subtitle">Configure the Divider component and view generated HTML.</p>
+          <div class="code-playground">
+            <div class="cp-toolbar">
+              <div class="cp-control-group"><label class="cp-label">Orientation</label><select class="cp-select" id="pg-orientation"><option value="horizontal">Horizontal</option><option value="vertical">Vertical</option></select></div>
+              <div class="cp-control-group"><label class="cp-label">Type</label><select class="cp-select" id="pg-type"><option value="full-width">Full Width</option><option value="inset">Inset</option><option value="middle-inset">Middle Inset</option><option value="with-text">With Text</option></select></div>
+              <div class="cp-control-group"><label class="cp-label">Style</label><select class="cp-select" id="pg-style"><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>
+              <div class="cp-control-group"><label class="cp-label">Thickness</label><select class="cp-select" id="pg-thickness"><option value="thin">Thin</option><option value="medium">Medium</option></select></div>
+              <div class="cp-control-group" id="pg-label-group"><label class="cp-label">Label</label><input class="cp-select" id="pg-label" type="text" value="Or" style="width:100%;"></div>
+            </div>
+            <div class="cp-preview" id="pg-preview-area" style="min-height:200px;">
+              <div id="pg-divider-el" style="width:100%;max-width:400px;">
+                <div class="divider-h"></div>
+              </div>
+            </div>
+            <div class="cp-code-header">
+              <div style="font-size:13.5px;font-weight:600;color:var(--prism-text);">HTML</div>
+              <button class="cp-action-btn" id="pg-copy-btn"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg> Copy code</button>
+            </div>
+            <div class="cp-code-area" id="pg-code-output"></div>
+          </div>
+          <script>
+          (function(){
+            var els = {orientation:document.getElementById('pg-orientation'),type:document.getElementById('pg-type'),style:document.getElementById('pg-style'),thickness:document.getElementById('pg-thickness'),label:document.getElementById('pg-label')};
+            var previewArea = document.getElementById('pg-divider-el');
+            var codeOut = document.getElementById('pg-code-output');
+            var copyBtn = document.getElementById('pg-copy-btn');
+            var labelGroup = document.getElementById('pg-label-group');
+            function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+            function update(){
+              var o=els.orientation.value, t=els.type.value, s=els.style.value, th=els.thickness.value, lbl=els.label.value||'Label';
+              labelGroup.style.display = t==='with-text' ? '' : 'none';
+              var html='', cls='', code='';
+              if(t==='with-text'){
+                if(o==='horizontal'){
+                  cls='divider-with-text';
+                  if(s==='dashed') cls+=' divider-with-text--dashed';
+                  if(s==='dotted') cls+=' divider-with-text--dotted';
+                  if(th==='medium') cls+=' divider-with-text--medium';
+                  html='<div class="'+cls+'" style="width:100%;max-width:400px;">'+lbl+'</div>';
+                  code='<div class="'+cls+'">'+lbl+'</div>';
+                } else {
+                  cls='divider-with-text-v';
+                  if(th==='medium') cls+=' divider-with-text-v--medium';
+                  html='<div class="'+cls+'" style="height:120px;">'+lbl+'</div>';
+                  code='<div class="'+cls+'">'+lbl+'</div>';
+                }
+              } else if(o==='horizontal'){
+                cls='divider-h';
+                if(s==='dashed') cls+=' divider-h--dashed';
+                if(s==='dotted') cls+=' divider-h--dotted';
+                if(th==='medium') cls+=' divider-h--medium';
+                if(t==='inset') cls+=' divider-h--inset';
+                if(t==='middle-inset') cls+=' divider-h--m-inset';
+                html='<hr class="'+cls+'" style="width:100%;max-width:400px;" />';
+                code='<hr class="'+cls+'" />';
+              } else {
+                cls='divider-v';
+                if(s==='dashed') cls+=' divider-v--dashed';
+                if(s==='dotted') cls+=' divider-v--dotted';
+                if(th==='medium') cls+=' divider-v--medium';
+                if(t==='inset') cls+=' divider-v--inset';
+                if(t==='middle-inset') cls+=' divider-v--m-inset';
+                html='<div class="'+cls+'" style="height:80px;"></div>';
+                code='<div class="'+cls+'"></div>';
+              }
+              previewArea.innerHTML=html;
+              if(o==='vertical'){ previewArea.style.width='auto'; previewArea.style.maxWidth='none'; previewArea.style.display='flex'; previewArea.style.justifyContent='center'; }
+              else { previewArea.style.width='100%'; previewArea.style.maxWidth='400px'; previewArea.style.display='block'; }
+              codeOut.innerHTML=esc(code).replace(/class=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"$1"</span>').replace(/&lt;(\/?)(hr|div|span)(.*?)(\/?)\s*&gt;/g,'&lt;$1<span style="color:#a78bfa;">$2</span>$3$4&gt;');
+            }
+            Object.values(els).forEach(function(e){e.addEventListener(e.tagName==='INPUT'?'input':'change',update);});
+            copyBtn.addEventListener('click',function(){
+              var r=document.createElement('div');r.innerHTML=codeOut.innerHTML;
+              navigator.clipboard.writeText(r.innerText).then(function(){
+                var orig=copyBtn.innerHTML;copyBtn.innerHTML='<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';setTimeout(function(){copyBtn.innerHTML=orig;},2000);
+              });
+            });
+            update();
+          })();
+          </script>
+
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="component-api-properties" class="doc-h3">Component API &amp; Properties</h3>
+            <table class="size-table">
+              <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>orientation</code></td><td>'Horizontal' | 'Vertical'</td><td>'Horizontal'</td><td>Direction of the dividing line.</td></tr>
+                <tr><td><code>type</code></td><td>'Full Width' | 'Inset' | 'Middle Inset' | 'With Text'</td><td>'Full Width'</td><td>Layout type. Controls indent and whether a label is shown.</td></tr>
+                <tr><td><code>style</code></td><td>'Solid' | 'Dashed' | 'Dotted'</td><td>'Solid'</td><td>Visual line style.</td></tr>
+                <tr><td><code>thickness</code></td><td>'Thin' | 'Medium'</td><td>'Thin'</td><td>Line thickness -- 1 px (Thin) or 2 px (Medium).</td></tr>
+                <tr><td><code>label</code></td><td>string</td><td>"Label"</td><td>Text displayed in the centre of a With Text divider.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="implementation-idea-ember-hook-form" class="doc-h3">Implementation Idea: Ember Hook Form</h3>
+            <div class="cp-code-area" style="border-radius:12px;margin-top:16px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;">
+                <span style="color:#94a3b8;">&lt;!-- section-divider.hbs --&gt;</span><br>
+                <span style="color:#ABB2BF;">&lt;</span><span style="color:#E06C75;">UemsDivider</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@orientation</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"Horizontal"</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@type</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"With Text"</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@style</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"Solid"</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@thickness</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"Thin"</span><br>
+                &nbsp;&nbsp;<span style="color:#D19A66;">@label</span><span style="color:#56B6C2;">=</span><span style="color:#98C379;">"Or"</span><br>
+                <span style="color:#ABB2BF;">/&gt;</span>
+              </div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="rtl-support" class="doc-h3">RTL Support</h3>
+            <ul class="doc-list">
+              <li>Horizontal Full Width and With Text dividers are direction-neutral and render identically in LTR and RTL.</li>
+              <li>In RTL layouts, Inset indent moves from left to right automatically when using <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">margin-inline-start</code> instead of <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">margin-left</code>.</li>
+              <li>Vertical dividers remain unchanged in RTL as they are orientation-independent.</li>
+              <li>With Text label text direction follows the document <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">dir</code> attribute automatically.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========== ACCESSIBILITY ========== -->
+        <div class="tab-content" id="tab-accessibility" style="display:none;padding-top:32px;">
+          <h2 id="accessibility" class="doc-section-title">Accessibility</h2>
+          <p class="doc-section-subtitle">Guidelines for ensuring divider elements are accessible across assistive technologies.</p>
+          <div class="doc-section">
+            <h3 id="keyboard-interaction" class="doc-h3">Keyboard Interaction</h3>
+            <table class="size-table">
+              <thead><tr><th>Key</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><code>Tab</code></td><td>Dividers are non-interactive and should never receive focus. Focus moves to the next interactive element.</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:16px;padding:16px 20px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px;">
+              <p style="font-size:14px;color:var(--prism-text);line-height:1.6;margin:0;">Dividers are purely presentational. They do not receive keyboard focus and have no interactive behaviour.</p>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="aria-attributes-screen-reader-guidance" class="doc-h3">ARIA Attributes &amp; Screen Reader Guidance</h3>
+            <ul class="doc-list">
+              <li><strong>Semantic element:</strong> Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;hr&gt;</code> for meaningful horizontal section breaks. It has an implicit <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">role="separator"</code>.</li>
+              <li><strong>Vertical dividers:</strong> Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;div role="separator" aria-orientation="vertical"&gt;</code> or <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;hr&gt;</code> with <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-orientation="vertical"</code>.</li>
+              <li><strong>Decorative dividers:</strong> If purely visual, use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;hr aria-hidden="true"&gt;</code> or a CSS pseudo-element so screen readers skip it.</li>
+              <li><strong>With Text:</strong> The label text is already in the DOM -- no additional aria-label is needed. Ensure the surrounding wrapper has <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-hidden="true"</code> if the text itself is the meaningful content.</li>
+            </ul>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="focus-state-design" class="doc-h3">Focus State Design</h3>
+            <ul class="doc-list">
+              <li>Dividers do not receive focus -- they are non-interactive presentational elements.</li>
+              <li>No focus ring or focus indicator is needed for dividers.</li>
+            </ul>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="color-contrast-minimums" class="doc-h3">Color Contrast Minimums<span class="h3-badge" style="background:rgba(251,191,36,0.15);color:#d97706;">Intentional</span></h3>
+            <p class="doc-section-subtitle">Border/Border-Tertiary (#E1E4EB) on white is low-contrast by design -- this is intentional for a subtle separator. Do not rely on the divider colour alone to communicate meaning.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:24px;">
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:#ffffff;padding:28px 24px;text-align:center;position:relative;">
+                  <div style="height:2px;background:#E1E4EB;width:80%;margin:0 auto;"></div>
+                </div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);"><div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">SOLID / TERTIARY</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#E1E4EB on #FFF</div></div><div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,0.1);color:#d97706;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;">1.2:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">Intentional low contrast</div></div></div>
+              </div>
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:#ffffff;padding:28px 24px;text-align:center;position:relative;">
+                  <div style="height:0;border-top:2px dashed #C3C9D6;width:80%;margin:0 auto;"></div>
+                </div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);"><div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">DASHED / SECONDARY</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#C3C9D6 on #FFF</div></div><div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,0.1);color:#d97706;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;">1.5:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">Subtle separator</div></div></div>
+              </div>
+            </div>
+          </div>
+          <hr class="doc-divider"/>
+          <div class="doc-section">
+            <h3 id="touch-target-size" class="doc-h3">Touch Target Size</h3>
+            <p class="doc-section-subtitle">Dividers are non-interactive, so touch target requirements do not apply.</p>
+            <div style="margin-top:16px;padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;display:flex;align-items:center;gap:24px;">
+              <div style="width:44px;height:44px;background:rgba(148,163,184,0.1);border:1px dashed var(--prism-text-muted);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--prism-text-muted);font-size:13px;font-weight:600;flex-shrink:0;">N/A</div>
+              <div><div style="font-weight:600;font-size:15px;color:var(--prism-text);">No touch target required</div><div style="font-size:14px;color:var(--prism-text-muted);margin-top:4px;">Dividers are not interactive and do not require a minimum touch target. They should not respond to tap, click, or pointer events.</div></div>
+            </div>
+          </div>
+        </div>
+
+        </div><!-- main-content-inner -->
+
+        <aside class="toc-sidebar">
+          <h4 class="toc-heading">On this page</h4>
+          <ul class="toc-nav" id="toc-nav"></ul>
+          <div class="quick-actions-card">
+            <div class="quick-actions-title">Resources</div>
+            <a href="MD/divider.md" download="divider.md" class="action-link"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download MD</a>
+            <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0?node-id=17009-925007" target="_blank" class="action-link"><img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;"> Figma Design</a>
+          </div>
+        </aside>
+      </div><!-- main-content-area -->
+
+    <div id="feedback" class="feedback-banner" style="display: none;">
+    <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+    <div style="display:flex;gap:10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+    </div>
+
+    </main>
+  </div>
+
+  <script>
+    let _tocObserver = null;
+    function updateTOC(targetId) {
+      const tocList = document.querySelector('.toc-nav'); if (!tocList) return; tocList.innerHTML = '';
+      const activePanel = document.getElementById(targetId); if (!activePanel) return;
+      activePanel.querySelectorAll('h2[id], h3[id]').forEach(h => {
+        if (h.style.display === 'none') return;
+        const li = document.createElement('li'), a = document.createElement('a');
+        a.href = '#' + h.id; a.className = 'toc-link';
+        let text = Array.from(h.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim();
+        if (!text) text = h.innerText; a.textContent = text;
+        a.addEventListener('click', e => { e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth',block:'start'}); });
+        li.appendChild(a); tocList.appendChild(li);
+      });
+      initScrollSpy();
+    }
+    function initScrollSpy() {
+      if (_tocObserver) _tocObserver.disconnect();
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = Array.from(tocLinks).map(l => document.getElementById(l.getAttribute('href').slice(1))).filter(Boolean);
+      if (!sections.length) return;
+      _tocObserver = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('id'); tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+id)); } }); }, {rootMargin:'-80px 0px -60% 0px',threshold:0});
+      sections.forEach(s => _tocObserver.observe(s));
+    }
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active')); tab.classList.add('active');
+        const tabMap = {'Overview':'tab-overview','Usage':'tab-usage','Style':'tab-style','Code':'tab-code','Accessibility':'tab-accessibility'};
+        document.querySelectorAll('.tab-content').forEach(p => p.style.display = 'none');
+        const target = tabMap[tab.textContent.trim()];
+        if (target) { document.getElementById(target).style.display = 'block'; updateTOC(target); }
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+    updateTOC('tab-overview');
+    const themeToggle=document.getElementById('themeToggle'),moonIcon=document.getElementById('moonIcon'),sunIcon=document.getElementById('sunIcon');
+    if ((localStorage.getItem('theme')||'light')==='dark') { document.documentElement.removeAttribute('data-theme'); moonIcon.style.display='block'; sunIcon.style.display='none'; }
+    themeToggle.addEventListener('click', () => {
+      if (document.documentElement.getAttribute('data-theme')==='light') { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); moonIcon.style.display='block'; sunIcon.style.display='none'; }
+      else { document.documentElement.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); moonIcon.style.display='none'; sunIcon.style.display='block'; }
+    });
+
+    // Sidebar search filter
+    (function(){
+      var searchInput = document.querySelector('.sidebar-search input');
+      if (!searchInput) return;
+      var items = document.querySelectorAll('.sidebar-nav li');
+      searchInput.addEventListener('input', function(){
+        var q = this.value.toLowerCase().trim();
+        items.forEach(function(li){
+          var link = li.querySelector('a');
+          if (!link) return;
+          var text = link.textContent.toLowerCase();
+          li.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+        });
+      });
+      // Cmd+K / Ctrl+K shortcut to focus search
+      document.addEventListener('keydown', function(e){
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      });
+    })();
+
+    // Scroll sidebar to active link on page load
+    (function(){
+      var active = document.querySelector('.sidebar-link.active');
+      if (active) {
+        var sidebar = active.closest('.sidebar');
+        if (sidebar) {
+          var top = active.offsetTop - sidebar.offsetTop - (sidebar.clientHeight / 3);
+          sidebar.scrollTop = Math.max(0, top);
+        }
+      }
+    })();
+
+  </script>
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const toggle = () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();
+</script>
+<script>
+(function(){
+  const hamburger = document.querySelector('.nav-hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !sidebar || !backdrop) return;
+
+  // Build a mobile-only nav section at the top of the sidebar by cloning the nav links
+  if (navLinks && !sidebar.querySelector('.sidebar-mobile-nav')) {
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'sidebar-mobile-nav';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Navigate';
+    mobileNav.appendChild(heading);
+    const ul = document.createElement('ul');
+    navLinks.querySelectorAll(':scope > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    navLinks.querySelectorAll(':scope > .nav-dropdown > .nav-dropdown-menu > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    mobileNav.appendChild(ul);
+    sidebar.insertBefore(mobileNav, sidebar.firstChild);
+  }
+
+  const open = () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+  hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebar.classList.contains('open')) close(); });
+  sidebar.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+})();
+</script>
+
+<!-- Floating Feedback Button -->
+<style>
+  .float-cliq-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .float-cliq-label {
+    background: #1a1a2e; color: #fff;
+    padding: 7px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 500; white-space: nowrap;
+    opacity: 0; transform: translateX(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .float-cliq-btn:hover .float-cliq-label {
+    opacity: 1; transform: translateX(0);
+  }
+  .float-cliq-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #2563eb; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+  }
+  .float-cliq-btn:hover .float-cliq-icon {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.55);
+  }
+  .float-cliq-btn:active .float-cliq-icon { transform: scale(0.95); }
+</style>
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+</body>
+</html>

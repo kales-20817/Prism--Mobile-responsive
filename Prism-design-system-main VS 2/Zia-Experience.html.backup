@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zia Experience — UEMS Design System</title>
+<style>
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_thin.woff2') format('woff2'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extralight.woff2') format('woff2'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrabold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrablack.woff2') format('woff2'); font-weight: 950; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular_italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold_italic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold_italic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --prism-black: #0a0a0c; --prism-violet: #2563eb; --prism-violet-light: #60a5fa;
+    --prism-fuchsia: #0ea5e9; --prism-cyan: #06b6d4;
+    --prism-surface: rgba(255, 255, 255, 0.05); --prism-surface-hover: rgba(255, 255, 255, 0.09);
+    --prism-border: rgba(255, 255, 255, 0.07); --prism-text: rgba(255, 255, 255, 0.92);
+    --prism-text-muted: rgba(255, 255, 255, 0.48); --nav-bg: rgba(10,10,12,0.75);
+    --nav-link-color: var(--prism-text-muted);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 10px rgba(37, 99, 235, 0.3));
+  }
+  [data-theme="light"] {
+    --prism-black: #ffffff; --prism-violet: #2563eb; --prism-violet-light: #1d4ed8;
+    --prism-fuchsia: #0284c7; --prism-cyan: #0891b2;
+    --prism-surface: rgba(37, 99, 235, 0.028); --prism-surface-hover: rgba(37, 99, 235, 0.055);
+    --prism-border: rgba(37, 99, 235, 0.10); --prism-text: #1a1a2e; --prism-text-muted: #64748b;
+    --nav-bg: rgba(255, 255, 255, 0.82);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 12px rgba(37, 99, 235, 0.25)); --nav-link-color: #475569;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body { font-family: 'Zoho Puvi', sans-serif; background: var(--prism-black); color: var(--prism-text); transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease; }
+  [data-theme="light"] body { background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%); }
+  [data-theme="light"] .nav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+  [data-theme="light"] .nav.scrolled { background: rgba(255, 255, 255, 0.78); border-bottom: 1px solid rgba(37, 99, 235, 0.06); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04), 0 4px 24px rgba(37, 99, 235, 0.03); }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  [data-theme="light"] .sidebar { border-right: 1px solid rgba(37, 99, 235, 0.06); background: linear-gradient(180deg, rgba(248, 250, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%); }
+  [data-theme="light"] .foundation-link { color: #64748b; }
+  [data-theme="light"] .foundation-link:hover { color: #1e293b; background: rgba(37, 99, 235, 0.05); }
+  [data-theme="light"] .foundation-link.active { color: #2563eb; background: rgba(37, 99, 235, 0.06); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08); }
+  [data-theme="light"] .sidebar-search { background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(37, 99, 235, 0.10); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  [data-theme="light"] .sidebar-search:focus-within { background: #fff; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10), 0 2px 8px rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .icon-btn { color: #94a3b8; }
+  [data-theme="light"] .icon-btn:hover { color: #1e293b; background: rgba(37, 99, 235, 0.06); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+  [data-theme="light"] .nav-links a { color: #64748b; }
+  [data-theme="light"] .nav-links a:hover { color: #1e293b; background: rgba(37, 99, 235, 0.05); }
+  [data-theme="light"] .nav-links a.active { color: #2563eb; background: rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .feedback-banner { background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(37, 99, 235, 0.12); box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .feedback-btn { background: #fff; border: 1px solid rgba(37, 99, 235, 0.12); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04); }
+  [data-theme="light"] .feedback-btn.primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-color: transparent; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25); }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .nav-logo { display: inline-flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+  .nav-logo-img { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+  .nav-logo-text { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+   .nav-logo-mark { font-size: 26px; font-weight: 900; letter-spacing: 0.02em; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-right: 0.1em; padding-bottom: 0.05em; line-height: 1; }
+  .nav-logo-sub { font-size: 10px; font-weight: 600; color: var(--prism-text-muted); letter-spacing: 0.08em; text-transform: none; margin-top: 2px; }
+  .nav-logo-sub .caps { text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a { color: var(--nav-link-color, var(--prism-text-muted)); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 999px; transition: all 0.3s ease; border: none; }
+  .nav-links a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-links a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); border: none; }
+  .icon-btn { background: transparent; border: none; cursor: pointer; color: var(--prism-text-muted); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; margin-left: 4px; }
+  .icon-btn:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+
+  .components-layout { display: block; width: 100%; padding-top: 72px; min-height: 100vh; }
+  .sidebar { grid-column: 1; grid-row: 1; width: 260px; border-right: 1px solid var(--prism-border); padding: 32px 24px 64px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--prism-border); border-radius: 4px; }
+  .sidebar-heading { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; padding-left: 12px; }
+  .sidebar, .toc-sidebar { background: transparent; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  .sidebar-search { display: flex; align-items: center; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 999px; padding: 8px 16px; margin-bottom: 24px; transition: all 0.2s ease; }
+  .sidebar-search:focus-within { border-color: var(--prism-violet); background: transparent; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+  .sidebar-search svg { color: var(--prism-text-muted); }
+  .sidebar-search input { background: transparent; border: none; outline: none; color: var(--prism-text); font-family: inherit; font-size: 14px; width: 100%; margin-left: 10px; }
+  .sidebar-search input::placeholder { color: var(--prism-text-muted); }
+  .search-shortcut { font-size: 11px; font-weight: 600; color: var(--prism-text-muted); background: var(--prism-surface-hover); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--prism-border); }
+
+  .main-panel { padding: 48px 64px 0 64px; display: flex; flex-direction: column; max-width: 1200px; margin: 0 auto; width: 100%; }
+  .page-header-area { width: 100%; max-width: none; }
+  .page-title { font-size: 48px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding-right: 8px; padding-bottom: 4px; }
+  .page-desc { color: var(--prism-text); font-size: 20px; font-weight: 400; line-height: 1.5; margin-bottom: 32px; margin-top: 8px; max-width: 900px; }
+  .main-content-area { display: grid; grid-template-columns: 1fr 240px; gap: 0; flex: 1; align-items: start; }
+  .main-content-inner { padding-bottom: 64px; min-width: 0; }
+
+  .bg-glow { position: fixed; border-radius: 50%; width: 60vw; height: 60vh; filter: blur(140px); z-index: -1; pointer-events: none; opacity: 0.15; transition: opacity 0.6s ease, filter 0.6s ease; }
+  .glow-1 { top: -20%; right: -10%; background: var(--prism-violet); }
+  .glow-2 { bottom: -20%; left: -10%; background: var(--prism-cyan); }
+  [data-theme="light"] .bg-glow { opacity: 0.09; filter: blur(180px); }
+
+  .foundation-nav { list-style: none; display: flex; flex-direction: column; gap: 4px; padding: 0; margin: 0; }
+  .foundation-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; font-size: 14px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+  .foundation-link:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .foundation-link.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); font-weight: 600; }
+
+  .toc-sidebar { width: 240px; padding: 20px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; align-self: start; }
+  .toc-heading { font-size: 11px; font-weight: 700; color: var(--prism-text); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .toc-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid var(--prism-border); padding-left: 16px; margin-left: 4px; line-height: 1.6; }
+  .toc-link { display: block; font-size: 13px; font-weight: 400; color: var(--prism-text-muted); text-decoration: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+  .toc-link:hover { color: var(--prism-text); }
+  .toc-link.active { color: var(--prism-violet); font-weight: 600; }
+  .quick-actions-card { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--prism-border); display: flex; flex-direction: column; gap: 4px; }
+  .quick-actions-title { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .action-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--prism-text-muted); text-decoration: none; padding: 6px 0; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .action-link:hover { color: var(--prism-text); transform: translateX(2px); }
+  .action-link:hover svg { opacity: 1; color: var(--prism-violet); }
+
+  .feedback-banner { margin-top: 72px; padding: 32px; border-radius: 16px; background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.06) 100%); border: 1px solid var(--prism-border); display: flex; align-items: center; justify-content: space-between; }
+  .feedback-banner .fb-text { font-size: 16px; font-weight: 600; color: var(--prism-text); }
+  .feedback-banner .fb-sub { font-size: 13.5px; color: var(--prism-text-muted); margin-top: 4px; }
+  .feedback-btn { padding: 10px 28px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; border: 1px solid var(--prism-border); background: var(--prism-surface); color: var(--prism-text); }
+  .feedback-btn.primary { background: var(--prism-violet); color: #fff; border-color: var(--prism-violet); }
+  .feedback-btn.primary:hover { background: #1d4ed8; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3); transform: translateY(-1px); }
+
+  /* Documentation Content Styles */
+  
+  h2[id] { font-size: 28px; font-weight: 700; color: var(--prism-text); margin-bottom: 16px; scroll-margin-top: 100px; }
+  .doc-h3 { font-size: 20px; font-weight: 600; color: var(--prism-text); margin-top: 32px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .doc-h4 { font-size: 16px; font-weight: 600; color: var(--prism-text); margin-top: 24px; margin-bottom: 12px; }
+  .main-content-inner p { font-size: 15px; line-height: 1.7; color: var(--prism-text-muted); margin-bottom: 16px; max-width: 720px; }
+  .doc-divider { border: none; border-top: 1px solid var(--prism-border); margin: 48px 0; }
+  .doc-list { list-style: none; padding: 0; margin: 0 0 24px 0; display: flex; flex-direction: column; gap: 8px; }
+  .doc-list li { font-size: 14.5px; line-height: 1.65; color: var(--prism-text-muted); padding: 10px 16px; padding-left: 28px; position: relative; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 8px; border-left: 3px solid var(--prism-violet); }
+  .doc-list li::before { content: ''; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--prism-violet); }
+  [data-theme="light"] .doc-list li { background: #fff; border: 1px solid rgba(37, 99, 235, 0.08); border-left: 3px solid var(--prism-violet); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04); }
+
+  /* Do / Don't cards */
+  .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; margin-bottom: 24px; }
+  .do-card, .dont-card { padding: 24px; border-radius: 12px; border: 1px solid var(--prism-border); background: var(--prism-surface); }
+  .do-card { border-top: 3px solid #22c55e; }
+  .dont-card { border-top: 3px solid #ef4444; }
+  [data-theme="light"] .do-card, [data-theme="light"] .dont-card { background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+  [data-theme="light"] .do-card { border-top: 3px solid #16a34a; }
+  [data-theme="light"] .dont-card { border-top: 3px solid #dc2626; }
+  .do-card .card-label, .dont-card .card-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .do-card .card-label { color: #22c55e; }
+  .dont-card .card-label { color: #ef4444; }
+  .do-card ul, .dont-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .do-card li, .dont-card li { font-size: 14px; line-height: 1.6; color: var(--prism-text-muted); padding-left: 20px; position: relative; }
+  .do-card li::before { content: '\2713'; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+  .dont-card li::before { content: '\2717'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+
+  /* Tone context cards */
+  .tone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; margin-bottom: 24px; }
+  .tone-card { padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; transition: all 0.25s ease; }
+  [data-theme="light"] .tone-card { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  .tone-card h4 { font-size: 15px; font-weight: 600; color: var(--prism-text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .tone-card p { font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.6; margin-bottom: 12px; }
+  .tone-card .tone-examples { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .tone-card .tone-examples li { font-size: 13.5px; color: var(--prism-text-muted); padding-left: 16px; position: relative; }
+  .tone-card .tone-examples li::before { content: '\2022'; position: absolute; left: 4px; color: var(--prism-violet); }
+
+  [data-theme="light"] .toc-sidebar { background: transparent; }
+  [data-theme="light"] .toc-link { color: #94a3b8; }
+  [data-theme="light"] .toc-link:hover { color: #475569; }
+  [data-theme="light"] .toc-link.active { color: #2563eb; font-weight: 600; }
+  [data-theme="light"] .toc-nav { border-left: 2px solid rgba(37, 99, 235, 0.08); }
+  [data-theme="light"] .quick-actions-card { border-top: 1px solid rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .action-link { color: #94a3b8; }
+  [data-theme="light"] .action-link:hover { color: #1e293b; }
+  [data-theme="light"] .doc-divider { border-top: 1px solid rgba(37, 99, 235, 0.06); }
+
+  /* State cards */
+  .state-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; margin-bottom: 24px; }
+  .state-card { padding: 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; border-left: 3px solid var(--prism-violet); }
+  [data-theme="light"] .state-card { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); border-left: 3px solid var(--prism-violet); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  .state-card strong { color: var(--prism-text); font-weight: 600; }
+  .state-card span { color: var(--prism-text-muted); font-size: 14px; }
+
+  /* Anatomy cards */
+  .anatomy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; margin-bottom: 24px; }
+  .anatomy-card { padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; }
+  [data-theme="light"] .anatomy-card { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  .anatomy-card h4 { font-size: 15px; font-weight: 600; color: var(--prism-text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .anatomy-card .anatomy-items { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .anatomy-card .anatomy-items li { font-size: 13px; color: var(--prism-text-muted); background: var(--prism-surface-hover); padding: 4px 12px; border-radius: 6px; border: 1px solid var(--prism-border); }
+
+  /* Spec table */
+  .spec-table { width: 100%; border-collapse: collapse; margin-top: 16px; margin-bottom: 24px; }
+  .spec-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--prism-border); }
+  .spec-table td:first-child { font-weight: 600; color: var(--prism-text); width: 40%; }
+  .spec-table td:last-child { color: var(--prism-text-muted); }
+
+  /* Use case cards */
+  .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; margin-bottom: 24px; }
+  .usecase-card { padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; transition: all 0.25s ease; }
+  [data-theme="light"] .usecase-card { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  .usecase-card h4 { font-size: 15px; font-weight: 600; color: var(--prism-text); margin-bottom: 8px; }
+  .usecase-card p { font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.6; margin: 0; }
+
+  /* Zia Window */
+  .zia-window { width:100%; border-radius:16px; overflow:hidden; background:#1a1a2e; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; }
+  [data-theme="light"] .zia-window { background:#ffffff; border-color:rgba(0,0,0,0.1); }
+  .zia-window-bar { display:flex; align-items:center; gap:8px; padding:12px 16px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); }
+  [data-theme="light"] .zia-window-bar { background:#f5f5f7; border-bottom-color:rgba(0,0,0,0.06); }
+  .zia-window-dot { width:12px; height:12px; border-radius:50%; }
+  .zia-window-body { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:40px 20px; }
+  .zia-typing-text { font-size:20px; font-weight:500; background:linear-gradient(270deg,#DB18C1 0%,#006AE6 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; white-space:nowrap; min-height:28px; }
+  .theme-container { background: #ffffff; }
+  :root:not([data-theme="light"]) .theme-container { background: #131318; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+  .zia-typing-text + .zia-input-wrap { margin-top:20px; }
+  .zia-input-wrap { width:100%; max-width:560px; position:relative; display:flex; flex-direction:column; gap:20px; background:#fff; border:1px solid transparent; border-radius:12px; padding:12px 12px 8px 12px; box-shadow:0 2px 12px rgba(0,0,0,0.06); background-image:linear-gradient(#fff,#fff),linear-gradient(180deg,rgba(219,24,193,0.8) 0%,rgba(0,106,230,0.8) 100%); background-origin:border-box; background-clip:padding-box,border-box; transition:box-shadow 0.3s; overflow:hidden; }
+  .zia-input-row { display:flex; align-items:center; justify-content:space-between; width:100%; }
+  .zia-input-wrap::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#FF38E4 0%,#3893FF 57%,#06A854 100%); border-radius:0 0 12px 12px; }
+  :root:not([data-theme="light"]) .zia-input-wrap { background-image:linear-gradient(#1a1a2e,#1a1a2e),linear-gradient(180deg,rgba(219,24,193,0.8) 0%,rgba(0,106,230,0.8) 100%); box-shadow:0 2px 12px rgba(0,0,0,0.2); }
+  .zia-input-wrap:focus-within { box-shadow:0 4px 24px rgba(219,24,193,0.15),0 2px 12px rgba(0,106,230,0.1); }
+  .zia-input-icons { display:flex; align-items:center; gap:8px; }
+  .zia-input-icons svg { color:#393D47; }
+  :root:not([data-theme="light"]) .zia-input-icons svg { color:#4a4d5a; }
+  .zia-input { flex:1; border:none; outline:none; background:transparent; font-size:14px; font-family:inherit; color:var(--prism-text); }
+  .zia-input::placeholder { color:#9ca3af; }
+  :root:not([data-theme="light"]) .zia-input { color:#e6e6ef; }
+  :root:not([data-theme="light"]) .zia-input::placeholder { color:#6b7280; }
+  .zia-text-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 8px; font-family:'Zoho Puvi',sans-serif; font-size:14px; font-weight:600; border:none; border-radius:8px; cursor:pointer; background:transparent; border:1.5px solid transparent; background-image:linear-gradient(var(--zia-btn-bg,#fff),var(--zia-btn-bg,#fff)),linear-gradient(180deg,#DB18C1 0%,#006AE6 100%); background-origin:border-box; background-clip:padding-box,border-box; transition:box-shadow 0.3s,transform 0.15s; }
+  :root:not([data-theme="light"]) .zia-text-btn { --zia-btn-bg:#1a1a2e; }
+  [data-theme="light"] .zia-text-btn { --zia-btn-bg:#ffffff; }
+  .zia-text-btn:hover { box-shadow:0 4px 20px rgba(219,24,193,0.2),0 2px 10px rgba(0,106,230,0.15); transform:translateY(-1px); }
+  .zia-text-btn .zia-btn-label { background:linear-gradient(90deg,#006AE6 0%,#DB18C1 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  :root:not([data-theme="light"]) .zia-text-btn .zia-btn-label { background:linear-gradient(90deg,#5293df 0%,#e534cd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .zia-text-btn .zia-btn-label-plain { color:var(--prism-text); }
+  :root:not([data-theme="light"]) .zia-sparkle-icon .zia-spark-path1,
+  :root:not([data-theme="light"]) .zia-sparkle-icon .zia-spark-path2 { fill:url(#zia-spark-dark); }
+  :root:not([data-theme="light"]) .zia-text-btn .zia-sparkle-icon { --spark-dark:1; }
+  .zia-send-btn { width:36px; height:36px; border-radius:50%; border:none; background:linear-gradient(180deg,#DB18C1 0%,#006AE6 100%); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; transition:transform 0.2s,box-shadow 0.2s; }
+  .zia-send-btn svg { transform:rotate(45deg); }
+  .zia-send-btn:hover { transform:scale(1.08); box-shadow:0 4px 16px rgba(219,24,193,0.3); }
+  .zia-chat { width:100%; max-width:880px; border-radius:12px; overflow:hidden; border:1px solid var(--prism-border); background:#fff; }
+  :root:not([data-theme="light"]) .zia-chat { background:#1a1a2e; }
+  .zia-chat-bar { display:flex; align-items:center; gap:8px; padding:10px 14px; border-bottom:1px solid var(--prism-border); }
+  .zia-chat-dot { width:8px; height:8px; border-radius:50%; }
+  .zia-chat-dot:nth-child(1) { background:#ff5f57; }
+  .zia-chat-dot:nth-child(2) { background:#ffbd2e; }
+  .zia-chat-dot:nth-child(3) { background:#28c840; }
+  .zia-chat-title { margin-left:8px; font-size:13px; font-weight:600; color:var(--prism-text); }
+  .zia-chat-body { padding:28px 24px 14px 24px; display:flex; flex-direction:column; align-items:center; gap:16px; max-width:500px; margin:0 0 0 auto; border:1px solid var(--prism-border); }
+  .zia-chat-hero { text-align:center; }
+  .zia-chat-hero img { width:30px; margin-bottom:8px; }
+  .zia-chat-hero h3 { font-size:20px; font-weight:600; background:linear-gradient(90deg,#8B5CF6,#EC4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:6px; }
+  .zia-chat-hero p { font-size:13px; color:var(--prism-text-muted); }
+  .zia-prompt-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; width:100%; margin-top:8px; margin-bottom:20px; }
+  .zia-prompt-card { padding:14px; border-radius:10px; border:1px solid var(--prism-border); background:var(--prism-surface); cursor:pointer; transition:border-color 0.2s,box-shadow 0.2s; }
+  .zia-prompt-card:not(.default):hover { border:1.5px solid transparent; background-image:linear-gradient(var(--zia-card-bg,#fff),var(--zia-card-bg,#fff)),linear-gradient(180deg,#DB18C1,#006AE6); background-origin:border-box; background-clip:padding-box,border-box; box-shadow:0 4px 16px rgba(219,24,193,0.12),0 2px 8px rgba(0,106,230,0.1); transform:translateY(-2px); }
+  :root:not([data-theme="light"]) .zia-prompt-card:not(.default):hover { --zia-card-bg:#1a1a2e; }
+  .zia-prompt-card.default { padding:14px; border-radius:10px; border:1px solid var(--prism-border); background:var(--prism-surface); cursor:pointer; transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s; }
+  .zia-prompt-card.default:hover { border:1.5px solid transparent; background-image:linear-gradient(var(--zia-card-bg,#fff),var(--zia-card-bg,#fff)),linear-gradient(180deg,#DB18C1,#006AE6); background-origin:border-box; background-clip:padding-box,border-box; box-shadow:0 4px 16px rgba(219,24,193,0.12),0 2px 8px rgba(0,106,230,0.1); transform:translateY(-2px); }
+  :root:not([data-theme="light"]) .zia-prompt-card.default { --zia-card-bg:#1a1a2e; }
+  .zia-prompt-card-title { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--prism-text); margin-bottom:6px; }
+  .zia-prompt-card-title svg { flex-shrink:0; }
+  .zia-prompt-card-desc { font-size:11px; color:var(--prism-text-muted); line-height:1.5; }
+  .zia-chat-footer { padding:10px 14px; }
+  .zia-chat-footer .zia-input-wrap { width:100%; max-width:100%; }
+  .zia-sidebar { width:100%; max-width:320px; border-radius:12px; overflow:hidden; border:1px solid var(--prism-border); background:#fff; display:flex; flex-direction:column; }
+  :root:not([data-theme="light"]) .zia-sidebar { background:#131318; }
+  .zia-sidebar-header { display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--prism-border); }
+  .zia-sidebar-header img { width:24px; }
+  .zia-sidebar-header span { font-size:14px; font-weight:600; color:var(--prism-text); }
+  .zia-sidebar-body { padding:12px; display:flex; flex-direction:column; gap:4px; }
+  .zia-sidebar-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; font-size:13px; color:var(--prism-text); cursor:pointer; transition:background 0.2s; }
+  .zia-sidebar-item:hover { background:var(--prism-surface-hover); }
+  .zia-sidebar-item.active { background:var(--prism-surface); font-weight:600; }
+  .zia-sidebar-item svg { flex-shrink:0; color:var(--prism-text-muted); }
+  .zia-sidebar-divider { height:1px; background:var(--prism-border); margin:8px 0; }
+  .zia-sidebar-footer { padding:12px 16px; border-top:1px solid var(--prism-border); margin-top:auto; }
+  .zia-sidebar-new { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid var(--prism-border); background:transparent; color:var(--prism-text); font-size:13px; font-family:inherit; cursor:pointer; width:100%; transition:background 0.2s; }
+  .zia-sidebar-new:hover { background:var(--prism-surface-hover); }
+  .zia-search-wrap { width:100%; max-width:480px; }
+  .zia-search-bar { display:flex; align-items:center; padding:10px 14px; border-radius:6px; border:1px solid transparent; background-image:linear-gradient(var(--zia-search-bg,#fff),var(--zia-search-bg,#fff)),linear-gradient(180deg,rgba(219,24,193,0.6),rgba(0,106,230,0.6)); background-origin:border-box; background-clip:padding-box,border-box; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  :root:not([data-theme="light"]) .zia-search-bar { --zia-search-bg:#131318; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+  .zia-search-bar input { flex:1; border:none; outline:none; background:transparent; font-size:14px; font-family:inherit; color:var(--prism-text); margin-left:10px; }
+  .zia-search-bar input::placeholder { color:#72798F; }
+  .zia-search-toggle { display:flex; align-items:center; gap:8px; margin-left:auto; padding-left:10px; }
+  .zia-search-pill { width:40px; height:20px; border-radius:10px; background:#D5D7DD; position:relative; cursor:pointer; flex-shrink:0; transition:background 0.3s; }
+  .zia-search-pill::after { content:''; position:absolute; left:2px; top:2px; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.2); transition:transform 0.3s; }
+  .zia-search-pill.active { background:linear-gradient(90deg,#DB18C1,#006AE6); opacity:0.8; }
+  .zia-search-pill.active::after { transform:translateX(20px); }
+  .zia-search-results { margin-top:6px; border-radius:6px; border:1px solid #FFC6F7; background:var(--zia-search-bg,#fff); padding:12px; display:flex; flex-direction:column; gap:6px; max-height:0; overflow:hidden; opacity:0; padding:0 12px; border-color:transparent; transition:max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, border-color 0.3s ease; }
+  .zia-search-results.visible { max-height:300px; opacity:1; padding:12px; border-color:#FFC6F7; }
+  :root:not([data-theme="light"]) .zia-search-results { background:#131318; border-color:rgba(255,198,247,0.3); }
+  .zia-search-item { display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:6px; border:0.5px solid #D5D7DD; font-size:13px; color:#505564; cursor:pointer; transition:border-color 0.2s,box-shadow 0.2s; }
+  :root:not([data-theme="light"]) .zia-search-item { color:var(--prism-text-muted); border-color:var(--prism-border); }
+  .zia-search-item.highlight { border:0.5px solid transparent; background-image:linear-gradient(var(--zia-search-bg,#fff),var(--zia-search-bg,#fff)),linear-gradient(180deg,rgba(219,24,193,0.7),rgba(0,106,230,0.7)); background-origin:border-box; background-clip:padding-box,border-box; }
+  :root:not([data-theme="light"]) .zia-search-item.highlight { --zia-search-bg:#131318; }
+  .zia-search-item:not(.highlight):hover { border-color:rgba(219,24,193,0.4); }
+
+  /* Zia Tab */
+  .zia-tab-bar { display:flex; align-items:center; gap:0; background:#F4F5FA; border-radius:8px; padding:4px; width:100%; max-width:620px; }
+  :root:not([data-theme="light"]) .zia-tab-bar { background:#1e1e24; }
+  .zia-tab-item { display:flex; align-items:center; justify-content:center; gap:6px; padding:8px 16px; font-family:'Zoho Puvi',sans-serif; font-size:13px; font-weight:500; color:#72798F; border-radius:6px; cursor:pointer; border:1.5px solid transparent; background:transparent; transition:all 0.2s; white-space:nowrap; flex:1; }
+  .zia-tab-item:hover { color:var(--prism-text); background:rgba(255,255,255,0.5); }
+  :root:not([data-theme="light"]) .zia-tab-item:hover { background:rgba(255,255,255,0.05); }
+  .zia-tab-item.active { background-image:linear-gradient(#fff,#fff),linear-gradient(180deg,rgba(219,24,193,0.6),rgba(0,106,230,0.6)); background-origin:border-box; background-clip:padding-box,border-box; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+  :root:not([data-theme="light"]) .zia-tab-item.active { background-image:linear-gradient(#1e1e24,#1e1e24),linear-gradient(180deg,rgba(219,24,193,0.6),rgba(0,106,230,0.6)); box-shadow:0 1px 4px rgba(0,0,0,0.2); }
+  .zia-tab-item.active .zia-tab-label, .zia-tab-item:first-child .zia-tab-label { background:linear-gradient(90deg,#006AE6 0%,#DB18C1 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:600; }
+  :root:not([data-theme="light"]) .zia-tab-item.active .zia-tab-label, :root:not([data-theme="light"]) .zia-tab-item:first-child .zia-tab-label { background:linear-gradient(90deg,#5293df 0%,#e534cd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .zia-tab-item.active-blue { background:linear-gradient(270deg,#0D48C1 0%,#006AFF 100%); border-color:transparent; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+  .zia-tab-item.active-blue .zia-tab-label { color:#fff; -webkit-text-fill-color:#fff; background:none; font-weight:600; }
+  :root:not([data-theme="light"]) .zia-tab-item.active-blue { box-shadow:0 1px 4px rgba(0,0,0,0.2); }
+  :root:not([data-theme="light"]) .zia-error-popover { background:#1e1e24 !important; border-color:rgba(255,198,247,0.3) !important; }
+  :root:not([data-theme="light"]) .zia-error-popover p { color:var(--prism-text-muted) !important; }
+  :root:not([data-theme="light"]) .zia-error-popover ul { color:var(--prism-text-muted) !important; }
+  :root:not([data-theme="light"]) .zia-error-popover p[style*="font-weight:700"] { color:var(--prism-text) !important; }
+  :root:not([data-theme="light"]) .zia-error-popover div[style*="inline-flex"] { color:#c9ccd8 !important; }
+  :root:not([data-theme="light"]) .zia-error-arrow { background:#1e1e24 !important; border-color:rgba(255,198,247,0.3) !important; }
+  .zia-fix-btn:hover { box-shadow:0 4px 12px rgba(219,24,193,0.15); transform:translateY(-1px); }
+  :root:not([data-theme="light"]) .zia-fix-btn { --zia-fix-bg:#1e1e24; color:#c9ccd8 !important; }
+
+  /* ══ Mobile responsive (added globally) ══ */
+  .nav-hamburger { display: none; background: transparent; border: none; color: var(--prism-text); padding: 8px; margin-right: 8px; cursor: pointer; border-radius: 8px; align-items: center; justify-content: center; }
+  .nav-hamburger:hover { background: var(--prism-surface-hover); }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; opacity: 0; transition: opacity 0.25s ease; }
+  .sidebar-backdrop.open { display: block; opacity: 1; }
+  .sidebar-mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 16px; height: 64px; justify-content: flex-start; gap: 4px; }
+    .nav-links { margin-left: auto; }
+    .nav-hamburger { display: inline-flex; order: -1; margin-right: 4px; }
+    .nav-logo-mark { font-size: 22px; }
+    .nav-logo-sub { font-size: 9px; }
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > div[style] { display: none !important; }
+    .nav-links { gap: 0; }
+
+    .components-layout { display: block; padding-top: 64px; grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 64px; left: 0; width: 300px; max-width: 86vw; height: calc(100vh - 64px); max-height: none; padding: 20px 18px 32px; border-right: 1px solid var(--prism-border); border-bottom: none; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 96; background: var(--prism-black); }
+    [data-theme="light"] .sidebar { background: #ffffff; }
+    .sidebar.open { transform: translateX(0); box-shadow: 12px 0 40px rgba(0,0,0,0.25); }
+    body.sidebar-locked { overflow: hidden; }
+
+    .sidebar-mobile-nav { display: block; margin: 0 -18px 16px; padding: 0 18px 18px; border-bottom: 1px solid var(--prism-border); }
+    .sidebar-mobile-nav h4 { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 4px; }
+    .sidebar-mobile-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-mobile-nav a { display: block; padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+    .sidebar-mobile-nav a:hover { background: var(--prism-surface-hover); color: var(--prism-violet); }
+    .sidebar-mobile-nav a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); }
+
+    .main-panel { padding: 24px 20px 48px; grid-column: auto; grid-row: auto; }
+    /* mobile-width-safety v4 — collapse any inline grid on narrow viewports */
+    .main-panel, .main-content-inner, .main-content-area { max-width: 100%; width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner > *, .doc-section, .doc-section > * { max-width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner img, .main-content-inner svg:not(.inline-svg) { max-width: 100%; height: auto; }
+    .main-content-inner pre, .main-content-inner code { white-space: pre-wrap; word-break: break-word; }
+    .main-content-inner pre { overflow-x: auto; }
+    .anatomy-diagram { overflow: visible !important; padding: 48px 40px !important; zoom: 0.82; }
+    .anatomy-diagram > * { max-width: 100%; }
+    .demo-container { overflow: hidden; }
+    .demo-canvas { padding: 32px 20px !important; overflow-x: auto; }
+    .code-playground, .cp-code-area { overflow-x: auto; }
+    /* Foundation inner-page grids: collapse every multi-column inline grid */
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: repeat(4, 1fr)"],
+    [style*="grid-template-columns: repeat(5, 1fr)"],
+    [style*="grid-template-columns: repeat(6, 1fr)"],
+    [style*="grid-template-columns: 320px 1fr"],
+    [style*="grid-template-columns: 280px 1fr"],
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+    /* Flex rows with heavy fixed widths should wrap */
+    [style*="display: flex"][style*="gap"] { flex-wrap: wrap; }
+    .main-content-area { display: flex; flex-direction: column; grid-template-columns: 1fr; }
+    .main-content-inner { padding-bottom: 32px; }
+    .toc-sidebar { display: none; }
+
+    .page-header-area .page-title,
+    .page-title { font-size: 30px; line-height: 1.15; }
+    .page-desc { font-size: 16px; }
+    .doc-section h2, .doc-section-title { font-size: 22px; }
+
+    .do-dont-grid,
+    .illus-type-grid,
+    .comp-grid,
+    .density-grid,
+    .illus-showcase-grid,
+    .pattern-category-grid,
+    .tone-grid,
+    .voice-traits,
+    .principles-grid,
+    .theme-grid,
+    .message-grid,
+    .weight-grid,
+    .pattern-grid,
+    .collection-grid,
+    .anti-pattern-list,
+    .dodont-grid,
+    .icon-metaphor-grid { grid-template-columns: 1fr !important; }
+
+    table { display: block; overflow-x: auto; }
+    .size-table, .token-table, .anatomy-table, .doc-table, .tone-table { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+
+    .feedback-banner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .illus-type-card { grid-template-columns: 1fr !important; }
+    .illus-type-preview { min-height: 180px; padding: 24px 16px; }
+
+    /* Component detail page grids */
+    .state-grid,
+    .anatomy-grid,
+    .usecase-grid,
+    .anat-legend,
+    /* Zia Experience hub grids */
+    .zia-prompt-grid,
+    /* Resource hub grids */
+    .lib-grid,
+    .lib-grid-logo,
+    .lib-grid-illust { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* Inline-styled 2- or 3-column grids */
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Resource hub outer padding */
+    .page-content { padding: 88px 16px 48px !important; }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 0 12px; height: 60px; }
+    .components-layout { padding-top: 60px; }
+    .sidebar { top: 60px; height: calc(100vh - 60px); }
+    .nav-logo-mark { font-size: 20px; }
+    .main-panel { padding: 18px 14px 36px; }
+    /* mobile-width-safety v3 */
+    .main-panel { padding: 16px 10px 24px !important; }
+    .anatomy-diagram { padding: 40px 28px !important; overflow: visible !important; zoom: 0.66; }
+    .demo-canvas { padding: 24px 12px !important; }
+    .page-header-area .page-title,
+    .page-title { font-size: 26px; }
+    .page-desc { font-size: 15px; }
+    .sidebar-heading { font-size: 10px; }
+    .search-shortcut { display: none; }
+    .page-content { padding: 72px 12px 32px !important; }
+  }
+
+  /* Zia-specific mobile adjustments */
+  @media (max-width: 900px) {
+    .zia-chat-body { max-width: 100% !important; margin: 0 auto !important; padding: 20px 16px 12px 16px !important; }
+    .zia-chat-bar { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
+    .zia-chat { max-width: 100% !important; }
+    .zia-input-wrap { max-width: 100% !important; }
+    .zia-error-popover { max-width: 100% !important; width: 100% !important; }
+    .zia-sidebar { max-width: 100% !important; }
+    .zia-input-row { flex-wrap: wrap; gap: 8px; }
+    .zia-input-icons { flex-wrap: wrap; }
+  }
+  @media (max-width: 600px) {
+    .zia-chat-body { padding: 16px 12px 10px 12px !important; }
+    .zia-chat-hero h3 { font-size: 18px; }
+    .zia-prompt-card { padding: 12px !important; }
+  }
+
+</style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="zia-spark-dark" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5293df"/><stop offset="100%" stop-color="#e534cd"/></linearGradient></defs></svg>
+  <div id="bg-glow" class="bg-glow glow-1"></div>
+  <div id="bg-glow-2" class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+      <span class="nav-logo-text">
+        <span class="nav-logo-mark">Prism</span>
+        <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+      </span>
+    </a>
+    <div id="nav-links" class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html">Components</a>
+      <a href="zia-experience.html" class="active">Zia Experience</a><a href="llm-reference.html">LLM Reference</a>
+      <div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div id="div" style="width: 16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="components-layout" class="components-layout">
+    <main class="main-panel">
+      <div id="page-header-area" class="page-header-area">
+        <h1 class="page-title">Zia Experience</h1>
+        <p class="page-desc">Design guidelines for integrating Zia AI experiences into Endpoint Central to help IT admins understand, prioritize, and act on endpoint insights faster.</p>
+      </div>
+
+      <div id="main-content-area" class="main-content-area">
+        <div id="main-content-inner" class="main-content-inner">
+
+          <!-- Overview 1 -->
+                      <h2 id="overview-intro">Zia Logo</h2>
+            <p>Zia brings intelligence directly into endpoint workflows, helping IT teams quickly understand device health, prioritize risks, and take the right action with confidence.</p>
+          <div id="div-2" class="theme-container" style="border-radius:16px;padding:34px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <img src="assets/zia-logo.png" alt="Zia Logo" style="width:30px;display:block;">
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Overview 2 -->
+                      <h2 id="overview">Zia Input Field</h2>
+            <p>Ask Zia anything about your endpoint environment—from device health and patch failures to compliance drift, vulnerabilities, and remediation steps.</p>
+          <div id="div-3" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-input-wrap">
+              <input type="text" class="zia-input" placeholder="Ask Zia anything..." />
+              <div class="zia-input-row">
+                <div class="zia-input-icons">
+                  <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.42881" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5312 5L7.57602 16.108"/></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+                </div>
+                <button class="zia-send-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Ask Zia -->
+          <h2 id="ask-zia">Ask Zia</h2>
+          <p>A full conversational interface where users can ask questions, receive intelligent answers, and take guided actions on their endpoint environment.</p>
+          <div id="div-5" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-chat">
+              <div class="zia-chat-bar">
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-title">Zia Assistant</span>
+              </div>
+              <div class="zia-chat-body" style="max-width:100%;margin:0 auto;gap:22px;border:none;padding:40px 40px 20px 40px;">
+                <div class="zia-chat-hero">
+                  <img src="assets/zia-logo.png" alt="Zia">
+                  <h3>How can we assist you?</h3>
+                  <p>Choose a prompt below or write your own to start chatting with Zia</p>
+                </div>
+                <div class="zia-prompt-grid" style="grid-template-columns:repeat(3,1fr);">
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Patch Management</div>
+                    <div class="zia-prompt-card-desc">Analyzes historical patch data, CVE trends, and exploit databases &amp; more.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> Remote Troubleshooting</div>
+                    <div class="zia-prompt-card-desc">Runs diagnostics and either resolves it, escalates with logs &amp; more.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security &amp; Compliance</div>
+                    <div class="zia-prompt-card-desc">Scans endpoint behavior, logs, network activity &amp; more</div>
+                  </div>
+                  <div class="zia-prompt-card default">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> Configuration</div>
+                    <div class="zia-prompt-card-desc">Analyzes device usage, security gaps, Suggests optimal config policies.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3h-8l-2 4h12l-2-4z"/></svg> Asset Management</div>
+                    <div class="zia-prompt-card-desc">Predicts when hardware will fail, tracks actual usage &amp; more.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Others</div>
+                    <div class="zia-prompt-card-desc">BitLocker management, browser security controls &amp; more.</div>
+                  </div>
+                </div>
+                <div class="zia-input-wrap" style="max-width:100%;">
+                  <input type="text" class="zia-input" placeholder="Ask Zia assist" />
+                  <div class="zia-input-row">
+                    <div class="zia-input-icons">
+                      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.42881" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5312 5L7.57602 16.108"/></svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+                    </div>
+                    <button class="zia-send-btn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Zia Button -->
+          <h2 id="zia-button">Zia Button</h2>
+          <p>A quick-access button that lets users invoke Zia from anywhere in the interface with a single click.</p>
+          <div id="div-4" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <button class="zia-text-btn">
+              <svg class="zia-sparkle-icon" width="24" height="24" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="zia-spark1" x1="0" y1="5" x2="13" y2="5.8" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                  <linearGradient id="zia-spark2" x1="9.3" y1="1.3" x2="15.9" y2="1.7" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                </defs>
+                <path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark1)"/>
+                <path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark2)"/>
+              </svg>
+              <span class="zia-btn-label">Zia Workflow</span>
+            </button>
+            <div style="width:16px;"></div>
+            <button class="zia-text-btn">
+              <svg class="zia-sparkle-icon" width="24" height="24" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="zia-spark3" x1="0" y1="5" x2="13" y2="5.8" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                  <linearGradient id="zia-spark4" x1="9.3" y1="1.3" x2="15.9" y2="1.7" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                </defs>
+                <path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark3)"/>
+                <path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark4)"/>
+              </svg>
+            </button>
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Zia Sidebar -->
+          <h2 id="zia-sidebar">Zia Sidebar</h2>
+          <p>A persistent side panel that keeps Zia accessible alongside your workflow, displaying conversation history and quick access to previous sessions.</p>
+          <div id="div-6" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-chat">
+              <div class="zia-chat-bar">
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-dot"></span>
+                <span class="zia-chat-title">Zia Assistant</span>
+              </div>
+              <div class="zia-chat-body">
+                <div class="zia-chat-hero">
+                  <img src="assets/zia-logo.png" alt="Zia">
+                  <h3>How can we assist you?</h3>
+                  <p>Choose a prompt below or write your own to start chatting with Zia</p>
+                </div>
+                <div class="zia-prompt-grid">
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Patch Management</div>
+                    <div class="zia-prompt-card-desc">Analyzes historical patch data, CVE trends, and exploit databases &amp; more.</div>
+                  </div>
+                  <div class="zia-prompt-card default">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg> Configuration</div>
+                    <div class="zia-prompt-card-desc">Analyzes device usage, security gaps, Suggests optimal config policies.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3h-8l-2 4h12l-2-4z"/></svg> Asset Management</div>
+                    <div class="zia-prompt-card-desc">Predicts when hardware will fail, tracks actual usage &amp; more.</div>
+                  </div>
+                  <div class="zia-prompt-card">
+                    <div class="zia-prompt-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Others</div>
+                    <div class="zia-prompt-card-desc">BitLocker management, browser security controls &amp; more.</div>
+                  </div>
+                </div>
+                <div class="zia-input-wrap">
+                  <input type="text" class="zia-input" placeholder="Ask Zia assist" />
+                  <div class="zia-input-row">
+                    <div class="zia-input-icons">
+                      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.42881" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5312 5L7.57602 16.108"/></svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+                    </div>
+                    <button class="zia-send-btn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Zia Search -->
+          <h2 id="zia-search">Zia Search</h2>
+          <p>An intelligent search interface powered by Zia that helps users quickly find devices, policies, patches, and configurations across their endpoint environment.</p>
+          <div id="div-7" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-search-wrap">
+              <div class="zia-search-bar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#505564" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" placeholder="Search" />
+                <div class="zia-search-toggle">
+                  <svg class="zia-sparkle-icon" width="18" height="18" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="zia-spark-s1" x1="0" y1="5" x2="13" y2="5.8" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                      <linearGradient id="zia-spark-s2" x1="9.3" y1="1.3" x2="15.9" y2="1.7" gradientUnits="userSpaceOnUse"><stop stop-color="#1D69D4"/><stop offset="1" stop-color="#B71BD9"/></linearGradient>
+                    </defs>
+                    <path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/>
+                    <path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/>
+                  </svg>
+                  <div class="zia-search-pill"></div>
+                </div>
+              </div>
+              <div class="zia-search-results">
+                <p style="margin:0 0 4px 0;font-size:13px;font-weight:500;color:#505564;">Few Suggestions</p>
+                <div class="zia-search-item">
+                  <svg class="zia-sparkle-icon" width="14" height="14" viewBox="0 0 15.28 15.28" fill="none"><path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/><path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/></svg>
+                  Fetch new Vulnerability detected in the last 24 hours.
+                </div>
+                <div class="zia-search-item highlight">
+                  <svg class="zia-sparkle-icon" width="14" height="14" viewBox="0 0 15.28 15.28" fill="none"><path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/><path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/></svg>
+                  Show all vulnerabilities with a Risk score above 9
+                </div>
+                <div class="zia-search-item" style="max-width:55%">
+                  <svg class="zia-sparkle-icon" width="14" height="14" viewBox="0 0 15.28 15.28" fill="none"><path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/><path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/></svg>
+                  List out automated patches
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zia Tab -->
+          <h2 id="zia-tab">Zia Tab</h2>
+          <p>A dedicated Zia tab that provides a centralized AI-powered workspace for managing endpoint tasks, insights, and recommendations within the console.</p>
+          <div id="div-8" class="theme-container" style="border-radius:16px;padding:24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-tab-bar">
+              <div class="zia-tab-item active">
+                <svg class="zia-sparkle-icon" width="16" height="16" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/>
+                  <path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/>
+                </svg>
+                <span class="zia-tab-label">Zia Insight</span>
+              </div>
+              <div class="zia-tab-item">
+                <span class="zia-tab-label">Configuration Details</span>
+              </div>
+              <div class="zia-tab-item">
+                <span class="zia-tab-label">Execution Status</span>
+              </div>
+              <div class="zia-tab-item">
+                <span class="zia-tab-label">Replication Details</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zia Error -->
+          <h2 id="zia-notification">Zia Error</h2>
+          <p>AI-powered error detection and resolution suggestions from Zia that help admins quickly identify misconfigurations and apply fixes across their endpoint environment.</p>
+          <div id="div-9" class="theme-container" style="border-radius:16px;padding:48px 24px;border:1px solid var(--prism-border);box-shadow:0 4px 24px rgba(0,0,0,0.08);width:100%;display:flex;justify-content:center;margin-bottom:40px;">
+            <div class="zia-error-wrap" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;max-width:560px;width:100%;position:relative;">
+              <!-- Input field -->
+              <div style="display:flex;align-items:center;gap:16px;width:100%;">
+                <label style="font-size:14px;font-weight:500;color:var(--prism-text-muted);white-space:nowrap;">Port (Outgoing)</label>
+                <input type="text" value="25" style="flex:1;padding:8px 14px;border:1px solid var(--prism-border);border-radius:6px;background:var(--prism-surface);color:var(--prism-text);font-family:inherit;font-size:14px;outline:none;" />
+              </div>
+              <!-- Warning message -->
+              <div style="display:flex;align-items:center;gap:6px;margin-left:126px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L1 21h22L12 2z" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="10" x2="12" y2="14" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="#ef4444"/></svg>
+                <span style="font-size:13px;font-weight:600;color:#ef4444;">Verify the entered Mail Server Port!</span>
+                <svg class="zia-sparkle-icon" width="16" height="16" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/>
+                  <path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/>
+                </svg>
+              </div>
+              <!-- Zia popover -->
+              <div style="position:relative;margin-left:126px;margin-top:4px;width:100%;max-width:400px;">
+                <!-- Arrow pointing up to zia-sparkle-icon (end of warning row) -->
+                <div class="zia-error-arrow" style="position:absolute;top:-8px;left:262px;width:16px;height:16px;background:#fff;border-left:1px solid #FFC6F7;border-top:1px solid #FFC6F7;border-right:none;border-bottom:none;transform:rotate(45deg);z-index:1;"></div>
+                <div class="zia-error-popover" style="position:relative;z-index:2;border:1px solid #FFC6F7;border-radius:10px;background:#fff;padding:20px 24px;width:100%;max-width:400px;box-shadow:0 4px 20px rgba(219,24,193,0.08);">
+                  <p style="font-size:13px;line-height:1.65;color:#505564;margin:0 0 14px 0;">The Port (Outgoing) field determines which network port your mail server uses to send emails (SMTP/SMTPS).</p>
+                  <p style="font-size:13px;font-weight:700;color:#1a1a2e;margin:0 0 8px 0;">Depending on your configuration:</p>
+                  <ul style="margin:0 0 16px 18px;padding:0;font-size:13px;line-height:1.7;color:#505564;">
+                    <li>SMTP (non-encrypted): 25 or sometimes 587</li>
+                    <li>SMTPS (SSL/TLS): 465</li>
+                    <li>STARTTLS: 587</li>
+                  </ul>
+                  <p style="font-size:13px;font-weight:700;color:#1a1a2e;margin:0 0 8px 0;">Auto Suggestion</p>
+                  <div class="zia-fix-btn" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1.5px solid transparent;border-radius:8px;cursor:pointer;font-size:13px;color:#505564;transition:all 0.2s;background-image:linear-gradient(var(--zia-fix-bg,#fff),var(--zia-fix-bg,#fff)),linear-gradient(180deg,rgba(219,24,193,0.5),rgba(0,106,230,0.5));background-origin:border-box;background-clip:padding-box,border-box;">
+                    <svg class="zia-sparkle-icon" width="14" height="14" viewBox="0 0 15.28 15.28" fill="none"><path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/><path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/></svg>
+                    How to fix this port error
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider">
+
+          <!-- Core Principles -->
+                      <h2 id="core-principles">Core Principles</h2>
+
+            <div id="tone-grid" class="tone-grid">
+              <div id="tone-card" class="tone-card">
+                <h4>1. Context-first intelligence</h4>
+                <p>Zia must use device, user, policy, patch, vulnerability, and remediation context before generating output.</p>
+              </div>
+              <div id="tone-card-2" class="tone-card">
+                <h4>2. Explainable recommendations</h4>
+                <p>Every AI suggestion should answer:</p>
+                <ul class="tone-examples">
+                  <li>Why this issue matters</li>
+                  <li>What caused it</li>
+                  <li>What happens next</li>
+                  <li>What action is recommended</li>
+                </ul>
+              </div>
+              <div id="tone-card-3" class="tone-card">
+                <h4>3. Human-controlled automation</h4>
+                <p>Zia assists admins but should never silently apply risky endpoint actions.</p>
+              </div>
+              <div id="tone-card-4" class="tone-card">
+                <h4>4. Workflow acceleration</h4>
+                <p>Zia should reduce:</p>
+                <ul class="tone-examples">
+                  <li>Alert triage time</li>
+                  <li>Device troubleshooting time</li>
+                  <li>Patch prioritization effort</li>
+                  <li>Report generation effort</li>
+                  <li>Root-cause analysis time</li>
+                </ul>
+              </div>
+            </div>
+          
+          <hr class="doc-divider">
+
+          <!-- Usage Guidelines -->
+                      <h2 id="usage-guidelines">Usage Guidelines</h2>
+            <div id="do-dont-grid" class="do-dont-grid">
+              <div id="do-card" class="do-card">
+                <div id="card-label" class="card-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Do</div>
+                <ul>
+                  <li>Place Zia near decision-heavy workflows</li>
+                  <li>Surface AI only when context is rich</li>
+                  <li>Prioritize actionability over verbosity</li>
+                  <li>Include confidence and reasoning</li>
+                  <li>Keep admins in control</li>
+                </ul>
+              </div>
+              <div id="dont-card" class="dont-card">
+                <div id="card-label-2" class="card-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg> Don't</div>
+                <ul>
+                  <li>Use Zia for decorative insights</li>
+                  <li>Generate vague recommendations</li>
+                  <li>Hide AI-generated decisions</li>
+                  <li>Auto-trigger high-risk actions</li>
+                  <li>Overwhelm dashboards with chat UI</li>
+                </ul>
+              </div>
+            </div>
+          
+          <hr class="doc-divider">
+
+          <!-- Content Guidelines -->
+                      <h2 id="content-guidelines">Content Guidelines</h2>
+
+            <h3 class="doc-h3">Tone</h3>
+            <div id="tone-grid-2" class="tone-grid">
+              <div id="tone-card-5" class="tone-card">
+                <h4>Operational</h4>
+                <p>Language focused on tasks, outcomes, and system state.</p>
+              </div>
+              <div id="tone-card-6" class="tone-card">
+                <h4>Precise</h4>
+                <p>Specific numbers, device counts, and clear scope in every message.</p>
+              </div>
+              <div id="tone-card-7" class="tone-card">
+                <h4>Confidence-driven</h4>
+                <p>Every recommendation backed by data sources and reasoning.</p>
+              </div>
+              <div id="tone-card-8" class="tone-card">
+                <h4>Minimal ambiguity</h4>
+                <p>No vague phrasing. Clear actions with defined impact.</p>
+              </div>
+            </div>
+
+          <hr class="doc-divider">
+
+          <!-- Accessibility -->
+                      <h2 id="accessibility">Accessibility</h2>
+            <ul class="doc-list">
+              <li>Keyboard-first AI triggers</li>
+              <li>Screen-reader labels for AI insights</li>
+              <li>Live region announcements for generated responses</li>
+              <li>High-contrast AI containers</li>
+              <li>Visible focus states</li>
+              <li>Readable progress indicators</li>
+            </ul>
+          
+          <hr class="doc-divider">
+
+          <!-- Responsive Behavior -->
+                      <h2 id="responsive-behavior">Responsive Behavior</h2>
+            <div id="tone-grid-3" class="tone-grid">
+              <div id="tone-card-9" class="tone-card">
+                <h4>Desktop</h4>
+                <p>Side panel AI assistant + inline insights</p>
+              </div>
+              <div id="tone-card-10" class="tone-card">
+                <h4>Tablet</h4>
+                <p>Expandable insight cards</p>
+              </div>
+              <div id="tone-card-11" class="tone-card">
+                <h4>Mobile</h4>
+                <p>Bottom sheet assistant with action summary</p>
+              </div>
+            </div>
+          
+          <!-- Feedback Banner -->
+          <div id="feedback-banner" class="feedback-banner" style="display: none;">
+            <div id="div-4">
+              <div id="fb-text" class="fb-text">Was this page helpful?</div>
+              <div id="fb-sub" class="fb-sub">Help us improve by sharing your feedback on the Zia Experience documentation.</div>
+            </div>
+            <div id="div-5" style="display: flex; gap: 12px;">
+              <button class="feedback-btn">Not helpful</button>
+              <button class="feedback-btn primary">Yes, helpful</button>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="toc-sidebar">
+          <h4 class="toc-heading">On this page</h4>
+          <ul class="toc-nav" id="toc-nav"></ul>
+          <div id="quick-actions-card" class="quick-actions-card">
+            <div id="quick-actions-title" class="quick-actions-title">Resources</div>
+            <a href="index.html" class="action-link">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
+              Back to Home
+            </a>
+            <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0" target="_blank" class="action-link">
+              <img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;">
+              Figma Design
+            </a>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Dynamic TOC
+    const tocNav = document.getElementById('toc-nav');
+    const sections = document.querySelectorAll('h2[id]');
+    sections.forEach(sec => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + sec.id;
+      a.className = 'toc-link';
+      a.textContent = sec.textContent;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocNav.appendChild(li);
+    });
+
+    // Scroll-spy for TOC
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const link = tocNav.querySelector('a[href="#' + entry.target.id + '"]');
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px', threshold: 0.1 });
+    sections.forEach(sec => obs.observe(sec));
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const moonIcon = document.getElementById('moonIcon');
+    const sunIcon = document.getElementById('sunIcon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+    }
+    themeToggle.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        moonIcon.style.display = 'none'; sunIcon.style.display = 'block';
+      }
+    });
+
+    // Zia typing animation (loops)
+    (function () {
+      const text = 'How can we assist you?';
+      const el = document.getElementById('ziaTypingText2');
+      if (!el) return;
+      let i = 0;
+      function type() {
+        if (i <= text.length) { el.textContent = text.slice(0, i); i++; setTimeout(type, 80); }
+        else { setTimeout(erase, 1500); }
+      }
+      function erase() {
+        if (i > 0) { i--; el.textContent = text.slice(0, i); setTimeout(erase, 40); }
+        else { setTimeout(type, 500); }
+      }
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { i = 0; type(); observer.unobserve(el); }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(el);
+    })();
+  </script>
+  <script>
+    // Zia Search toggle
+    const ziaPill = document.querySelector('.zia-search-pill');
+    const ziaResults = document.querySelector('.zia-search-results');
+    if (ziaPill && ziaResults) {
+      ziaPill.addEventListener('click', function() {
+        this.classList.toggle('active');
+        ziaResults.classList.toggle('visible');
+      });
+    }
+  </script>
+  <script>
+    // Zia Tab interactive
+    const tabItems = document.querySelectorAll('.zia-tab-item');
+    const sparkleHTML = '<svg class="zia-sparkle-icon" width="16" height="16" viewBox="0 0 15.28 15.28" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="zia-spark-path1" d="M6.247 3.717l.47 1.307a3.56 3.56 0 0 0 2.114 2.114l1.306.47c.118.043.118.21 0 .252l-1.306.47a3.56 3.56 0 0 0-2.114 2.115l-.47 1.306c-.043.118-.21.118-.252 0l-.47-1.306a3.56 3.56 0 0 0-2.115-2.114l-1.306-.471c-.118-.043-.118-.21 0-.252l1.306-.47A3.56 3.56 0 0 0 5.525 5.024l.47-1.307c.043-.118.21-.118.252 0Z" fill="url(#zia-spark-s1)"/><path class="zia-spark-path2" d="M12.126.578l.238.661a2.01 2.01 0 0 0 1.177 1.177l.662.238c.06.022.06.106 0 .128l-.662.238a2.01 2.01 0 0 0-1.177 1.177l-.238.661c-.022.06-.106.06-.128 0l-.238-.661a2.01 2.01 0 0 0-1.177-1.177l-.662-.238c-.06-.022-.06-.106 0-.128l.662-.238A2.01 2.01 0 0 0 11.76 1.24l.238-.661c.022-.06.107-.06.128 0Z" fill="url(#zia-spark-s2)"/></svg>';
+    tabItems.forEach(function(tab, index) {
+      tab.addEventListener('click', function() {
+        tabItems.forEach(function(t) {
+          t.classList.remove('active', 'active-blue');
+        });
+        if (index === 0) {
+          this.classList.add('active');
+        } else {
+          this.classList.add('active-blue');
+        }
+      });
+    });
+  </script>
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const toggle = () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();
+</script>
+<script>
+(function(){
+  const hamburger = document.querySelector('.nav-hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !sidebar || !backdrop) return;
+
+  // Build a mobile-only nav section at the top of the sidebar by cloning the nav links
+  if (navLinks && !sidebar.querySelector('.sidebar-mobile-nav')) {
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'sidebar-mobile-nav';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Navigate';
+    mobileNav.appendChild(heading);
+    const ul = document.createElement('ul');
+    navLinks.querySelectorAll(':scope > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    navLinks.querySelectorAll(':scope > .nav-dropdown > .nav-dropdown-menu > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    mobileNav.appendChild(ul);
+    sidebar.insertBefore(mobileNav, sidebar.firstChild);
+  }
+
+  const open = () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+  hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebar.classList.contains('open')) close(); });
+  sidebar.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+})();
+</script>
+
+<!-- Floating Feedback Button -->
+<style>
+  .float-cliq-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .float-cliq-label {
+    background: #1a1a2e; color: #fff;
+    padding: 7px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 500; white-space: nowrap;
+    opacity: 0; transform: translateX(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .float-cliq-btn:hover .float-cliq-label {
+    opacity: 1; transform: translateX(0);
+  }
+  .float-cliq-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #2563eb; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+  }
+  .float-cliq-btn:hover .float-cliq-icon {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.55);
+  }
+  .float-cliq-btn:active .float-cliq-icon { transform: scale(0.95); }
+</style>
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+</body>
+</html>

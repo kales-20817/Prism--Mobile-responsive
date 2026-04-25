@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokens — Foundation — UEMS Design System</title>
+<style>
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_thin.woff2') format('woff2'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extralight.woff2') format('woff2'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrabold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrablack.woff2') format('woff2'); font-weight: 950; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular_italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold_italic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold_italic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --prism-black: #0a0a0c; --prism-violet: #2563eb; --prism-violet-light: #60a5fa;
+    --prism-fuchsia: #0ea5e9; --prism-cyan: #06b6d4;
+    --prism-surface: rgba(255, 255, 255, 0.05); --prism-surface-hover: rgba(255, 255, 255, 0.09);
+    --prism-border: rgba(255, 255, 255, 0.07); --prism-text: rgba(255, 255, 255, 0.92);
+    --prism-text-muted: rgba(255, 255, 255, 0.48); --nav-bg: rgba(10,10,12,0.75);
+    --nav-link-color: var(--prism-text-muted);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 10px rgba(37, 99, 235, 0.3));
+  }
+  [data-theme="light"] {
+    --prism-black: #ffffff; --prism-violet: #2563eb; --prism-violet-light: #1d4ed8;
+    --prism-fuchsia: #0284c7; --prism-cyan: #0891b2;
+    --prism-surface: rgba(37, 99, 235, 0.028); --prism-surface-hover: rgba(37, 99, 235, 0.055);
+    --prism-border: rgba(37, 99, 235, 0.10); --prism-text: #1a1a2e; --prism-text-muted: #64748b;
+    --nav-bg: rgba(255, 255, 255, 0.82);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 12px rgba(37, 99, 235, 0.25)); --nav-link-color: #475569;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  body { font-family: 'Zoho Puvi', sans-serif; background: var(--prism-black); color: var(--prism-text); transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease; }
+  [data-theme="light"] body { background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%); }
+  [data-theme="light"] .nav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+  [data-theme="light"] .nav.scrolled { background: rgba(255, 255, 255, 0.78); border-bottom: 1px solid rgba(37, 99, 235, 0.06); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04), 0 4px 24px rgba(37, 99, 235, 0.03); }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  [data-theme="light"] .sidebar { border-right: 1px solid rgba(37, 99, 235, 0.06); background: linear-gradient(180deg, rgba(248, 250, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%); }
+  [data-theme="light"] .foundation-link { color: #64748b; }
+  [data-theme="light"] .foundation-link:hover { color: #1e293b; background: rgba(37, 99, 235, 0.05); }
+  [data-theme="light"] .foundation-link.active { color: #2563eb; background: rgba(37, 99, 235, 0.06); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08); }
+  [data-theme="light"] .sidebar-search { background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(37, 99, 235, 0.10); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  [data-theme="light"] .sidebar-search:focus-within { background: #fff; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10), 0 2px 8px rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .icon-btn { color: #94a3b8; }
+  [data-theme="light"] .icon-btn:hover { color: #1e293b; background: rgba(37, 99, 235, 0.06); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+  [data-theme="light"] .nav-links a { color: #64748b; }
+  [data-theme="light"] .nav-links a:hover { color: #1e293b; background: rgba(37, 99, 235, 0.05); }
+  [data-theme="light"] .nav-links a.active { color: #2563eb; background: rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .feedback-banner { background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%); border: 1px solid rgba(37, 99, 235, 0.12); box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .feedback-btn { background: #fff; border: 1px solid rgba(37, 99, 235, 0.12); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04); }
+  [data-theme="light"] .feedback-btn.primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-color: transparent; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25); }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .nav-logo { display: inline-flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+  .nav-logo-img { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+  .nav-logo-text { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+   .nav-logo-mark { font-size: 26px; font-weight: 900; letter-spacing: 0.02em; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-right: 0.1em; padding-bottom: 0.05em; line-height: 1; }
+  .nav-logo-sub { font-size: 10px; font-weight: 600; color: var(--prism-text-muted); letter-spacing: 0.08em; text-transform: none; margin-top: 2px; }
+  .nav-logo-sub .caps { text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a { color: var(--nav-link-color, var(--prism-text-muted)); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 999px; transition: all 0.3s ease; border: none; }
+  .nav-links a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-links a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); border: none; }
+  .icon-btn { background: transparent; border: none; cursor: pointer; color: var(--prism-text-muted); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; margin-left: 4px; }
+  .icon-btn:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+
+  .components-layout { display: grid; grid-template-columns: 260px 1fr; width: 100%; padding-top: 72px; min-height: 100vh; }
+  .sidebar { grid-column: 1; grid-row: 1; width: 260px; border-right: 1px solid var(--prism-border); padding: 32px 24px 64px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--prism-border); border-radius: 4px; }
+  .sidebar-heading { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; padding-left: 12px; }
+  .sidebar, .toc-sidebar { background: transparent; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  .sidebar-search { display: flex; align-items: center; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 999px; padding: 8px 16px; margin-bottom: 24px; transition: all 0.2s ease; }
+  .sidebar-search:focus-within { border-color: var(--prism-violet); background: transparent; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+  .sidebar-search svg { color: var(--prism-text-muted); }
+  .sidebar-search input { background: transparent; border: none; outline: none; color: var(--prism-text); font-family: inherit; font-size: 14px; width: 100%; margin-left: 10px; }
+  .sidebar-search input::placeholder { color: var(--prism-text-muted); }
+  .search-shortcut { font-size: 11px; font-weight: 600; color: var(--prism-text-muted); background: var(--prism-surface-hover); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--prism-border); }
+
+  .main-panel { grid-column: 2; grid-row: 1; padding: 48px 64px 0 64px; display: flex; flex-direction: column; }
+  .page-header-area { width: 100%; max-width: none; }
+  .page-title { font-size: 48px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding-right: 8px; padding-bottom: 4px; }
+  .page-desc { color: var(--prism-text); font-size: 20px; font-weight: 400; line-height: 1.5; margin-bottom: 32px; margin-top: 8px; max-width: 900px; }
+  .main-content-area { display: grid; grid-template-columns: 1fr 240px; gap: 0; flex: 1; align-items: start; }
+  .main-content-inner { padding-bottom: 64px; min-width: 0; }
+  .doc-section { margin-top: 48px; }
+
+  .bg-glow { position: fixed; border-radius: 50%; width: 60vw; height: 60vh; filter: blur(140px); z-index: -1; pointer-events: none; opacity: 0.15; transition: opacity 0.6s ease, filter 0.6s ease; }
+  .glow-1 { top: -20%; right: -10%; background: var(--prism-violet); }
+  .glow-2 { bottom: -20%; left: -10%; background: var(--prism-cyan); }
+  [data-theme="light"] .bg-glow { opacity: 0.09; filter: blur(180px); }
+
+  .foundation-nav { list-style: none; display: flex; flex-direction: column; gap: 4px; padding: 0; margin: 0; }
+  .foundation-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; font-size: 14px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+  .foundation-link:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .foundation-link.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); font-weight: 600; }
+
+  .toc-sidebar { width: 240px; padding: 20px; position: sticky; top: 72px; height: calc(100vh - 72px); overflow-y: auto; align-self: start; }
+  .toc-heading { font-size: 11px; font-weight: 700; color: var(--prism-text); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .toc-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid var(--prism-border); padding-left: 16px; margin-left: 4px; line-height: 1.6; }
+  .toc-link { display: block; font-size: 13px; font-weight: 400; color: var(--prism-text-muted); text-decoration: none; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+  .toc-link:hover { color: var(--prism-text); }
+  .toc-link.active { color: var(--prism-violet); font-weight: 600; }
+  .quick-actions-card { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--prism-border); display: flex; flex-direction: column; gap: 4px; }
+  .quick-actions-title { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .action-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--prism-text-muted); text-decoration: none; padding: 6px 0; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .action-link:hover { color: var(--prism-text); transform: translateX(2px); }
+  .action-link:hover svg { opacity: 1; color: var(--prism-violet); }
+
+  .placeholder-card { padding: 64px 40px; background: var(--prism-surface); border: 2px dashed var(--prism-border); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 16px; transition: all 0.3s ease; }
+  .placeholder-card svg { color: var(--prism-text-muted); opacity: 0.4; }
+  .placeholder-card .placeholder-title { font-size: 18px; font-weight: 600; color: var(--prism-text); }
+  .placeholder-card .placeholder-sub { font-size: 14px; color: var(--prism-text-muted); max-width: 460px; line-height: 1.6; }
+
+  .feedback-banner { margin-top: 72px; padding: 32px; border-radius: 16px; background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.06) 100%); border: 1px solid var(--prism-border); display: flex; align-items: center; justify-content: space-between; }
+  .feedback-banner .fb-text { font-size: 16px; font-weight: 600; color: var(--prism-text); }
+  .feedback-banner .fb-sub { font-size: 13.5px; color: var(--prism-text-muted); margin-top: 4px; }
+  .feedback-btn { padding: 10px 28px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; border: 1px solid var(--prism-border); background: var(--prism-surface); color: var(--prism-text); }
+  .feedback-btn.primary { background: var(--prism-violet); color: #fff; border-color: var(--prism-violet); }
+  .feedback-btn.primary:hover { background: #1d4ed8; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3); transform: translateY(-1px); }
+
+  /* ── Token Documentation Styles ── */
+  .doc-section { margin-bottom: 64px; }
+  .doc-section-title {
+    font-size: 32px; font-weight: 400; color: var(--prism-text);
+    margin-bottom: 12px;
+  }
+  .doc-section-subtitle {
+    font-size: 16px; color: var(--prism-text-muted); line-height: 1.6;
+    margin-bottom: 32px; max-width: 720px;
+  }
+  .doc-h3 {
+    font-size: 20px; font-weight: 600; color: var(--prism-text);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .doc-divider {
+    border: none; border-top: 1px solid var(--prism-border); margin: 56px 0;
+  }
+  [data-theme="light"] .doc-divider {
+    border-top: 1px solid rgba(37, 99, 235, 0.06);
+  }
+
+  .doc-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .doc-list li {
+    font-size: 15px; line-height: 1.65; color: var(--prism-text);
+    padding: 14px 20px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); border-radius: 10px;
+    border-left: 3px solid var(--prism-violet);
+    transition: all 0.2s ease;
+  }
+  .doc-list li:hover {
+    border-left-color: var(--prism-cyan);
+    background: var(--prism-surface-hover);
+    transform: translateX(4px);
+  }
+  [data-theme="light"] .doc-list li {
+    background: #fff;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-left: 3px solid var(--prism-violet);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .doc-list li:hover {
+    background: rgba(37, 99, 235, 0.025);
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.10);
+  }
+
+  /* Do / Don't cards */
+  .do-dont-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .do-card, .dont-card {
+    padding: 24px; border-radius: 12px; border: 1px solid var(--prism-border);
+    background: var(--prism-surface); transition: all 0.25s ease;
+  }
+  .do-card { border-top: 3px solid #22c55e; }
+  .dont-card { border-top: 3px solid #ef4444; }
+  .do-card .card-label, .dont-card .card-label {
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 16px; display: flex;
+    align-items: center; gap: 8px;
+  }
+  .do-card .card-label { color: #22c55e; }
+  .dont-card .card-label { color: #ef4444; }
+  .do-card ul, .dont-card ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .do-card li, .dont-card li {
+    font-size: 14.5px; line-height: 1.6; color: var(--prism-text-muted);
+    padding-left: 20px; position: relative;
+  }
+  .do-card li::before {
+    content: '\2713'; position: absolute; left: 0; color: #22c55e; font-weight: 700;
+  }
+  .dont-card li::before {
+    content: '\2717'; position: absolute; left: 0; color: #ef4444; font-weight: 700;
+  }
+  [data-theme="light"] .do-card, [data-theme="light"] .dont-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .do-card:hover, [data-theme="light"] .dont-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  [data-theme="light"] .do-card { border-top: 3px solid #16a34a; }
+  [data-theme="light"] .dont-card { border-top: 3px solid #dc2626; }
+
+  [data-theme="light"] .toc-link { color: #94a3b8; }
+  [data-theme="light"] .toc-link:hover { color: #475569; }
+  [data-theme="light"] .toc-link.active { color: #2563eb; font-weight: 600; }
+  [data-theme="light"] .toc-nav { border-left: 2px solid rgba(37, 99, 235, 0.08); }
+  [data-theme="light"] .toc-sidebar { background: transparent; }
+  [data-theme="light"] .quick-actions-card { border-top: 1px solid rgba(37, 99, 235, 0.06); }
+  [data-theme="light"] .action-link { color: #94a3b8; }
+  [data-theme="light"] .action-link:hover { color: #1e293b; }
+
+
+  /* Collection cards */
+  .collection-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px;
+  }
+  .collection-card {
+    padding: 24px; border-radius: 14px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); transition: all 0.25s ease;
+  }
+  .collection-card:hover {
+    border-color: rgba(37, 99, 235, 0.3); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .collection-card {
+    background: #fff; border: 1px solid rgba(37, 99, 235, 0.07);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+  .collection-card-title {
+    font-size: 16px; font-weight: 700; color: var(--prism-text); margin-bottom: 4px;
+  }
+  .collection-card-count {
+    font-size: 13px; font-weight: 600; color: var(--prism-violet); margin-bottom: 8px;
+  }
+  .collection-card-desc {
+    font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.55;
+  }
+
+  /* Token table */
+  .token-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 16px; }
+  .token-table th {
+    text-align: left; padding: 14px 12px; color: var(--prism-text-muted);
+    font-weight: 600; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.05em; border-bottom: 2px solid var(--prism-border);
+  }
+  .token-table td {
+    padding: 12px; border-bottom: 1px solid var(--prism-border);
+    color: var(--prism-text); vertical-align: middle;
+  }
+  .token-table tr:hover td { background: rgba(37, 99, 235, 0.02); }
+  .token-table code {
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    padding: 2px 8px; border-radius: 6px;
+    background: rgba(37, 99, 235, 0.06); color: var(--prism-violet);
+  }
+  /* Color swatches for tokens */
+  .token-swatch { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; }
+  .token-swatch-color { display: inline-block; width: 28px; height: 28px; min-width: 28px; min-height: 28px; border-radius: 8px; border: 1px solid var(--prism-border); flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .token-swatch-hex { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--prism-text-muted); letter-spacing: 0.02em; white-space: nowrap; }
+  .token-table td:last-child { white-space: nowrap; }
+  .swatch-light { display: inline-flex; }
+  .swatch-dark { display: none; }
+  :not([data-theme="light"]) .swatch-light { display: none; }
+  :not([data-theme="light"]) .swatch-dark { display: inline-flex; }
+
+  /* Code block */
+  .code-block {
+    padding: 20px 24px; border-radius: 12px; font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; line-height: 1.7; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); overflow-x: auto; color: var(--prism-text-muted);
+    margin-top: 16px;
+  }
+  [data-theme="light"] .code-block {
+    background: #f8faff; border: 1px solid rgba(37, 99, 235, 0.10);
+  }
+
+  /* Principle card */
+  .principle-card {
+    padding: 32px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(6, 182, 212, 0.06) 100%);
+    border: 1px solid var(--prism-border); margin-top: 16px;
+  }
+  .principle-card p {
+    font-size: 16px; line-height: 1.7; color: var(--prism-text); font-weight: 400;
+  }
+  [data-theme="light"] .principle-card {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.10);
+  }
+
+  /* Three-column grid for principles */
+  .principles-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;
+  }
+  .principle-item {
+    padding: 24px; border-radius: 14px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); transition: all 0.25s ease;
+  }
+  .principle-item:hover {
+    border-color: rgba(37, 99, 235, 0.3); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .principle-item {
+    background: #fff; border: 1px solid rgba(37, 99, 235, 0.07);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+  .principle-item h3 {
+    font-size: 16px; font-weight: 700; color: var(--prism-text); margin-bottom: 8px;
+  }
+  .principle-item p {
+    font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.6;
+  }
+
+  /* Color swatch row */
+  .color-ramp-row {
+    display: flex; gap: 4px; margin-top: 12px; margin-bottom: 8px;
+  }
+  .color-swatch {
+    width: 28px; height: 28px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.08);
+    transition: transform 0.15s ease;
+  }
+  .color-swatch:hover { transform: scale(1.3); z-index: 2; }
+
+  /* Theme mode cards */
+  .theme-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px;
+  }
+  .theme-card {
+    padding: 24px; border-radius: 14px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); transition: all 0.25s ease;
+  }
+  .theme-card:hover {
+    border-color: rgba(37, 99, 235, 0.3); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .theme-card {
+    background: #fff; border: 1px solid rgba(37, 99, 235, 0.07);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+  .theme-card-name {
+    font-size: 16px; font-weight: 700; color: var(--prism-text); margin-bottom: 4px;
+  }
+  .theme-card-desc {
+    font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.55;
+  }
+  .theme-card-indicator {
+    width: 32px; height: 6px; border-radius: 3px; margin-bottom: 12px;
+  }
+
+  /* Anti-pattern list */
+  .anti-pattern-list {
+    list-style: none; padding: 0; margin: 16px 0 0 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .anti-pattern-list li {
+    font-size: 14.5px; line-height: 1.6; color: var(--prism-text-muted);
+    padding: 12px 20px 12px 40px; position: relative;
+    background: var(--prism-surface); border: 1px solid var(--prism-border);
+    border-radius: 10px; border-left: 3px solid #ef4444;
+  }
+  .anti-pattern-list li::before {
+    content: '\2717'; position: absolute; left: 16px; color: #ef4444; font-weight: 700;
+  }
+  [data-theme="light"] .anti-pattern-list li {
+    background: #fff; border: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 3px solid #dc2626;
+  }
+
+  /* Tier diagram */
+  .tier-diagram {
+    display: flex; flex-direction: column; gap: 12px; margin-top: 20px;
+  }
+  .tier-row {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .tier-label {
+    min-width: 160px; padding: 14px 20px; border-radius: 10px;
+    font-size: 14px; font-weight: 600; text-align: center;
+    background: var(--prism-surface); border: 1px solid var(--prism-border);
+    color: var(--prism-text);
+  }
+  .tier-arrow {
+    font-size: 18px; color: var(--prism-text-muted);
+  }
+  .tier-desc {
+    font-size: 13.5px; color: var(--prism-text-muted); line-height: 1.5;
+  }
+  [data-theme="light"] .tier-label {
+    background: #fff; border: 1px solid rgba(37, 99, 235, 0.10);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+
+  /* ══ Mobile responsive (added globally) ══ */
+  .nav-hamburger { display: none; background: transparent; border: none; color: var(--prism-text); padding: 8px; margin-right: 8px; cursor: pointer; border-radius: 8px; align-items: center; justify-content: center; }
+  .nav-hamburger:hover { background: var(--prism-surface-hover); }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; opacity: 0; transition: opacity 0.25s ease; }
+  .sidebar-backdrop.open { display: block; opacity: 1; }
+  .sidebar-mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 16px; height: 64px; justify-content: flex-start; gap: 4px; }
+    .nav-links { margin-left: auto; }
+    .nav-hamburger { display: inline-flex; order: -1; margin-right: 4px; }
+    .nav-logo-mark { font-size: 22px; }
+    .nav-logo-sub { font-size: 9px; }
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > div[style] { display: none !important; }
+    .nav-links { gap: 0; }
+
+    .components-layout { display: block; padding-top: 64px; grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 64px; left: 0; width: 300px; max-width: 86vw; height: calc(100vh - 64px); max-height: none; padding: 20px 18px 32px; border-right: 1px solid var(--prism-border); border-bottom: none; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 96; background: var(--prism-black); }
+    [data-theme="light"] .sidebar { background: #ffffff; }
+    .sidebar.open { transform: translateX(0); box-shadow: 12px 0 40px rgba(0,0,0,0.25); }
+    body.sidebar-locked { overflow: hidden; }
+
+    .sidebar-mobile-nav { display: block; margin: 0 -18px 16px; padding: 0 18px 18px; border-bottom: 1px solid var(--prism-border); }
+    .sidebar-mobile-nav h4 { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 4px; }
+    .sidebar-mobile-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-mobile-nav a { display: block; padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+    .sidebar-mobile-nav a:hover { background: var(--prism-surface-hover); color: var(--prism-violet); }
+    .sidebar-mobile-nav a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); }
+
+    .main-panel { padding: 24px 20px 48px; grid-column: auto; grid-row: auto; }
+    /* mobile-width-safety v4 — collapse any inline grid on narrow viewports */
+    .main-panel, .main-content-inner, .main-content-area { max-width: 100%; width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner > *, .doc-section, .doc-section > * { max-width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner img, .main-content-inner svg:not(.inline-svg) { max-width: 100%; height: auto; }
+    .main-content-inner pre, .main-content-inner code { white-space: pre-wrap; word-break: break-word; }
+    .main-content-inner pre { overflow-x: auto; }
+    .anatomy-diagram { overflow: visible !important; padding: 48px 40px !important; zoom: 0.82; }
+    .anatomy-diagram > * { max-width: 100%; }
+    .demo-container { overflow: hidden; }
+    .demo-canvas { padding: 32px 20px !important; overflow-x: auto; }
+    .code-playground, .cp-code-area { overflow-x: auto; }
+    /* Foundation inner-page grids: collapse every multi-column inline grid */
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: repeat(4, 1fr)"],
+    [style*="grid-template-columns: repeat(5, 1fr)"],
+    [style*="grid-template-columns: repeat(6, 1fr)"],
+    [style*="grid-template-columns: 320px 1fr"],
+    [style*="grid-template-columns: 280px 1fr"],
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+    /* Flex rows with heavy fixed widths should wrap */
+    [style*="display: flex"][style*="gap"] { flex-wrap: wrap; }
+    .main-content-area { display: flex; flex-direction: column; grid-template-columns: 1fr; }
+    .main-content-inner { padding-bottom: 32px; }
+    .toc-sidebar { display: none; }
+
+    .page-header-area .page-title,
+    .page-title { font-size: 30px; line-height: 1.15; }
+    .page-desc { font-size: 16px; }
+    .doc-section h2, .doc-section-title { font-size: 22px; }
+
+    .do-dont-grid,
+    .illus-type-grid,
+    .comp-grid,
+    .density-grid,
+    .illus-showcase-grid,
+    .pattern-category-grid,
+    .tone-grid,
+    .voice-traits,
+    .principles-grid,
+    .theme-grid,
+    .message-grid,
+    .weight-grid,
+    .pattern-grid,
+    .collection-grid,
+    .anti-pattern-list,
+    .dodont-grid,
+    .icon-metaphor-grid { grid-template-columns: 1fr !important; }
+
+    table { display: block; overflow-x: auto; }
+    .size-table, .token-table, .anatomy-table, .doc-table, .tone-table { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+
+    .feedback-banner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .illus-type-card { grid-template-columns: 1fr !important; }
+    .illus-type-preview { min-height: 180px; padding: 24px 16px; }
+
+    /* Component detail page grids */
+    .state-grid,
+    .anatomy-grid,
+    .usecase-grid,
+    .anat-legend,
+    /* Zia Experience hub grids */
+    .zia-prompt-grid,
+    /* Resource hub grids */
+    .lib-grid,
+    .lib-grid-logo,
+    .lib-grid-illust { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* Inline-styled 2- or 3-column grids */
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Resource hub outer padding */
+    .page-content { padding: 88px 16px 48px !important; }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 0 12px; height: 60px; }
+    .components-layout { padding-top: 60px; }
+    .sidebar { top: 60px; height: calc(100vh - 60px); }
+    .nav-logo-mark { font-size: 20px; }
+    .main-panel { padding: 18px 14px 36px; }
+    /* mobile-width-safety v3 */
+    .main-panel { padding: 16px 10px 24px !important; }
+    .anatomy-diagram { padding: 40px 28px !important; overflow: visible !important; zoom: 0.66; }
+    .demo-canvas { padding: 24px 12px !important; }
+    .page-header-area .page-title,
+    .page-title { font-size: 26px; }
+    .page-desc { font-size: 15px; }
+    .sidebar-heading { font-size: 10px; }
+    .search-shortcut { display: none; }
+    .page-content { padding: 72px 12px 32px !important; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+      <img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+      <span class="nav-logo-text">
+        <span class="nav-logo-mark">Prism</span>
+        <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+      </span>
+    </a>
+    <div class="nav-links">      <a href="Foundation.html" class="active">Foundation</a>
+      <a href="Components.html" >Components</a>      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a><div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div style="width: 16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search...">
+        <span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 class="sidebar-heading" id="foundations">Foundations</h3>
+      <ul class="foundation-nav">
+        <li><a href="foundation-tokens.html" class="foundation-link active">Tokens</a></li>
+        <!-- Accessibility (standalone) -->
+        <li><a href="foundation-accessibility.html" class="foundation-link">Accessibility</a></li>
+        <li><a href="foundation-content.html" class="foundation-link">Content</a></li>
+        <li><a href="foundation-spacing.html" class="foundation-link">Spacing</a></li>
+        <li><a href="foundation-grid.html" class="foundation-link">Grid</a></li>
+        <li><a href="foundation-color.html" class="foundation-link">Color</a></li>
+        <li><a href="foundation-typography.html" class="foundation-link">Typography</a></li>
+        <li><a href="foundation-iconography.html" class="foundation-link">Iconography</a></li>
+        <li><a href="foundation-illustrations.html" class="foundation-link">Illustrations</a></li>
+        <li><a href="foundation-elevation.html" class="foundation-link">Elevation</a></li>
+        <li><a href="foundation-border.html" class="foundation-link">Border</a></li>
+        <li><a href="foundation-radius.html" class="foundation-link">Radius</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Tokens</h1>
+        <p class="page-desc">Use design tokens as the single source of truth to define, scale, and implement every Prism design decision across endpoint experiences.</p>
+      </div>
+
+      <div class="main-content-area">
+        <div class="main-content-inner">
+
+          <!-- Intro -->
+          <div class="doc-section" style="margin-top: 16px;">
+            <p style="font-size: 16px; line-height: 1.7; color: var(--prism-text-muted); max-width: 760px;">In Prism, tokens power consistency across dashboards, device inventory, patch workflows, security alerts, AI insights, policy builders, and remediation journeys. Tokens ensure that design choices are reusable, themeable, accessible, and engineering-ready across the full endpoint ecosystem.</p>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Token principles -->
+          <div class="doc-section" id="token-principles">
+            <h2 class="doc-section-title">Token principles</h2>
+            <p class="doc-section-subtitle">Four rules that govern how tokens are created, named, and used in Prism.</p>
+
+            <div class="principles-grid">
+              <div class="principle-item">
+                <h3>1. Design decisions must be named</h3>
+                <p>Every reusable design decision must become a token. Never store raw hex values, random px values, one-off shadows, local font sizes, custom border radii, or hardcoded z-index values. If it repeats, it becomes a token.</p>
+              </div>
+              <div class="principle-item">
+                <h3>2. Tokens describe meaning, not appearance</h3>
+                <p>Good: <code>color.background.danger.bold</code>, <code>space.200</code>, <code>font.heading.large</code>. Bad: <code>red-500</code>, <code>padding-16</code>, <code>font-24</code>. Names encode purpose, not visual output.</p>
+              </div>
+              <div class="principle-item">
+                <h3>3. Use three-tier token architecture</h3>
+                <p>Primitive tokens hold raw values. Semantic tokens alias primitives by meaning. Component tokens scope overrides per component. Each tier adds context without duplicating values.</p>
+              </div>
+              <div class="principle-item">
+                <h3>4. Theme everything through modes</h3>
+                <p>Every semantic token maps differently per theme. Never branch theme logic in component code. Let the token layer handle all theme resolution automatically.</p>
+              </div>
+            </div>
+
+            <!-- Three-tier diagram -->
+            <div style="margin-top: 32px;">
+              <h3 id="three-tier" class="doc-h3">Three-tier architecture</h3>
+              <div class="tier-diagram">
+                <div class="tier-row">
+                  <div class="tier-label" style="border-left: 3px solid var(--prism-violet);">Primitive Tokens</div>
+                  <div class="tier-arrow">&rarr;</div>
+                  <div class="tier-desc">Raw values: Grey-500, Cobalt-300, 16px, 400 weight</div>
+                </div>
+                <div class="tier-row">
+                  <div class="tier-label" style="border-left: 3px solid var(--prism-fuchsia);">Semantic Tokens</div>
+                  <div class="tier-arrow">&rarr;</div>
+                  <div class="tier-desc">Meaning-based aliases: Text-Primary, BG-Success, Border-Error</div>
+                </div>
+                <div class="tier-row">
+                  <div class="tier-label" style="border-left: 3px solid var(--prism-cyan);">Component Tokens</div>
+                  <div class="tier-arrow">&rarr;</div>
+                  <div class="tier-desc">Scoped overrides: Button/bg-primary, Input/border-focus</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Token collections -->
+          <div class="doc-section" id="token-collections">
+            <h2 class="doc-section-title">Token collections</h2>
+            <p class="doc-section-subtitle">Six Figma-synced collections that power every Prism component and layout.</p>
+
+            <div class="collection-grid">
+              <div class="collection-card">
+                <div class="collection-card-title">Primitive Colors</div>
+                <div class="collection-card-count">199 tokens</div>
+                <div class="collection-card-desc">Raw color palette. 10 color ramps with 21-24 stops each, from Cobalt through Spurge, plus base colors.</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">UEMS Theme Tokens</div>
+                <div class="collection-card-count">211 tokens &middot; 4 modes</div>
+                <div class="collection-card-desc">Semantic tokens for Text, Border, Icon, Background, and Chart groups across Light, Dark, Night, and Green accent modes.</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">UEMS Global Tokens</div>
+                <div class="collection-card-count">32 tokens</div>
+                <div class="collection-card-desc">Component-level spacing, border-radius, border-width, and icon-size tokens used across all components.</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">Typography</div>
+                <div class="collection-card-count">132 tokens &middot; 4 modes</div>
+                <div class="collection-card-desc">Body, display, and code type styles across Default, Large, XLarge, and Small density modes.</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">Type Primitives</div>
+                <div class="collection-card-count">28 tokens</div>
+                <div class="collection-card-desc">Raw font-size (13 values), font-weight (4 values), and line-height (11 values) primitives.</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">Font Family</div>
+                <div class="collection-card-count">11 tokens &middot; 3 modes</div>
+                <div class="collection-card-desc">Typeface tokens across Zoho Puvi, Lato, and Roboto modes for global font switching.</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Primitive colors -->
+          <div class="doc-section" id="primitive-colors">
+            <h2 class="doc-section-title">Primitive colors</h2>
+            <p class="doc-section-subtitle">199 raw color values organized into 10 ramps with 21-24 stops each.</p>
+
+            <table class="token-table">
+              <thead>
+                <tr><th>Ramp</th><th>Stops</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Cobalt</code></td><td>24 (05 - 1000)</td><td>Primary brand blue</td></tr>
+                <tr><td><code>Grey</code></td><td>24 (00 - 1100)</td><td>Neutral scale</td></tr>
+                <tr><td><code>Grey Modern</code></td><td>21 (25 - 1000)</td><td>Modern neutral alternative</td></tr>
+                <tr><td><code>Fern</code></td><td>21</td><td>Success / positive states</td></tr>
+                <tr><td><code>Cardinal</code></td><td>21</td><td>Error / danger states</td></tr>
+                <tr><td><code>Persimmon</code></td><td>21</td><td>Alert / caution states</td></tr>
+                <tr><td><code>Sunshine</code></td><td>21</td><td>Warning states</td></tr>
+                <tr><td><code>Charoite</code></td><td>21</td><td>AI / purple accent</td></tr>
+                <tr><td><code>Spurge</code></td><td>21</td><td>Acknowledge / info states</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size: 13px; color: var(--prism-text-muted); margin-top: 12px;">Base colors: <code>White</code>, <code>Black</code>, <code>Hyperlink</code>, <code>Hyperlink dark theme</code></p>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- UEMS Theme Tokens -->
+          <div class="doc-section" id="theme-tokens">
+            <h2 class="doc-section-title">UEMS Theme Tokens</h2>
+            <p class="doc-section-subtitle">211 semantic tokens across 4 modes: Light, Dark, Night, and Green accent.</p>
+
+            <h3 id="text-tokens" class="doc-h3">Text tokens (18)</h3>
+            <table class="token-table">
+              <thead>
+                <tr><th>Token</th><th>Description</th><th>Color</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Text-Primary</code></td><td>Default body text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span></td></tr>
+                <tr><td><code>Text-Secondary</code></td><td>Supporting text, descriptions</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#c3c9d6"></span><span class="token-swatch-hex">#c3c9d6</span></span></td></tr>
+                <tr><td><code>Text-Tertiary</code></td><td>De-emphasized text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#a5aec1"></span><span class="token-swatch-hex">#a5aec1</span></span></td></tr>
+                <tr><td><code>Text-Quaternary</code></td><td>Least prominent text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#55607a"></span><span class="token-swatch-hex">#55607a</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span></td></tr>
+                <tr><td><code>Text-Disabled</code></td><td>Disabled state text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#55607a"></span><span class="token-swatch-hex">#55607a</span></span></td></tr>
+                <tr><td><code>Text-Placeholder</code></td><td>Input placeholder text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#55607a"></span><span class="token-swatch-hex">#55607a</span></span></td></tr>
+                <tr><td><code>Text-Placeholder_subtle</code></td><td>Subtle placeholder variant</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#a5aec1"></span><span class="token-swatch-hex">#a5aec1</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span></td></tr>
+                <tr><td><code>Text-White</code></td><td>Text on dark backgrounds</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span></td></tr>
+                <tr><td><code>Text-Black</code></td><td>Text on light backgrounds</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span></td></tr>
+                <tr><td><code>Text-Accent-Primary</code></td><td>Primary accent text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0e2553"></span><span class="token-swatch-hex">#0e2553</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#96b3ee"></span><span class="token-swatch-hex">#96b3ee</span></span></td></tr>
+                <tr><td><code>Text-Accent-Secondary</code></td><td>Secondary accent text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#184091"></span><span class="token-swatch-hex">#184091</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#6b94e7"></span><span class="token-swatch-hex">#6b94e7</span></span></td></tr>
+                <tr><td><code>Text-Accent-Tertiary</code></td><td>Tertiary accent text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#1e52bb"></span><span class="token-swatch-hex">#1e52bb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#80a3eb"></span><span class="token-swatch-hex">#80a3eb</span></span></td></tr>
+                <tr><td><code>Text-Success</code></td><td>Success message text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0a7138"></span><span class="token-swatch-hex">#0a7138</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#55ac7c"></span><span class="token-swatch-hex">#55ac7c</span></span></td></tr>
+                <tr><td><code>Text-Error</code></td><td>Error message text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#c1181b"></span><span class="token-swatch-hex">#c1181b</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e94d4f"></span><span class="token-swatch-hex">#e94d4f</span></span></td></tr>
+                <tr><td><code>Text-Warning</code></td><td>Warning message text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#bc4200"></span><span class="token-swatch-hex">#bc4200</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ff6a1a"></span><span class="token-swatch-hex">#ff6a1a</span></span></td></tr>
+                <tr><td><code>Text-Alert</code></td><td>Alert message text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#956b11"></span><span class="token-swatch-hex">#956b11</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e0a01a"></span><span class="token-swatch-hex">#e0a01a</span></span></td></tr>
+                <tr><td><code>Text-Acknowledge</code></td><td>Informational text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#663399"></span><span class="token-swatch-hex">#663399</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#9471b8"></span><span class="token-swatch-hex">#9471b8</span></span></td></tr>
+                <tr><td><code>Text-Accent-Link</code></td><td>Hyperlink text</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#00a6ff"></span><span class="token-swatch-hex">#00a6ff</span></span></td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="border-icon-tokens" class="doc-h3" style="margin-top: 40px;">Border and Icon tokens (42)</h3>
+            <table class="token-table">
+              <thead>
+                <tr><th>Token</th><th>Description</th><th>Color</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Border-Primary</code></td><td>Default border color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#b4bbcc"></span><span class="token-swatch-hex">#b4bbcc</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span></td></tr>
+                <tr><td><code>Border-Secondary</code></td><td>Secondary border color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#c3c9d6"></span><span class="token-swatch-hex">#c3c9d6</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>Border-Tertiary</code></td><td>Tertiary border color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>Border-Quaternary</code></td><td>Quaternary border color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#20242e"></span><span class="token-swatch-hex">#20242e</span></span></td></tr>
+                <tr><td><code>Border-Disabled</code></td><td>Disabled state border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>Border-Disabled_subtle</code></td><td>Subtle disabled border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#20242e"></span><span class="token-swatch-hex">#20242e</span></span></td></tr>
+                <tr><td><code>Border-Success</code></td><td>Success border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0c8844"></span><span class="token-swatch-hex">#0c8844</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#249457"></span><span class="token-swatch-hex">#249457</span></span></td></tr>
+                <tr><td><code>Border-Error</code></td><td>Error border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e42527"></span><span class="token-swatch-hex">#e42527</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#c1181b"></span><span class="token-swatch-hex">#c1181b</span></span></td></tr>
+                <tr><td><code>Border-Warning</code></td><td>Warning border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e65100"></span><span class="token-swatch-hex">#e65100</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ff6a1a"></span><span class="token-swatch-hex">#ff6a1a</span></span></td></tr>
+                <tr><td><code>Border-Alert</code></td><td>Alert border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f9b21d"></span><span class="token-swatch-hex">#f9b21d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#fac248"></span><span class="token-swatch-hex">#fac248</span></span></td></tr>
+                <tr><td><code>Border-Accent</code></td><td>Accent border</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#00a6ff"></span><span class="token-swatch-hex">#00a6ff</span></span></td></tr>
+                <tr><td><code>Border-Accent-Focus</code></td><td>Focus ring color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#00a6ff"></span><span class="token-swatch-hex">#00a6ff</span></span></td></tr>
+                <tr><td><code>Icon-White</code></td><td>Icon on dark backgrounds</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span></td></tr>
+                <tr><td><code>Icon-Black</code></td><td>Icon on light backgrounds</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span></td></tr>
+                <tr><td><code>Icon-Primary</code></td><td>Default icon color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span></td></tr>
+                <tr><td><code>Icon-Secondary</code></td><td>Supporting icon color</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#c3c9d6"></span><span class="token-swatch-hex">#c3c9d6</span></span></td></tr>
+                <tr><td><code>Icon-Tertiary</code></td><td>De-emphasized icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#55607a"></span><span class="token-swatch-hex">#55607a</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span></td></tr>
+                <tr><td><code>Icon-Subtle</code></td><td>Subtle icon variant</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#96a0b7"></span><span class="token-swatch-hex">#96a0b7</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span></td></tr>
+                <tr><td><code>Icon-Accent</code></td><td>Accent-colored icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#1e52bb"></span><span class="token-swatch-hex">#1e52bb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#80a3eb"></span><span class="token-swatch-hex">#80a3eb</span></span></td></tr>
+                <tr><td><code>Icon-Accent-Button</code></td><td>Button accent icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#00a6ff"></span><span class="token-swatch-hex">#00a6ff</span></span></td></tr>
+                <tr><td><code>Icon-Success</code></td><td>Success state icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0a7138"></span><span class="token-swatch-hex">#0a7138</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#249457"></span><span class="token-swatch-hex">#249457</span></span></td></tr>
+                <tr><td><code>Icon-Error</code></td><td>Error state icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#c1181b"></span><span class="token-swatch-hex">#c1181b</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e94d4f"></span><span class="token-swatch-hex">#e94d4f</span></span></td></tr>
+                <tr><td><code>Icon-warning</code></td><td>Warning state icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#bc4200"></span><span class="token-swatch-hex">#bc4200</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ff5900"></span><span class="token-swatch-hex">#ff5900</span></span></td></tr>
+                <tr><td><code>Icon-Alert</code></td><td>Alert state icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#956b11"></span><span class="token-swatch-hex">#956b11</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#fabb34"></span><span class="token-swatch-hex">#fabb34</span></span></td></tr>
+                <tr><td><code>Icon-Acknowledge</code></td><td>Informational icon</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#5c2e89"></span><span class="token-swatch-hex">#5c2e89</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#9471b8"></span><span class="token-swatch-hex">#9471b8</span></span></td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="background-tokens" class="doc-h3" style="margin-top: 40px;">Background tokens (59)</h3>
+            <table class="token-table">
+              <thead>
+                <tr><th>Token</th><th>Description</th><th>Color</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Background</code></td><td>Page-level background</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ebf4ff"></span><span class="token-swatch-hex">#ebf4ff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0a0b0f"></span><span class="token-swatch-hex">#0a0b0f</span></span></td></tr>
+                <tr><td><code>BG-Base</code></td><td>Base surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0a0b0f"></span><span class="token-swatch-hex">#0a0b0f</span></span></td></tr>
+                <tr><td><code>BG-Base-White</code></td><td>White surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#f9fafb"></span><span class="token-swatch-hex">#f9fafb</span></span></td></tr>
+                <tr><td><code>BG-Base-Black</code></td><td>Black surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#000000"></span><span class="token-swatch-hex">#000000</span></span></td></tr>
+                <tr><td><code>BG-Primary</code></td><td>Primary surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span></td></tr>
+                <tr><td><code>BG-Primary-alt</code></td><td>Primary alt surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffffff"></span><span class="token-swatch-hex">#ffffff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#20242e"></span><span class="token-swatch-hex">#20242e</span></span></td></tr>
+                <tr><td><code>BG-Primary-hover</code></td><td>Primary hover state</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>BG-Primary-Solid</code></td><td>Primary solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#20242e"></span><span class="token-swatch-hex">#20242e</span></span></td></tr>
+                <tr><td><code>BG-Icon-Fill</code></td><td>Icon fill background</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#c3c9d6"></span><span class="token-swatch-hex">#c3c9d6</span></span></td></tr>
+                <tr><td><code>BG-Secondary</code></td><td>Secondary surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#20242e"></span><span class="token-swatch-hex">#20242e</span></span></td></tr>
+                <tr><td><code>BG-Secondary-alt</code></td><td>Secondary alt surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span></td></tr>
+                <tr><td><code>BG-Secondary-hover</code></td><td>Secondary hover state</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#313746"></span><span class="token-swatch-hex">#313746</span></span></td></tr>
+                <tr><td><code>BG-Secondary-Solid</code></td><td>Secondary solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#313746"></span><span class="token-swatch-hex">#313746</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#313746"></span><span class="token-swatch-hex">#313746</span></span></td></tr>
+                <tr><td><code>BG-Secondary_subtle</code></td><td>Subtle secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f9fafb"></span><span class="token-swatch-hex">#f9fafb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span></td></tr>
+                <tr><td><code>BG-Tertiary</code></td><td>Tertiary surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>BG-Quaternary</code></td><td>Quaternary surface</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#d2d7e0"></span><span class="token-swatch-hex">#d2d7e0</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span></td></tr>
+                <tr><td><code>BG-Active</code></td><td>Active/selected state</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#313746"></span><span class="token-swatch-hex">#313746</span></span></td></tr>
+                <tr><td><code>BG-Disabled</code></td><td>Disabled background</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>BG-Disabled_subtle</code></td><td>Subtle disabled bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f0f2f5"></span><span class="token-swatch-hex">#f0f2f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span></td></tr>
+                <tr><td><code>BG-Success-Primary</code></td><td>Success primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e7f3ed"></span><span class="token-swatch-hex">#e7f3ed</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#02170b"></span><span class="token-swatch-hex">#02170b</span></span></td></tr>
+                <tr><td><code>BG-Success-Solid</code></td><td>Success solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0c8844"></span><span class="token-swatch-hex">#0c8844</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#096633"></span><span class="token-swatch-hex">#096633</span></span></td></tr>
+                <tr><td><code>BG-Error-Primary</code></td><td>Error primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fdebeb"></span><span class="token-swatch-hex">#fdebeb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#150303"></span><span class="token-swatch-hex">#150303</span></span></td></tr>
+                <tr><td><code>BG-Error-Solid</code></td><td>Error solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e42527"></span><span class="token-swatch-hex">#e42527</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#961315"></span><span class="token-swatch-hex">#961315</span></span></td></tr>
+                <tr><td><code>BG-Warning-Primary</code></td><td>Warning primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffeee5"></span><span class="token-swatch-hex">#ffeee5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#150700"></span><span class="token-swatch-hex">#150700</span></span></td></tr>
+                <tr><td><code>BG-Warning-Solid</code></td><td>Warning solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e65100"></span><span class="token-swatch-hex">#e65100</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#a73a00"></span><span class="token-swatch-hex">#a73a00</span></span></td></tr>
+                <tr><td><code>BG-Alert-Primary</code></td><td>Alert primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fef8eb"></span><span class="token-swatch-hex">#fef8eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#181103"></span><span class="token-swatch-hex">#181103</span></span></td></tr>
+                <tr><td><code>BG-Alert-Solid</code></td><td>Alert solid fill</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f9b21d"></span><span class="token-swatch-hex">#f9b21d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e0a01a"></span><span class="token-swatch-hex">#e0a01a</span></span></td></tr>
+                <tr><td><code>BG-Acknowldege-Primary</code></td><td>Acknowledge primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f1eaf8"></span><span class="token-swatch-hex">#f1eaf8</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#1e0f2e"></span><span class="token-swatch-hex">#1e0f2e</span></span></td></tr>
+                <tr><td><code>BG-Accent-Primary</code></td><td>Accent primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#eaf0fc"></span><span class="token-swatch-hex">#eaf0fc</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#071229"></span><span class="token-swatch-hex">#071229</span></span></td></tr>
+                <tr><td><code>BG-Accent-Secondary</code></td><td>Accent secondary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#d5e0f8"></span><span class="token-swatch-hex">#d5e0f8</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0a1b3e"></span><span class="token-swatch-hex">#0a1b3e</span></span></td></tr>
+                <tr><td><code>BG-Button-Primary</code></td><td>Button primary bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#00a6ff"></span><span class="token-swatch-hex">#00a6ff</span></span></td></tr>
+                <tr><td><code>BG-Button-Primary-Hover</code></td><td>Button hover bg</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#1e52bb"></span><span class="token-swatch-hex">#1e52bb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#006aff"></span><span class="token-swatch-hex">#006aff</span></span></td></tr>
+                <tr><td><code>BG-Overlay</code></td><td>Overlay background</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:rgba(11,12,14,0.60)"></span><span class="token-swatch-hex">rgba(11,12,14,0.60)</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="chart-tokens" class="doc-h3" style="margin-top: 40px;">Chart tokens (42)</h3>
+            <p class="doc-section-subtitle" style="margin-bottom: 16px;">Seven color families with six variants each for data visualization.</p>
+            <table class="token-table">
+              <thead>
+                <tr><th>Token</th><th>Variant</th><th>Color</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>BG-Chart-Blue-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#2c66dd"></span><span class="token-swatch-hex">#2c66dd</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#4276e0"></span><span class="token-swatch-hex">#4276e0</span></span></td></tr>
+                <tr><td><code>BG-Chart-Blue-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#4276e0"></span><span class="token-swatch-hex">#4276e0</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2c66dd"></span><span class="token-swatch-hex">#2c66dd</span></span></td></tr>
+                <tr><td><code>BG-Chart-Blue-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#6b94e7"></span><span class="token-swatch-hex">#6b94e7</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#1e52bb"></span><span class="token-swatch-hex">#1e52bb</span></span></td></tr>
+                <tr><td><code>BG-Chart-Blue-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#96b3ee"></span><span class="token-swatch-hex">#96b3ee</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#184091"></span><span class="token-swatch-hex">#184091</span></span></td></tr>
+                <tr><td><code>BG-Chart-Blue-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#c0d1f5"></span><span class="token-swatch-hex">#c0d1f5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#112e68"></span><span class="token-swatch-hex">#112e68</span></span></td></tr>
+                <tr><td><code>BG-Chart-Blue-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#eaf0fc"></span><span class="token-swatch-hex">#eaf0fc</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0a1b3e"></span><span class="token-swatch-hex">#0a1b3e</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e42527"></span><span class="token-swatch-hex">#e42527</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e94d4f"></span><span class="token-swatch-hex">#e94d4f</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e94d4f"></span><span class="token-swatch-hex">#e94d4f</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e42527"></span><span class="token-swatch-hex">#e42527</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ee7476"></span><span class="token-swatch-hex">#ee7476</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#c1181b"></span><span class="token-swatch-hex">#c1181b</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f39c9d"></span><span class="token-swatch-hex">#f39c9d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#961315"></span><span class="token-swatch-hex">#961315</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f8c4c4"></span><span class="token-swatch-hex">#f8c4c4</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#6b0d0f"></span><span class="token-swatch-hex">#6b0d0f</span></span></td></tr>
+                <tr><td><code>BG-Chart-Red-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fdebeb"></span><span class="token-swatch-hex">#fdebeb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#400809"></span><span class="token-swatch-hex">#400809</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#6a7898"></span><span class="token-swatch-hex">#6a7898</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#8893ad"></span><span class="token-swatch-hex">#8893ad</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#6a7898"></span><span class="token-swatch-hex">#6a7898</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#a5aec1"></span><span class="token-swatch-hex">#a5aec1</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#55607a"></span><span class="token-swatch-hex">#55607a</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#c3c9d6"></span><span class="token-swatch-hex">#c3c9d6</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#40485b"></span><span class="token-swatch-hex">#40485b</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e1e4eb"></span><span class="token-swatch-hex">#e1e4eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#2a303d"></span><span class="token-swatch-hex">#2a303d</span></span></td></tr>
+                <tr><td><code>BG-Chart-Grey-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f9fafb"></span><span class="token-swatch-hex">#f9fafb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#15181e"></span><span class="token-swatch-hex">#15181e</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e65100"></span><span class="token-swatch-hex">#e65100</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ff6a1a"></span><span class="token-swatch-hex">#ff6a1a</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ff6a1a"></span><span class="token-swatch-hex">#ff6a1a</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e65100"></span><span class="token-swatch-hex">#e65100</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ff8b4d"></span><span class="token-swatch-hex">#ff8b4d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#bc4200"></span><span class="token-swatch-hex">#bc4200</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffac80"></span><span class="token-swatch-hex">#ffac80</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#933300"></span><span class="token-swatch-hex">#933300</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffceb3"></span><span class="token-swatch-hex">#ffceb3</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#682500"></span><span class="token-swatch-hex">#682500</span></span></td></tr>
+                <tr><td><code>BG-Chart-Orange-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#ffeee5"></span><span class="token-swatch-hex">#ffeee5</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#3f1600"></span><span class="token-swatch-hex">#3f1600</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#663399"></span><span class="token-swatch-hex">#663399</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#7648a3"></span><span class="token-swatch-hex">#7648a3</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#7648a3"></span><span class="token-swatch-hex">#7648a3</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#663399"></span><span class="token-swatch-hex">#663399</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#9471b8"></span><span class="token-swatch-hex">#9471b8</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#5c2e89"></span><span class="token-swatch-hex">#5c2e89</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#b399cd"></span><span class="token-swatch-hex">#b399cd</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#47246b"></span><span class="token-swatch-hex">#47246b</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#d5c0ea"></span><span class="token-swatch-hex">#d5c0ea</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#33194c"></span><span class="token-swatch-hex">#33194c</span></span></td></tr>
+                <tr><td><code>BG-Chart-Charoite-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f1eaf8"></span><span class="token-swatch-hex">#f1eaf8</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#1e0f2e"></span><span class="token-swatch-hex">#1e0f2e</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#f9b21d"></span><span class="token-swatch-hex">#f9b21d</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#fac248"></span><span class="token-swatch-hex">#fac248</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fac248"></span><span class="token-swatch-hex">#fac248</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#f9b21d"></span><span class="token-swatch-hex">#f9b21d</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fbcf71"></span><span class="token-swatch-hex">#fbcf71</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#e0a01a"></span><span class="token-swatch-hex">#e0a01a</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fcdd99"></span><span class="token-swatch-hex">#fcdd99</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#ae7c14"></span><span class="token-swatch-hex">#ae7c14</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fdebc2"></span><span class="token-swatch-hex">#fdebc2</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#7c590e"></span><span class="token-swatch-hex">#7c590e</span></span></td></tr>
+                <tr><td><code>BG-Chart-Yellow-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#fef8eb"></span><span class="token-swatch-hex">#fef8eb</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#4a3509"></span><span class="token-swatch-hex">#4a3509</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Primary</code></td><td>Primary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#0c8844"></span><span class="token-swatch-hex">#0c8844</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#249457"></span><span class="token-swatch-hex">#249457</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Secondary</code></td><td>Secondary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#249457"></span><span class="token-swatch-hex">#249457</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0c8844"></span><span class="token-swatch-hex">#0c8844</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Tertiary</code></td><td>Tertiary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#55ac7c"></span><span class="token-swatch-hex">#55ac7c</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#0a7138"></span><span class="token-swatch-hex">#0a7138</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Quaternary</code></td><td>Quaternary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#86c4a2"></span><span class="token-swatch-hex">#86c4a2</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#085b2d"></span><span class="token-swatch-hex">#085b2d</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Quinary</code></td><td>Quinary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#b7dcc7"></span><span class="token-swatch-hex">#b7dcc7</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#054422"></span><span class="token-swatch-hex">#054422</span></span></td></tr>
+                <tr><td><code>BG-Chart-Green-Senary</code></td><td>Senary</td><td><span class="swatch-light token-swatch"><span class="token-swatch-color" style="background:#e7f3ed"></span><span class="token-swatch-hex">#e7f3ed</span></span><span class="swatch-dark token-swatch"><span class="token-swatch-color" style="background:#042d17"></span><span class="token-swatch-hex">#042d17</span></span></td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="spacing-radius-tokens" class="doc-h3" style="margin-top: 40px;">Spacing, radius, and font-size tokens</h3>
+            <div class="collection-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+              <div class="collection-card">
+                <div class="collection-card-title">Spacing (22)</div>
+                <div class="collection-card-desc">0 through 80px in 4px increments</div>
+                <div class="code-block" style="margin-top: 12px; font-size: 11.5px;">0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">Radius (7)</div>
+                <div class="collection-card-desc">From none to extra-large</div>
+                <div class="code-block" style="margin-top: 12px; font-size: 11.5px;">radius-none, radius-xs, radius-default, radius-s, radius-m, radius-l, radius-xl</div>
+              </div>
+              <div class="collection-card">
+                <div class="collection-card-title">Font/Size (21)</div>
+                <div class="collection-card-desc">8px through 80px</div>
+                <div class="code-block" style="margin-top: 12px; font-size: 11.5px;">8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 80</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- UEMS Global Tokens -->
+          <div class="doc-section" id="global-tokens">
+            <h2 class="doc-section-title">UEMS Global Tokens</h2>
+            <p class="doc-section-subtitle">32 component-level tokens for spacing, radius, width, and icon sizing.</p>
+
+            <table class="token-table">
+              <thead>
+                <tr><th>Group</th><th>Count</th><th>Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Spacing</code></td><td>15</td><td>0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80</td></tr>
+                <tr><td><code>Border-radius</code></td><td>8</td><td>radius-2, radius-4, radius-6, radius-8, radius-12, radius-16, radius-20, radius-pill</td></tr>
+                <tr><td><code>Border-width</code></td><td>3</td><td>border-width-0, border-width-1, border-width-2</td></tr>
+                <tr><td><code>Icon-size</code></td><td>6</td><td>icon-xsmall (12px), icon-small (16px), icon-medium (20px), icon-large (24px), icon-xlarge (32px), icon-2xlarge (48px)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Typography tokens -->
+          <div class="doc-section" id="typography-tokens">
+            <h2 class="doc-section-title">Typography tokens</h2>
+            <p class="doc-section-subtitle">132 tokens across 4 density modes: Default, Large, XLarge, and Small.</p>
+
+            <table class="token-table">
+              <thead>
+                <tr><th>Category</th><th>Count</th><th>Structure</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>body</code></td><td>72</td><td>body/{Default,Large,Small,XSmall}/{Regular,Medium,SemiBold,Bold}/{Font-Family, Font-Weight, font-size, Line-height}</td></tr>
+                <tr><td><code>display</code></td><td>36</td><td>display/{Small,Medium,Large}/{Regular,SemiBold,Bold}/{Font-Family, Font-Weight, font-size, Line-height}</td></tr>
+                <tr><td><code>Code</code></td><td>24</td><td>Code/{Default,Large}/{Regular,SemiBold,Bold}/{Font-Family, Font-Weight, Font-size, Line-height}</td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="type-primitives" class="doc-h3" style="margin-top: 40px;">Type primitives (28 tokens)</h3>
+            <table class="token-table">
+              <thead>
+                <tr><th>Group</th><th>Count</th><th>Values</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Font-size</code></td><td>13</td><td>9, 10, 11, 12, 13, 14, 16, 18, 20, 24, 28, 32, 36 px</td></tr>
+                <tr><td><code>Font-weight</code></td><td>4</td><td>Regular, Medium, Semibold, Bold</td></tr>
+                <tr><td><code>Line-height</code></td><td>11</td><td>9, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36 px</td></tr>
+              </tbody>
+            </table>
+
+            <h3 id="font-family-tokens" class="doc-h3" style="margin-top: 40px;">Font family (11 tokens, 3 modes)</h3>
+            <p style="font-size: 14.5px; color: var(--prism-text-muted); line-height: 1.6; margin-bottom: 16px;">Modes: <code>Zoho Puvi</code>, <code>Lato</code>, <code>Roboto</code>. Tokens: Typeface, Typeface-code, Boolean, Text, Prefix-text, Suffix-text, Prefix, Suffix, Label, String, RTL.</p>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Token naming convention -->
+          <div class="doc-section" id="naming-convention">
+            <h2 class="doc-section-title">Token naming convention</h2>
+            <p class="doc-section-subtitle">Structure: <code>{category}/{group}/{property}</code></p>
+
+            <table class="token-table">
+              <thead>
+                <tr><th>Example</th><th>Category</th><th>Group</th><th>Property</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>Text/Text-Primary</code></td><td>Text</td><td>--</td><td>Text-Primary</td></tr>
+                <tr><td><code>Background/BG-Success-Primary</code></td><td>Background</td><td>--</td><td>BG-Success-Primary</td></tr>
+                <tr><td><code>Border/Icon/Icon-Accent</code></td><td>Border</td><td>Icon</td><td>Icon-Accent</td></tr>
+                <tr><td><code>spacing/16px</code></td><td>spacing</td><td>--</td><td>16px</td></tr>
+                <tr><td><code>radius/radius-default</code></td><td>radius</td><td>--</td><td>radius-default</td></tr>
+                <tr><td><code>Font/Size/14px</code></td><td>Font</td><td>Size</td><td>14px</td></tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top: 24px;">
+              <h3 class="doc-h3">Naming rules</h3>
+              <ul class="doc-list">
+                <li>Use sentence case for semantic names</li>
+                <li>Use kebab-case for sub-groups</li>
+                <li>Never encode values in token names</li>
+                <li>Group by purpose, not by visual property</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Theme modes -->
+          <div class="doc-section" id="theme-modes">
+            <h2 class="doc-section-title">Theme modes</h2>
+            <p class="doc-section-subtitle">4 theme modes in UEMS Theme Tokens. Every semantic token resolves to a different primitive per mode. Component code never needs to know which theme is active.</p>
+
+            <div class="theme-grid">
+              <div class="theme-card">
+                <div class="theme-card-indicator" style="background: linear-gradient(90deg, #f8faff, #e2e8f0);"></div>
+                <div class="theme-card-name">Light theme</div>
+                <div class="theme-card-desc">Default mode. Used for standard admin consoles and everyday management workflows.</div>
+              </div>
+              <div class="theme-card">
+                <div class="theme-card-indicator" style="background: linear-gradient(90deg, #1e293b, #0f172a);"></div>
+                <div class="theme-card-name">Dark theme</div>
+                <div class="theme-card-desc">Low-light environments. Inverts the neutral scale for reduced eye strain.</div>
+              </div>
+              <div class="theme-card">
+                <div class="theme-card-indicator" style="background: linear-gradient(90deg, #0a0a0c, #1a1a2e);"></div>
+                <div class="theme-card-name">Night theme</div>
+                <div class="theme-card-desc">Maximum contrast reduction. Designed for NOC/SOC dashboards and extended monitoring sessions.</div>
+              </div>
+              <div class="theme-card">
+                <div class="theme-card-indicator" style="background: linear-gradient(90deg, #16a34a, #22c55e);"></div>
+                <div class="theme-card-name">Green accent</div>
+                <div class="theme-card-desc">Alternate brand theme for sub-products and white-label deployments.</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Anti-patterns -->
+          <div class="doc-section" id="anti-patterns">
+            <h2 class="doc-section-title">Anti-patterns</h2>
+            <p class="doc-section-subtitle">Common mistakes that erode the token system. Avoid these in every module.</p>
+
+            <ul class="anti-pattern-list">
+              <li>Hardcoding hex values in component code</li>
+              <li>Creating one-off spacing values outside the scale</li>
+              <li>Using primitive tokens directly in components (skip the semantic layer)</li>
+              <li>Storing theme logic inside component files</li>
+              <li>Naming tokens after their visual value instead of purpose</li>
+              <li>Skipping dark mode token mappings during development</li>
+              <li>Using inconsistent token paths across modules</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider" />
+
+          <!-- Principle -->
+          <div class="doc-section" id="closing-principle">
+            <h2 class="doc-section-title">Principle</h2>
+            <div class="principle-card">
+              <p>In Prism, tokens are the design system's memory. They encode decisions so teams don't repeat them, enforce consistency so products don't drift, and enable theming so experiences adapt automatically.</p>
+            </div>
+          </div>
+
+          <div class="feedback-banner" style="display: none;">
+            <div>
+              <div class="fb-text">Help us improve this page</div>
+              <div class="fb-sub">Share your feedback to help shape the Tokens documentation.</div>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <button class="feedback-btn primary" onclick="window.open('https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback','_blank')">Give Feedback</button>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="toc-sidebar">
+          <h4 class="toc-heading">On this page</h4>
+          <ul class="toc-nav" id="toc-nav"></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script>
+
+    // Dynamic TOC
+    let _tocObserver = null;
+    function buildTOC() {
+      const tocList = document.getElementById('toc-nav');
+      if (!tocList) return;
+      tocList.innerHTML = '';
+      const inner = document.querySelector('.main-content-inner');
+      if (!inner) return;
+      const headings = inner.querySelectorAll('h2[id], h3[id]');
+      const sections = [];
+      headings.forEach(h => {
+        if (h.style.display === 'none') return;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'toc-link';
+        let text = Array.from(h.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim();
+        if (!text) text = h.innerText.replace(/^\d+\.\s*/, '');
+        a.textContent = text;
+        if (h.tagName === 'H3') { a.style.paddingLeft = '16px'; a.style.fontSize = '12.5px'; }
+        a.addEventListener('click', e => { e.preventDefault(); document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        li.appendChild(a);
+        tocList.appendChild(li);
+        sections.push(h);
+      });
+      if (_tocObserver) _tocObserver.disconnect();
+      _tocObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            document.querySelectorAll('.toc-link').forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+      sections.forEach(s => _tocObserver.observe(s));
+    }
+    buildTOC();
+
+// Sidebar search: filter foundation nav links by query
+    const sidebarSearchInput = document.querySelector('.sidebar-search input');
+    const foundationNavItems = document.querySelectorAll('.foundation-nav li');
+    if (sidebarSearchInput && foundationNavItems.length) {
+      sidebarSearchInput.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        foundationNavItems.forEach(li => {
+          const text = li.textContent.trim().toLowerCase();
+          li.style.display = !q || text.includes(q) ? '' : 'none';
+        });
+      });
+      document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          sidebarSearchInput.focus();
+        }
+        if (e.key === 'Escape' && document.activeElement === sidebarSearchInput) {
+          sidebarSearchInput.value = '';
+          sidebarSearchInput.dispatchEvent(new Event('input'));
+          sidebarSearchInput.blur();
+        }
+      });
+    }
+
+    const themeToggle = document.getElementById('themeToggle');
+    const moonIcon = document.getElementById('moonIcon');
+    const sunIcon = document.getElementById('sunIcon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+    }
+    themeToggle.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        moonIcon.style.display = 'none'; sunIcon.style.display = 'block';
+      }
+    });
+  </script>
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const toggle = () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();
+</script>
+<script>
+(function(){
+  const hamburger = document.querySelector('.nav-hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !sidebar || !backdrop) return;
+
+  // Build a mobile-only nav section at the top of the sidebar by cloning the nav links
+  if (navLinks && !sidebar.querySelector('.sidebar-mobile-nav')) {
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'sidebar-mobile-nav';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Navigate';
+    mobileNav.appendChild(heading);
+    const ul = document.createElement('ul');
+    navLinks.querySelectorAll(':scope > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    navLinks.querySelectorAll(':scope > .nav-dropdown > .nav-dropdown-menu > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    mobileNav.appendChild(ul);
+    sidebar.insertBefore(mobileNav, sidebar.firstChild);
+  }
+
+  const open = () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+  hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebar.classList.contains('open')) close(); });
+  sidebar.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+})();
+</script>
+
+<!-- Floating Feedback Button -->
+<style>
+  .float-cliq-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .float-cliq-label {
+    background: #1a1a2e; color: #fff;
+    padding: 7px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 500; white-space: nowrap;
+    opacity: 0; transform: translateX(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .float-cliq-btn:hover .float-cliq-label {
+    opacity: 1; transform: translateX(0);
+  }
+  .float-cliq-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #2563eb; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+  }
+  .float-cliq-btn:hover .float-cliq-icon {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.55);
+  }
+  .float-cliq-btn:active .float-cliq-icon { transform: scale(0.95); }
+</style>
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+</body>
+</html>

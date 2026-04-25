@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar Navigation Level 2 — UEMS Design System</title>
+<link rel="stylesheet" href="css/common/fonts.css">
+<link rel="stylesheet" href="css/common/base.css">
+<link rel="stylesheet" href="css/pages/left-sidebar-navigation-level-2/main.css">
+<link rel="stylesheet" href="css/common/feedback-btn.css">
+
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+<img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+<span class="nav-logo-text">
+  <span class="nav-logo-mark">Prism</span>
+  <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+</span>
+    </a>
+    <div class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html" class="active">Components</a>
+      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a>
+      <div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div style="width:16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search..."><span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 class="sidebar-heading">Components</h3>
+      <ul class="sidebar-nav">
+        <li><a href="Accordion.html" class="sidebar-link">Accordion</a></li>
+        <li><a href="Avatar.html" class="sidebar-link">Avatar</a></li>
+        <li><a href="Badges.html" class="sidebar-link">Badges</a></li>
+        <li><a href="Breadcrumbs.html" class="sidebar-link">Breadcrumbs</a></li>
+        <li><a href="Button.html" class="sidebar-link">Button</a></li>
+        <li><a href="Calendar.html" class="sidebar-link">Calendar</a></li>
+        <li><a href="Checkbox.html" class="sidebar-link">Checkbox</a></li>
+        <li><a href="Counter.html" class="sidebar-link">Counter</a></li>
+        <li><a href="Data-table.html" class="sidebar-link">Data table</a></li>
+        <li><a href="Date-picker.html" class="sidebar-link">Date picker</a></li>
+        <li><a href="Divider.html" class="sidebar-link">Divider</a></li>
+        <li><a href="Dropdown.html" class="sidebar-link">Dropdown</a></li>
+        <li><a href="Empty-state.html" class="sidebar-link">Empty state</a></li>
+        <li><a href="Header-navigation.html" class="sidebar-link">Header navigation</a></li>
+        <li><a href="Icon.html" class="sidebar-link">Icon</a></li>
+        <li><a href="Inline-message.html" class="sidebar-link">Inline message</a></li>
+        <li><a href="Left-sidebar-navigation-level-1.html" class="sidebar-link">Sidebar Nav L1</a></li>
+        <li><a href="Left-sidebar-navigation-level-2.html" class="sidebar-link active">Sidebar Nav L2</a></li>
+        <li><a href="Link.html" class="sidebar-link">Link</a></li>
+        <li><a href="OTP-input.html" class="sidebar-link">OTP input</a></li>
+        <li><a href="Page-header.html" class="sidebar-link">Page header</a></li>
+        <li><a href="Progress-bar.html" class="sidebar-link">Progress bar</a></li>
+        <li><a href="Radio-button.html" class="sidebar-link">Radio button</a></li>
+        <li><a href="Rich-text-editor.html" class="sidebar-link">Rich text editor</a></li>
+        <li><a href="Right-pane.html" class="sidebar-link">Right pane</a></li>
+        <li><a href="Script-editor.html" class="sidebar-link">Script editor</a></li>
+        <li><a href="Slider.html" class="sidebar-link">Slider</a></li>
+        <li><a href="Snackbar.html" class="sidebar-link">Toast Message</a></li>
+        <li><a href="Split-button.html" class="sidebar-link">Split button</a></li>
+        <li><a href="Status-indicator.html" class="sidebar-link">Status indicator</a></li>
+        <li><a href="Switch.html" class="sidebar-link">Toggle</a></li>
+        <li><a href="Tag.html" class="sidebar-link">Tag</a></li>
+        <li><a href="Text-area.html" class="sidebar-link">Text area</a></li>
+        <li><a href="Text-field.html" class="sidebar-link">Text field</a></li>
+        <li><a href="Tooltip.html" class="sidebar-link">Tooltip</a></li>
+        <li style="padding:16px 12px 8px;"><span style="font-size:10px;font-weight:700;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;">In-progress</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action button</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action list</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Alert banner</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">App bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Autocomplete</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Bottom sheet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Button group</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Cards</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Code snippet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Combobox</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Dialog</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Drawer</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Filter input</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Form</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Help text</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Label</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">List</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Menus</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Modal</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Navigation bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Pagination</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Popover</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Progress indicator</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Search</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Segmented control</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Select</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Sidebar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tabs</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tree view</span></li>
+      </ul>
+    </aside>
+
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Sidebar Navigation Level 2</h1>
+        <p class="page-desc">A contextual secondary navigation panel that appears alongside the Level 1 sidebar. It displays the full navigation tree for the currently selected Level 1 section, organised into collapsible groups with a search bar at the top.</p>
+        <nav class="content-tabs">
+          <button class="tab-item active">Overview</button>
+          <button class="tab-item">Style</button>
+          <button class="tab-item">Usage</button>
+          <button class="tab-item">Code</button>
+          <button class="tab-item">Accessibility</button>
+        </nav>
+      </div>
+
+      <div class="main-content-area">
+        <div class="main-content-inner">
+
+        <!-- ========== OVERVIEW ========== -->
+        <div class="tab-content" id="tab-overview">
+          <h3 id="anatomy" class="doc-h3">Anatomy</h3>
+          <div class="anatomy-diagram">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0;margin:8px 0;">
+              <!-- Search row -->
+              <div style="position:relative;display:flex;align-items:center;gap:8px;width:260px;margin-bottom:12px;overflow:visible;">
+                <div style="position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">1</span><div style="width:28px;height:2px;background:#2563eb;"></div></div>
+                <div style="width:100%;padding:6px 8px 6px 30px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:6px;font-size:13px;color:var(--prism-text-muted);position:relative;">
+                  <svg style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--prism-text-muted);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                  Search...
+                </div>
+              </div>
+              <!-- Group header row -->
+              <div style="position:relative;display:flex;align-items:center;gap:6px;width:260px;margin-bottom:4px;padding:6px 4px;overflow:visible;">
+                <div style="position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">2</span><div style="width:28px;height:2px;background:#2563eb;"></div></div>
+                <svg style="width:12px;height:12px;color:var(--prism-violet);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                <span style="font-size:12px;font-weight:500;color:var(--prism-violet);">Add Configurations</span>
+              </div>
+              <!-- Nav items -->
+              <div style="position:relative;width:260px;display:flex;flex-direction:column;gap:2px;overflow:visible;">
+                <div style="position:absolute;right:calc(100% + 6px);top:12px;display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">3</span><div style="width:28px;height:2px;background:#2563eb;"></div></div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);border-radius:4px;display:flex;justify-content:space-between;align-items:center;">Configuration <svg style="width:10px;height:10px;color:var(--prism-text-muted);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);border-radius:4px;">Templates</div>
+                <div style="position:relative;padding:7px 8px 7px 20px;font-size:13px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;background:rgba(37,99,235,0.08);color:var(--prism-violet);overflow:visible;">
+                  <div style="position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;flex-direction:row-reverse;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">4</span><div style="width:28px;height:2px;background:#2563eb;"></div></div>
+                  Collection <svg style="width:10px;height:10px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <!-- Count badge item -->
+              <div style="position:relative;width:260px;margin-top:8px;overflow:visible;">
+                <div style="position:absolute;right:calc(100% + 6px);top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:6px;z-index:5;"><span class="anat-marker-inline">5</span><div style="width:28px;height:2px;background:#2563eb;"></div></div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+                  Installed Patches
+                  <span style="font-size:11px;font-weight:500;color:var(--prism-text-muted);background:var(--prism-surface-hover);border-radius:9999px;padding:1px 6px;">81</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="anat-legend" style="grid-template-columns:repeat(3,1fr);">
+            <div class="anat-legend-item"><span class="anat-marker-inline">1</span><div><strong>Search Bar</strong><span>Full-width text input with leading search icon. Filters across all groups in real-time.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">2</span><div><strong>Group Header</strong><span>Collapsible section title with a chevron icon. Accent blue label (#006AFF). Toggles items visibility.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">3</span><div><strong>Nav Item</strong><span>Text link for a Level 2 page destination. May include a sub-menu chevron for deeper navigation.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">4</span><div><strong>Active Item</strong><span>Highlighted with accent background (#E8F0FE) and blue text to indicate current page.</span></div></div>
+            <div class="anat-legend-item"><span class="anat-marker-inline">5</span><div><strong>Count Badge</strong><span>Gray pill counter on the right side showing live record count (e.g. 81, 554K).</span></div></div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div style="margin-bottom:64px;">
+            <h2 id="live-demo" class="doc-section-title" style="margin-bottom:8px;">Preview</h2>
+            <p class="doc-section-subtitle" style="margin-bottom:28px;">Explore the Sidebar Navigation Level 2 with interactive expand/collapse, search filtering, and item states.</p>
+            <div class="demo-container">
+              <div class="demo-canvas" style="padding:48px;min-height:420px;">
+                <nav class="snl2-panel" id="demo-panel" aria-label="Configurations navigation">
+                  <div class="snl2-search">
+                    <svg class="snl2-search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="search" placeholder="Search..." aria-label="Search navigation" id="demo-search"/>
+                  </div>
+                  <ul class="snl2-tree" role="list">
+                    <!-- Group 1: Add Configurations -->
+                    <li class="snl2-group">
+                      <button class="snl2-group-header" aria-expanded="true">
+                        <svg class="snl2-group-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                        Add Configurations
+                      </button>
+                      <ul class="snl2-group-items" role="list">
+                        <li><a href="#" class="snl2-item">Configuration <svg class="snl2-item-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a></li>
+                        <li><a href="#" class="snl2-item">Templates</a></li>
+                        <li><a href="#" class="snl2-item active" aria-current="page">Collection <svg class="snl2-item-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></a></li>
+                      </ul>
+                    </li>
+                    <!-- Group 2: Views -->
+                    <li class="snl2-group">
+                      <button class="snl2-group-header" aria-expanded="true">
+                        <svg class="snl2-group-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                        Views
+                      </button>
+                      <ul class="snl2-group-items" role="list">
+                        <li><a href="#" class="snl2-item">Nav Item</a></li>
+                        <li><a href="#" class="snl2-item">Trash</a></li>
+                      </ul>
+                    </li>
+                    <!-- Group 3: Reports -->
+                    <li class="snl2-group">
+                      <button class="snl2-group-header" aria-expanded="true">
+                        <svg class="snl2-group-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                        Reports
+                      </button>
+                      <ul class="snl2-group-items" role="list">
+                        <li><a href="#" class="snl2-item">USB Reports</a></li>
+                        <li><a href="#" class="snl2-item">Script Repository</a></li>
+                      </ul>
+                    </li>
+                    <!-- Group 4: Settings -->
+                    <li class="snl2-group collapsed">
+                      <button class="snl2-group-header" aria-expanded="false">
+                        <svg class="snl2-group-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                        Settings
+                      </button>
+                      <ul class="snl2-group-items" role="list">
+                        <li><a href="#" class="snl2-item">Configuration Settings</a></li>
+                        <li><a href="#" class="snl2-item">Script Repository</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-section">
+            <h3 id="panel-configurations" class="doc-h3">Panel Configurations<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">21 Panels</span></h3>
+            <p class="doc-section-subtitle">The design system contains 21 sidebar configurations across 14 product modules.</p>
+            <table class="size-table">
+              <thead><tr><th>Product Module</th><th>Panel Count</th><th>Frame Node</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Configurations</strong></td><td>1</td><td><code>16948:800505</code></td></tr>
+                <tr><td><strong>Software Deployment</strong></td><td>2</td><td><code>16854:220981</code>, <code>16948:804996</code></td></tr>
+                <tr><td><strong>Inventory</strong></td><td>2</td><td><code>16856:422674</code>, <code>16948:809173</code></td></tr>
+                <tr><td><strong>OS Deployment</strong></td><td>2</td><td><code>16860:598498</code>, <code>16948:813988</code></td></tr>
+                <tr><td><strong>MDM</strong></td><td>1</td><td><code>16860:598597</code></td></tr>
+                <tr><td><strong>Agent</strong></td><td>2</td><td><code>16861:599550</code>, <code>16948:817543</code></td></tr>
+                <tr><td><strong>Admin</strong></td><td>1</td><td><code>16862:602103</code></td></tr>
+                <tr><td><strong>Browsers</strong></td><td>1 (3 cols)</td><td><code>16862:603167</code></td></tr>
+                <tr><td><strong>Application Control</strong></td><td>2</td><td><code>16862:603763</code>, <code>16948:821071</code></td></tr>
+                <tr><td><strong>Endpoint DLP</strong></td><td>2</td><td><code>16862:604920</code>, <code>16948:820755</code></td></tr>
+                <tr><td><strong>BitLocker Management</strong></td><td>2</td><td><code>16862:605739</code>, <code>16948:826684</code></td></tr>
+                <tr><td><strong>Reports</strong></td><td>1</td><td><code>16862:607019</code></td></tr>
+                <tr><td><strong>Device Control</strong></td><td>1</td><td><code>16862:606274</code></td></tr>
+                <tr><td><strong>Threats &amp; Patches</strong></td><td>1 (5 cols)</td><td><code>16859:533392</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="nav-group-states" class="doc-h3">Nav Group States</h3>
+            <p class="doc-section-subtitle">Each group has two toggle states controlled by a chevron button.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;">
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h4 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Expanded</h4>
+                <div style="display:flex;align-items:center;gap:6px;padding:6px 4px;color:var(--prism-violet);font-size:12px;font-weight:500;">
+                  <svg style="width:12px;height:12px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Group Header
+                </div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);">Nav Item</div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);">Nav Item</div>
+                <div style="padding:7px 8px 7px 20px;font-size:13px;color:var(--prism-text);">Nav Item</div>
+                <p style="font-size:13px;color:var(--prism-text-muted);margin-top:12px;">Chevron points <strong>down</strong>. Items container is visible. Label uses <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">Text/Text-Accent-Link</code> (#006AFF).</p>
+              </div>
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h4 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Collapsed</h4>
+                <div style="display:flex;align-items:center;gap:6px;padding:6px 4px;color:var(--prism-violet);font-size:12px;font-weight:500;">
+                  <svg style="width:12px;height:12px;transform:rotate(-90deg);" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Group Header
+                </div>
+                <p style="font-size:13px;color:var(--prism-text-muted);margin-top:12px;">Chevron points <strong>right</strong>. Items container is hidden. Click to re-expand.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="nav-item-types" class="doc-h3">Nav Item Types</h3>
+            <p class="doc-section-subtitle">Three visual variations for navigation items within a group.</p>
+            <table class="size-table">
+              <thead><tr><th>Type</th><th>Visual</th><th>Usage</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Plain item</strong></td><td>Text only</td><td>Standard page destination</td></tr>
+                <tr><td><strong>Item with count badge</strong></td><td>Text + gray pill counter on right</td><td>Shows live record count (e.g. "Installed Patches 81")</td></tr>
+                <tr><td><strong>Item with sub-menu</strong></td><td>Text + <code>&#8250;</code> chevron on right</td><td>Opens a tertiary flyout or nested sub-section</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="content-guidelines" class="doc-h3">Content Guidelines<span class="h3-badge" style="background:rgba(37,99,235,0.1);color:var(--prism-violet);">Recommended</span></h3>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li>Show the search bar at the top of every panel &#8212; it filters across all groups.</li>
+                <li>Truncate long item labels with <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&#8230;</code> at a consistent max width.</li>
+                <li>Mark the current page with the Active state.</li>
+                <li>Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">Group N Swap</code> to set individual groups to Collapsed if that section is not the user's current context.</li>
+                <li>Show count badges only for items that represent filtered views of live data.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li>Remove the search bar even for panels with few items.</li>
+                <li>Wrap nav item text to two lines.</li>
+                <li>Leave all items in Default state &#8212; users need a clear location indicator.</li>
+                <li>Collapse all groups simultaneously &#8212; at least one must always be expanded.</li>
+                <li>Add count badges to every item regardless of meaning.</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== STYLE ========== -->
+        <div class="tab-content" id="tab-style" style="display:none;padding-top:32px;">
+          <h2 id="style-overview" class="doc-section-title">Style</h2>
+          <p class="doc-section-subtitle">Design tokens, spacing specifications, and visual states that define the Sidebar Navigation Level 2's appearance.</p>
+
+          <div class="doc-section">
+            <h3 id="structure-spacing" class="doc-h3">Structure &amp; Spacing</h3>
+            <table class="size-table">
+              <thead><tr><th>Property</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Panel width (single)</td><td><code>~280px</code></td></tr>
+                <tr><td>Panel height</td><td><code>~931px</code> (design canvas; runtime = full viewport height)</td></tr>
+                <tr><td>Background</td><td><code>BG-Base-White</code> / <code>#FFFFFF</code></td></tr>
+                <tr><td>Padding (top)</td><td><code>12px</code></td></tr>
+                <tr><td>Padding (sides)</td><td><code>12px</code> left / <code>12px</code> right</td></tr>
+                <tr><td>Search bar</td><td>Full panel width minus padding</td></tr>
+                <tr><td>Group header height</td><td><code>~32px</code></td></tr>
+                <tr><td>Nav item height</td><td><code>~36px</code></td></tr>
+                <tr><td>Item indent</td><td><code>~16px</code> left (under group header)</td></tr>
+                <tr><td>Scrollbar</td><td>Thin, right edge, auto-hide</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="panel-container-tokens" class="doc-h3">Panel Container Tokens</h3>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Token</th><th>Resolves (Light)</th></tr></thead>
+              <tbody>
+                <tr><td>Background</td><td><code>Background/BG-Base-White</code></td><td><code>#FFFFFF</code></td></tr>
+                <tr><td>Right border (divider)</td><td><code>Border/Border-Secondary</code></td><td><code>#C3C9D6</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="search-bar-tokens" class="doc-h3">Search Bar Tokens</h3>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Token</th><th>Resolves (Light)</th></tr></thead>
+              <tbody>
+                <tr><td>Background</td><td><code>Background/BG-Secondary-alt</code></td><td><code>#F0F2F5</code></td></tr>
+                <tr><td>Placeholder text</td><td><code>Text/Text-Placeholder</code></td><td><code>#8893AD</code></td></tr>
+                <tr><td>Icon</td><td><code>Border/Icon/Icon-Secondary</code></td><td><code>#2A303D</code></td></tr>
+                <tr><td>Border</td><td><code>Border/Border-Secondary</code></td><td><code>#C3C9D6</code></td></tr>
+                <tr><td>Border radius</td><td><code>Radius/radius-6</code></td><td><code>6px</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="group-header-tokens" class="doc-h3">Group Header Tokens</h3>
+            <table class="size-table">
+              <thead><tr><th>Element</th><th>Token</th><th>Resolves (Light)</th></tr></thead>
+              <tbody>
+                <tr><td>Label text</td><td><code>Text/Text-Accent-Link</code></td><td><code>#006AFF</code></td></tr>
+                <tr><td>Chevron icon</td><td><code>Border/Icon/Icon-Accent</code></td><td><code>#006AFF</code></td></tr>
+                <tr><td>Font size</td><td>&#8212;</td><td><code>12px</code></td></tr>
+                <tr><td>Font weight</td><td>&#8212;</td><td>Medium (500)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="nav-item-states" class="doc-h3">Nav Item State Tokens</h3>
+            <p class="doc-section-subtitle">Visual tokens for the three interaction states of nav items.</p>
+            <table class="size-table">
+              <thead><tr><th>State</th><th>Background</th><th>Text Color</th><th>Radius</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Default</strong></td><td><code>none</code></td><td><code>#15181E</code> (Text-Primary)</td><td>&#8212;</td></tr>
+                <tr><td><strong>Hover</strong></td><td><code>#F0F2F5</code> (BG-Secondary-alt)</td><td><code>#15181E</code> (Text-Primary)</td><td><code>4px</code></td></tr>
+                <tr><td><strong>Active / Selected</strong></td><td><code>#E8F0FE</code> (BG-Accent-Subtle)</td><td><code>#006AFF</code> (Text-Accent-Link)</td><td><code>4px</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="count-badge-tokens" class="doc-h3">Count Badge &amp; Sub-menu Chevron Tokens</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;">
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h4 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Count Badge</h4>
+                <table class="size-table" style="font-size:13px;">
+                  <thead><tr><th>Element</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr><td>Background</td><td><code>#F0F2F5</code></td></tr>
+                    <tr><td>Text</td><td><code>#2A303D</code></td></tr>
+                    <tr><td>Radius</td><td>Pill (full)</td></tr>
+                    <tr><td>Font size</td><td><code>11px</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="padding:24px;background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;">
+                <h4 style="font-size:15px;font-weight:600;color:var(--prism-text);margin-bottom:16px;">Sub-menu Chevron</h4>
+                <table class="size-table" style="font-size:13px;">
+                  <thead><tr><th>Element</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr><td>Icon color</td><td><code>#2A303D</code> (Icon-Secondary)</td></tr>
+                    <tr><td>Size</td><td><code>10px</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="component-properties" class="doc-section-title">Component Properties</h2>
+            <p class="doc-section-subtitle">Per-panel properties available in Figma (e.g. Configurations component set).</p>
+            <table class="size-table">
+              <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>Group 1</code></td><td>Boolean</td><td>ON</td><td>Show/hide group slot 1</td></tr>
+                <tr><td><code>Group 2</code></td><td>Boolean</td><td>ON</td><td>Show/hide group slot 2</td></tr>
+                <tr><td><code>Group 3</code></td><td>Boolean</td><td>ON</td><td>Show/hide group slot 3</td></tr>
+                <tr><td><code>Group 4</code></td><td>Boolean</td><td>ON</td><td>Show/hide group slot 4</td></tr>
+                <tr><td><code>Group 5</code></td><td>Boolean</td><td>OFF</td><td>Show/hide group slot 5 (hidden by default)</td></tr>
+                <tr><td><code>Group 6</code></td><td>Boolean</td><td>OFF</td><td>Show/hide group slot 6</td></tr>
+                <tr><td><code>Group 7</code></td><td>Boolean</td><td>OFF</td><td>Show/hide group slot 7</td></tr>
+                <tr><td><code>Group 8</code></td><td>Boolean</td><td>OFF</td><td>Show/hide group slot 8</td></tr>
+                <tr><td><code>Group 1 Swap</code></td><td>Instance Swap</td><td>Expanded group</td><td>Swap group 1 to any Nav Group variant (Expanded / Collapsed)</td></tr>
+                <tr><td><code>Group 2&#8211;8 Swap</code></td><td>Instance Swap</td><td>Expanded group</td><td>Swap groups 2&#8211;8 independently</td></tr>
+                <tr><td><code>Property 1</code></td><td>Variant</td><td>Default</td><td>Currently only Default variant exists at the panel level</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ========== USAGE ========== -->
+        <div class="tab-content" id="tab-usage" style="display:none;padding-top:32px;">
+          <h2 id="usage-guidelines" class="doc-section-title">Usage Guidelines</h2>
+          <p class="doc-section-subtitle">When and how to use the Sidebar Navigation Level 2 component.</p>
+
+          <div class="doc-section">
+            <h3 id="when-to-use" class="doc-h3">When to Use</h3>
+            <ul class="doc-list">
+              <li>Always display the Level 2 sidebar alongside the Level 1 sidebar when a user has selected a Level 1 section that has sub-navigation.</li>
+              <li>Use the panel that corresponds to the active Level 1 item &#8212; do not mix panels across products.</li>
+              <li>Show collapsed groups when the content list is very long and only the most relevant group needs immediate visibility.</li>
+              <li>Maintain the active item highlight to indicate the current page within the Level 2 tree.</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="when-not-to-use" class="doc-h3">When NOT to Use</h3>
+            <ul class="doc-list">
+              <li>Do not show a Level 2 sidebar for Level 1 sections that are single-destination pages (e.g. Dashboard, Settings with no sub-sections).</li>
+              <li>Do not duplicate Level 2 navigation in a top tab bar on the same page &#8212; choose one pattern consistently.</li>
+              <li>Do not nest a third level of navigation within this sidebar &#8212; use breadcrumbs or in-page tabs for tertiary navigation instead.</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="group-expand-collapse" class="doc-h3">Group Expand/Collapse Behaviour</h3>
+            <table class="size-table">
+              <thead><tr><th>Scenario</th><th>Recommended Behaviour</th></tr></thead>
+              <tbody>
+                <tr><td>First load for a section</td><td>Expand all groups with &#8804; 5 items; collapse groups with many items</td></tr>
+                <tr><td>User is on a page within a group</td><td>Always keep that group expanded regardless of other groups</td></tr>
+                <tr><td>All groups collapsed</td><td>Never allowed &#8212; at least one group must always be expanded</td></tr>
+                <tr><td>User navigates away from section</td><td>Persist expand/collapse state per user session</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="count-badges-rules" class="doc-h3">Count Badges</h3>
+            <p class="doc-section-subtitle">Count badges surface live data counts next to nav items. Follow these display rules.</p>
+            <table class="size-table">
+              <thead><tr><th>Count Range</th><th>Display</th></tr></thead>
+              <tbody>
+                <tr><td><code>0</code></td><td>Hide badge (no empty <code>0</code> badge)</td></tr>
+                <tr><td><code>1 &#8211; 999</code></td><td>Show exact number</td></tr>
+                <tr><td><code>1,000 &#8211; 999,999</code></td><td>Abbreviate: <code>78K</code>, <code>554K</code></td></tr>
+                <tr><td><code>1,000,000+</code></td><td>Abbreviate: <code>1M</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="product-nav-reference" class="doc-section-title">Product Navigation Reference</h2>
+            <p class="doc-section-subtitle">Reference content for select product module panels.</p>
+
+            <h3 id="ref-configurations" class="doc-h3">Configurations</h3>
+            <div style="margin-bottom:32px;">
+              <table class="size-table">
+                <thead><tr><th>Group</th><th>Items</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Add Configurations</strong></td><td>Configuration &#8594;, Templates, Collection &#8594;</td></tr>
+                  <tr><td><strong>Views</strong></td><td>Nav Item, Trash</td></tr>
+                  <tr><td><strong>Reports</strong></td><td>USB Reports, Script Repository</td></tr>
+                  <tr><td><strong>Settings</strong></td><td>Configuration Settings, Script Repository</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="ref-threats-patches" class="doc-h3">Threats &amp; Patches</h3>
+            <div style="margin-bottom:32px;">
+              <p style="font-size:14px;color:var(--prism-text-muted);margin-bottom:16px;">5 side-by-side panels (<code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">16859:533392</code>)</p>
+              <table class="size-table">
+                <thead><tr><th>Panel</th><th>Group</th><th>Items</th></tr></thead>
+                <tbody>
+                  <tr><td rowspan="1"><strong>Threats</strong></td><td>Threats</td><td>Vulnerabilities, Zero-day Vulnerabilities, System Misconfigurations, High Risk Software, Web Server Misconfigurations, Port Audit, Manage Exceptions</td></tr>
+                  <tr><td rowspan="2"><strong>Patches</strong></td><td>Patches</td><td>Missing Patches, Installed Patches <code>81</code>, Applicable Patches <code>397</code>, Top-Priority Patches, Supported Patches <code>554K</code>, Latest Patches <code>78K</code>, Detailed View, Downloaded Patches, Decline Patch</td></tr>
+                  <tr><td>Attention Required</td><td>Upload Pending <code>1</code></td></tr>
+                  <tr><td rowspan="2"><strong>Systems</strong></td><td>Health Summary</td><td>Highly Vulnerable Systems, Vulnerable Systems <code>1</code>, Healthy Systems <code>8</code>, System Health Policy</td></tr>
+                  <tr><td>Managed Systems</td><td>Scan Systems <code>678</code>, By Patches <code>659</code>, By Vulnerabilities <code>3</code>, By Misconfigurations <code>5</code>, By Web Server Misconfigurations <code>2</code>, By High Risk Software <code>14</code></td></tr>
+                  <tr><td rowspan="2"><strong>Deployment</strong></td><td>Deployment</td><td>Manual Deployment, Test and Approve, Automate Patch Deployment, Disable Automatic Update, Security Configurations, Software Uninstallation, Deployment Policies, Script Repository, Trash</td></tr>
+                  <tr><td>Tools</td><td>Remote Shutdown, Wake on LAN</td></tr>
+                  <tr><td><strong>Compliance</strong></td><td>Compliance</td><td>Policy Groups, Map and Audit Targets, System Quarantine Policy</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="ref-browsers" class="doc-h3">Browsers</h3>
+            <div style="margin-bottom:32px;">
+              <table class="size-table">
+                <thead><tr><th>Group</th><th>Items</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Manage</strong></td><td>Groups &amp; Computers, Website Group, Extension Repository</td></tr>
+                  <tr><td><strong>Policies</strong></td><td>Add-on Management, File Activity Restriction, Threat Prevention, Data Leakage Prevention, Browser Customization, Browser Router, Browser Lockdown, Java Manager, Web Filter, Web Isolation, Browser Restriction</td></tr>
+                  <tr><td><strong>Insights</strong></td><td>Dashboard, Browsers, Browser Add-ons, Computers, Web Activity, Scan Computers, Schedule Scan</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="detailed-do-dont" class="doc-section-title">Complete Do's and Don'ts</h2>
+            <p class="doc-section-subtitle">Comprehensive guidelines for effective usage.</p>
+            <div class="do-dont-grid">
+              <div class="do-card"><span class="card-label">Do</span><ul>
+                <li><strong>Search everywhere:</strong> Show the search bar at the top of every panel &#8212; it filters across all groups.</li>
+                <li><strong>Truncate labels:</strong> Truncate long item labels with <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&#8230;</code> at a consistent max width.</li>
+                <li><strong>Active indicator:</strong> Mark the current page with the Active state &#8212; users need a clear location indicator.</li>
+                <li><strong>Contextual collapse:</strong> Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">Group N Swap</code> to set individual groups to Collapsed if that section is not the user's current context.</li>
+                <li><strong>Meaningful badges:</strong> Show count badges only for items that represent filtered views of live data.</li>
+              </ul></div>
+              <div class="dont-card"><span class="card-label">Don't</span><ul>
+                <li><strong>Remove search:</strong> Remove the search bar even for panels with few items.</li>
+                <li><strong>Wrap text:</strong> Wrap nav item text to two lines.</li>
+                <li><strong>No indicator:</strong> Leave all items in Default state &#8212; users need a clear location indicator.</li>
+                <li><strong>Collapse everything:</strong> Collapse all groups simultaneously &#8212; at least one must always be expanded.</li>
+                <li><strong>Badge overload:</strong> Add count badges to every item regardless of meaning.</li>
+              </ul></div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="related" class="doc-section-title">Related</h2>
+            <p class="doc-section-subtitle">Components that work alongside or complement the Sidebar Navigation Level 2.</p>
+            <div class="related-grid">
+              <a href="Sidebar.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg> Sidebar Nav Level 1</a>
+              <a href="Header-navigation.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg> Header Navigation</a>
+              <a href="Breadcrumbs.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg> Breadcrumb</a>
+              <a href="Tooltip.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg> Tooltip</a>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h2 id="references" class="doc-section-title">References</h2>
+            <p class="doc-section-subtitle">Design tokens and resources for implementing this component.</p>
+            <ul class="doc-list">
+              <li><strong>Figma Frame:</strong> <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">18095:1709034</code> &#8212; Sidebar Navigation Level 2</li>
+              <li><strong>Total Panels:</strong> 21 sidebar configurations across 14 product modules</li>
+              <li><strong>Nav Group Expanded:</strong> Node <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">16826:115644</code></li>
+              <li><strong>Nav Group Collapsed:</strong> Node <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">16826:115578</code></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ========== CODE ========== -->
+        <div class="tab-content" id="tab-code" style="display:none;padding-top:32px;">
+          <h2 id="live-demo-code" class="doc-section-title">Live demo (Code)</h2>
+          <p class="doc-section-subtitle">Configure the Sidebar Navigation Level 2 component and view generated HTML.</p>
+          <div class="code-playground">
+            <div class="cp-toolbar">
+              <div class="cp-control-group"><label class="cp-label">Product Module</label><select class="cp-select" id="pg-module">
+                <option value="configurations" selected>Configurations</option>
+                <option value="patches">Threats &amp; Patches</option>
+                <option value="browsers">Browsers</option>
+                <option value="software">Software Deployment</option>
+              </select></div>
+              <div class="cp-control-group"><label class="cp-label">Active Item</label><select class="cp-select" id="pg-active">
+                <option value="none">None</option>
+                <option value="0" selected>First item</option>
+                <option value="2">Third item</option>
+                <option value="last">Last item</option>
+              </select></div>
+              <div class="cp-control-group"><label class="cp-label">Groups Expanded</label><select class="cp-select" id="pg-groups">
+                <option value="all" selected>All expanded</option>
+                <option value="first">First only</option>
+                <option value="mixed">Mixed (1st &amp; 3rd)</option>
+              </select></div>
+            </div>
+            <div class="cp-preview" id="pg-preview-area" style="min-height:360px;"></div>
+            <div class="cp-code-header">
+              <div style="font-size:13.5px;font-weight:600;color:var(--prism-text);">HTML</div>
+              <button class="cp-action-btn" id="pg-copy-btn"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg> Copy code</button>
+            </div>
+            <div class="cp-code-area" id="pg-code-output" style="max-height:400px;overflow-y:auto;"></div>
+          </div>
+          <script>
+          (function(){
+            var modules = {
+              configurations: {
+                label: 'Configurations navigation',
+                groups: [
+                  { name: 'Add Configurations', items: [{t:'Configuration',sub:true},{t:'Templates'},{t:'Collection',sub:true}] },
+                  { name: 'Views', items: [{t:'Nav Item'},{t:'Trash'}] },
+                  { name: 'Reports', items: [{t:'USB Reports'},{t:'Script Repository'}] },
+                  { name: 'Settings', items: [{t:'Configuration Settings'},{t:'Script Repository'}] }
+                ]
+              },
+              patches: {
+                label: 'Threats & Patches navigation',
+                groups: [
+                  { name: 'Threats', items: [{t:'Vulnerabilities'},{t:'Zero-day Vulnerabilities'},{t:'System Misconfigurations'},{t:'High Risk Software'},{t:'Web Server Misconfigurations'},{t:'Port Audit'},{t:'Manage Exceptions'}] },
+                  { name: 'Patches', items: [{t:'Missing Patches'},{t:'Installed Patches',badge:'81'},{t:'Applicable Patches',badge:'397'},{t:'Top-Priority Patches'},{t:'Supported Patches',badge:'554K'},{t:'Latest Patches',badge:'78K'},{t:'Detailed View'},{t:'Downloaded Patches'},{t:'Decline Patch'}] },
+                  { name: 'Attention Required', items: [{t:'Upload Pending',badge:'1'}] }
+                ]
+              },
+              browsers: {
+                label: 'Browsers navigation',
+                groups: [
+                  { name: 'Manage', items: [{t:'Groups & Computers'},{t:'Website Group'},{t:'Extension Repository'}] },
+                  { name: 'Policies', items: [{t:'Add-on Management'},{t:'File Activity Restriction'},{t:'Threat Prevention'},{t:'Data Leakage Prevention'},{t:'Browser Customization'},{t:'Browser Router'},{t:'Browser Lockdown'},{t:'Java Manager'},{t:'Web Filter'},{t:'Web Isolation'},{t:'Browser Restriction'}] },
+                  { name: 'Insights', items: [{t:'Dashboard'},{t:'Browsers'},{t:'Browser Add-ons'},{t:'Computers'},{t:'Web Activity'},{t:'Scan Computers'},{t:'Schedule Scan'}] }
+                ]
+              },
+              software: {
+                label: 'Software Deployment navigation',
+                groups: [
+                  { name: 'Package creation', items: [{t:'Packages'},{t:'Templates'}] },
+                  { name: 'Deployment', items: [{t:'Install/Uninstall Software',sub:true},{t:'View Configurations'},{t:'User-defined Templates'},{t:'Trash'},{t:'Self Service Portal'}] },
+                  { name: 'Reports', items: [{t:'Self Service Portal Reports'},{t:'SSP Usage Reports'}] },
+                  { name: 'Settings', items: [{t:'Software Repository'},{t:'Script Repository'},{t:'Auto-update Templates'},{t:'Proxy Settings'},{t:'Deployment Policies'},{t:'Package Cleanup Settings'},{t:'Self Service Portal Settings'},{t:'Red Hat Linux Settings'}] }
+                ]
+              }
+            };
+            var els = {module:document.getElementById('pg-module'),active:document.getElementById('pg-active'),groups:document.getElementById('pg-groups')};
+            var previewArea = document.getElementById('pg-preview-area');
+            var codeOut = document.getElementById('pg-code-output');
+            var copyBtn = document.getElementById('pg-copy-btn');
+
+            function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+            function slugify(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+
+            function update(){
+              var mod = modules[els.module.value];
+              var activeVal = els.active.value;
+              var groupMode = els.groups.value;
+              var allItems = [];
+              mod.groups.forEach(function(g){g.items.forEach(function(it){allItems.push(it);});});
+              var activeIdx = -1;
+              if(activeVal==='0') activeIdx=0;
+              else if(activeVal==='2') activeIdx=2;
+              else if(activeVal==='last') activeIdx=allItems.length-1;
+
+              // Build preview HTML
+              var phtml = '<nav class="snl2-panel" aria-label="'+mod.label+'" style="max-height:480px;">';
+              phtml += '<div class="snl2-search"><svg class="snl2-search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg><input type="search" placeholder="Search..." aria-label="Search navigation"/></div>';
+              phtml += '<ul class="snl2-tree" role="list">';
+
+              var globalIdx = 0;
+              mod.groups.forEach(function(g, gi){
+                var expanded = true;
+                if(groupMode==='first' && gi>0) expanded = false;
+                if(groupMode==='mixed' && gi!==0 && gi!==2) expanded = false;
+                phtml += '<li class="snl2-group'+(expanded?'':' collapsed')+'">';
+                phtml += '<button class="snl2-group-header" aria-expanded="'+(expanded?'true':'false')+'">';
+                phtml += '<svg class="snl2-group-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> '+g.name+'</button>';
+                phtml += '<ul class="snl2-group-items" role="list"'+(expanded?'':' hidden')+'>';
+                g.items.forEach(function(it){
+                  var isActive = globalIdx === activeIdx;
+                  phtml += '<li><a href="#" class="snl2-item'+(isActive?' active':'')+'"'+(isActive?' aria-current="page"':'')+'>';
+                  phtml += it.t;
+                  if(it.badge) phtml += ' <span class="snl2-item-badge" aria-label="'+it.badge+' items">'+it.badge+'</span>';
+                  if(it.sub) phtml += ' <svg class="snl2-item-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>';
+                  phtml += '</a></li>';
+                  globalIdx++;
+                });
+                phtml += '</ul></li>';
+              });
+              phtml += '</ul></nav>';
+              previewArea.innerHTML = phtml;
+
+              // Attach interactive group toggles in preview
+              previewArea.querySelectorAll('.snl2-group-header').forEach(function(hdr){
+                hdr.addEventListener('click', function(e){
+                  e.preventDefault();
+                  var grp = hdr.closest('.snl2-group');
+                  var items = grp.querySelector('.snl2-group-items');
+                  var isExp = hdr.getAttribute('aria-expanded')==='true';
+                  hdr.setAttribute('aria-expanded', String(!isExp));
+                  if(isExp){ items.setAttribute('hidden',''); grp.classList.add('collapsed'); }
+                  else { items.removeAttribute('hidden'); grp.classList.remove('collapsed'); }
+                });
+              });
+              // Prevent nav on item clicks in preview
+              previewArea.querySelectorAll('.snl2-item').forEach(function(a){
+                a.addEventListener('click', function(e){
+                  e.preventDefault();
+                  previewArea.querySelectorAll('.snl2-item.active').forEach(function(el){el.classList.remove('active');el.removeAttribute('aria-current');});
+                  a.classList.add('active');
+                  a.setAttribute('aria-current','page');
+                });
+              });
+
+              // Build code output
+              var code = '<nav\n  class="sidebar-nav-l2"\n  aria-label="'+mod.label+'"\n>\n';
+              code += '  <!-- Search -->\n  <div class="sidebar-l2__search">\n    <svg class="search-icon" aria-hidden="true"><!-- magnifier --></svg>\n    <input type="search" placeholder="Search..." aria-label="Search navigation" />\n  </div>\n\n';
+              code += '  <!-- Nav tree -->\n  <ul class="sidebar-l2__tree" role="list">\n';
+              var gIdx = 0;
+              mod.groups.forEach(function(g, gi){
+                var expanded = true;
+                if(groupMode==='first' && gi>0) expanded = false;
+                if(groupMode==='mixed' && gi!==0 && gi!==2) expanded = false;
+                var gSlug = slugify(g.name);
+                code += '\n    <!-- '+(expanded?'Expanded':'Collapsed')+' group -->\n';
+                code += '    <li class="nav-group nav-group--'+(expanded?'expanded':'collapsed')+'">\n';
+                code += '      <button\n        class="nav-group__header"\n        aria-expanded="'+(expanded?'true':'false')+'"\n        aria-controls="group-'+gSlug+'"\n      >\n';
+                code += '        <svg class="nav-group__chevron" aria-hidden="true"><!-- chevron-'+(expanded?'down':'right')+' --></svg>\n';
+                code += '        '+g.name+'\n      </button>\n';
+                code += '      <ul id="group-'+gSlug+'" class="nav-group__items" role="list"'+(expanded?'':' hidden')+'>\n';
+                g.items.forEach(function(it){
+                  var isActive = gIdx === activeIdx;
+                  code += '        <li>\n          <a href="#" class="nav-item'+(it.sub?' nav-item--sub':'')+(isActive?' nav-item--active':'')+'"'+(isActive?' aria-current="page"':'')+'>\n';
+                  code += '            '+it.t+'\n';
+                  if(it.badge) code += '            <span class="nav-item__badge" aria-label="'+it.badge+' items">'+it.badge+'</span>\n';
+                  if(it.sub) code += '            <svg class="nav-item__chevron" aria-hidden="true"><!-- chevron-right --></svg>\n';
+                  code += '          </a>\n        </li>\n';
+                  gIdx++;
+                });
+                code += '      </ul>\n    </li>\n';
+              });
+              code += '\n  </ul>\n</nav>';
+
+              codeOut.innerHTML = esc(code)
+                .replace(/class=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-label=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-label</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-expanded=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-expanded</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-controls=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-controls</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-current=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-current</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/aria-hidden=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-hidden</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/type=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">type</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/placeholder=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">placeholder</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/href=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">href</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/id=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">id</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/role=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">role</span>=<span style="color:#34d399;">"$1"</span>')
+                .replace(/ hidden/g,' <span style="color:#f97316;">hidden</span>')
+                .replace(/&lt;(\/?)(nav|div|ul|li|a|button|input|svg|span)([\s&])/g,'&lt;$1<span style="color:#a78bfa;">$2</span>$3')
+                .replace(/&lt;(\/?)(nav|div|ul|li|a|button|input|svg|span)&gt;/g,'&lt;$1<span style="color:#a78bfa;">$2</span>&gt;')
+                .replace(/&lt;!--(.*?)--&gt;/g,'<span style="color:#6b7280;">&lt;!--$1--&gt;</span>');
+            }
+            Object.values(els).forEach(function(e){e.addEventListener('change',update);});
+            copyBtn.addEventListener('click',function(){
+              var r=document.createElement('div');r.innerHTML=codeOut.innerHTML;
+              navigator.clipboard.writeText(r.innerText).then(function(){
+                var o=copyBtn.innerHTML;copyBtn.innerHTML='<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';setTimeout(function(){copyBtn.innerHTML=o;},2000);
+              });
+            });
+            update();
+          })();
+          </script>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="html-structure" class="doc-h3">HTML Structure</h3>
+            <p class="doc-section-subtitle">The recommended semantic markup for the Sidebar Navigation Level 2.</p>
+            <div class="cp-code-area" style="border-radius:12px;margin-top:16px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;">
+                <span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">nav</span>
+                  <span style="color:#38bdf8;"> class</span>=<span style="color:#34d399;">"sidebar-nav-l2"</span>
+                  <span style="color:#38bdf8;"> aria-label</span>=<span style="color:#34d399;">"Configurations navigation"</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#6b7280;">&lt;!-- Search --&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">div</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"sidebar-l2__search"</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">input</span> <span style="color:#38bdf8;">type</span>=<span style="color:#34d399;">"search"</span> <span style="color:#38bdf8;">placeholder</span>=<span style="color:#34d399;">"Search..."</span> <span style="color:#38bdf8;">aria-label</span>=<span style="color:#34d399;">"Search navigation"</span> <span style="color:#ABB2BF;">/&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">div</span><span style="color:#ABB2BF;">&gt;</span><br><br>
+                &nbsp;&nbsp;<span style="color:#6b7280;">&lt;!-- Nav tree --&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">ul</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"sidebar-l2__tree"</span> <span style="color:#38bdf8;">role</span>=<span style="color:#34d399;">"list"</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">li</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"nav-group nav-group--expanded"</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">button</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"nav-group__header"</span> <span style="color:#38bdf8;">aria-expanded</span>=<span style="color:#34d399;">"true"</span><span style="color:#ABB2BF;">&gt;</span><span style="color:#e2e8f0;">Add Configurations</span><span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">button</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">ul</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"nav-group__items"</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">li</span><span style="color:#ABB2BF;">&gt;&lt;</span><span style="color:#a78bfa;">a</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"nav-item"</span><span style="color:#ABB2BF;">&gt;</span><span style="color:#e2e8f0;">Templates</span><span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">a</span><span style="color:#ABB2BF;">&gt;&lt;/</span><span style="color:#a78bfa;">li</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;</span><span style="color:#a78bfa;">li</span><span style="color:#ABB2BF;">&gt;&lt;</span><span style="color:#a78bfa;">a</span> <span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"nav-item nav-item--active"</span> <span style="color:#38bdf8;">aria-current</span>=<span style="color:#34d399;">"page"</span><span style="color:#ABB2BF;">&gt;</span><span style="color:#e2e8f0;">Collection</span><span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">a</span><span style="color:#ABB2BF;">&gt;&lt;/</span><span style="color:#a78bfa;">li</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">ul</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">li</span><span style="color:#ABB2BF;">&gt;</span><br>
+                &nbsp;&nbsp;<span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">ul</span><span style="color:#ABB2BF;">&gt;</span><br>
+                <span style="color:#ABB2BF;">&lt;/</span><span style="color:#a78bfa;">nav</span><span style="color:#ABB2BF;">&gt;</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="css-reference" class="doc-h3">CSS Reference</h3>
+            <div class="cp-code-area" style="border-radius:12px;margin-top:16px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;">
+<span style="color:#6b7280;">/* Panel */</span><br>
+<span style="color:#a78bfa;">.sidebar-nav-l2</span> {<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">width</span>: <span style="color:#34d399;">280px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">height</span>: <span style="color:#34d399;">100vh</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">background</span>: <span style="color:#34d399;">#ffffff</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">border-right</span>: <span style="color:#34d399;">1px solid #C3C9D6</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">display</span>: <span style="color:#34d399;">flex</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">flex-direction</span>: <span style="color:#34d399;">column</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">padding</span>: <span style="color:#34d399;">12px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">overflow-y</span>: <span style="color:#34d399;">auto</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">scrollbar-width</span>: <span style="color:#34d399;">thin</span>;<br>
+}<br><br>
+<span style="color:#6b7280;">/* Group header */</span><br>
+<span style="color:#a78bfa;">.nav-group__header</span> {<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">color</span>: <span style="color:#34d399;">#006AFF</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">font-size</span>: <span style="color:#34d399;">12px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">font-weight</span>: <span style="color:#34d399;">500</span>;<br>
+}<br><br>
+<span style="color:#6b7280;">/* Nav item */</span><br>
+<span style="color:#a78bfa;">.nav-item</span> {<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">padding</span>: <span style="color:#34d399;">8px 8px 8px 20px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">border-radius</span>: <span style="color:#34d399;">4px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">color</span>: <span style="color:#34d399;">#15181E</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">font-size</span>: <span style="color:#34d399;">13px</span>;<br>
+}<br>
+<span style="color:#a78bfa;">.nav-item:hover</span> { <span style="color:#38bdf8;">background</span>: <span style="color:#34d399;">#F0F2F5</span>; }<br>
+<span style="color:#a78bfa;">.nav-item--active</span> {<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">background</span>: <span style="color:#34d399;">#E8F0FE</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">color</span>: <span style="color:#34d399;">#006AFF</span>;<br>
+}<br><br>
+<span style="color:#6b7280;">/* Count badge */</span><br>
+<span style="color:#a78bfa;">.nav-item__badge</span> {<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">font-size</span>: <span style="color:#34d399;">11px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">background</span>: <span style="color:#34d399;">#F0F2F5</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">border-radius</span>: <span style="color:#34d399;">9999px</span>;<br>
+&nbsp;&nbsp;<span style="color:#38bdf8;">padding</span>: <span style="color:#34d399;">1px 6px</span>;<br>
+}
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="group-toggle-js" class="doc-h3">Group Toggle Pattern (JavaScript)</h3>
+            <div class="cp-code-area" style="border-radius:12px;margin-top:16px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.6;">
+<span style="color:#a78bfa;">document</span>.<span style="color:#38bdf8;">querySelectorAll</span>(<span style="color:#34d399;">'.nav-group__header'</span>).<span style="color:#38bdf8;">forEach</span>(<span style="color:#e2e8f0;">header</span> =&gt; {<br>
+&nbsp;&nbsp;<span style="color:#e2e8f0;">header</span>.<span style="color:#38bdf8;">addEventListener</span>(<span style="color:#34d399;">'click'</span>, () =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#C678DD;">const</span> <span style="color:#e2e8f0;">group</span> = <span style="color:#e2e8f0;">header</span>.<span style="color:#38bdf8;">closest</span>(<span style="color:#34d399;">'.nav-group'</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#C678DD;">const</span> <span style="color:#e2e8f0;">items</span> = <span style="color:#e2e8f0;">group</span>.<span style="color:#38bdf8;">querySelector</span>(<span style="color:#34d399;">'.nav-group__items'</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#C678DD;">const</span> <span style="color:#e2e8f0;">isExpanded</span> = <span style="color:#e2e8f0;">header</span>.<span style="color:#38bdf8;">getAttribute</span>(<span style="color:#34d399;">'aria-expanded'</span>) === <span style="color:#34d399;">'true'</span>;<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e2e8f0;">header</span>.<span style="color:#38bdf8;">setAttribute</span>(<span style="color:#34d399;">'aria-expanded'</span>, <span style="color:#a78bfa;">String</span>(!<span style="color:#e2e8f0;">isExpanded</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e2e8f0;">items</span>.<span style="color:#38bdf8;">hidden</span> = <span style="color:#e2e8f0;">isExpanded</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e2e8f0;">group</span>.<span style="color:#38bdf8;">classList</span>.<span style="color:#38bdf8;">toggle</span>(<span style="color:#34d399;">'nav-group--expanded'</span>, !<span style="color:#e2e8f0;">isExpanded</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#e2e8f0;">group</span>.<span style="color:#38bdf8;">classList</span>.<span style="color:#38bdf8;">toggle</span>(<span style="color:#34d399;">'nav-group--collapsed'</span>, <span style="color:#e2e8f0;">isExpanded</span>);<br>
+&nbsp;&nbsp;});<br>
+});
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== ACCESSIBILITY ========== -->
+        <div class="tab-content" id="tab-accessibility" style="display:none;padding-top:32px;">
+          <h2 id="accessibility" class="doc-section-title">Accessibility</h2>
+          <p class="doc-section-subtitle">Guidelines for ensuring the Sidebar Navigation Level 2 is accessible across assistive technologies and input methods.</p>
+
+          <div class="doc-section">
+            <h3 id="keyboard-interaction" class="doc-h3">Keyboard Interaction</h3>
+            <table class="size-table">
+              <thead><tr><th>Key</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><code>Tab</code> / <code>Shift+Tab</code></td><td>Move focus between search bar, group headers, and nav items.</td></tr>
+                <tr><td><code>Enter</code> / <code>Space</code></td><td>Navigate to focused item, or toggle group expand/collapse when on a header.</td></tr>
+                <tr><td><code>&#8593;</code> / <code>&#8595;</code></td><td>Move between nav items within a group.</td></tr>
+                <tr><td><code>&#8592;</code></td><td>Collapse the focused group (when on a group header).</td></tr>
+                <tr><td><code>&#8594;</code></td><td>Expand the focused group (when on a collapsed group header).</td></tr>
+                <tr><td><code>Home</code></td><td>Jump to first item in the current group.</td></tr>
+                <tr><td><code>End</code></td><td>Jump to last item in the current group.</td></tr>
+                <tr><td>Search bar <code>Escape</code></td><td>Clear search and restore full tree.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="aria-requirements" class="doc-h3">ARIA &amp; Semantic Requirements</h3>
+            <ul class="doc-list">
+              <li><strong>Landmark:</strong> Wrap in <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;nav&gt;</code> with a descriptive <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label</code> (e.g. "Configurations navigation").</li>
+              <li><strong>Current page:</strong> Set <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-current="page"</code> on the active nav item <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;a&gt;</code>.</li>
+              <li><strong>Group toggle:</strong> Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;button&gt;</code> for group headers with <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-expanded</code> (<code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">true</code>/<code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">false</code>) and <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-controls</code> pointing to the items <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;ul&gt;</code>.</li>
+              <li><strong>Collapsed items:</strong> Add <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">hidden</code> attribute (not just <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">display: none</code>) to the items container so screen readers skip hidden items.</li>
+              <li><strong>Count badges:</strong> Provide <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label</code> on badges with full context: <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label="81 installed patches"</code> rather than just "81".</li>
+              <li><strong>Sub-menu chevron:</strong> The <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&#8250;</code> icon should be <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-hidden="true"</code> &#8212; the item label itself communicates the destination.</li>
+              <li><strong>Search:</strong> Input must have <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label="Search navigation"</code> since there is no visible label element.</li>
+              <li><strong>Focus order:</strong> Tab order: search bar &#8594; group 1 header &#8594; group 1 items &#8594; group 2 header &#8594; group 2 items&#8230;</li>
+              <li><strong>Keyboard:</strong> Group headers must be keyboard-activatable (use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;button&gt;</code>, not <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;div&gt;</code>).</li>
+            </ul>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="color-contrast" class="doc-h3">Color Contrast<span class="h3-badge" style="background:rgba(34,197,94,0.15);color:#16a34a;">WCAG AA Pass</span></h3>
+            <p class="doc-section-subtitle">All color combinations meet WCAG 2.1 AA contrast requirements.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:24px;">
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:#fff;padding:28px 24px;text-align:center;border-radius:12px 12px 0 0;">
+                  <span style="color:#006AFF;font-size:12px;font-weight:500;">Add Configurations</span>
+                </div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);">
+                  <div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">GROUP HEADER ON WHITE</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#006AFF on #FFFFFF</div></div>
+                  <div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);color:#16a34a;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 4.7:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">WCAG AA Pass</div></div>
+                </div>
+              </div>
+              <div style="background:var(--prism-surface);border:1px solid var(--prism-border);border-radius:12px;overflow:hidden;">
+                <div style="background:#fff;padding:28px 24px;text-align:center;border-radius:12px 12px 0 0;">
+                  <span style="color:#15181E;font-size:13px;">Configuration</span>
+                </div>
+                <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--prism-border);">
+                  <div><div style="font-size:13px;color:var(--prism-text-muted);font-weight:600;">NAV ITEM ON WHITE</div><div style="font-size:15px;color:var(--prism-text);font-family:monospace;margin-top:4px;">#15181E on #FFFFFF</div></div>
+                  <div style="text-align:right;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.1);color:#16a34a;padding:4px 10px;border-radius:100px;font-size:12px;font-weight:700;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 17.4:1</div><div style="font-size:11px;color:var(--prism-text-muted);margin-top:4px;font-weight:600;">WCAG AAA Pass</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="doc-divider"/>
+
+          <div class="doc-section">
+            <h3 id="focus-management" class="doc-h3">Focus Management</h3>
+            <ul class="doc-list">
+              <li><strong>Visible focus indicator:</strong> All focusable elements (search input, group headers, nav items) must display a visible focus ring that meets WCAG 2.4.7.</li>
+              <li><strong>Search bar focus:</strong> The search input receives a 2px blue border (<code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">#006AFF</code>) plus a 3px shadow ring when focused.</li>
+              <li><strong>Group header focus:</strong> Headers are <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;button&gt;</code> elements and receive default browser focus styles plus custom outline styling.</li>
+              <li><strong>Active item focus:</strong> When navigating with keyboard, the active item retains its accent background while also showing the focus indicator.</li>
+            </ul>
+          </div>
+        </div>
+
+        </div><!-- main-content-inner -->
+
+        <aside class="toc-sidebar">
+          <h4 class="toc-heading">On this page</h4>
+          <ul class="toc-nav" id="toc-nav"></ul>
+          <div class="quick-actions-card">
+            <div class="quick-actions-title">Resources</div>
+            <a href="MD/left-sidebar-navigation-level-2.md" download="left-sidebar-navigation-level-2.md" class="action-link"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download MD</a>
+            <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0?node-id=18095-1709034" target="_blank" class="action-link"><img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;"> Figma Design</a>
+          </div>
+        </aside>
+      </div><!-- main-content-area -->
+
+    <div id="feedback" class="feedback-banner" style="display: none;">
+    <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+    <div style="display:flex;gap:10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+    </div>
+
+    </main>
+  </div>
+
+  <script>
+    let _tocObserver = null;
+    function updateTOC(targetId) {
+      const tocList = document.querySelector('.toc-nav'); if (!tocList) return; tocList.innerHTML = '';
+      const activePanel = document.getElementById(targetId); if (!activePanel) return;
+      activePanel.querySelectorAll('h2[id], h3[id]').forEach(h => {
+        if (h.style.display === 'none') return;
+        const li = document.createElement('li'), a = document.createElement('a');
+        a.href = '#' + h.id; a.className = 'toc-link';
+        let text = Array.from(h.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim();
+        if (!text) text = h.innerText; a.textContent = text;
+        a.addEventListener('click', e => { e.preventDefault(); document.getElementById(h.id).scrollIntoView({behavior:'smooth',block:'start'}); });
+        li.appendChild(a); tocList.appendChild(li);
+      });
+      initScrollSpy();
+    }
+    function initScrollSpy() {
+      if (_tocObserver) _tocObserver.disconnect();
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sections = Array.from(tocLinks).map(l => document.getElementById(l.getAttribute('href').slice(1))).filter(Boolean);
+      if (!sections.length) return;
+      _tocObserver = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('id'); tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+id)); } }); }, {rootMargin:'-80px 0px -60% 0px',threshold:0});
+      sections.forEach(s => _tocObserver.observe(s));
+    }
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active')); tab.classList.add('active');
+        const tabMap = {'Overview':'tab-overview','Usage':'tab-usage','Style':'tab-style','Code':'tab-code','Accessibility':'tab-accessibility'};
+        document.querySelectorAll('.tab-content').forEach(p => p.style.display = 'none');
+        const target = tabMap[tab.textContent.trim()];
+        if (target) { document.getElementById(target).style.display = 'block'; updateTOC(target); }
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+    updateTOC('tab-overview');
+    const themeToggle=document.getElementById('themeToggle'),moonIcon=document.getElementById('moonIcon'),sunIcon=document.getElementById('sunIcon');
+    if ((localStorage.getItem('theme')||'light')==='dark') { document.documentElement.removeAttribute('data-theme'); moonIcon.style.display='block'; sunIcon.style.display='none'; }
+    themeToggle.addEventListener('click', () => {
+      if (document.documentElement.getAttribute('data-theme')==='light') { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); moonIcon.style.display='block'; sunIcon.style.display='none'; }
+      else { document.documentElement.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); moonIcon.style.display='none'; sunIcon.style.display='block'; }
+    });
+
+    // Sidebar search filter
+    (function(){
+      var searchInput = document.querySelector('.sidebar-search input');
+      if (!searchInput) return;
+      var items = document.querySelectorAll('.sidebar-nav li');
+      searchInput.addEventListener('input', function(){
+        var q = this.value.toLowerCase().trim();
+        items.forEach(function(li){
+          var link = li.querySelector('a');
+          if (!link) return;
+          var text = link.textContent.toLowerCase();
+          li.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+        });
+      });
+      document.addEventListener('keydown', function(e){
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      });
+    })();
+
+    // Scroll sidebar to active link on page load
+    (function(){
+      var active = document.querySelector('.sidebar-link.active');
+      if (active) {
+        var sidebar = active.closest('.sidebar');
+        if (sidebar) {
+          var top = active.offsetTop - sidebar.offsetTop - (sidebar.clientHeight / 3);
+          sidebar.scrollTop = Math.max(0, top);
+        }
+      }
+    })();
+
+    // Demo panel interactivity: group toggle
+    (function(){
+      document.querySelectorAll('#demo-panel .snl2-group-header').forEach(function(header){
+        header.addEventListener('click', function(){
+          var group = header.closest('.snl2-group');
+          var items = group.querySelector('.snl2-group-items');
+          var isExpanded = header.getAttribute('aria-expanded') === 'true';
+          header.setAttribute('aria-expanded', String(!isExpanded));
+          if(isExpanded){
+            items.setAttribute('hidden','');
+            group.classList.add('collapsed');
+          } else {
+            items.removeAttribute('hidden');
+            group.classList.remove('collapsed');
+          }
+        });
+      });
+      // Demo panel interactivity: item active toggle
+      document.querySelectorAll('#demo-panel .snl2-item').forEach(function(item){
+        item.addEventListener('click', function(e){
+          e.preventDefault();
+          document.querySelectorAll('#demo-panel .snl2-item.active').forEach(function(el){
+            el.classList.remove('active');
+            el.removeAttribute('aria-current');
+          });
+          item.classList.add('active');
+          item.setAttribute('aria-current','page');
+        });
+      });
+      // Demo panel search filter
+      var demoSearch = document.getElementById('demo-search');
+      if(demoSearch){
+        demoSearch.addEventListener('input', function(){
+          var q = this.value.toLowerCase().trim();
+          document.querySelectorAll('#demo-panel .snl2-item').forEach(function(item){
+            var text = item.textContent.toLowerCase();
+            item.closest('li').style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+          });
+        });
+      }
+    })();
+  </script>
+
+
+
+<!-- Floating Feedback Button -->
+
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+<script src="js/main.js"></script>
+</body>
+</html>

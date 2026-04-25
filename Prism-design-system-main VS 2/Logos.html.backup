@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Logo — UEMS Design System</title>
+<style>
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_thin.woff2') format('woff2'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extralight.woff2') format('woff2'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrabold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrablack.woff2') format('woff2'); font-weight: 950; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular_italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold_italic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold_italic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --prism-black: #0a0a0c; --prism-violet: #2563eb; --prism-violet-light: #60a5fa;
+    --prism-fuchsia: #0ea5e9; --prism-cyan: #06b6d4;
+    --prism-surface: rgba(255,255,255,0.05); --prism-surface-hover: rgba(255,255,255,0.09);
+    --prism-border: rgba(255,255,255,0.07); --prism-text: rgba(255,255,255,0.92);
+    --prism-text-muted: rgba(255,255,255,0.48); --nav-bg: rgba(10,10,12,0.75);
+    --nav-link-color: var(--prism-text-muted);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+  }
+  [data-theme="light"] {
+    --prism-black: #ffffff; --prism-violet: #2563eb; --prism-violet-light: #1d4ed8;
+    --prism-fuchsia: #0284c7; --prism-cyan: #0891b2;
+    --prism-surface: rgba(37,99,235,0.028); --prism-surface-hover: rgba(37,99,235,0.055);
+    --prism-border: rgba(37,99,235,0.10); --prism-text: #1a1a2e;
+    --prism-text-muted: #64748b; --nav-bg: rgba(255,255,255,0.82);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --nav-link-color: #475569;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Zoho Puvi', sans-serif; background: var(--prism-black); color: var(--prism-text); transition: background 0.5s cubic-bezier(0.4,0,0.2,1), color 0.4s ease; }
+  [data-theme="light"] body { background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%); }
+  [data-theme="light"] .nav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+  [data-theme="light"] .nav.scrolled { background: rgba(255, 255, 255, 0.78); border-bottom: 1px solid rgba(37, 99, 235, 0.06); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04), 0 4px 24px rgba(37, 99, 235, 0.03); }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  [data-theme="light"] .nav-links a { color: #64748b; }
+  [data-theme="light"] .nav-links a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-links a.active { color: #2563eb; background: rgba(37,99,235,0.06); }
+  [data-theme="light"] .icon-btn { color: #94a3b8; }
+  [data-theme="light"] .icon-btn:hover { color: #1e293b; background: rgba(37,99,235,0.06); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .nav-logo { display: inline-flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+  .nav-logo-img { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+  .nav-logo-text { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+   .nav-logo-mark { font-size: 26px; font-weight: 900; letter-spacing: 0.02em; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-right: 0.1em; padding-bottom: 0.05em; line-height: 1; }
+  .nav-logo-sub { font-size: 10px; font-weight: 600; color: var(--prism-text-muted); letter-spacing: 0.08em; text-transform: none; margin-top: 2px; }
+  .nav-logo-sub .caps { text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a { color: var(--nav-link-color, var(--prism-text-muted)); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 999px; transition: all 0.3s ease; border: none; }
+  .nav-links a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-links a.active { color: var(--prism-violet); background: rgba(37,99,235,0.08); border: none; }
+  .icon-btn { background: transparent; border: none; cursor: pointer; color: var(--prism-text-muted); padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; margin-left: 4px; }
+  .icon-btn:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+
+  /* Ambient Glows */
+  .bg-glow { position: fixed; border-radius: 50%; width: 60vw; height: 60vh; filter: blur(140px); z-index: -1; pointer-events: none; opacity: 0.15; }
+  .glow-1 { top: -20%; right: -10%; background: var(--prism-violet); }
+  .glow-2 { bottom: -20%; left: -10%; background: var(--prism-cyan); }
+  [data-theme="light"] .bg-glow { opacity: 0.09; filter: blur(180px); }
+
+  /* Page layout */
+  .page-content { padding: 120px 64px 64px; max-width: 1200px; margin: 0 auto; }
+  .page-title {
+    font-size: 48px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px;
+    background: var(--logo-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    display: inline-block; padding-right: 8px; padding-bottom: 4px;
+  }
+  .page-desc { color: var(--prism-text-muted); font-size: 20px; font-weight: 400; line-height: 1.5; margin-bottom: 48px; max-width: 700px; }
+
+  /* Slider tabs */
+  .lib-tabs {
+    display: flex; gap: 4px; margin-bottom: 48px;
+    background: var(--prism-surface); padding: 4px; border-radius: 999px;
+    width: max-content; border: 1px solid var(--prism-border);
+  }
+  .lib-tab {
+    display: flex; align-items: center; gap: 8px;
+    background: transparent; border: none; font-family: inherit;
+    font-size: 14px; font-weight: 600; color: var(--prism-text-muted);
+    padding: 10px 24px; cursor: pointer; transition: all 0.3s ease;
+    border-radius: 999px;
+  }
+  .lib-tab:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .lib-tab.active { color: #fff; background: var(--prism-violet); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+  .lib-tab.active svg { color: #fff; }
+  .lib-tab svg { width: 18px; height: 18px; color: var(--prism-text-muted); transition: color 0.3s ease; }
+  [data-theme="light"] .lib-tabs { background: rgba(255,255,255,0.7); border: 1px solid rgba(37,99,235,0.08); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  [data-theme="light"] .lib-tab:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .lib-tab.active { color: #fff; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); box-shadow: 0 2px 8px rgba(37,99,235,0.30); }
+
+  /* Slider panel */
+  .lib-panel { display: none; animation: fadeSlide 0.4s ease; }
+  .lib-panel.active { display: block; }
+  @keyframes fadeSlide { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Section heading */
+  .lib-section-title { font-size: 28px; font-weight: 700; color: var(--prism-text); margin-bottom: 8px; }
+  .lib-section-desc { font-size: 16px; color: var(--prism-text-muted); line-height: 1.6; margin-bottom: 32px; max-width: 640px; }
+
+  /* Card grid */
+  .lib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+  .lib-card {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 32px 16px 20px; border-radius: 16px;
+    background: var(--prism-surface); border: 1px solid var(--prism-border);
+    transition: all 0.25s cubic-bezier(0.4,0,0.2,1); cursor: default;
+    min-height: 140px; position: relative;
+  }
+  .lib-card:hover { border-color: rgba(37,99,235,0.35); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.12); }
+  [data-theme="light"] .lib-card { background: #fff; border: 1px solid rgba(37,99,235,0.08); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  [data-theme="light"] .lib-card:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 8px 28px rgba(37,99,235,0.10); }
+
+  /* Download button on cards */
+  .lib-dl-btn {
+    position: absolute; top: 8px; right: 8px;
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent; border: none; cursor: pointer;
+    color: var(--prism-text-muted); opacity: 0; transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .lib-card:hover .lib-dl-btn { opacity: 1; }
+  .lib-dl-btn:hover { background: rgba(37,99,235,0.1); color: var(--prism-violet); }
+  [data-theme="light"] .lib-dl-btn:hover { background: rgba(37,99,235,0.08); color: #2563eb; }
+  .lib-card-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: var(--prism-text); margin-bottom: 14px; }
+  .lib-card-icon svg { width: 32px; height: 32px; }
+  html:not([data-theme="light"]) .lib-card-icon img { filter: brightness(0) invert(1); }
+  .lib-card-label { font-size: 13px; font-weight: 600; color: var(--prism-text); text-align: center; }
+  .lib-card-sub { font-size: 11px; color: var(--prism-text-muted); margin-top: 4px; text-align: center; }
+
+  /* ===== Logo cards — FRESH design ===== */
+  .lib-grid-logo { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .lib-card-logo { padding: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 14px; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
+  .lib-card-logo:hover { transform: translateY(-2px); border-color: var(--prism-violet); box-shadow: 0 8px 24px rgba(37,99,235,0.12); }
+  /* Preview area — fixed height, not flex-grow */
+  .lib-card-logo .logo-preview { width: 100%; height: 200px; padding: 36px 28px; display: flex; align-items: center; justify-content: center; border-radius: 14px 14px 0 0; transition: background 0.3s ease; box-sizing: border-box; overflow: hidden; }
+  /* WHITE logos always need dark BG to be visible */
+  .lib-card-logo[data-variant="white"] .logo-preview { background: linear-gradient(135deg, #1a1a1f 0%, #2a2a32 100%); }
+  /* BLACK logos always need light BG to be visible */
+  .lib-card-logo[data-variant="black"] .logo-preview { background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%); }
+  /* COLOR and ICON logos — adapt to page theme */
+  .lib-card-logo[data-variant="color"] .logo-preview { background: linear-gradient(135deg, #1f2028 0%, #2a2c36 100%); }
+  .lib-card-logo[data-variant="icon"] .logo-preview  { background: linear-gradient(135deg, #1f2028 0%, #2a2c36 100%); }
+  [data-theme="light"] .lib-card-logo[data-variant="color"] .logo-preview { background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%); }
+  [data-theme="light"] .lib-card-logo[data-variant="icon"] .logo-preview  { background: linear-gradient(135deg, #f5f7fb 0%, #e8ecf4 100%); }
+  /* Logo image — fits inside preview box via object-fit */
+  .lib-card-logo .logo-preview img, .lib-card-logo .logo-preview svg { width: 100%; height: 100%; max-height: 128px; object-fit: contain; display: block; filter: none !important; }
+  /* Info section — name + variant tag + download */
+  .lib-card-logo .logo-info { padding: 14px 18px; width: 100%; border-top: 1px solid var(--prism-border); display: flex; flex-direction: column; gap: 10px; background: var(--prism-surface); box-sizing: border-box; }
+  .lib-card-logo .logo-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .lib-card-logo .logo-name { font-size: 13px; font-weight: 600; color: var(--prism-text); line-height: 1.3; flex: 1; }
+  .lib-card-logo .logo-variant-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+  .lib-card-logo[data-variant="color"] .logo-variant-tag { background: rgba(37,99,235,0.12); color: var(--prism-violet); }
+  .lib-card-logo[data-variant="black"] .logo-variant-tag { background: rgba(15,20,30,0.15); color: #1a1a2e; }
+  .lib-card-logo[data-variant="white"] .logo-variant-tag { background: rgba(148,163,184,0.2); color: #94a3b8; }
+  .lib-card-logo[data-variant="icon"] .logo-variant-tag { background: rgba(168,85,247,0.15); color: #a855f7; }
+  [data-theme="light"] .lib-card-logo[data-variant="black"] .logo-variant-tag { background: rgba(15,20,30,0.08); color: #1e293b; }
+  [data-theme="light"] .lib-card-logo[data-variant="white"] .logo-variant-tag { background: rgba(100,116,139,0.12); color: #64748b; }
+  .lib-card-logo .logo-dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid var(--prism-border); background: var(--prism-surface-hover); color: var(--prism-text); text-decoration: none; transition: all 0.2s; }
+  .lib-card-logo .logo-dl-btn:hover { border-color: var(--prism-violet); color: #fff; background: var(--prism-violet); transform: translateY(-1px); }
+  .lib-card-logo .logo-dl-btn svg { width: 14px; height: 14px; }
+  [data-theme="light"] .lib-card-logo { background: #fff; border: 1px solid rgba(37,99,235,0.1); box-shadow: 0 1px 3px rgba(37,99,235,0.04); }
+  [data-theme="light"] .lib-card-logo:hover { box-shadow: 0 8px 24px rgba(37,99,235,0.12); }
+  [data-theme="light"] .lib-card-logo .logo-info { background: rgba(248,250,255,0.5); border-top-color: rgba(37,99,235,0.08); }
+  [data-theme="light"] .lib-card-logo .logo-dl-btn { background: #fff; border-color: rgba(37,99,235,0.15); color: #1e293b; }
+  [data-theme="light"] .lib-card-logo .logo-dl-btn:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+  /* Logo groups */
+  .lib-logo-group { margin-bottom: 48px; }
+  .lib-logo-group-title { font-size: 18px; font-weight: 700; color: var(--prism-text); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--prism-border); display: flex; align-items: center; gap: 10px; }
+  .lib-logo-group-title::before { content: ''; width: 4px; height: 20px; background: var(--prism-violet); border-radius: 4px; flex-shrink: 0; }
+
+  /* Illustration grid — wider cards */
+  .lib-grid-illust { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .lib-card-illust {
+    padding: 0; min-height: 200px; overflow: hidden;
+  }
+  .lib-card-illust-preview {
+    width: 100%; height: 140px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(37,99,235,0.04) 0%, rgba(6,182,212,0.04) 100%);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  html:not([data-theme="light"]) .lib-card-illust-preview { background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(6,182,212,0.06) 100%); }
+  .lib-card-illust-info { padding: 14px 16px; }
+  .lib-card-illust-info .lib-card-label { text-align: left; }
+  .lib-card-illust-info .lib-card-sub { text-align: left; }
+
+  /* ══ Mobile responsive (added globally) ══ */
+  .nav-hamburger { display: none; background: transparent; border: none; color: var(--prism-text); padding: 8px; margin-right: 8px; cursor: pointer; border-radius: 8px; align-items: center; justify-content: center; }
+  .nav-hamburger:hover { background: var(--prism-surface-hover); }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; opacity: 0; transition: opacity 0.25s ease; }
+  .sidebar-backdrop.open { display: block; opacity: 1; }
+  .sidebar-mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 16px; height: 64px; justify-content: flex-start; gap: 4px; }
+    .nav-links { margin-left: auto; }
+    .nav-hamburger { display: inline-flex; order: -1; margin-right: 4px; }
+    .nav-logo-mark { font-size: 22px; }
+    .nav-logo-sub { font-size: 9px; }
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > div[style] { display: none !important; }
+    .nav-links { gap: 0; }
+
+    .components-layout { display: block; padding-top: 64px; grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 64px; left: 0; width: 300px; max-width: 86vw; height: calc(100vh - 64px); max-height: none; padding: 20px 18px 32px; border-right: 1px solid var(--prism-border); border-bottom: none; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 96; background: var(--prism-black); }
+    [data-theme="light"] .sidebar { background: #ffffff; }
+    .sidebar.open { transform: translateX(0); box-shadow: 12px 0 40px rgba(0,0,0,0.25); }
+    body.sidebar-locked { overflow: hidden; }
+
+    .sidebar-mobile-nav { display: block; margin: 0 -18px 16px; padding: 0 18px 18px; border-bottom: 1px solid var(--prism-border); }
+    .sidebar-mobile-nav h4 { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 4px; }
+    .sidebar-mobile-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-mobile-nav a { display: block; padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+    .sidebar-mobile-nav a:hover { background: var(--prism-surface-hover); color: var(--prism-violet); }
+    .sidebar-mobile-nav a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); }
+
+    .main-panel { padding: 24px 20px 48px; grid-column: auto; grid-row: auto; }
+    /* mobile-width-safety v4 — collapse any inline grid on narrow viewports */
+    .main-panel, .main-content-inner, .main-content-area { max-width: 100%; width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner > *, .doc-section, .doc-section > * { max-width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner img, .main-content-inner svg:not(.inline-svg) { max-width: 100%; height: auto; }
+    .main-content-inner pre, .main-content-inner code { white-space: pre-wrap; word-break: break-word; }
+    .main-content-inner pre { overflow-x: auto; }
+    .anatomy-diagram { overflow: visible !important; padding: 48px 40px !important; zoom: 0.82; }
+    .anatomy-diagram > * { max-width: 100%; }
+    .demo-container { overflow: hidden; }
+    .demo-canvas { padding: 32px 20px !important; overflow-x: auto; }
+    .code-playground, .cp-code-area { overflow-x: auto; }
+    /* Foundation inner-page grids: collapse every multi-column inline grid */
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: repeat(4, 1fr)"],
+    [style*="grid-template-columns: repeat(5, 1fr)"],
+    [style*="grid-template-columns: repeat(6, 1fr)"],
+    [style*="grid-template-columns: 320px 1fr"],
+    [style*="grid-template-columns: 280px 1fr"],
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+    /* Flex rows with heavy fixed widths should wrap */
+    [style*="display: flex"][style*="gap"] { flex-wrap: wrap; }
+    .main-content-area { display: flex; flex-direction: column; grid-template-columns: 1fr; }
+    .main-content-inner { padding-bottom: 32px; }
+    .toc-sidebar { display: none; }
+
+    .page-header-area .page-title,
+    .page-title { font-size: 30px; line-height: 1.15; }
+    .page-desc { font-size: 16px; }
+    .doc-section h2, .doc-section-title { font-size: 22px; }
+
+    .do-dont-grid,
+    .illus-type-grid,
+    .comp-grid,
+    .density-grid,
+    .illus-showcase-grid,
+    .pattern-category-grid,
+    .tone-grid,
+    .voice-traits,
+    .principles-grid,
+    .theme-grid,
+    .message-grid,
+    .weight-grid,
+    .pattern-grid,
+    .collection-grid,
+    .anti-pattern-list,
+    .dodont-grid,
+    .icon-metaphor-grid { grid-template-columns: 1fr !important; }
+
+    table { display: block; overflow-x: auto; }
+    .size-table, .token-table, .anatomy-table, .doc-table, .tone-table { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+
+    .feedback-banner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .illus-type-card { grid-template-columns: 1fr !important; }
+    .illus-type-preview { min-height: 180px; padding: 24px 16px; }
+
+    /* Component detail page grids */
+    .state-grid,
+    .anatomy-grid,
+    .usecase-grid,
+    .anat-legend,
+    /* Zia Experience hub grids */
+    .zia-prompt-grid,
+    /* Resource hub grids */
+    .lib-grid,
+    .lib-grid-logo,
+    .lib-grid-illust { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* Inline-styled 2- or 3-column grids */
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Resource hub outer padding */
+    .page-content { padding: 88px 16px 48px !important; }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 0 12px; height: 60px; }
+    .components-layout { padding-top: 60px; }
+    .sidebar { top: 60px; height: calc(100vh - 60px); }
+    .nav-logo-mark { font-size: 20px; }
+    .main-panel { padding: 18px 14px 36px; }
+    /* mobile-width-safety v3 */
+    .main-panel { padding: 16px 10px 24px !important; }
+    .anatomy-diagram { padding: 40px 28px !important; overflow: visible !important; zoom: 0.66; }
+    .demo-canvas { padding: 24px 12px !important; }
+    .page-header-area .page-title,
+    .page-title { font-size: 26px; }
+    .page-desc { font-size: 15px; }
+    .sidebar-heading { font-size: 10px; }
+    .search-shortcut { display: none; }
+    .page-content { padding: 72px 12px 32px !important; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+<img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+<span class="nav-logo-text">
+  <span class="nav-logo-mark">Prism</span>
+  <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+</span>
+    </a>
+    <div class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html">Components</a>
+      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a>
+      <div class="nav-dropdown"><a href="Icons.html" class="active">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+      <div style="width:16px;"></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+--
+
+  <main class="page-content">
+    <h1 class="page-title">Resources</h1>
+    <p class="page-desc">Browse and access the design system's shared assets. Icons, product logos, and illustrations used across all UEMS products.</p>
+
+    <!-- Section Tabs -->
+    <div class="lib-tabs">
+      <a href="Icons.html" class="lib-tab" style="text-decoration:none;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        Icons
+      </a>
+      <a href="Logos.html" class="lib-tab active" style="text-decoration:none;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+        Product Logo
+      </a>
+      <a href="Illustrations.html" class="lib-tab" style="text-decoration:none;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+        Illustrations
+      </a>
+    </div>
+
+<div class="lib-panel active" id="panel-logos">
+      <h2 class="lib-section-title">Product Logo</h2>
+      <p class="lib-section-desc">Select a product to view its logo variants. Every logo in SVG format, ready to download.</p>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+        <label style="font-size:13px;font-weight:600;color:var(--prism-text-muted);white-space:nowrap;">Select Product</label>
+        <select id="logo-product-filter" style="flex:1;max-width:360px;background:var(--prism-surface-hover);border:1px solid var(--prism-border);color:var(--prism-text);padding:10px 14px;border-radius:8px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;outline:none;">
+          <option value="all">All Products</option>
+          <option value="Application Control Plus">Application Control Plus</option>
+          <option value="Browser Security Plus">Browser Security Plus</option>
+          <option value="DEX Manager Plus">DEX Manager Plus</option>
+          <option value="Device Control Plus">Device Control Plus</option>
+          <option value="Endpoint Central" selected>Endpoint Central</option>
+          <option value="Endpoint DLP Plus">Endpoint DLP Plus</option>
+          <option value="Malware Protection Plus">Malware Protection Plus</option>
+          <option value="Mobile Device Manager Plus">Mobile Device Manager Plus</option>
+          <option value="Mobile Device Manager Plus MSP">Mobile Device Manager Plus MSP</option>
+          <option value="OS Deployer">OS Deployer</option>
+          <option value="Patch Connect Plus">Patch Connect Plus</option>
+          <option value="Patch Manager Plus">Patch Manager Plus</option>
+          <option value="Ransomware Protection Plus">Ransomware Protection Plus</option>
+          <option value="Remote Access Plus">Remote Access Plus</option>
+          <option value="Vulnerability Manager Plus">Vulnerability Manager Plus</option>
+        </select>
+      </div>
+      <div id="logo-groups-container">
+        <div class="lib-logo-group" data-product="Application Control Plus">
+          <h3 class="lib-logo-group-title">Application Control Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Application Control Plus (1).svg" alt="Application Control Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Application Control Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Application Control Plus (1).svg" download="Application Control Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Application Control Plus_White.svg" alt="Application Control Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Application Control Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Application Control Plus_White.svg" download="Application Control Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Application Control Plus_with ME_White.svg" alt="Application Control Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Application Control Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Application Control Plus_with ME_White.svg" download="Application Control Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Application Control Plus_Black.svg" alt="Application Control Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Application Control Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Application Control Plus_Black.svg" download="Application Control Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Application Control Plus_with ME_Black.svg" alt="Application Control Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Application Control Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Application Control Plus_with ME_Black.svg" download="Application Control Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Browser Security Plus">
+          <h3 class="lib-logo-group-title">Browser Security Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Browser Security Plus.svg" alt="Browser Security Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Browser Security Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Browser Security Plus.svg" download="Browser Security Plus.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Browser Security Plus_White.svg" alt="Browser Security Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Browser Security Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Browser Security Plus_White.svg" download="Browser Security Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Browser Security Plus_with ME_White.svg" alt="Browser Security Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Browser Security Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Browser Security Plus_with ME_White.svg" download="Browser Security Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Browser Security Plus_Black.svg" alt="Browser Security Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Browser Security Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Browser Security Plus_Black.svg" download="Browser Security Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Browser Security Plus_with ME_Black.svg" alt="Browser Security Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Browser Security Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Browser Security Plus_with ME_Black.svg" download="Browser Security Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="DEX Manager Plus">
+          <h3 class="lib-logo-group-title">DEX Manager Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/DEX Manager Plus (1).svg" alt="DEX Manager Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">DEX Manager Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/DEX Manager Plus (1).svg" download="DEX Manager Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/DEX Manager Plus_White.svg" alt="DEX Manager Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">DEX Manager Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/DEX Manager Plus_White.svg" download="DEX Manager Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/DEX Manager Plus_with ME_White.svg" alt="DEX Manager Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">DEX Manager Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/DEX Manager Plus_with ME_White.svg" download="DEX Manager Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/DEX Manager Plus_Black.svg" alt="DEX Manager Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">DEX Manager Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/DEX Manager Plus_Black.svg" download="DEX Manager Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/DEX Manager Plus_with ME_Black.svg" alt="DEX Manager Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">DEX Manager Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/DEX Manager Plus_with ME_Black.svg" download="DEX Manager Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Device Control Plus">
+          <h3 class="lib-logo-group-title">Device Control Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Device Control Plus.svg" alt="Device Control Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Device Control Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Device Control Plus.svg" download="Device Control Plus.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Device Control Plus_White.svg" alt="Device Control Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Device Control Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Device Control Plus_White.svg" download="Device Control Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Device Control Plus_with ME_White.svg" alt="Device Control Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Device Control Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Device Control Plus_with ME_White.svg" download="Device Control Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Device Control Plus_Black.svg" alt="Device Control Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Device Control Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Device Control Plus_Black.svg" download="Device Control Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Device Control Plus_with ME_Black.svg" alt="Device Control Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Device Control Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Device Control Plus_with ME_Black.svg" download="Device Control Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Endpoint Central">
+          <h3 class="lib-logo-group-title">Endpoint Central</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central (3).svg" alt="Endpoint Central Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central (3).svg" download="Endpoint Central (3).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_White.svg" alt="Endpoint Central White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_White.svg" download="Endpoint Central_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_with ME_White.svg" alt="Endpoint Central ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_with ME_White.svg" download="Endpoint Central_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_Black (1).svg" alt="Endpoint Central Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_Black (1).svg" download="Endpoint Central_Black (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_with ME_Black (1).svg" alt="Endpoint Central ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_with ME_Black (1).svg" download="Endpoint Central_with ME_Black (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="icon">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_App Icon.svg" alt="Endpoint Central App Icon" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">App Icon</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_App Icon.svg" download="Endpoint Central_App Icon.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="icon">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_MSP_App Icon (1).svg" alt="Endpoint Central MSP Icon" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">MSP Icon</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_MSP_App Icon (1).svg" download="Endpoint Central_MSP_App Icon (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="icon">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint Central_MSP_App Icon.svg" alt="Endpoint Central MSP Icon" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint Central</span>
+                  <span class="logo-variant-tag">MSP Icon</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint Central_MSP_App Icon.svg" download="Endpoint Central_MSP_App Icon.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Endpoint DLP Plus">
+          <h3 class="lib-logo-group-title">Endpoint DLP Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus (1).svg" alt="Endpoint DLP Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus (1).svg" download="Endpoint DLP Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus.svg" alt="Endpoint DLP Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus.svg" download="Endpoint DLP Plus.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus_White.svg" alt="Endpoint DLP Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus_White.svg" download="Endpoint DLP Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus_with ME_White.svg" alt="Endpoint DLP Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus_with ME_White.svg" download="Endpoint DLP Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus_Black.svg" alt="Endpoint DLP Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus_Black.svg" download="Endpoint DLP Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Endpoint DLP Plus_with ME_Black.svg" alt="Endpoint DLP Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Endpoint DLP Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Endpoint DLP Plus_with ME_Black.svg" download="Endpoint DLP Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Malware Protection Plus">
+          <h3 class="lib-logo-group-title">Malware Protection Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Malware Protection Plus (1).svg" alt="Malware Protection Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Malware Protection Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Malware Protection Plus (1).svg" download="Malware Protection Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Malware Protection Plus_White.svg" alt="Malware Protection Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Malware Protection Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Malware Protection Plus_White.svg" download="Malware Protection Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Malware Protection Plus_with ME_White.svg" alt="Malware Protection Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Malware Protection Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Malware Protection Plus_with ME_White.svg" download="Malware Protection Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Malware Protection Plus_Black.svg" alt="Malware Protection Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Malware Protection Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Malware Protection Plus_Black.svg" download="Malware Protection Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Malware Protection Plus_with ME_Black.svg" alt="Malware Protection Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Malware Protection Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Malware Protection Plus_with ME_Black.svg" download="Malware Protection Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Mobile Device Manager Plus">
+          <h3 class="lib-logo-group-title">Mobile Device Manager Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus.svg" alt="Mobile Device Manager Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus.svg" download="Mobile Device Manager Plus.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_White.svg" alt="Mobile Device Manager Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_White.svg" download="Mobile Device Manager Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_with ME_White.svg" alt="Mobile Device Manager Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_with ME_White.svg" download="Mobile Device Manager Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_Black.svg" alt="Mobile Device Manager Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_Black.svg" download="Mobile Device Manager Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_with ME_Black.svg" alt="Mobile Device Manager Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_with ME_Black.svg" download="Mobile Device Manager Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_MSP_App Icon(Text)_Black.svg" alt="Mobile Device Manager Plus MSP Text Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">MSP Text Black</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_MSP_App Icon(Text)_Black.svg" download="Mobile Device Manager Plus_MSP_App Icon(Text)_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_MSP_App Icon(Text)_White.svg" alt="Mobile Device Manager Plus MSP Text White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">MSP Text White</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_MSP_App Icon(Text)_White.svg" download="Mobile Device Manager Plus_MSP_App Icon(Text)_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="icon">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus_Appicon.svg" alt="Mobile Device Manager Plus App Icon" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus</span>
+                  <span class="logo-variant-tag">App Icon</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus_Appicon.svg" download="Mobile Device Manager Plus_Appicon.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Mobile Device Manager Plus MSP">
+          <h3 class="lib-logo-group-title">Mobile Device Manager Plus MSP</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP (1).svg" alt="Mobile Device Manager Plus MSP Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP (1).svg" download="Mobile Device Manager Plus MSP (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP.svg" alt="Mobile Device Manager Plus MSP Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP.svg" download="Mobile Device Manager Plus MSP.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP_White.svg" alt="Mobile Device Manager Plus MSP White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP_White.svg" download="Mobile Device Manager Plus MSP_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP_with ME_White.svg" alt="Mobile Device Manager Plus MSP ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP_with ME_White.svg" download="Mobile Device Manager Plus MSP_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP_Black.svg" alt="Mobile Device Manager Plus MSP Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP_Black.svg" download="Mobile Device Manager Plus MSP_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Mobile Device Manager Plus MSP_with ME_Black.svg" alt="Mobile Device Manager Plus MSP ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Mobile Device Manager Plus MSP</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Mobile Device Manager Plus MSP_with ME_Black.svg" download="Mobile Device Manager Plus MSP_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="OS Deployer">
+          <h3 class="lib-logo-group-title">OS Deployer</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/OS Deployer (1).svg" alt="OS Deployer Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">OS Deployer</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/OS Deployer (1).svg" download="OS Deployer (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/OS Deployer_White.svg" alt="OS Deployer White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">OS Deployer</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/OS Deployer_White.svg" download="OS Deployer_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/OS Deployer_with ME_White.svg" alt="OS Deployer ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">OS Deployer</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/OS Deployer_with ME_White.svg" download="OS Deployer_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/OS Deployer_Black.svg" alt="OS Deployer Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">OS Deployer</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/OS Deployer_Black.svg" download="OS Deployer_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/OS Deployer_with ME_Black.svg" alt="OS Deployer ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">OS Deployer</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/OS Deployer_with ME_Black.svg" download="OS Deployer_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Patch Connect Plus">
+          <h3 class="lib-logo-group-title">Patch Connect Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Connect Plus.svg" alt="Patch Connect Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Connect Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Patch Connect Plus.svg" download="Patch Connect Plus.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Connect Plus_White.svg" alt="Patch Connect Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Connect Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Patch Connect Plus_White.svg" download="Patch Connect Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Connect Plus_with ME_White.svg" alt="Patch Connect Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Connect Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Patch Connect Plus_with ME_White.svg" download="Patch Connect Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Connect Plus_Black.svg" alt="Patch Connect Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Connect Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Patch Connect Plus_Black.svg" download="Patch Connect Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Connect Plus_with ME_Black.svg" alt="Patch Connect Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Connect Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Patch Connect Plus_with ME_Black.svg" download="Patch Connect Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Patch Manager Plus">
+          <h3 class="lib-logo-group-title">Patch Manager Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Manager Plus (1).svg" alt="Patch Manager Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Manager Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Patch Manager Plus (1).svg" download="Patch Manager Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Manager Plus_White.svg" alt="Patch Manager Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Manager Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Patch Manager Plus_White.svg" download="Patch Manager Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Manager Plus_with ME_White.svg" alt="Patch Manager Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Manager Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Patch Manager Plus_with ME_White.svg" download="Patch Manager Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Manager Plus_Black.svg" alt="Patch Manager Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Manager Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Patch Manager Plus_Black.svg" download="Patch Manager Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Patch Manager Plus_with ME_Black.svg" alt="Patch Manager Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Patch Manager Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Patch Manager Plus_with ME_Black.svg" download="Patch Manager Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Ransomware Protection Plus">
+          <h3 class="lib-logo-group-title">Ransomware Protection Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus (2).svg" alt="Ransomware Protection Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus (2).svg" download="Ransomware Protection Plus (2).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus (3).svg" alt="Ransomware Protection Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus (3).svg" download="Ransomware Protection Plus (3).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus_White.svg" alt="Ransomware Protection Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus_White.svg" download="Ransomware Protection Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus_with ME_White.svg" alt="Ransomware Protection Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus_with ME_White.svg" download="Ransomware Protection Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus_Black.svg" alt="Ransomware Protection Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus_Black.svg" download="Ransomware Protection Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Ransomware Protection Plus_with ME_Black.svg" alt="Ransomware Protection Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Ransomware Protection Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Ransomware Protection Plus_with ME_Black.svg" download="Ransomware Protection Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Remote Access Plus">
+          <h3 class="lib-logo-group-title">Remote Access Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus (1).svg" alt="Remote Access Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus (1).svg" download="Remote Access Plus (1).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus (2).svg" alt="Remote Access Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus (2).svg" download="Remote Access Plus (2).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus_White.svg" alt="Remote Access Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus_White.svg" download="Remote Access Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus_with ME_White.svg" alt="Remote Access Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus_with ME_White.svg" download="Remote Access Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus_Black.svg" alt="Remote Access Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus_Black.svg" download="Remote Access Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Remote Access Plus_with ME_Black.svg" alt="Remote Access Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Remote Access Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Remote Access Plus_with ME_Black.svg" download="Remote Access Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lib-logo-group" data-product="Vulnerability Manager Plus">
+          <h3 class="lib-logo-group-title">Vulnerability Manager Plus</h3>
+          <div class="lib-grid lib-grid-logo">
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus (3).svg" alt="Vulnerability Manager Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus (3).svg" download="Vulnerability Manager Plus (3).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="color">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus (4).svg" alt="Vulnerability Manager Plus Color" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">Color</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus (4).svg" download="Vulnerability Manager Plus (4).svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus_White.svg" alt="Vulnerability Manager Plus White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">White</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus_White.svg" download="Vulnerability Manager Plus_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="white">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus_with ME_White.svg" alt="Vulnerability Manager Plus ME White" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">ME White</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus_with ME_White.svg" download="Vulnerability Manager Plus_with ME_White.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus_Black.svg" alt="Vulnerability Manager Plus Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">Black</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus_Black.svg" download="Vulnerability Manager Plus_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+            <div class="lib-card lib-card-logo" data-variant="black">
+              <div class="logo-preview"><img src="assets/Product Logo/Vulnerability Manager Plus_with ME_Black.svg" alt="Vulnerability Manager Plus ME Black" loading="lazy"></div>
+              <div class="logo-info">
+                <div class="logo-header">
+                  <span class="logo-name">Vulnerability Manager Plus</span>
+                  <span class="logo-variant-tag">ME Black</span>
+                </div>
+                <a href="assets/Product Logo/Vulnerability Manager Plus_with ME_Black.svg" download="Vulnerability Manager Plus_with ME_Black.svg" class="logo-dl-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> Download SVG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+      (function(){
+        var select = document.getElementById("logo-product-filter");
+        var groups = document.querySelectorAll("#logo-groups-container .lib-logo-group");
+        var DEFAULT_PRODUCT = "Endpoint Central";
+        if(groups.length > 0){
+          select.value = DEFAULT_PRODUCT;
+          groups.forEach(function(g){
+            g.style.display = (g.getAttribute("data-product") === DEFAULT_PRODUCT) ? "" : "none";
+          });
+        }
+        select.addEventListener("change", function(){
+          var v = this.value;
+          groups.forEach(function(g){
+            g.style.display = (v === "all" || g.getAttribute("data-product") === v) ? "" : "none";
+          });
+        });
+      })();
+      </script>
+</div>
+
+        <!-- ========== Illustrations Panel ========== -->
+</main>
+
+  <script>
+    // Switch to a panel by name
+    function switchPanel(name) {
+      document.querySelectorAll('.lib-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.lib-panel').forEach(function(p) { p.classList.remove('active'); });
+      var tab = document.querySelector('.lib-tab[data-panel="' + name + '"]');
+      var panel = document.getElementById('panel-' + name);
+      if (tab) tab.classList.add('active');
+      if (panel) panel.classList.add('active');
+    }
+
+    // Slider tab click
+    document.querySelectorAll('.lib-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() { switchPanel(tab.getAttribute('data-panel')); });
+    });
+
+    // Handle hash on load (e.g. #panel-icons, #panel-logos, #panel-illustrations)
+    var hashMap = { 'panel-icons': 'icons', 'panel-logos': 'logos', 'panel-illustrations': 'illustrations' };
+    function checkHash() {
+      var h = window.location.hash.replace('#', '');
+      if (hashMap[h]) switchPanel(hashMap[h]);
+    }
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+
+    // Theme toggle
+    var themeToggle = document.getElementById('themeToggle');
+    var moonIcon = document.getElementById('moonIcon');
+    var sunIcon = document.getElementById('sunIcon');
+    if ((localStorage.getItem('theme') || 'light') === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+    }
+    themeToggle.addEventListener('click', function() {
+      if (document.documentElement.getAttribute('data-theme') === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        moonIcon.style.display = 'block'; sunIcon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        moonIcon.style.display = 'none'; sunIcon.style.display = 'block';
+      }
+    });
+  </script>
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const toggle = () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();
+</script>
+<script>
+(function(){
+  const hamburger = document.querySelector('.nav-hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !sidebar || !backdrop) return;
+
+  // Build a mobile-only nav section at the top of the sidebar by cloning the nav links
+  if (navLinks && !sidebar.querySelector('.sidebar-mobile-nav')) {
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'sidebar-mobile-nav';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Navigate';
+    mobileNav.appendChild(heading);
+    const ul = document.createElement('ul');
+    navLinks.querySelectorAll(':scope > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    navLinks.querySelectorAll(':scope > .nav-dropdown > .nav-dropdown-menu > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    mobileNav.appendChild(ul);
+    sidebar.insertBefore(mobileNav, sidebar.firstChild);
+  }
+
+  const open = () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+  hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebar.classList.contains('open')) close(); });
+  sidebar.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+})();
+</script>
+
+<!-- Floating Feedback Button -->
+<style>
+  .float-cliq-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .float-cliq-label {
+    background: #1a1a2e; color: #fff;
+    padding: 7px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 500; white-space: nowrap;
+    opacity: 0; transform: translateX(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .float-cliq-btn:hover .float-cliq-label {
+    opacity: 1; transform: translateX(0);
+  }
+  .float-cliq-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #2563eb; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+  }
+  .float-cliq-btn:hover .float-cliq-icon {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.55);
+  }
+  .float-cliq-btn:active .float-cliq-icon { transform: scale(0.95); }
+</style>
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+</body>
+</html>

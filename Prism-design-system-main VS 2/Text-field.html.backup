@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text field — UEMS Design System</title>
+<style>
+  /* Zoho Puvi Font Family */
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_thin.woff2') format('woff2'); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extralight.woff2') format('woff2'); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrabold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_extrablack.woff2') format('woff2'); font-weight: 950; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_regular_italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_bold_italic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Zoho Puvi'; src: url('https://fonts.zohowebstatic.com/zohopuvi/3.5/zoho_puvi_semibold_italic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --prism-black: #0a0a0c;
+    --prism-violet: #2563eb;
+    --prism-violet-light: #60a5fa;
+    --prism-fuchsia: #0ea5e9;
+    --prism-cyan: #06b6d4;
+    --prism-surface: rgba(255, 255, 255, 0.05);
+    --prism-surface-hover: rgba(255, 255, 255, 0.09);
+    --prism-border: rgba(255, 255, 255, 0.07);
+    --prism-text: rgba(255, 255, 255, 0.92);
+    --prism-text-muted: rgba(255, 255, 255, 0.48);
+    --nav-bg: rgba(10,10,12,0.75);
+    --nav-link-color: var(--prism-text-muted);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 10px rgba(37, 99, 235, 0.3));
+    --radius: 20px;
+  }
+
+  [data-theme="light"] {
+    --prism-black: #ffffff;
+    --prism-violet: #2563eb;
+    --prism-violet-light: #1d4ed8;
+    --prism-fuchsia: #0284c7;
+    --prism-cyan: #0891b2;
+    --prism-surface: rgba(37, 99, 235, 0.028);
+    --prism-surface-hover: rgba(37, 99, 235, 0.055);
+    --prism-border: rgba(37, 99, 235, 0.10);
+    --prism-text: #1a1a2e;
+    --prism-text-muted: #64748b;
+    --nav-bg: rgba(255, 255, 255, 0.82);
+    --logo-gradient: linear-gradient(135deg, #0058ff 40%, #3c50ff 30%, #0fd095 100%);
+    --logo-filter: drop-shadow(0 2px 12px rgba(37, 99, 235, 0.25));
+    --nav-link-color: #475569;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+  body {
+    font-family: 'Zoho Puvi', sans-serif;
+    background: var(--prism-black);
+    color: var(--prism-text);
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+  }
+
+  /* ── Premium Light Theme Global Enhancements ── */
+  [data-theme="light"] body {
+    background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  }
+  [data-theme="light"] .nav { background: transparent; border-bottom: 1px solid transparent; box-shadow: none; }
+  [data-theme="light"] .nav.scrolled { background: rgba(255, 255, 255, 0.78); border-bottom: 1px solid rgba(37, 99, 235, 0.06); box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04), 0 4px 24px rgba(37, 99, 235, 0.03); }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid var(--prism-border);
+  }
+  [data-theme="light"] .sidebar {
+    border-right: 1px solid rgba(37, 99, 235, 0.06);
+    background: linear-gradient(180deg, rgba(248, 250, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
+  }
+  [data-theme="light"] .sidebar-link {
+    color: #64748b;
+  }
+  [data-theme="light"] .sidebar-link:hover {
+    color: #1e293b;
+    background: rgba(37, 99, 235, 0.05);
+  }
+  [data-theme="light"] .sidebar-link.active {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.06);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .sidebar-search {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(37, 99, 235, 0.10);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+  [data-theme="light"] .sidebar-search:focus-within {
+    background: #fff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10), 0 2px 8px rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .content-tabs {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04);
+  }
+  [data-theme="light"] .tab-item:hover {
+    color: #1e293b;
+    background: rgba(37, 99, 235, 0.05);
+  }
+  [data-theme="light"] .tab-item.active {
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.30), 0 1px 2px rgba(37, 99, 235, 0.15);
+  }
+  [data-theme="light"] .accordion-item {
+    background: #fff;
+    border: 1px solid rgba(37, 99, 235, 0.08);
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04);
+  }
+  [data-theme="light"] .accordion-item:hover {
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .accordion-item.open {
+    border-color: rgba(37, 99, 235, 0.30);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.10), 0 2px 8px rgba(37, 99, 235, 0.06);
+    background: #fff;
+  }
+  [data-theme="light"] .doc-list li {
+    background: #fff;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .doc-list li:hover {
+    background: rgba(37, 99, 235, 0.025);
+    border-color: rgba(37, 99, 235, 0.22);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.10);
+  }
+  [data-theme="light"] .do-card, [data-theme="light"] .dont-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .do-card:hover, [data-theme="light"] .dont-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  [data-theme="light"] .do-card { border-top: 3px solid #16a34a; }
+  [data-theme="light"] .dont-card { border-top: 3px solid #dc2626; }
+  [data-theme="light"] .related-chip {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .related-chip:hover {
+    background: rgba(37, 99, 235, 0.03);
+    border-color: rgba(37, 99, 235, 0.30);
+    box-shadow: 0 6px 24px rgba(37, 99, 235, 0.12);
+  }
+  [data-theme="light"] .feedback-banner {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .feedback-btn {
+    background: #fff;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: 0 1px 3px rgba(37, 99, 235, 0.04);
+  }
+  [data-theme="light"] .feedback-btn:hover {
+    background: rgba(37, 99, 235, 0.04);
+    border-color: rgba(37, 99, 235, 0.25);
+  }
+  [data-theme="light"] .feedback-btn.primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  }
+  [data-theme="light"] .feedback-btn.primary:hover {
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  }
+  [data-theme="light"] .toc-sidebar {
+    background: transparent;
+  }
+  [data-theme="light"] .toc-link {
+    color: #94a3b8;
+  }
+  [data-theme="light"] .toc-link:hover {
+    color: #475569;
+  }
+  [data-theme="light"] .toc-link.active {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  [data-theme="light"] .toc-nav {
+    border-left: 2px solid rgba(37, 99, 235, 0.08);
+  }
+  [data-theme="light"] .quick-actions-card {
+    border-top: 1px solid rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .action-link {
+    color: #94a3b8;
+  }
+  [data-theme="light"] .action-link:hover {
+    color: #1e293b;
+  }
+  [data-theme="light"] .doc-divider {
+    border-top: 1px solid rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .icon-btn {
+    color: #94a3b8;
+  }
+  [data-theme="light"] .icon-btn:hover {
+    color: #1e293b;
+    background: rgba(37, 99, 235, 0.06);
+  }
+  [data-theme="light"] .nav-links a {
+    color: #64748b;
+  }
+  [data-theme="light"] .nav-links a:hover {
+    color: #1e293b;
+    background: rgba(37, 99, 235, 0.05);
+  }
+  [data-theme="light"] .nav-links a.active {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.06);
+  }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 32px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .nav-logo { display: inline-flex; flex-direction: row; align-items: center; gap: 10px; text-decoration: none; line-height: 1; }
+  .nav-logo-img { width: 40px; height: 40px; flex-shrink: 0; display: block; }
+  .nav-logo-text { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0; }
+   .nav-logo-mark { font-size: 26px; font-weight: 900; letter-spacing: 0.02em; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-right: 0.1em; padding-bottom: 0.05em; line-height: 1; }
+  .nav-logo-sub { font-size: 10px; font-weight: 600; color: var(--prism-text-muted); letter-spacing: 0.08em; text-transform: none; margin-top: 2px; }
+  .nav-logo-sub .caps { text-transform: uppercase; }
+
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a {
+    color: var(--nav-link-color, var(--prism-text-muted)); text-decoration: none; font-size: 14px; font-weight: 600;
+    padding: 8px 16px; border-radius: 999px; transition: all 0.3s ease; border: none;
+  }
+  .nav-links a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-links a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); border: none; }
+
+  .icon-btn {
+    background: transparent; border: none; cursor: pointer;
+    color: var(--prism-text-muted); padding: 8px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease; margin-left: 4px;
+  }
+  .icon-btn:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+
+  /* Nav dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown > a .nav-chevron { width: 12px; height: 12px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover > a .nav-chevron { transform: rotate(180deg); }
+  .nav-dropdown-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 200px; background: var(--prism-black); border: 1px solid var(--prism-border); border-radius: 12px; padding: 6px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.25s cubic-bezier(0.4,0,0.2,1); z-index: 200; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+  .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); text-decoration: none; transition: all 0.2s ease; background: transparent; }
+  .nav-dropdown-menu a:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .nav-dropdown-menu a svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--prism-text-muted); opacity: 0.7; }
+  .nav-dropdown-menu a:hover svg { color: var(--prism-violet); opacity: 1; }
+  [data-theme="light"] .nav-dropdown-menu { background: #fff; border: 1px solid rgba(37,99,235,0.10); box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(37,99,235,0.06); }
+  [data-theme="light"] .nav-dropdown-menu a { color: #64748b; }
+  [data-theme="light"] .nav-dropdown-menu a:hover { color: #1e293b; background: rgba(37,99,235,0.05); }
+  [data-theme="light"] .nav-dropdown-menu a:hover svg { color: #2563eb; }
+
+  .components-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    width: 100%;
+    padding-top: 72px;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    width: 260px;
+    border-right: 1px solid var(--prism-border);
+    padding: 32px 24px 64px;
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--prism-border); border-radius: 4px; }
+
+  .sidebar-heading {
+    font-size: 11px; font-weight: 700; color: var(--prism-text-muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 16px; padding-left: 12px;
+  }
+
+  .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+
+  .sidebar-link {
+    display: flex; align-items: center; padding: 8px 12px; font-size: 13.5px; font-weight: 500;
+    color: var(--prism-text-muted); text-decoration: none;
+    border-radius: 8px; transition: all 0.2s ease;
+  }
+  .sidebar-link:hover {
+    color: var(--prism-text); background: var(--prism-surface-hover);
+    transform: translateX(4px);
+  }
+  .sidebar-link.active {
+    color: var(--prism-violet); background: rgba(37, 99, 235, 0.08);
+    font-weight: 600;
+  }
+  .sidebar-link.active::before {
+    content: ''; width: 4px; height: 16px; background: var(--prism-violet);
+    border-radius: 4px; margin-right: 12px; margin-left: -4px;
+  }
+
+  .main-panel {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 48px 64px 0 64px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-header-area {
+    width: 100%;
+    max-width: none;
+  }
+  .page-title {
+    font-size: 48px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px;
+    background: var(--logo-gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    display: inline-block; padding-right: 8px; padding-bottom: 4px;
+  }
+  .page-desc {
+    color: var(--prism-text); font-size: 20px; font-weight: 400;
+    line-height: 1.5; margin-bottom: 32px; margin-top: 8px;
+    max-width: 900px;
+  }
+  .main-content-area {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 0;
+    flex: 1;
+    align-items: start;
+  }
+  .main-content-inner {
+    padding-bottom: 64px;
+    min-width: 0;
+  }
+
+  /* Modern Ambient Glows */
+  .bg-glow {
+    position: fixed; border-radius: 50%; width: 60vw; height: 60vh;
+    filter: blur(140px); z-index: -1; pointer-events: none; opacity: 0.15;
+    transition: opacity 0.6s ease, filter 0.6s ease;
+  }
+  .glow-1 { top: -20%; right: -10%; background: var(--prism-violet); }
+  .glow-2 { bottom: -20%; left: -10%; background: var(--prism-cyan); }
+  [data-theme="light"] .bg-glow { opacity: 0.09; filter: blur(180px); }
+
+  /* Glassmorphic Sidebars */
+  .sidebar, .toc-sidebar {
+    background: transparent;
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  }
+
+  /* Sidebar Search */
+  .sidebar-search {
+    display: flex; align-items: center; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); border-radius: 999px;
+    padding: 8px 16px; margin-bottom: 24px; transition: all 0.2s ease;
+  }
+  .sidebar-search:focus-within {
+    border-color: var(--prism-violet); background: transparent;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+  .sidebar-search svg { color: var(--prism-text-muted); }
+  .sidebar-search input {
+    background: transparent; border: none; outline: none;
+    color: var(--prism-text); font-family: inherit; font-size: 14px;
+    width: 100%; margin-left: 10px;
+  }
+  .sidebar-search input::placeholder { color: var(--prism-text-muted); }
+  .search-shortcut {
+    font-size: 11px; font-weight: 600; color: var(--prism-text-muted);
+    background: var(--prism-surface-hover); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--prism-border);
+  }
+
+  /* Right Side TOC */
+  .toc-sidebar {
+    width: 240px; padding: 20px;
+    position: sticky; top: 72px; height: calc(100vh - 72px);
+    overflow-y: auto;
+    align-self: start;
+  }
+  .toc-heading {
+    font-size: 11px; font-weight: 700; color: var(--prism-text);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .toc-nav {
+    list-style: none; display: flex; flex-direction: column; gap: 10px;
+    border-left: 1px solid var(--prism-border); padding-left: 16px; margin-left: 4px; line-height: 1.6;
+  }
+  .toc-link {
+    display: block; font-size: 13px; font-weight: 400;
+    color: var(--prism-text-muted); text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; padding-left: 0;
+  }
+  .toc-link:hover { color: var(--prism-text); }
+  .toc-link.active {
+    color: var(--prism-violet); font-weight: 600;
+  }
+
+  /* Quick Action Links */
+  .quick-actions-card {
+    margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--prism-border);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .quick-actions-title {
+    font-size: 11px; font-weight: 700; color: var(--prism-text-muted);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px;
+  }
+  .action-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 600; color: var(--prism-text-muted);
+    text-decoration: none; padding: 6px 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .action-link svg {
+    opacity: 0.8; transition: all 0.2s ease;
+  }
+  .action-link:hover {
+    color: var(--prism-text); transform: translateX(2px);
+  }
+  .action-link:hover svg {
+    opacity: 1; transform: scale(1.05); color: var(--prism-violet);
+  }
+
+  .content-tabs {
+    display: flex; gap: 4px; margin-bottom: 40px;
+    background: var(--prism-surface); padding: 4px; border-radius: 999px;
+    width: max-content; border: 1px solid var(--prism-border);
+  }
+  .tab-item {
+    background: transparent; border: none; font-family: inherit;
+    font-size: 14px; font-weight: 600; color: var(--prism-text-muted);
+    padding: 10px 24px; cursor: pointer; transition: all 0.3s ease;
+    border-radius: 999px; position: relative;
+  }
+  .tab-item:hover { color: var(--prism-text); background: var(--prism-surface-hover); }
+  .tab-item.active {
+    color: #fff; background: var(--prism-violet);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  /* ── Modern Documentation Styles ── */
+  .doc-section {
+    margin-bottom: 64px;
+  }
+  .doc-section-title {
+    font-size: 32px; font-weight: 400; color: var(--prism-text);
+    margin-bottom: 12px;
+  }
+  .doc-section-subtitle {
+    font-size: 16px; color: var(--prism-text-muted); line-height: 1.6;
+    margin-bottom: 32px; max-width: 720px;
+  }
+  .doc-h3 {
+    font-size: 20px; font-weight: 600; color: var(--prism-text);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .doc-h3 .h3-badge {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px;
+  }
+  .doc-divider {
+    border: none; border-top: 1px solid var(--prism-border); margin: 56px 0;
+  }
+
+  /* Content list with left accent */
+  .doc-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .doc-list li {
+    font-size: 15px; line-height: 1.65; color: var(--prism-text);
+    padding: 14px 20px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); border-radius: 10px;
+    border-left: 3px solid var(--prism-violet);
+    transition: all 0.2s ease;
+  }
+  .doc-list li:hover {
+    border-left-color: var(--prism-cyan);
+    background: var(--prism-surface-hover);
+    transform: translateX(4px);
+  }
+
+  /* Do / Don't cards */
+  .do-dont-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .do-card, .dont-card {
+    padding: 24px; border-radius: 12px; border: 1px solid var(--prism-border);
+    background: var(--prism-surface);
+  }
+  .do-card { border-top: 3px solid #22c55e; }
+  .dont-card { border-top: 3px solid #ef4444; }
+  .do-card .card-label, .dont-card .card-label {
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 16px; display: flex;
+    align-items: center; gap: 8px;
+  }
+  .do-card .card-label { color: #22c55e; }
+  .dont-card .card-label { color: #ef4444; }
+  .do-card ul, .dont-card ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .do-card li, .dont-card li {
+    font-size: 14.5px; line-height: 1.6; color: var(--prism-text-muted);
+    padding-left: 20px; position: relative;
+  }
+  .do-card li::before {
+    content: '\2713'; position: absolute; left: 0; color: #22c55e; font-weight: 700;
+  }
+  .dont-card li::before {
+    content: '\2717'; position: absolute; left: 0; color: #ef4444; font-weight: 700;
+  }
+
+  /* Related component chips */
+  .related-grid {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  .related-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; background: var(--prism-surface);
+    border: 1px solid var(--prism-border); border-radius: 10px;
+    font-size: 14px; font-weight: 600; color: var(--prism-text);
+    text-decoration: none; transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+  .related-chip:hover {
+    border-color: var(--prism-violet); color: var(--prism-violet);
+    background: rgba(37, 99, 235, 0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+  }
+  .related-chip svg { color: var(--prism-text-muted); transition: color 0.2s; }
+  .related-chip:hover svg { color: var(--prism-violet); }
+
+  /* Feedback banner */
+  .feedback-banner {
+    margin-top: 72px; padding: 32px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(6,182,212,0.06) 100%);
+    border: 1px solid var(--prism-border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .feedback-banner .fb-text {
+    font-size: 16px; font-weight: 600; color: var(--prism-text);
+  }
+  .feedback-banner .fb-sub {
+    font-size: 13.5px; color: var(--prism-text-muted); margin-top: 4px;
+  }
+  .feedback-btn {
+    padding: 10px 28px; border-radius: 999px; font-family: inherit;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s ease; border: 1px solid var(--prism-border);
+    background: var(--prism-surface); color: var(--prism-text);
+  }
+  .feedback-btn:hover {
+    border-color: var(--prism-violet); color: var(--prism-violet);
+    background: rgba(37, 99, 235, 0.08);
+  }
+  .feedback-btn.primary {
+    background: var(--prism-violet); color: #fff; border-color: var(--prism-violet);
+  }
+  .feedback-btn.primary:hover {
+    background: #1d4ed8; box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* Anatomy diagram */
+  .anatomy-diagram { background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 16px; padding: 48px 40px; margin-bottom: 28px; position: relative; overflow: visible; }
+  [data-theme="light"] .anatomy-diagram { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); box-shadow: 0 2px 12px rgba(37, 99, 235, 0.05); }
+  .anatomy-diagram::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #60a5fa, #06b6d4); }
+  .anat-marker-inline { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff !important; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35); }
+  .anat-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .anat-legend-item { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 14px; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); }
+  [data-theme="light"] .anat-legend-item { background: #fff; border: 1px solid rgba(37, 99, 235, 0.07); box-shadow: 0 1px 4px rgba(37, 99, 235, 0.04); }
+  .anat-legend-item strong { display: block; font-size: 14.5px; font-weight: 600; color: var(--prism-text); margin-bottom: 6px; }
+  .anat-legend-item span { font-size: 13px; line-height: 1.55; color: var(--prism-text-muted); }
+
+  /* State cards */
+  .state-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
+  .state-card { padding: 24px 16px; border-radius: 14px; background: var(--prism-surface); border: 1px solid var(--prism-border); text-align: center; transition: all 0.25s ease; }
+  [data-theme="light"] .state-card { background: #fff; border: 1px solid rgba(37,99,235,0.07); box-shadow: 0 1px 4px rgba(37,99,235,0.04); }
+  .state-card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,99,235,0.08); }
+  .state-card-title { font-size: 13px; font-weight: 600; color: var(--prism-text); margin-top: 16px; }
+  .state-card-desc { font-size: 12px; color: var(--prism-text-muted); margin-top: 6px; line-height: 1.5; }
+
+  /* Size table */
+  .size-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .size-table th { text-align: left; padding: 14px 12px; color: var(--prism-text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--prism-border); }
+  .size-table td { padding: 16px 12px; border-bottom: 1px solid var(--prism-border); color: var(--prism-text); vertical-align: middle; }
+  .size-table tr:hover td { background: rgba(37,99,235,0.02); }
+  .size-table code { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet); }
+
+  /* Demo container */
+  .demo-container { border: 1px solid var(--prism-border); border-radius: 16px; overflow: hidden; position: relative; }
+  .demo-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: var(--prism-surface); border-bottom: 1px solid var(--prism-border); }
+  [data-theme="light"] .demo-container { border: 1px solid rgba(37, 99, 235, 0.14); box-shadow: 0 2px 16px rgba(37, 99, 235, 0.08); }
+  [data-theme="light"] .demo-toolbar { background: rgba(255, 255, 255, 0.7); border-bottom: 1px solid rgba(37, 99, 235, 0.06); }
+  .demo-toolbar-left { display: flex; align-items: center; gap: 12px; }
+  .demo-theme-pill { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; background: rgba(37,99,235,0.08); color: var(--prism-violet); border: 1px solid rgba(37,99,235,0.2); cursor: pointer; transition: all 0.2s ease; }
+  .demo-canvas { padding: 40px; position: relative; background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px; background-color: #0a0a0c66; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 280px; gap: 32px; transition: background-color 0.5s ease; }
+  [data-theme="light"] .demo-canvas { background-color: #f4f6fb; background-image: radial-gradient(circle, rgba(37, 99, 235, 0.08) 1px, transparent 1px); }
+  .demo-group-label { font-size: 13px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: -16px; }
+
+  /* Text Input Demo Styles */
+  .text-input-demo { display: flex; flex-direction: column; gap: 4px; font-family: 'Zoho Puvi', sans-serif; width: 100%; max-width: 400px; }
+  .text-input-label { font-size: 13px; font-weight: 500; color: var(--prism-text); display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .text-input-label .required { color: #C1181B; }
+  .text-input-row { display: flex; align-items: center; gap: 8px; }
+  .text-input-row.label-left { flex-direction: row; }
+  .text-input-row.label-top { flex-direction: column; align-items: stretch; }
+  .text-input-field { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid #C8CDD8; background: #fff; transition: all 0.2s ease; flex: 1; min-height: 36px; }
+  .text-input-field:hover { border-color: #8B95A9; }
+  .text-input-field.focus { border-color: #2C66DD; box-shadow: 0 0 0 3px rgba(44, 102, 221, 0.15); }
+  .text-input-field.error { border-color: #C1181B; }
+  .text-input-field.success { border-color: #0C8844; }
+  .text-input-field.disabled { background: #F5F6F8; border-color: #E3E7ED; opacity: 0.6; pointer-events: none; }
+  .text-input-field.readonly { background: #F5F6F8; border-color: transparent; }
+  .text-input-field input { border: none; outline: none; background: transparent; font-family: inherit; font-size: 14px; color: #1A1A2E; flex: 1; min-width: 0; }
+  .text-input-field input::placeholder { color: #8B95A9; }
+  .text-input-prefix, .text-input-suffix { font-size: 13px; color: #5F6C89; white-space: nowrap; }
+  .text-input-icon { display: flex; align-items: center; color: #5F6C89; flex-shrink: 0; }
+  .text-input-icon svg { width: 16px; height: 16px; }
+  .text-input-clear { display: flex; align-items: center; cursor: pointer; color: #8B95A9; flex-shrink: 0; }
+  .text-input-clear:hover { color: #3B4963; }
+  .text-input-clear svg { width: 14px; height: 14px; }
+  .text-input-helper { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; }
+  .text-input-helper-text { font-size: 12px; color: #5F6C89; display: flex; align-items: center; gap: 4px; }
+  .text-input-helper-text.error { color: #C1181B; }
+  .text-input-helper-text.success { color: #0C8844; }
+  .text-input-counter { font-size: 12px; color: #8B95A9; }
+  .text-input-sm .text-input-field { min-height: 32px; padding: 6px 10px; }
+  .text-input-sm .text-input-field input { font-size: 13px; }
+  .text-input-lg .text-input-field { min-height: 44px; padding: 10px 14px; }
+  .text-input-lg .text-input-field input { font-size: 16px; }
+  /* Text field — dark mode overrides */
+  html:not([data-theme="light"]) .text-input-field { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); }
+  html:not([data-theme="light"]) .text-input-field:hover { border-color: rgba(255,255,255,0.3); }
+  html:not([data-theme="light"]) .text-input-field.focus { border-color: #60a5fa; box-shadow: 0 0 0 3px rgba(96,165,250,0.2); }
+  html:not([data-theme="light"]) .text-input-field.error { border-color: #f87171; }
+  html:not([data-theme="light"]) .text-input-field.success { border-color: #4ade80; }
+  html:not([data-theme="light"]) .text-input-field.disabled { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.08); }
+  html:not([data-theme="light"]) .text-input-field.readonly { background: rgba(255,255,255,0.03); border-color: transparent; }
+  html:not([data-theme="light"]) .text-input-field input { color: rgba(255,255,255,0.92); }
+  html:not([data-theme="light"]) .text-input-field input::placeholder { color: rgba(255,255,255,0.35); }
+  html:not([data-theme="light"]) .text-input-helper-text { color: rgba(255,255,255,0.45); }
+  html:not([data-theme="light"]) .text-input-helper-text.error { color: #fca5a5; }
+  html:not([data-theme="light"]) .text-input-helper-text.success { color: #86efac; }
+
+  /* Numbered list for overrides */
+  .numbered-list { list-style: decimal; padding-left: 24px; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .numbered-list li { font-size: 15px; line-height: 1.65; color: var(--prism-text); padding: 14px 20px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 10px; transition: all 0.2s ease; }
+  .numbered-list li:hover { background: var(--prism-surface-hover); transform: translateX(4px); }
+
+</style>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+      <img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+      <span class="nav-logo-text">
+        <span class="nav-logo-mark">Prism</span>
+        <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="Foundation.html">Foundation</a>
+      <a href="Components.html" class="active">Components</a>
+      <a href="zia-experience.html">Zia Experience</a><a href="llm-reference.html">LLM Reference</a><div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+
+      <div style="width: 16px;"></div>
+
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search...">
+        <span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 id="components" class="sidebar-heading">Components</h3>
+      <ul class="sidebar-nav">
+        <li><a href="Accordion.html" class="sidebar-link">Accordion</a></li>
+        <li><a href="Avatar.html" class="sidebar-link">Avatar</a></li>
+        <li><a href="Badges.html" class="sidebar-link">Badges</a></li>
+        <li><a href="Breadcrumbs.html" class="sidebar-link">Breadcrumbs</a></li>
+        <li><a href="Button.html" class="sidebar-link">Button</a></li>
+        <li><a href="Calendar.html" class="sidebar-link">Calendar</a></li>
+        <li><a href="Checkbox.html" class="sidebar-link">Checkbox</a></li>
+        <li><a href="Counter.html" class="sidebar-link">Counter</a></li>
+        <li><a href="Data-table.html" class="sidebar-link">Data table</a></li>
+        <li><a href="Date-picker.html" class="sidebar-link">Date picker</a></li>
+        <li><a href="Divider.html" class="sidebar-link">Divider</a></li>
+        <li><a href="Dropdown.html" class="sidebar-link">Dropdown</a></li>
+        <li><a href="Empty-state.html" class="sidebar-link">Empty state</a></li>
+        <li><a href="Header-navigation.html" class="sidebar-link">Header navigation</a></li>
+        <li><a href="Icon.html" class="sidebar-link">Icon</a></li>
+        <li><a href="Inline-message.html" class="sidebar-link">Inline message</a></li>
+        <li><a href="Left-sidebar-navigation-level-1.html" class="sidebar-link">Sidebar Nav L1</a></li>
+        <li><a href="Left-sidebar-navigation-level-2.html" class="sidebar-link">Sidebar Nav L2</a></li>
+        <li><a href="Link.html" class="sidebar-link">Link</a></li>
+        <li><a href="OTP-input.html" class="sidebar-link">OTP input</a></li>
+        <li><a href="Page-header.html" class="sidebar-link">Page header</a></li>
+        <li><a href="Progress-bar.html" class="sidebar-link">Progress bar</a></li>
+        <li><a href="Radio-button.html" class="sidebar-link">Radio button</a></li>
+        <li><a href="Rich-text-editor.html" class="sidebar-link">Rich text editor</a></li>
+        <li><a href="Right-pane.html" class="sidebar-link">Right pane</a></li>
+        <li><a href="Script-editor.html" class="sidebar-link">Script editor</a></li>
+        <li><a href="Slider.html" class="sidebar-link">Slider</a></li>
+        <li><a href="Snackbar.html" class="sidebar-link">Toast Message</a></li>
+        <li><a href="Split-button.html" class="sidebar-link">Split button</a></li>
+        <li><a href="Status-indicator.html" class="sidebar-link">Status indicator</a></li>
+        <li><a href="Switch.html" class="sidebar-link">Toggle</a></li>
+        <li><a href="Tag.html" class="sidebar-link">Tag</a></li>
+        <li><a href="Text-area.html" class="sidebar-link">Text area</a></li>
+        <li><a href="Text-field.html" class="sidebar-link active">Text field</a></li>
+        <li><a href="Tooltip.html" class="sidebar-link">Tooltip</a></li>
+        <li style="padding:16px 12px 8px;"><span style="font-size:10px;font-weight:700;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;">In-progress</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action button</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action list</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Alert banner</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">App bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Autocomplete</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Bottom sheet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Button group</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Cards</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Code snippet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Combobox</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Dialog</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Drawer</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Filter input</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Form</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Help text</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Label</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">List</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Menus</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Modal</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Navigation bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Pagination</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Popover</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Progress indicator</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Search</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Segmented control</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Select</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Sidebar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tabs</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tree view</span></li>
+      </ul>
+    </aside>
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Text field</h1>
+        <p class="page-desc">
+          The Text Input is a form control component that allows users to enter and edit single-line text. It provides labels, placeholder text, prefix/suffix elements, helper text, character counters, validation states, and clear functionality.
+        </p>
+        <nav class="content-tabs">
+          <button class="tab-item active">Overview</button>
+          <button class="tab-item">Style</button>
+          <button class="tab-item">Usage</button>
+          <button class="tab-item">Code</button>
+          <button class="tab-item">Accessibility</button>
+        </nav>
+      </div>
+      <div class="main-content-area">
+        <div class="main-content-inner">
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- TAB: OVERVIEW                               -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="tab-content" id="tab-overview">
+
+        <!-- Anatomy Section -->
+        <h3 id="anatomy" class="doc-h3">Anatomy</h3>
+
+        <div class="anatomy-diagram" style="overflow:visible;">
+          <!-- Label Left (Default) layout -->
+          <div style="margin-bottom: 40px; display: flex; justify-content: center;">
+            <div style="width: 100%; max-width: 640px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; text-align: center;">Label Left (Default)</div>
+              <div style="display: flex; align-items: center; gap: 12px; position: relative; padding: 16px 0;">
+                <div style="position: relative;">
+                  <!-- 2 Label: left of Label text -->
+                  <div style="position: absolute; right: calc(100% + 6px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 6px;">
+                    <span class="anat-marker-inline">2</span><div style="width: 28px; height: 2px; background: #2563eb;"></div>
+                  </div>
+                  <span style="font-size: 14px; font-weight: 500; color: var(--prism-text);">Label</span>
+                  <span style="color: #C1181B; margin-left: 2px;">*</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 2px dashed rgba(37,99,235,0.4); border-radius: 10px; flex: 1; max-width: 480px; position: relative;">
+                  <!-- 1 Container: above, centered over full frame -->
+                  <div style="position: absolute; top: -28px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                    <span class="anat-marker-inline">1</span><div style="width: 2px; height: 12px; background: #2563eb;"></div>
+                  </div>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #5F6C89; flex-shrink: 0;"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                  <span style="font-size: 13px; color: #5F6C89;">$</span>
+                  <span style="font-size: 14px; color: #8B95A9; flex: 1;">Input Text</span>
+                  <span style="font-size: 13px; color: #5F6C89;">kg</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #5F6C89; flex-shrink: 0;"><path d="M9 5l7 7-7 7"/></svg>
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #8B95A9; flex-shrink: 0; cursor: pointer;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <!-- 3 Input Field: right of frame, horizontal line -->
+                  <div style="position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: row-reverse; align-items: center; gap: 6px;">
+                    <span class="anat-marker-inline">3</span><div style="width: 28px; height: 2px; background: #2563eb;"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 4px; margin-left: 60px; margin-top: 4px; position: relative;">
+                <svg width="12" height="12" fill="none" stroke="#5F6C89" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <span style="font-size: 12px; color: #5F6C89;">Helper text</span>
+                <span style="margin-left: auto; font-size: 12px; color: #8B95A9;">0/100</span>
+                <!-- 4 Helper Row: left of row, horizontal line -->
+                <div style="position: absolute; right: calc(100% + 6px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 6px;">
+                  <span class="anat-marker-inline">4</span><div style="width: 28px; height: 2px; background: #2563eb;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label Top layout -->
+          <div style="display: flex; justify-content: center;">
+            <div style="width: 100%; max-width: 640px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; text-align: center;">Label Top</div>
+              <div style="display: flex; flex-direction: column; gap: 6px; max-width: 480px; margin: 0 auto;">
+                <div style="display: flex; align-items: center; gap: 2px;">
+                  <span style="font-size: 14px; font-weight: 500; color: var(--prism-text);">Label</span>
+                  <span style="color: #C1181B;">*</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 2px dashed rgba(37,99,235,0.4); border-radius: 10px;">
+                  <span style="font-size: 14px; color: #8B95A9; flex: 1;">Placeholder text</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="anat-legend">
+          <div class="anat-legend-item"><span class="anat-marker-inline">1</span><div><strong>Container</strong><span>Holds the input field, borders, background, and all inner elements.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline">2</span><div><strong>Label</strong><span>Identifies the input field. Includes an optional required indicator (*).</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline">3</span><div><strong>Input Field</strong><span>Contains prefix icon, prefix text, input text/placeholder, suffix text, suffix icon, and clear button.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline">4</span><div><strong>Helper Row</strong><span>Displays helper icon, helper text, and character counter below the input.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">5</span><div><strong>Prefix Icon</strong><span>Optional leading icon to provide visual context for the input.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">6</span><div><strong>Prefix Text</strong><span>Static text before the input (e.g., "$", "https://").</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">7</span><div><strong>Suffix Text</strong><span>Static text after the input (e.g., "kg", ".com").</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">8</span><div><strong>Suffix Icon</strong><span>Optional trailing icon for secondary context or action.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #f97316, #ea580c);">9</span><div><strong>Clear Button</strong><span>An "X" icon to clear the input field content.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #f97316, #ea580c);">10</span><div><strong>Helper Icon</strong><span>Small icon that accompanies the helper text.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #f97316, #ea580c);">11</span><div><strong>Helper Text</strong><span>Supporting text providing context, validation messages, or formatting guidance.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline" style="background: linear-gradient(135deg, #ec4899, #db2777);">12</span><div><strong>Counter</strong><span>Character count display showing current/max characters (e.g., "0/100").</span></div></div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Live Demo Section -->
+        <div style="margin-bottom: 64px;">
+          <h2 id="live-demo" class="doc-section-title" style="margin-bottom: 8px;">Preview</h2>
+          <p class="doc-section-subtitle" style="margin-bottom: 28px;">Interact with the text input variants to explore different states, sizes, and configurations.</p>
+
+          <!-- States -->
+          <div class="demo-container" style="margin-bottom: 32px;">
+            <div class="demo-toolbar">
+              <div class="demo-toolbar-left"><div class="demo-theme-pill">States</div></div>
+            </div>
+            <div class="demo-canvas" style="flex-wrap: wrap; gap: 24px; align-items: flex-start;">
+              <!-- Default -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Placeholder" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Default state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Hover -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field" style="border-color: #8B95A9;">
+                      <input type="text" placeholder="Placeholder" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Hover state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Focus -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field focus">
+                      <input type="text" placeholder="Placeholder" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Focus state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Filled -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" value="Entered value" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Filled state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Error -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field error">
+                      <input type="text" value="Invalid input" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text error">This field is required</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Success -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field success">
+                      <input type="text" value="Valid input" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text success">Looks good!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Disabled -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label" style="opacity: 0.6;">Label</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field disabled">
+                      <input type="text" placeholder="Disabled" disabled />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text" style="opacity: 0.6;">Disabled state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Read Only -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field readonly">
+                      <input type="text" value="Read only value" readonly />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Read Only state</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sizes -->
+          <div class="demo-container" style="margin-bottom: 32px;">
+            <div class="demo-toolbar">
+              <div class="demo-toolbar-left"><div class="demo-theme-pill">Sizes</div></div>
+            </div>
+            <div class="demo-canvas" style="gap: 24px; align-items: flex-start;">
+              <!-- Small -->
+              <div class="text-input-demo text-input-sm">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Small</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Small size input" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Medium -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Medium</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Medium size input (default)" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Large -->
+              <div class="text-input-demo text-input-lg">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Large</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Large size input" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label Position -->
+          <div class="demo-container" style="margin-bottom: 32px;">
+            <div class="demo-toolbar">
+              <div class="demo-toolbar-left"><div class="demo-theme-pill">Label Position</div></div>
+            </div>
+            <div class="demo-canvas" style="gap: 24px; align-items: flex-start;">
+              <!-- Label Left -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Label Left <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Default desktop layout" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Label Top -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-top">
+                  <span class="text-input-label">Label Top <span class="required">*</span></span>
+                  <div>
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Responsive / mobile layout" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prefix / Suffix -->
+          <div class="demo-container" style="margin-bottom: 32px;">
+            <div class="demo-toolbar">
+              <div class="demo-toolbar-left"><div class="demo-theme-pill">Prefix &amp; Suffix</div></div>
+            </div>
+            <div class="demo-canvas" style="gap: 24px; align-items: flex-start;">
+              <!-- Prefix Icon -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Search</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <span class="text-input-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
+                      <input type="text" placeholder="Search items..." />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Prefix Text -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Price</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <span class="text-input-prefix">$</span>
+                      <input type="text" placeholder="0.00" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Suffix Text -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Weight</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Enter weight" />
+                      <span class="text-input-suffix">kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Suffix Icon -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Date</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Select date" />
+                      <span class="text-input-icon"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Clear Button -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Filter</span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" value="Some entered text" />
+                      <span class="text-input-clear"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Helper Row -->
+          <div class="demo-container" style="margin-bottom: 32px;">
+            <div class="demo-toolbar">
+              <div class="demo-toolbar-left"><div class="demo-theme-pill">Helper Row</div></div>
+            </div>
+            <div class="demo-canvas" style="gap: 24px; align-items: flex-start;">
+              <!-- Helper + Counter -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Username <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field">
+                      <input type="text" placeholder="Enter username" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text">Must be 3-20 characters</span>
+                      <span class="text-input-counter">0/20</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Error Helper -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Email <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field error">
+                      <input type="text" value="invalid-email" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text error">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                        Please enter a valid email address
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Success Helper -->
+              <div class="text-input-demo">
+                <div class="text-input-row label-left">
+                  <span class="text-input-label">Domain <span class="required">*</span></span>
+                  <div style="flex: 1;">
+                    <div class="text-input-field success">
+                      <input type="text" value="mysite.com" />
+                    </div>
+                    <div class="text-input-helper">
+                      <span class="text-input-helper-text success">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        Domain is available
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Do & Don't -->
+        <div class="doc-section">
+          <h3 id="do-dont" class="doc-h3">Content Guidelines<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">Recommended</span></h3>
+          <div class="do-dont-grid">
+            <div class="do-card"><span class="card-label">Do</span>
+              <ul>
+                <li>Always use Label Position = Left as the default layout on desktop.</li>
+                <li>Switch to Label Position = Top on responsive/mobile breakpoints.</li>
+                <li>Always provide a label for the input field.</li>
+                <li>Use placeholder text to show example input format, not as a replacement for the label.</li>
+                <li>Use helper text to provide context, formatting requirements, or constraints.</li>
+                <li>Show the character counter when there is a maximum length.</li>
+                <li>Use the Error state with a descriptive helper text message.</li>
+                <li>Use prefix/suffix elements to clarify expected input format.</li>
+              </ul>
+            </div>
+            <div class="dont-card"><span class="card-label">Don't</span>
+              <ul>
+                <li>Don't use Label Position = Top as the default on desktop.</li>
+                <li>Don't use placeholder text as the only label.</li>
+                <li>Don't show Error and Success states simultaneously.</li>
+                <li>Don't use the Read Only state when the field should be Disabled.</li>
+                <li>Don't add both prefix text and prefix icon simultaneously unless design calls for it.</li>
+                <li>Don't use overly long helper text.</li>
+                <li>Don't hide the label in forms where context is not obvious.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+      </div> <!-- End tab-overview -->
+
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- TAB: STYLE                                  -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="tab-content" id="tab-style" style="display: none; padding-top: 32px;">
+        <h2 id="style-overview" class="doc-section-title">Style</h2>
+        <p class="doc-section-subtitle">Design tokens, variant axes, and visual specifications that define the Text Input's visual language.</p>
+
+        <!-- Variant Axes -->
+        <div class="doc-section">
+          <h2 id="variant-axes" class="doc-section-title">Variant Axes</h2>
+          <p class="doc-section-subtitle">The Text Input component is defined by four variant axes that combine to produce the full set of design variants.</p>
+          <div style="padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; margin-top: 16px;">
+            <div style="font-size: 15px; color: var(--prism-text); line-height: 1.7;">
+              <strong>3</strong> Sizes &times; <strong>8</strong> States &times; <strong>2</strong> RTL &times; <strong>2</strong> Label Positions = <strong style="color: var(--prism-violet); font-size: 18px;">96 variants</strong>
+            </div>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Sizes -->
+        <div class="doc-section">
+          <h2 id="sizes" class="doc-section-title">Sizes</h2>
+          <p class="doc-section-subtitle">Three sizes to fit different layout contexts and information density requirements.</p>
+          <table class="size-table">
+            <thead><tr><th>Size</th><th>Min Height</th><th>Padding</th><th>Font Size</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Small</strong></td><td>32px</td><td>6px 10px</td><td>13px</td><td>Compact forms, table inline editing</td></tr>
+              <tr><td><strong>Medium</strong></td><td>36px</td><td>8px 12px</td><td>14px</td><td>Default for most forms</td></tr>
+              <tr><td><strong>Large</strong></td><td>44px</td><td>10px 14px</td><td>16px</td><td>Standalone forms, registration pages</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- States -->
+        <div class="doc-section">
+          <h2 id="states" class="doc-section-title">States</h2>
+          <p class="doc-section-subtitle">Text Input cycles through eight states, each with distinct visual treatments to communicate interactivity and validation.</p>
+          <div class="state-grid">
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #C8CDD8; border-radius:8px; background:var(--prism-surface); font-size:13px; color:#8B95A9;">Placeholder</div>
+              <div class="state-card-title">Default</div>
+              <div class="state-card-desc">Border: #C8CDD8, bg: white</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #8B95A9; border-radius:8px; background:var(--prism-surface); font-size:13px; color:#8B95A9;">Placeholder</div>
+              <div class="state-card-title">Hover</div>
+              <div class="state-card-desc">Border darkens to #8B95A9</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #2C66DD; border-radius:8px; background:#fff; box-shadow:0 0 0 3px rgba(44,102,221,0.15); font-size:13px; color:#8B95A9;">Placeholder</div>
+              <div class="state-card-title">Focus</div>
+              <div class="state-card-desc">Blue border + focus ring</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #C8CDD8; border-radius:8px; background:var(--prism-surface); font-size:13px; color:#1A1A2E;">Entered text</div>
+              <div class="state-card-title">Filled</div>
+              <div class="state-card-desc">Text color: #1A1A2E</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #C1181B; border-radius:8px; background:var(--prism-surface); font-size:13px; color:#1A1A2E;">Invalid</div>
+              <div class="state-card-title">Error</div>
+              <div class="state-card-desc">Border: #C1181B, red helper</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #0C8844; border-radius:8px; background:var(--prism-surface); font-size:13px; color:#1A1A2E;">Valid</div>
+              <div class="state-card-title">Success</div>
+              <div class="state-card-desc">Border: #0C8844, green helper</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid #E3E7ED; border-radius:8px; background:#F5F6F8; font-size:13px; color:#8B95A9; opacity:0.6;">Disabled</div>
+              <div class="state-card-title">Disabled</div>
+              <div class="state-card-desc">Bg: #F5F6F8, 60% opacity</div>
+            </div>
+            <div class="state-card">
+              <div style="display:inline-flex; align-items:center; padding:8px 12px; border:1px solid transparent; border-radius:8px; background:#F5F6F8; font-size:13px; color:#1A1A2E;">Read only</div>
+              <div class="state-card-title">Read Only</div>
+              <div class="state-card-desc">Bg: #F5F6F8, no border</div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Label Position -->
+        <div class="doc-section">
+          <h2 id="label-position" class="doc-section-title">Label Position</h2>
+          <p class="doc-section-subtitle">Two label positioning options for different layout scenarios.</p>
+          <table class="size-table">
+            <thead><tr><th>Position</th><th>Layout</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Left</strong></td><td>Label inline with the input, horizontally aligned</td><td>Default for standard desktop forms</td></tr>
+              <tr><td><strong>Top</strong></td><td>Label stacked above the input field</td><td>Responsive/mobile layouts, narrow side panels</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Design Tokens -->
+        <div class="doc-section">
+          <h2 id="design-tokens" class="doc-section-title">Design Tokens</h2>
+          <p class="doc-section-subtitle">Tokens used for text input styling across states and themes.</p>
+          <table class="size-table">
+            <thead><tr><th>Token</th><th>Property</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td><code>border-default</code></td><td>Border color</td><td>#C8CDD8</td></tr>
+              <tr><td><code>border-hover</code></td><td>Border hover</td><td>#8B95A9</td></tr>
+              <tr><td><code>border-focus</code></td><td>Border focus</td><td>#2C66DD</td></tr>
+              <tr><td><code>border-error</code></td><td>Border error</td><td>#C1181B</td></tr>
+              <tr><td><code>border-success</code></td><td>Border success</td><td>#0C8844</td></tr>
+              <tr><td><code>bg-disabled</code></td><td>Disabled background</td><td>#F5F6F8</td></tr>
+              <tr><td><code>text-input</code></td><td>Input text color</td><td>#1A1A2E</td></tr>
+              <tr><td><code>text-placeholder</code></td><td>Placeholder color</td><td>#8B95A9</td></tr>
+              <tr><td><code>text-helper</code></td><td>Helper text color</td><td>#5F6C89</td></tr>
+              <tr><td><code>text-label</code></td><td>Label text color</td><td>var(--prism-text)</td></tr>
+              <tr><td><code>focus-ring</code></td><td>Focus ring shadow</td><td>0 0 0 3px rgba(44, 102, 221, 0.15)</td></tr>
+              <tr><td><code>radius/radius-s</code></td><td>Border radius</td><td>8px</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- TAB: USAGE                                  -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="tab-content" id="tab-usage" style="display: none; padding-top: 32px;">
+
+        <!-- When to Use -->
+        <div class="doc-section">
+          <h2 id="when-to-use" class="doc-section-title">When to Use</h2>
+          <p class="doc-section-subtitle">Use the Text Input component in the following scenarios.</p>
+          <ul class="doc-list">
+            <li><strong>Single-line text entry:</strong> For collecting short free-text input such as names, emails, URLs, or descriptions.</li>
+            <li><strong>Form fields:</strong> As the primary building block for data collection forms across the application.</li>
+            <li><strong>Search:</strong> Combined with a prefix search icon for search bars and filter inputs.</li>
+            <li><strong>Filters:</strong> In data table toolbars and dashboards for filtering content inline.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Label Position Guidelines -->
+        <div class="doc-section">
+          <h2 id="label-guidelines" class="doc-section-title">Label Position Guidelines</h2>
+          <p class="doc-section-subtitle">Best practices for choosing the right label position across breakpoints and layouts.</p>
+          <ul class="doc-list">
+            <li><strong>Desktop default:</strong> Always use Label Position = Left. This is the standard layout for desktop forms with sufficient horizontal space.</li>
+            <li><strong>Responsive breakpoints:</strong> Auto-switch to Label Position = Top when the viewport width drops below the mobile breakpoint or when the form is inside a narrow container.</li>
+            <li><strong>Narrow side panels:</strong> Use Label Position = Top when the text input appears inside drawers, side panels, or modal forms with limited width.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Prefix & Suffix Elements -->
+        <div class="doc-section">
+          <h2 id="prefix-suffix" class="doc-section-title">Prefix &amp; Suffix Elements</h2>
+          <p class="doc-section-subtitle">Guidelines for using prefix and suffix elements to enhance input context.</p>
+          <table class="size-table">
+            <thead><tr><th>Element</th><th>Position</th><th>Example</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Prefix Icon</strong></td><td>Leading</td><td>Search icon, mail icon</td><td>Provide visual context for the input purpose</td></tr>
+              <tr><td><strong>Prefix Text</strong></td><td>Leading</td><td>$, https://</td><td>Show fixed format prefix values</td></tr>
+              <tr><td><strong>Suffix Text</strong></td><td>Trailing</td><td>kg, .com, %</td><td>Show units or domain suffixes</td></tr>
+              <tr><td><strong>Suffix Icon</strong></td><td>Trailing</td><td>Calendar icon, dropdown arrow</td><td>Indicate secondary action or picker</td></tr>
+              <tr><td><strong>Clear Button</strong></td><td>Trailing (rightmost)</td><td>X icon</td><td>Allow quick clearing of entered content</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- RTL Support -->
+        <div class="doc-section">
+          <h2 id="rtl-support" class="doc-section-title">RTL Support</h2>
+          <p class="doc-section-subtitle">The Text Input component fully supports right-to-left (RTL) layouts for Arabic, Hebrew, and other RTL languages.</p>
+          <ul class="doc-list">
+            <li><strong>Layout mirrored:</strong> The entire input layout mirrors horizontally. Label moves to the right, input field aligns accordingly.</li>
+            <li><strong>Prefix/suffix swap:</strong> Prefix elements appear on the right side and suffix elements on the left side in RTL mode.</li>
+            <li><strong>Text alignment:</strong> Input text and placeholder text automatically right-align in RTL mode.</li>
+            <li><strong>Helper row:</strong> Helper text starts from the right, counter moves to the left.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Related Components -->
+        <div class="doc-section">
+          <h2 id="related-components" class="doc-section-title">Related Components</h2>
+          <p class="doc-section-subtitle">Components that complement or can be used alongside the Text Input.</p>
+          <div class="related-grid">
+            <a href="Text-area.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Text area</a>
+            <a href="Select.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="8 10 12 14 16 10"/></svg> Select</a>
+            <a href="Search.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Search</a>
+            <a href="Date-picker.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Date picker</a>
+            <a href="Form.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Form</a>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Figma Reference -->
+        <div class="doc-section">
+          <h2 id="figma-reference" class="doc-section-title">Figma Reference</h2>
+          <p class="doc-section-subtitle">The source-of-truth design file for the Text Input component.</p>
+          <ul class="doc-list">
+            <li><strong>Figma Node:</strong> <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">16042:44400</code> — Component Set: Text Input</li>
+          </ul>
+        </div>
+
+        <!-- Feedback -->
+        <div id="feedback-usage" class="feedback-banner" style="display: none;">
+          <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+          <div style="display: flex; gap: 10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- TAB: CODE                                   -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="tab-content" id="tab-code" style="display: none; padding-top: 32px;">
+
+        <style>
+          .code-playground { border: 1px solid var(--prism-border); border-radius: 12px; overflow: hidden; background: var(--prism-surface); margin-bottom: 40px; }
+          [data-theme="light"] .code-playground { background: #fff; border: 1px solid rgba(37,99,235,0.1); box-shadow: 0 8px 30px rgba(37,99,235,0.08); }
+          .cp-toolbar { display: flex; flex-wrap: wrap; gap: 20px; padding: 16px 24px; border-bottom: 1px solid var(--prism-border); background: var(--prism-surface-hover); }
+          [data-theme="light"] .cp-toolbar { background: rgba(248,250,255,0.6); border-bottom: 1px solid rgba(37,99,235,0.1); }
+          .cp-control-group { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 120px; }
+          .cp-label { font-size: 13px; font-weight: 600; color: var(--prism-text-muted); }
+          .cp-select { background: var(--prism-surface); border: 1px solid var(--prism-border); color: var(--prism-text); padding: 8px 12px; border-radius: 8px; outline: none; font-family: inherit; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+          [data-theme="light"] .cp-select { background: #fff; border-color: rgba(37,99,235,0.15); color: #1e293b; }
+          .cp-select:focus { border-color: var(--prism-violet); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+          .cp-preview { padding: 60px; min-height: 200px; display: flex; align-items: center; justify-content: center; background: #0a0a0c; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; transition: background 0.3s ease; }
+          [data-theme="light"] .cp-preview { background: #fff; background-image: radial-gradient(circle, rgba(37,99,235,0.08) 1px, transparent 1px); }
+          .cp-code-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: var(--prism-surface); border-top: 1px solid var(--prism-border); border-bottom: 1px solid var(--prism-border); }
+          [data-theme="light"] .cp-code-header { background: rgba(248,250,255,0.8); border-color: rgba(37,99,235,0.1); }
+          .cp-action-btn { display: flex; align-items: center; gap: 8px; background: transparent; border: none; font-family: inherit; font-size: 13.5px; font-weight: 500; color: var(--prism-text-muted); cursor: pointer; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+          .cp-action-btn:hover { background: var(--prism-surface-hover); color: var(--prism-text); }
+          .cp-code-area { background: #0a0a0c; padding: 24px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: #e2e8f0; }
+        
+  /* ══ Mobile responsive (added globally) ══ */
+  .nav-hamburger { display: none; background: transparent; border: none; color: var(--prism-text); padding: 8px; margin-right: 8px; cursor: pointer; border-radius: 8px; align-items: center; justify-content: center; }
+  .nav-hamburger:hover { background: var(--prism-surface-hover); }
+  .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 95; opacity: 0; transition: opacity 0.25s ease; }
+  .sidebar-backdrop.open { display: block; opacity: 1; }
+  .sidebar-mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .nav { padding: 0 16px; height: 64px; justify-content: flex-start; gap: 4px; }
+    .nav-links { margin-left: auto; }
+    .nav-hamburger { display: inline-flex; order: -1; margin-right: 4px; }
+    .nav-logo-mark { font-size: 22px; }
+    .nav-logo-sub { font-size: 9px; }
+    .nav-links > a,
+    .nav-links > .nav-dropdown,
+    .nav-links > div[style] { display: none !important; }
+    .nav-links { gap: 0; }
+
+    .components-layout { display: block; padding-top: 64px; grid-template-columns: 1fr; }
+    .sidebar { position: fixed; top: 64px; left: 0; width: 300px; max-width: 86vw; height: calc(100vh - 64px); max-height: none; padding: 20px 18px 32px; border-right: 1px solid var(--prism-border); border-bottom: none; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 96; background: var(--prism-black); }
+    [data-theme="light"] .sidebar { background: #ffffff; }
+    .sidebar.open { transform: translateX(0); box-shadow: 12px 0 40px rgba(0,0,0,0.25); }
+    body.sidebar-locked { overflow: hidden; }
+
+    .sidebar-mobile-nav { display: block; margin: 0 -18px 16px; padding: 0 18px 18px; border-bottom: 1px solid var(--prism-border); }
+    .sidebar-mobile-nav h4 { font-size: 11px; font-weight: 700; color: var(--prism-text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 4px; }
+    .sidebar-mobile-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+    .sidebar-mobile-nav a { display: block; padding: 10px 12px; font-size: 14px; font-weight: 600; color: var(--prism-text); text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+    .sidebar-mobile-nav a:hover { background: var(--prism-surface-hover); color: var(--prism-violet); }
+    .sidebar-mobile-nav a.active { color: var(--prism-violet); background: rgba(37, 99, 235, 0.08); }
+
+    .main-panel { padding: 24px 20px 48px; grid-column: auto; grid-row: auto; }
+    /* mobile-width-safety v4 — collapse any inline grid on narrow viewports */
+    .main-panel, .main-content-inner, .main-content-area { max-width: 100%; width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner > *, .doc-section, .doc-section > * { max-width: 100%; box-sizing: border-box; min-width: 0; }
+    .main-content-inner img, .main-content-inner svg:not(.inline-svg) { max-width: 100%; height: auto; }
+    .main-content-inner pre, .main-content-inner code { white-space: pre-wrap; word-break: break-word; }
+    .main-content-inner pre { overflow-x: auto; }
+    .anatomy-diagram { overflow: visible !important; padding: 48px 40px !important; zoom: 0.82; }
+    .anatomy-diagram > * { max-width: 100%; }
+    .demo-container { overflow: hidden; }
+    .demo-canvas { padding: 32px 20px !important; overflow-x: auto; }
+    .code-playground, .cp-code-area { overflow-x: auto; }
+    /* Foundation inner-page grids: collapse every multi-column inline grid */
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"],
+    [style*="grid-template-columns: repeat(4, 1fr)"],
+    [style*="grid-template-columns: repeat(5, 1fr)"],
+    [style*="grid-template-columns: repeat(6, 1fr)"],
+    [style*="grid-template-columns: 320px 1fr"],
+    [style*="grid-template-columns: 280px 1fr"],
+    [style*="grid-template-columns: 240px 1fr"] { grid-template-columns: 1fr !important; }
+    /* Flex rows with heavy fixed widths should wrap */
+    [style*="display: flex"][style*="gap"] { flex-wrap: wrap; }
+    .main-content-area { display: flex; flex-direction: column; grid-template-columns: 1fr; }
+    .main-content-inner { padding-bottom: 32px; }
+    .toc-sidebar { display: none; }
+
+    .page-header-area .page-title,
+    .page-title { font-size: 30px; line-height: 1.15; }
+    .page-desc { font-size: 16px; }
+    .doc-section h2, .doc-section-title { font-size: 22px; }
+
+    .do-dont-grid,
+    .illus-type-grid,
+    .comp-grid,
+    .density-grid,
+    .illus-showcase-grid,
+    .pattern-category-grid,
+    .tone-grid,
+    .voice-traits,
+    .principles-grid,
+    .theme-grid,
+    .message-grid,
+    .weight-grid,
+    .pattern-grid,
+    .collection-grid,
+    .anti-pattern-list,
+    .dodont-grid,
+    .icon-metaphor-grid { grid-template-columns: 1fr !important; }
+
+    table { display: block; overflow-x: auto; }
+    .size-table, .token-table, .anatomy-table, .doc-table, .tone-table { display: block; overflow-x: auto; white-space: nowrap; min-width: 0; }
+
+    .feedback-banner { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+    .illus-type-card { grid-template-columns: 1fr !important; }
+    .illus-type-preview { min-height: 180px; padding: 24px 16px; }
+
+    /* Component detail page grids */
+    .state-grid,
+    .anatomy-grid,
+    .usecase-grid,
+    .anat-legend,
+    /* Zia Experience hub grids */
+    .zia-prompt-grid,
+    /* Resource hub grids */
+    .lib-grid,
+    .lib-grid-logo,
+    .lib-grid-illust { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+    /* Inline-styled 2- or 3-column grids */
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns:repeat(3,1fr)"],
+    [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Resource hub outer padding */
+    .page-content { padding: 88px 16px 48px !important; }
+  }
+
+  @media (max-width: 600px) {
+    .nav { padding: 0 12px; height: 60px; }
+    .components-layout { padding-top: 60px; }
+    .sidebar { top: 60px; height: calc(100vh - 60px); }
+    .nav-logo-mark { font-size: 20px; }
+    .main-panel { padding: 18px 14px 36px; }
+    /* mobile-width-safety v3 */
+    .main-panel { padding: 16px 10px 24px !important; }
+    .anatomy-diagram { padding: 40px 28px !important; overflow: visible !important; zoom: 0.66; }
+    .demo-canvas { padding: 24px 12px !important; }
+    .page-header-area .page-title,
+    .page-title { font-size: 26px; }
+    .page-desc { font-size: 15px; }
+    .sidebar-heading { font-size: 10px; }
+    .search-shortcut { display: none; }
+    .page-content { padding: 72px 12px 32px !important; }
+  }
+</style>
+
+        <h2 id="live-demo-code" class="doc-section-title">Live demo (Code)</h2>
+        <p class="doc-section-subtitle">Configure the Text Input component and view generated HTML.</p>
+        <div class="code-playground">
+          <div class="cp-toolbar">
+            <div class="cp-control-group"><label class="cp-label">Size</label><select class="cp-select" id="tf-pg-size"><option value="sm">Small</option><option value="md" selected>Medium</option><option value="lg">Large</option></select></div>
+            <div class="cp-control-group"><label class="cp-label">State</label><select class="cp-select" id="tf-pg-state"><option value="default" selected>Default</option><option value="hover">Hover</option><option value="focus">Focus</option><option value="filled">Filled</option><option value="error">Error</option><option value="success">Success</option><option value="disabled">Disabled</option><option value="readonly">Read Only</option></select></div>
+            <div class="cp-control-group"><label class="cp-label">Label Position</label><select class="cp-select" id="tf-pg-label"><option value="top" selected>Top</option><option value="left">Left</option></select></div>
+            <div class="cp-control-group"><label class="cp-label">Show Helper</label><select class="cp-select" id="tf-pg-helper"><option value="true" selected>Yes</option><option value="false">No</option></select></div>
+          </div>
+          <div class="cp-preview" id="tf-pg-preview"></div>
+          <div class="cp-code-header">
+            <div style="font-size:13.5px;font-weight:600;color:var(--prism-text);">HTML</div>
+            <button class="cp-action-btn" id="tf-pg-copy"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg> Copy code</button>
+          </div>
+          <div class="cp-code-area" id="tf-pg-code"></div>
+        </div>
+        <script>
+        (function(){
+          var els={size:document.getElementById('tf-pg-size'),state:document.getElementById('tf-pg-state'),label:document.getElementById('tf-pg-label'),helper:document.getElementById('tf-pg-helper')};
+          var previewArea=document.getElementById('tf-pg-preview');
+          var codeOut=document.getElementById('tf-pg-code');
+          var copyBtn=document.getElementById('tf-pg-copy');
+          function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+          function update(){
+            var sz=els.size.value,st=els.state.value,lp=els.label.value,showHelper=els.helper.value==='true';
+            var sizeClass='text-input-'+sz;
+            var isDisabled=st==='disabled';
+            var isReadonly=st==='readonly';
+            var stateClass=st==='default'?'':' '+st;
+            var fieldClass='text-input-field'+(st==='focus'?' focus':'')+(st==='error'?' error':'')+(st==='success'?' success':'')+(isDisabled?' disabled':'')+(isReadonly?' readonly':'');
+            var val=st==='filled'||st==='error'||st==='success'?'Entered value':'';
+            var placeholder=val?'':'Placeholder';
+            var helperText=st==='error'?'This field is required':st==='success'?'Looks good!':'Helper text';
+            var helperClass='text-input-helper-text'+(st==='error'?' error':'')+(st==='success'?' success':'');
+
+            // Preview
+            var h='<div class="text-input-demo '+sizeClass+'" style="width:100%;max-width:360px;">';
+            h+='<div class="text-input-row label-'+lp+'">';
+            h+='<span class="text-input-label">Label <span class="required">*</span></span>';
+            h+='<div style="flex:1;"><div class="'+fieldClass+'">';
+            h+='<input type="text" '+(val?'value="'+val+'"':'placeholder="'+placeholder+'"')+(isDisabled?' disabled':'')+(isReadonly?' readonly':'')+'>';
+            h+='</div>';
+            if(showHelper){
+              h+='<div class="text-input-helper"><span class="'+helperClass+'">'+helperText+'</span><span class="text-input-counter" style="font-size:12px;color:var(--prism-text-muted);">0/100</span></div>';
+            }
+            h+='</div></div></div>';
+            previewArea.innerHTML=h;
+
+            // Code
+            var code='<div class="text-input" data-size="'+sz+'">\n';
+            code+='  <label class="text-input-label">Label <span class="required">*</span></label>\n';
+            code+='  <div class="text-input-field">\n';
+            code+='    <input\n      type="text"\n';
+            if(val) code+='      value="'+val+'"\n';
+            else code+='      placeholder="Placeholder"\n';
+            if(isDisabled) code+='      disabled\n';
+            if(isReadonly) code+='      readonly\n';
+            if(st==='error') code+='      aria-invalid="true"\n      aria-describedby="helper-1"\n';
+            code+='    />\n  </div>\n';
+            if(showHelper){
+              code+='  <div class="text-input-helper"'+(st==='error'?' id="helper-1" role="alert"':'')+'>\n';
+              code+='    <span class="text-input-helper-text'+(st==='error'?' error':'')+'">'+helperText+'</span>\n';
+              code+='    <span class="text-input-counter">0/100</span>\n';
+              code+='  </div>\n';
+            }
+            code+='</div>';
+            codeOut.innerHTML=esc(code)
+              .replace(/class=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">class</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/type=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">type</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/value=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">value</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/placeholder=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">placeholder</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/data-size=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">data-size</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/aria-invalid=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-invalid</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/aria-describedby=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">aria-describedby</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/id=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">id</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/role=&quot;(.*?)&quot;/g,'<span style="color:#38bdf8;">role</span>=<span style="color:#34d399;">"$1"</span>')
+              .replace(/ disabled/g,' <span style="color:#f97316;">disabled</span>')
+              .replace(/ readonly/g,' <span style="color:#f97316;">readonly</span>')
+              .replace(/&lt;(\/?)(div|label|input|span)(.*?)&gt;/g,'&lt;$1<span style="color:#a78bfa;">$2</span>$3&gt;');
+          }
+          Object.values(els).forEach(function(e){e.addEventListener('change',update);});
+          copyBtn.addEventListener('click',function(){
+            var r=document.createElement('div');r.innerHTML=codeOut.innerHTML;
+            navigator.clipboard.writeText(r.innerText).then(function(){
+              var o=copyBtn.innerHTML;copyBtn.innerHTML='<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Copied!';setTimeout(function(){copyBtn.innerHTML=o;},2000);
+            });
+          });
+          update();
+        })();
+        </script>
+
+        <hr class="doc-divider"/>
+
+        <h2 id="component-properties" class="doc-section-title">Component Properties</h2>
+        <p class="doc-section-subtitle">All configurable properties exposed on the Text Input Figma component, grouped by function.</p>
+
+        <!-- Label & Required -->
+        <div class="doc-section">
+          <h3 id="label-required" class="doc-h3">Label &amp; Required<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">3 props</span></h3>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Label Text</code></td><td>String</td><td>"Label"</td><td>The visible label for the input field.</td></tr>
+              <tr><td><code>Show Label</code></td><td>Boolean</td><td>true</td><td>Controls whether the label is visible.</td></tr>
+              <tr><td><code>Required</code></td><td>Boolean</td><td>false</td><td>Shows the asterisk (*) indicator next to the label.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Prefix Elements -->
+        <div class="doc-section">
+          <h3 id="prefix-elements" class="doc-h3">Prefix Elements<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">4 props</span></h3>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Prefix Icon</code></td><td>Boolean</td><td>false</td><td>Show a leading icon in the input field.</td></tr>
+              <tr><td><code>Prefix Icon Instance</code></td><td>Instance Swap</td><td>Search</td><td>The icon component used for the prefix.</td></tr>
+              <tr><td><code>Prefix Text</code></td><td>Boolean</td><td>false</td><td>Show static prefix text (e.g., "$").</td></tr>
+              <tr><td><code>Prefix Text Value</code></td><td>String</td><td>"$"</td><td>The prefix text string displayed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Input Content -->
+        <div class="doc-section">
+          <h3 id="input-content" class="doc-h3">Input Content<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">2 props</span></h3>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Input Text</code></td><td>String</td><td>""</td><td>The editable text content of the input.</td></tr>
+              <tr><td><code>Placeholder</code></td><td>String</td><td>"Placeholder"</td><td>Hint text shown when the input is empty.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Suffix Elements -->
+        <div class="doc-section">
+          <h3 id="suffix-elements" class="doc-h3">Suffix Elements<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">7 props</span></h3>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Suffix Text</code></td><td>Boolean</td><td>false</td><td>Show static suffix text (e.g., "kg").</td></tr>
+              <tr><td><code>Suffix Text Value</code></td><td>String</td><td>"kg"</td><td>The suffix text string displayed.</td></tr>
+              <tr><td><code>Suffix Icon</code></td><td>Boolean</td><td>false</td><td>Show a trailing icon in the input field.</td></tr>
+              <tr><td><code>Suffix Icon Instance</code></td><td>Instance Swap</td><td>Chevron</td><td>The icon component used for the suffix.</td></tr>
+              <tr><td><code>Suffix Icon Right</code></td><td>Boolean</td><td>false</td><td>Show an additional rightmost trailing icon.</td></tr>
+              <tr><td><code>Suffix Icon Right Instance</code></td><td>Instance Swap</td><td>Info</td><td>The icon component used for the right suffix.</td></tr>
+              <tr><td><code>Clear Button</code></td><td>Boolean</td><td>false</td><td>Show the clear (X) button to reset input content.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Helper Row -->
+        <div class="doc-section">
+          <h3 id="helper-row" class="doc-h3">Helper Row<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">6 props</span></h3>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>Show Helper</code></td><td>Boolean</td><td>true</td><td>Controls visibility of the helper row.</td></tr>
+              <tr><td><code>Helper Icon</code></td><td>Boolean</td><td>false</td><td>Show an icon alongside the helper text.</td></tr>
+              <tr><td><code>Helper Icon Instance</code></td><td>Instance Swap</td><td>Info</td><td>The icon component used for helper.</td></tr>
+              <tr><td><code>Helper Text</code></td><td>String</td><td>"Supporting text"</td><td>Guidance or validation message below the input.</td></tr>
+              <tr><td><code>Show Counter</code></td><td>Boolean</td><td>false</td><td>Show character count on the right of the helper row.</td></tr>
+              <tr><td><code>Counter Text</code></td><td>String</td><td>"0/100"</td><td>The character count display string.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Variant Axis Reference -->
+        <div class="doc-section">
+          <h2 id="variant-axis-reference" class="doc-section-title">Variant Axis Reference</h2>
+          <p class="doc-section-subtitle">All four variant axes that define the component set in Figma.</p>
+          <table class="size-table">
+            <thead><tr><th>Axis</th><th>Values</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Size</strong></td><td>Small, Medium, Large</td><td>Medium</td><td>Controls the overall dimensions and font size of the input.</td></tr>
+              <tr><td><strong>State</strong></td><td>Default, Hover, Focus, Filled, Error, Success, Disabled, Read Only</td><td>Default</td><td>Controls the visual and interaction state of the component.</td></tr>
+              <tr><td><strong>RTL</strong></td><td>false, true</td><td>false</td><td>Mirrors the layout for right-to-left languages.</td></tr>
+              <tr><td><strong>Label Position</strong></td><td>Left, Top</td><td>Left</td><td>Controls whether the label is inline or stacked above.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Instance Overrides -->
+        <div class="doc-section">
+          <h2 id="instance-overrides" class="doc-section-title">Instance Overrides</h2>
+          <p class="doc-section-subtitle">Step-by-step guide for overriding the Text Input instance in Figma.</p>
+          <ol class="numbered-list">
+            <li>Drag the Text Input component from the Assets panel onto your canvas.</li>
+            <li>Select the instance and open the Properties panel on the right sidebar.</li>
+            <li>Choose the desired <strong>Size</strong> (Small, Medium, or Large) from the variant axis dropdown.</li>
+            <li>Set the <strong>State</strong> axis to match the interaction context (Default, Hover, Focus, Filled, Error, Success, Disabled, or Read Only).</li>
+            <li>Toggle <strong>RTL</strong> to true if the form is rendered in a right-to-left language.</li>
+            <li>Set <strong>Label Position</strong> to Left (desktop) or Top (responsive/mobile).</li>
+            <li>Override the <strong>Label Text</strong>, <strong>Placeholder</strong>, and <strong>Helper Text</strong> string properties to match the field's purpose.</li>
+            <li>Enable or disable <strong>Prefix Icon</strong>, <strong>Prefix Text</strong>, <strong>Suffix Text</strong>, <strong>Suffix Icon</strong>, <strong>Clear Button</strong>, and <strong>Counter</strong> as needed.</li>
+            <li>Swap icon instances (Prefix Icon Instance, Suffix Icon Instance) to the appropriate icons from the icon library.</li>
+          </ol>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- TAB: ACCESSIBILITY                          -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="tab-content" id="tab-accessibility" style="display: none; padding-top: 32px;">
+        <h2 id="accessibility-overview" class="doc-section-title">Accessibility</h2>
+        <p class="doc-section-subtitle">Guidelines for ensuring all text input interactions are accessible across assistive technologies and input modalities.</p>
+
+        <!-- Color Contrast -->
+        <div class="doc-section">
+          <h3 id="color-contrast" class="doc-h3">Color Contrast<span class="h3-badge" style="background: rgba(34,197,94,0.15); color: #16a34a;">WCAG AA</span></h3>
+          <ul class="doc-list">
+            <li>Input text (#1A1A2E) on white background maintains a contrast ratio of <strong>15.1:1</strong>, exceeding WCAG AAA requirements.</li>
+            <li>Placeholder text (#8B95A9) on white background maintains a minimum contrast ratio of <strong>3.5:1</strong> for non-text UI elements.</li>
+            <li>Error state border (#C1181B) meets the <strong>3:1</strong> minimum for UI component contrast against white.</li>
+            <li>Helper text (#5F6C89) on white background maintains at least <strong>4.6:1</strong> contrast ratio for small text.</li>
+            <li>Label text uses the page's primary text color to ensure maximum readability.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Keyboard Navigation -->
+        <div class="doc-section">
+          <h3 id="keyboard-navigation" class="doc-h3">Keyboard Navigation</h3>
+          <table class="size-table">
+            <thead><tr><th>Key</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><code>Tab</code></td><td>Move focus to the text input (or to the next focusable element).</td></tr>
+              <tr><td><code>Shift + Tab</code></td><td>Move focus to the previous focusable element.</td></tr>
+              <tr><td><code>Escape</code></td><td>Clear the input field (when clear button is enabled) or blur the field.</td></tr>
+              <tr><td><code>Enter</code></td><td>Submit the form (when the input is inside a form element).</td></tr>
+              <tr><td>Arrow keys</td><td>Move the text cursor within the input content.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Screen Reader -->
+        <div class="doc-section">
+          <h3 id="screen-reader" class="doc-h3">Screen Reader</h3>
+          <ul class="doc-list">
+            <li>Always associate the <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;label&gt;</code> element with the input using the <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">for</code> attribute matching the input's <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">id</code>.</li>
+            <li>Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-describedby</code> to link helper text and error messages to the input so screen readers announce them.</li>
+            <li>Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-required="true"</code> on required fields to communicate obligation to assistive technologies.</li>
+            <li>Prefix and suffix text should be included via <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label</code> or visible label context so the format is clear (e.g., "Price in dollars").</li>
+            <li>The clear button should have an explicit <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label="Clear input"</code> for screen reader users.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Error Handling -->
+        <div class="doc-section">
+          <h3 id="error-handling" class="doc-h3">Error Handling</h3>
+          <ul class="doc-list">
+            <li>Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-invalid="true"</code> on the input element when the field is in the Error state.</li>
+            <li>Error messages must be linked via <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-describedby</code> so the error is announced when the input receives focus.</li>
+            <li>Use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-live="polite"</code> on error message containers for real-time validation so errors are announced dynamically.</li>
+            <li>Do not rely solely on color (red border) to indicate errors. Always pair with a descriptive text message.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- RTL Accessibility -->
+        <div class="doc-section">
+          <h3 id="rtl-accessibility" class="doc-h3">RTL Accessibility</h3>
+          <ul class="doc-list">
+            <li>Set <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">dir="rtl"</code> on the container or use CSS <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">direction: rtl</code> to ensure proper layout mirroring.</li>
+            <li>Ensure tab order remains logical in RTL mode (right-to-left reading order).</li>
+            <li>Verify that screen readers announce label and helper text in the correct reading direction.</li>
+            <li>All interactive elements (clear button, suffix icons) must remain reachable via keyboard in RTL layouts.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Disabled & Read Only -->
+        <div class="doc-section">
+          <h3 id="disabled-readonly" class="doc-h3">Disabled &amp; Read Only</h3>
+          <ul class="doc-list">
+            <li><strong>Disabled:</strong> Use the native HTML <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">disabled</code> attribute. The input is removed from tab order and cannot receive focus.</li>
+            <li><strong>Read Only:</strong> Use the native HTML <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">readonly</code> attribute. The input remains focusable and its value can be copied, but it cannot be edited.</li>
+            <li>If a disabled field needs to explain <em>why</em> it is disabled, use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-disabled="true"</code> instead of the native <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">disabled</code> attribute so it remains focusable for tooltip access.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Label Position A11y -->
+        <div class="doc-section">
+          <h3 id="label-position-a11y" class="doc-h3">Label Position</h3>
+          <ul class="doc-list">
+            <li>Regardless of visual label position (Left or Top), the <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">&lt;label&gt;</code> must always be programmatically associated with its input.</li>
+            <li>When the label is visually hidden for design reasons, use <code style="font-family:monospace;font-size:13px;padding:2px 8px;border-radius:6px;background:rgba(37,99,235,0.06);color:var(--prism-violet);">aria-label</code> or a visually-hidden label element to maintain screen reader support.</li>
+            <li>Label Position = Top may improve readability for screen magnifier users who zoom into narrow viewports.</li>
+          </ul>
+        </div>
+      </div>
+
+      </div><!-- close main-content-inner -->
+
+      <aside class="toc-sidebar">
+        <h4 class="toc-heading">On this page</h4>
+        <ul class="toc-nav" id="toc-nav">
+        </ul>
+
+        <div class="quick-actions-card">
+          <div class="quick-actions-title">Resources</div>
+          <a href="MD/text-input.md" download="text-input.md" class="action-link">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download MD
+          </a>
+          <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0?node-id=16042-44400" target="_blank" class="action-link">
+            <img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;">
+            Figma Design
+          </a>
+        </div>
+      </aside>
+
+      </div> <!-- close main-content-area -->
+
+    <div id="feedback" class="feedback-banner" style="display: none;">
+    <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+    <div style="display: flex; gap: 10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+    </div>
+
+    </main>
+  </div>
+
+
+  <script>
+    // ── Scroll-spy observer reference ──
+    let _tocObserver = null;
+
+    // ── Dynamic TOC ──
+    function updateTOC(targetId) {
+      const tocList = document.querySelector('.toc-nav');
+      if (!tocList) return;
+      tocList.innerHTML = '';
+      const activePanel = document.getElementById(targetId);
+      if (!activePanel) return;
+
+      const headings = activePanel.querySelectorAll('h2[id], h3[id]');
+      headings.forEach(h => {
+        if (h.style.display === 'none') return;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'toc-link';
+        let text = Array.from(h.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim();
+        if (!text) text = h.innerText;
+        a.textContent = text;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      // Re-init scroll-spy
+      initScrollSpy();
+    }
+
+    function initScrollSpy() {
+      // Disconnect previous observer
+      if (_tocObserver) _tocObserver.disconnect();
+
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sectionIds = Array.from(tocLinks).map(link => link.getAttribute('href').slice(1));
+      const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+      if (sections.length === 0) return;
+
+      _tocObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+      sections.forEach(section => _tocObserver.observe(section));
+    }
+
+    // ── Tab switching ──
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const tabMap = { 'Overview': 'tab-overview', 'Style': 'tab-style', 'Usage': 'tab-usage', 'Code': 'tab-code', 'Accessibility': 'tab-accessibility' };
+        document.querySelectorAll('.tab-content').forEach(panel => panel.style.display = 'none');
+        const target = tabMap[tab.textContent.trim()];
+        if (target) {
+          document.getElementById(target).style.display = 'block';
+          updateTOC(target);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Initialize TOC
+    updateTOC('tab-overview');
+    const themeToggle = document.getElementById('themeToggle');
+    const moonIcon = document.getElementById('moonIcon');
+    const sunIcon = document.getElementById('sunIcon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    if (currentTheme === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        moonIcon.style.display = 'block';
+        sunIcon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+      }
+    });
+
+    // Sidebar search filter
+    (function(){
+      var searchInput = document.querySelector('.sidebar-search input');
+      if (!searchInput) return;
+      var items = document.querySelectorAll('.sidebar-nav li');
+      searchInput.addEventListener('input', function(){
+        var q = this.value.toLowerCase().trim();
+        items.forEach(function(li){
+          var link = li.querySelector('a');
+          if (!link) return;
+          var text = link.textContent.toLowerCase();
+          li.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+        });
+      });
+      // Cmd+K / Ctrl+K shortcut to focus search
+      document.addEventListener('keydown', function(e){
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      });
+    })();
+
+    // Scroll sidebar to active link on page load
+    (function(){
+      var active = document.querySelector('.sidebar-link.active');
+      if (active) {
+        var sidebar = active.closest('.sidebar');
+        if (sidebar) {
+          var top = active.offsetTop - sidebar.offsetTop - (sidebar.clientHeight / 3);
+          sidebar.scrollTop = Math.max(0, top);
+        }
+      }
+    })();
+
+  </script>
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const toggle = () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, { passive: true });
+})();
+</script>
+<script>
+(function(){
+  const hamburger = document.querySelector('.nav-hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.querySelector('.sidebar-backdrop');
+  const navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !sidebar || !backdrop) return;
+
+  // Build a mobile-only nav section at the top of the sidebar by cloning the nav links
+  if (navLinks && !sidebar.querySelector('.sidebar-mobile-nav')) {
+    const mobileNav = document.createElement('div');
+    mobileNav.className = 'sidebar-mobile-nav';
+    const heading = document.createElement('h4');
+    heading.textContent = 'Navigate';
+    mobileNav.appendChild(heading);
+    const ul = document.createElement('ul');
+    navLinks.querySelectorAll(':scope > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    navLinks.querySelectorAll(':scope > .nav-dropdown > .nav-dropdown-menu > a').forEach(a => {
+      const li = document.createElement('li');
+      const clone = a.cloneNode(true);
+      li.appendChild(clone);
+      ul.appendChild(li);
+    });
+    mobileNav.appendChild(ul);
+    sidebar.insertBefore(mobileNav, sidebar.firstChild);
+  }
+
+  const open = () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('sidebar-locked');
+    hamburger.setAttribute('aria-expanded', 'false');
+  };
+  hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebar.classList.contains('open')) close(); });
+  sidebar.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+})();
+</script>
+
+<!-- Floating Feedback Button -->
+<style>
+  .float-cliq-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .float-cliq-label {
+    background: #1a1a2e; color: #fff;
+    padding: 7px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 500; white-space: nowrap;
+    opacity: 0; transform: translateX(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .float-cliq-btn:hover .float-cliq-label {
+    opacity: 1; transform: translateX(0);
+  }
+  .float-cliq-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #2563eb; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+  }
+  .float-cliq-btn:hover .float-cliq-icon {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.55);
+  }
+  .float-cliq-btn:active .float-cliq-icon { transform: scale(0.95); }
+</style>
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+</body>
+</html>

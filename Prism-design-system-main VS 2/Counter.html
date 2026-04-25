@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/prism-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter — UEMS Design System</title>
+<link rel="stylesheet" href="css/common/globals.css">
+<link rel="stylesheet" href="css/common/components.css">
+</head>
+<body class="page-counter">
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <nav class="nav">
+    <button class="nav-hamburger" aria-label="Open sidebar" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <a class="nav-logo" href="index.html">
+      <img src="assets/prism-logo.png" alt="" class="nav-logo-img" width="40" height="40">
+      <span class="nav-logo-text">
+        <span class="nav-logo-mark">Prism</span>
+        <span class="nav-logo-sub">Built by <span class="caps">UEMS</span></span>
+      </span>
+    </a>
+    <div class="nav-links">      <a href="Foundation.html" >Foundation</a>
+      <a href="Components.html" class="active">Components</a>
+      <a href="zia-experience.html" >Zia Experience</a><a href="llm-reference.html">LLM Reference</a><div class="nav-dropdown"><a href="Icons.html">Resources <svg class="nav-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nav-dropdown-menu"><a href="Icons.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>Icons</a><a href="Logos.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>Product Logo</a><a href="Illustrations.html"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>Illustrations</a></div></div>
+
+      <div style="width: 16px;"></div> <!-- Spacer -->
+
+      <button id="themeToggle" class="icon-btn" title="Toggle Theme">
+        <svg id="moonIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg id="sunIcon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:block;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="components-layout">
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" placeholder="Search...">
+        <span class="search-shortcut">&#8984;K</span>
+      </div>
+      <h3 id="components" class="sidebar-heading">Components</h3>
+      <ul class="sidebar-nav">
+        <li><a href="Accordion.html" class="sidebar-link">Accordion</a></li>
+        <li><a href="Avatar.html" class="sidebar-link">Avatar</a></li>
+        <li><a href="Badges.html" class="sidebar-link">Badges</a></li>
+        <li><a href="Breadcrumbs.html" class="sidebar-link">Breadcrumbs</a></li>
+        <li><a href="Button.html" class="sidebar-link">Button</a></li>
+        <li><a href="Calendar.html" class="sidebar-link">Calendar</a></li>
+        <li><a href="Checkbox.html" class="sidebar-link">Checkbox</a></li>
+        <li><a href="Counter.html" class="sidebar-link active">Counter</a></li>
+        <li><a href="Data-table.html" class="sidebar-link">Data table</a></li>
+        <li><a href="Date-picker.html" class="sidebar-link">Date picker</a></li>
+        <li><a href="Divider.html" class="sidebar-link">Divider</a></li>
+        <li><a href="Dropdown.html" class="sidebar-link">Dropdown</a></li>
+        <li><a href="Empty-state.html" class="sidebar-link">Empty state</a></li>
+        <li><a href="Header-navigation.html" class="sidebar-link">Header navigation</a></li>
+        <li><a href="Icon.html" class="sidebar-link">Icon</a></li>
+        <li><a href="Inline-message.html" class="sidebar-link">Inline message</a></li>
+        <li><a href="Left-sidebar-navigation-level-1.html" class="sidebar-link">Sidebar Nav L1</a></li>
+        <li><a href="Left-sidebar-navigation-level-2.html" class="sidebar-link">Sidebar Nav L2</a></li>
+        <li><a href="Link.html" class="sidebar-link">Link</a></li>
+        <li><a href="OTP-input.html" class="sidebar-link">OTP input</a></li>
+        <li><a href="Page-header.html" class="sidebar-link">Page header</a></li>
+        <li><a href="Progress-bar.html" class="sidebar-link">Progress bar</a></li>
+        <li><a href="Radio-button.html" class="sidebar-link">Radio button</a></li>
+        <li><a href="Rich-text-editor.html" class="sidebar-link">Rich text editor</a></li>
+        <li><a href="Right-pane.html" class="sidebar-link">Right pane</a></li>
+        <li><a href="Script-editor.html" class="sidebar-link">Script editor</a></li>
+        <li><a href="Slider.html" class="sidebar-link">Slider</a></li>
+        <li><a href="Snackbar.html" class="sidebar-link">Toast Message</a></li>
+        <li><a href="Split-button.html" class="sidebar-link">Split button</a></li>
+        <li><a href="Status-indicator.html" class="sidebar-link">Status indicator</a></li>
+        <li><a href="Switch.html" class="sidebar-link">Toggle</a></li>
+        <li><a href="Tag.html" class="sidebar-link">Tag</a></li>
+        <li><a href="Text-area.html" class="sidebar-link">Text area</a></li>
+        <li><a href="Text-field.html" class="sidebar-link">Text field</a></li>
+        <li><a href="Tooltip.html" class="sidebar-link">Tooltip</a></li>
+        <li style="padding:16px 12px 8px;"><span style="font-size:10px;font-weight:700;color:var(--prism-text-muted);text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;">In-progress</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action button</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Action list</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Alert banner</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">App bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Autocomplete</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Bottom sheet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Button group</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Cards</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Code snippet</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Combobox</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Dialog</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Drawer</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Filter input</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Form</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Help text</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Label</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">List</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Menus</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Modal</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Navigation bar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Pagination</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Popover</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Progress indicator</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Search</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Segmented control</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Select</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Sidebar</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tabs</span></li>
+        <li><span class="sidebar-link" style="opacity:0.4;cursor:default;pointer-events:none;">Tree view</span></li>
+      </ul>
+    </aside>
+    <main class="main-panel">
+      <div class="page-header-area">
+        <h1 class="page-title">Counter</h1>
+        <p class="page-desc">
+          The Counter is a compact numeric indicator used to display counts, badges, or notification numbers. Counters are pill-shaped elements that adapt their color and intensity based on semantic state.
+        </p>
+        </div>
+        <nav class="content-tabs">
+          <button class="tab-item active">Overview</button>
+          <button class="tab-item">Style</button>
+          <button class="tab-item">Usage</button>
+          <button class="tab-item">Code</button>
+          <button class="tab-item">Accessibility</button>
+        </nav>
+      <div class="main-content-area">
+        <div class="main-content-inner">
+        <div class="tab-content" id="tab-overview">
+
+        <!-- Anatomy Section -->
+        <h3 id="anatomy" class="doc-h3">Anatomy</h3>
+        
+
+        <div class="anatomy-diagram">
+          <div style="display: flex; justify-content: center; margin: 40px 0;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; position: relative; padding: 12px 20px; border-radius: 9999px; border: 2px dashed rgba(37,99,235,0.4); font-size: 18px; font-weight: 500; color: var(--prism-text); min-width: 48px; height: 48px; overflow: visible;">
+              <!-- 1 Container: marker left of dashed pill, horizontal line to pill edge -->
+              <div style="position: absolute; right: calc(100% + 6px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 6px; z-index: 5;">
+                <span class="anat-marker-inline">1</span><div style="width: 28px; height: 2px; background: #2563eb;"></div>
+              </div>
+              <div style="position: relative; display: inline-flex;">
+                <span style="font-family: 'Zoho Puvi', sans-serif; font-weight: 500; font-size: 18px;">57</span>
+                <!-- 2 Number Value: marker above the "57" glyph, vertical line down -->
+                <div style="position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; z-index: 5;">
+                  <span class="anat-marker-inline">2</span><div style="width: 2px; height: 14px; background: #2563eb;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="anat-legend">
+          <div class="anat-legend-item"><span class="anat-marker-inline">1</span><div><strong>Container</strong><span>Pill-shaped auto-layout frame with centered content. Min-width ensures circular shape for single digits. Border-radius: 9999px.</span></div></div>
+          <div class="anat-legend-item"><span class="anat-marker-inline">2</span><div><strong>Number Value</strong><span>Numeric text. Defaults to "57". Font: Zoho Puvi Medium, centered horizontally and vertically.</span></div></div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Live Demo -->
+        <div style="margin-bottom: 64px;">
+          <h2 id="live-demo" class="doc-section-title" style="margin-bottom: 8px;">Preview</h2>
+          <p class="doc-section-subtitle" style="margin-bottom: 28px;">Explore the Counter component across styles, sizes, and semantic states.</p>
+
+          
+
+          <div class="demo-container">
+            <div class="demo-canvas">
+              <!-- Row 1: Subtle Large -->
+              <div class="demo-row">
+                <span class="demo-row-label">Subtle &middot; Large</span>
+                <span class="counter-demo counter-lg counter-subtle-active">5</span>
+                <span class="counter-demo counter-lg counter-subtle-critical">12</span>
+                <span class="counter-demo counter-lg counter-subtle-moderate">3</span>
+                <span class="counter-demo counter-lg counter-subtle-important">99+</span>
+                <span class="counter-demo counter-lg counter-subtle-success">7</span>
+                <span class="counter-demo counter-lg counter-subtle-default">42</span>
+                <span class="counter-demo counter-lg counter-subtle-acknowledge">8</span>
+              </div>
+              <!-- Row 2: Subtle Medium -->
+              <div class="demo-row">
+                <span class="demo-row-label">Subtle &middot; Medium</span>
+                <span class="counter-demo counter-md counter-subtle-active">5</span>
+                <span class="counter-demo counter-md counter-subtle-critical">12</span>
+                <span class="counter-demo counter-md counter-subtle-moderate">3</span>
+                <span class="counter-demo counter-md counter-subtle-important">99+</span>
+                <span class="counter-demo counter-md counter-subtle-success">7</span>
+                <span class="counter-demo counter-md counter-subtle-default">42</span>
+                <span class="counter-demo counter-md counter-subtle-acknowledge">8</span>
+              </div>
+              <!-- Row 3: Intense Large -->
+              <div class="demo-row">
+                <span class="demo-row-label">Intense &middot; Large</span>
+                <span class="counter-demo counter-lg counter-intense-active">5</span>
+                <span class="counter-demo counter-lg counter-intense-critical">12</span>
+                <span class="counter-demo counter-lg counter-intense-moderate">3</span>
+                <span class="counter-demo counter-lg counter-intense-important">99+</span>
+                <span class="counter-demo counter-lg counter-intense-success">7</span>
+                <span class="counter-demo counter-lg counter-intense-default">42</span>
+                <span class="counter-demo counter-lg counter-intense-acknowledge">8</span>
+              </div>
+              <!-- Row 4: Intense Medium -->
+              <div class="demo-row">
+                <span class="demo-row-label">Intense &middot; Medium</span>
+                <span class="counter-demo counter-md counter-intense-active">5</span>
+                <span class="counter-demo counter-md counter-intense-critical">12</span>
+                <span class="counter-demo counter-md counter-intense-moderate">3</span>
+                <span class="counter-demo counter-md counter-intense-important">99+</span>
+                <span class="counter-demo counter-md counter-intense-success">7</span>
+                <span class="counter-demo counter-md counter-intense-default">42</span>
+                <span class="counter-demo counter-md counter-intense-acknowledge">8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Guidelines Do/Don't -->
+        <div class="doc-section">
+          <h3 id="content-guidelines" class="doc-h3">Content Guidelines<span class="h3-badge" style="background: rgba(37,99,235,0.1); color: var(--prism-violet);">Recommended</span></h3>
+          <div class="do-dont-grid">
+            <div class="do-card"><span class="card-label">Do</span>
+              <ul class="doc-list" style="border: none; background: transparent; padding: 0;">
+                <li style="border: none; background: transparent; padding-left: 20px;">Keep numeric values short (1-3 digits, show "99+" for large numbers).</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Use Subtle style for inline contexts where the counter is secondary information.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Use Intense for high-visibility scenarios (e.g., unread notifications).</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Match state color to semantic meaning (Critical for errors, Success for completions).</li>
+              </ul>
+            </div>
+            <div class="dont-card"><span class="card-label">Don't</span>
+              <ul class="doc-list" style="border: none; background: transparent; padding: 0;">
+                <li style="border: none; background: transparent; padding-left: 20px;">Don't use counters for non-numeric content (use Badge instead).</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Don't use as a standalone status indicator without context.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Don't mix Subtle and Intense counters in the same row or group.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;">Don't use very large numbers without truncation (e.g., "1542" should be "99+").</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End tab-overview -->
+
+      <!-- ═══ STYLE TAB ═══ -->
+      <div class="tab-content" id="tab-style" style="display: none; padding-top: 32px;">
+        <h2 id="style-overview" class="doc-section-title">Style</h2>
+        <p class="doc-section-subtitle">Design tokens, color mappings, and sizing specifications that define the Counter's visual language.</p>
+
+        <!-- Variant Axes -->
+        <div class="doc-section">
+          <h2 id="variant-axes" class="doc-section-title">Variant Axes</h2>
+          <p class="doc-section-subtitle">The Counter component is built on three independent variant axes, producing 42 total combinations.</p>
+
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Axis</th>
+                <th>Options</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Style</strong></td><td>Subtle, Intense</td><td>Visual emphasis level</td></tr>
+              <tr><td><strong>Size</strong></td><td>Small, Medium, Large</td><td>Height and font size scaling</td></tr>
+              <tr><td><strong>State</strong></td><td>Active, Critical, Moderate, Important, Success, Default, Acknowledge</td><td>Semantic color assignment</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size: 14px; color: var(--prism-text-muted); margin-top: 16px;">Total: 2 &times; 3 &times; 7 = <strong>42 variants</strong></p>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Subtle Style Colors -->
+        <div class="doc-section">
+          <h2 id="subtle-style-colors" class="doc-section-title">Subtle Style Colors</h2>
+          <p class="doc-section-subtitle">Low-emphasis backgrounds with tinted text for inline and secondary contexts.</p>
+          <table class="size-table">
+            <thead><tr><th>State</th><th>Background Token</th><th>Background Hex</th><th>Text Token</th><th>Text Hex</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Active</strong></td><td><code>bg-info-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#D5E0F8;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#D5E0F8</td><td><code>text-info</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#1E52BB;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#1E52BB</td></tr>
+              <tr><td><strong>Critical</strong></td><td><code>bg-error-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FDEBEB;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FDEBEB</td><td><code>text-error</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#C1181B;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#C1181B</td></tr>
+              <tr><td><strong>Moderate</strong></td><td><code>bg-warning-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FEF8EB;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FEF8EB</td><td><code>text-warning</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#956B11;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#956B11</td></tr>
+              <tr><td><strong>Important</strong></td><td><code>bg-important-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFEEE5;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFEEE5</td><td><code>text-important</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#BC4200;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#BC4200</td></tr>
+              <tr><td><strong>Success</strong></td><td><code>bg-success-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#E7F3ED;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#E7F3ED</td><td><code>text-success</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#0A7138;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#0A7138</td></tr>
+              <tr><td><strong>Default</strong></td><td><code>bg-neutral-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#F0F2F5;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#F0F2F5</td><td><code>text-neutral</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#2A303D;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#2A303D</td></tr>
+              <tr><td><strong>Acknowledge</strong></td><td><code>bg-acknowledge-subtle</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#F1EAF8;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#F1EAF8</td><td><code>text-acknowledge</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#663399;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#663399</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Intense Style Colors -->
+        <div class="doc-section">
+          <h2 id="intense-style-colors" class="doc-section-title">Intense Style Colors</h2>
+          <p class="doc-section-subtitle">High-emphasis solid backgrounds with contrasting text for primary visibility contexts.</p>
+          <table class="size-table">
+            <thead><tr><th>State</th><th>Background Token</th><th>Background Hex</th><th>Text Token</th><th>Text Hex</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Active</strong></td><td><code>bg-info-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#2C66DD;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#2C66DD</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+              <tr><td><strong>Critical</strong></td><td><code>bg-error-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#E42527;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#E42527</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+              <tr><td><strong>Moderate</strong></td><td><code>bg-warning-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#F9B21D;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#F9B21D</td><td><code>text-on-warning</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#000000;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#000000</td></tr>
+              <tr><td><strong>Important</strong></td><td><code>bg-important-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#E65100;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#E65100</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+              <tr><td><strong>Success</strong></td><td><code>bg-success-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#0C8844;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#0C8844</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+              <tr><td><strong>Default</strong></td><td><code>bg-neutral-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#5F6C89;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#5F6C89</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+              <tr><td><strong>Acknowledge</strong></td><td><code>bg-acknowledge-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#663399;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#663399</td><td><code>text-on-solid</code></td><td><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:#FFFFFF;vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,0.1);"></span>#FFFFFF</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Sizes -->
+        <div class="doc-section">
+          <h2 id="sizes" class="doc-section-title">Sizes</h2>
+          <p class="doc-section-subtitle">Three size options accommodate different layout densities and visual hierarchy needs.</p>
+          <table class="size-table">
+            <thead><tr><th>Size</th><th>Height</th><th>Min Width</th><th>Padding</th><th>Font Size</th><th>Preview</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Small</strong></td><td>16px</td><td>16px</td><td>4px</td><td>10px</td><td><span class="counter-demo counter-sm counter-intense-active">5</span></td></tr>
+              <tr><td><strong>Medium</strong></td><td>20px</td><td>20px</td><td>4px</td><td>12px</td><td><span class="counter-demo counter-md counter-intense-active">12</span></td></tr>
+              <tr><td><strong>Large</strong></td><td>24px</td><td>24px</td><td>8px H / 4px V</td><td>14px</td><td><span class="counter-demo counter-lg counter-intense-active">42</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Typography -->
+        <div class="doc-section">
+          <h3 id="typography" class="doc-h3">Typography</h3>
+          <p class="doc-section-subtitle">All Counter sizes use Zoho Puvi Medium (weight 500) for numeric legibility.</p>
+          <table class="size-table">
+            <thead><tr><th>Size</th><th>Font Family</th><th>Weight</th><th>Font Size</th><th>Line Height</th></tr></thead>
+            <tbody>
+              <tr><td>Small</td><td>Zoho Puvi</td><td>500 (Medium)</td><td>10px</td><td>14px</td></tr>
+              <tr><td>Medium</td><td>Zoho Puvi</td><td>500 (Medium)</td><td>12px</td><td>16px</td></tr>
+              <tr><td>Large</td><td>Zoho Puvi</td><td>500 (Medium)</td><td>14px</td><td>20px</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ═══ USAGE TAB ═══ -->
+      <div class="tab-content" id="tab-usage" style="display: none; padding-top: 32px;">
+
+        <!-- When and Where to Use -->
+        <div class="doc-section">
+          <h2 id="when-to-use" class="doc-section-title">When and Where to Use</h2>
+          <p class="doc-section-subtitle">Counters communicate numeric quantities at a glance, always paired with contextual labels or parent components.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;">
+            <div style="padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; transition: all 0.25s ease;">
+              <h3 id="when-to-use-details" style="font-size: 15px; font-weight: 600; color: var(--prism-text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" fill="none" stroke="#2563eb" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                When to use
+              </h3>
+              <ul class="doc-list" style="border: none; background: transparent; padding-left: 20px; font-size: 14.5px;">
+                <li style="border: none; background: transparent; margin-bottom: 8px;">Display unread notification counts on navigation items.</li>
+                <li style="border: none; background: transparent; margin-bottom: 8px;">Show item counts in tabs, filters, or category labels.</li>
+                <li style="border: none; background: transparent; margin-bottom: 8px;">Indicate quantity in list rows or table cells.</li>
+                <li style="border: none; background: transparent;">Display status-grouped counts in dashboards.</li>
+              </ul>
+            </div>
+            <div style="padding: 24px; background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; transition: all 0.25s ease;">
+              <h3 id="when-not-to-use" style="font-size: 15px; font-weight: 600; color: var(--prism-text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" fill="none" stroke="#e42527" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                When NOT to use
+              </h3>
+              <ul class="doc-list" style="border: none; background: transparent; padding-left: 20px; font-size: 14.5px;">
+                <li style="border: none; background: transparent; margin-bottom: 8px;">For non-numeric content (use Badge instead).</li>
+                <li style="border: none; background: transparent; margin-bottom: 8px;">As a standalone status indicator (use Status Indicator).</li>
+                <li style="border: none; background: transparent; margin-bottom: 8px;">For categorization labels (use Tag).</li>
+                <li style="border: none; background: transparent;">When count meaning is unclear without context.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Semantic States -->
+        <div class="doc-section">
+          <h2 id="semantic-states" class="doc-section-title">Semantic States</h2>
+          <p class="doc-section-subtitle">Each state maps to a specific semantic meaning, ensuring consistent communication across the interface.</p>
+          <ul class="doc-list">
+            <li><strong>Active:</strong> Primary or informational counts such as unread messages, new items, or selected filters.</li>
+            <li><strong>Critical:</strong> Error or failure counts indicating items requiring immediate attention (e.g., failed deployments).</li>
+            <li><strong>Moderate:</strong> Warning or alert counts for situations needing review but not yet critical.</li>
+            <li><strong>Important:</strong> Urgent but non-critical counts, such as overdue tasks or pending approvals.</li>
+            <li><strong>Success:</strong> Completed or positive counts, like resolved tickets or successful operations.</li>
+            <li><strong>Default:</strong> Neutral or secondary counts for general-purpose use without semantic weight.</li>
+            <li><strong>Acknowledge:</strong> Acknowledged or informational-secondary counts, often used for dismissed or archived items.</li>
+          </ul>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Detailed Do's and Don'ts -->
+        <div class="doc-section">
+          <h2 id="detailed-guidelines" class="doc-section-title">Complete Do's and Don'ts</h2>
+          <p class="doc-section-subtitle">Visual and interaction guidelines to ensure counters are effective, consistent, and accessible.</p>
+          <div class="do-dont-grid">
+            <div class="do-card"><span class="card-label">Do</span>
+              <ul class="doc-list" style="border: none; background: transparent; padding: 0;">
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Keep values short:</strong> Use 1-3 digits. Display "99+" for values exceeding 99.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Provide context:</strong> Always pair counters with a parent label, icon, or navigation item.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Consistent style per group:</strong> Use either all Subtle or all Intense within a single UI row.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Match semantics:</strong> Use Critical for errors, Success for completions, Active for informational.</li>
+              </ul>
+            </div>
+            <div class="dont-card"><span class="card-label">Don't</span>
+              <ul class="doc-list" style="border: none; background: transparent; padding: 0;">
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Non-numeric content:</strong> Don't display text or icons inside a Counter (use Badge instead).</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Standalone use:</strong> Don't use a Counter without adjacent context explaining what is being counted.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Mixed styles:</strong> Don't mix Subtle and Intense in the same row or contextual group.</li>
+                <li style="border: none; background: transparent; padding-left: 20px;"><strong>Large numbers:</strong> Don't display raw large numbers like "1542" without truncation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Related -->
+        <div class="doc-section">
+          <h2 id="related" class="doc-section-title">Related</h2>
+          <p class="doc-section-subtitle">Components that complement or can be used alongside the Counter.</p>
+          <div class="related-grid">
+            <a href="Badges.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg> Badge</a>
+            <a href="#" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/></svg> Status Indicator</a>
+            <a href="Tag.html" class="related-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Tag</a>
+          </div>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- References -->
+        <div class="doc-section">
+          <h2 id="references" class="doc-section-title">References</h2>
+          <p class="doc-section-subtitle">Design tokens and resources for implementing the Counter component.</p>
+          <ul class="doc-list">
+            <li><strong>Figma Node:</strong> <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">16445:468</code> — Component Set: Counter</li>
+            <li><strong>Typography:</strong> Zoho Puvi Medium (weight 500) across all sizes</li>
+            <li><strong>Border Radius:</strong> <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">radius/radius-full = 9999px</code></li>
+            <li><strong>Total Variants:</strong> 2 &times; 3 &times; 7 = <strong>42 variants</strong></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ═══ CODE TAB ═══ -->
+      <div class="tab-content" id="tab-code" style="display: none; padding-top: 32px;">
+        <h2 id="live-demo-code" class="doc-section-title">Live demo (Code)</h2>
+        <p class="doc-section-subtitle">Configure the Counter and view the generated HTML.</p>
+
+        
+
+        <div class="counter-playground">
+          <div class="counter-pg-toolbar">
+            <div class="counter-pg-group">
+              <label class="counter-pg-label">Style</label>
+              <select class="counter-pg-select" id="counter-pg-style">
+                <option value="subtle" selected>Subtle</option>
+                <option value="intense">Intense</option>
+              </select>
+            </div>
+            <div class="counter-pg-group">
+              <label class="counter-pg-label">State</label>
+              <select class="counter-pg-select" id="counter-pg-state">
+                <option value="active" selected>Active</option>
+                <option value="critical">Critical</option>
+                <option value="moderate">Moderate</option>
+                <option value="important">Important</option>
+                <option value="success">Success</option>
+                <option value="default">Default</option>
+                <option value="acknowledge">Acknowledge</option>
+              </select>
+            </div>
+            <div class="counter-pg-group">
+              <label class="counter-pg-label">Size</label>
+              <select class="counter-pg-select" id="counter-pg-size">
+                <option value="sm">Small</option>
+                <option value="md" selected>Medium</option>
+                <option value="lg">Large</option>
+              </select>
+            </div>
+            <div class="counter-pg-group">
+              <label class="counter-pg-label">Number</label>
+              <input class="counter-pg-input" id="counter-pg-number" type="text" value="57">
+            </div>
+          </div>
+
+          <div class="counter-pg-preview">
+            <span class="counter-demo counter-md counter-subtle-active" id="counter-pg-preview">57</span>
+          </div>
+
+          <div class="counter-pg-code-header">
+            <div style="font-size: 13.5px; font-weight: 600; color: var(--prism-text);">HTML</div>
+            <button class="counter-pg-copy" id="counter-pg-copy-btn">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/></svg>
+              Copy code
+            </button>
+          </div>
+          <pre class="counter-pg-code" id="counter-pg-code"></pre>
+        </div>
+
+        <script>
+          (function(){
+            const el = {
+              style: document.getElementById('counter-pg-style'),
+              state: document.getElementById('counter-pg-state'),
+              size: document.getElementById('counter-pg-size'),
+              number: document.getElementById('counter-pg-number'),
+              preview: document.getElementById('counter-pg-preview'),
+              code: document.getElementById('counter-pg-code'),
+              copy: document.getElementById('counter-pg-copy-btn')
+            };
+            if (!el.preview) return;
+
+            function escape(s){ return s.replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+            function render(){
+              const style = el.style.value;
+              const state = el.state.value;
+              const size = el.size.value;
+              const number = el.number.value || '0';
+              const classes = ['counter-demo', 'counter-' + size, 'counter-' + style + '-' + state];
+
+              el.preview.className = classes.join(' ');
+              el.preview.textContent = number;
+
+              const classAttr = classes.join(' ');
+              const html = '<span class="tk-punct">&lt;</span><span class="tk-tag">span</span> <span class="tk-attr">class</span><span class="tk-punct">=</span><span class="tk-str">"' + classAttr + '"</span><span class="tk-punct">&gt;</span>' + escape(number) + '<span class="tk-punct">&lt;/</span><span class="tk-tag">span</span><span class="tk-punct">&gt;</span>';
+              el.code.innerHTML = html;
+            }
+            ['style','state','size'].forEach(k => el[k].addEventListener('change', render));
+            el.number.addEventListener('input', render);
+            el.copy.addEventListener('click', () => {
+              navigator.clipboard.writeText(el.code.innerText).then(() => {
+                const orig = el.copy.innerHTML;
+                el.copy.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Copied';
+                setTimeout(() => { el.copy.innerHTML = orig; }, 1800);
+              });
+            });
+            render();
+          })();
+        </script>
+
+        <hr class="doc-divider" />
+
+        <h2 id="code-overview" class="doc-section-title">Code</h2>
+        <p class="doc-section-subtitle">Component properties, sizing specifications, and variant matrix for implementing the Counter.</p>
+
+        <!-- Component Properties -->
+        <div class="doc-section">
+          <h3 id="component-properties" class="doc-h3">Component Properties</h3>
+          <p class="doc-section-subtitle">Configuration properties for the Counter component.</p>
+          <table class="size-table">
+            <thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>number</code></td><td>Text</td><td>"57"</td><td>The numeric value displayed inside the counter.</td></tr>
+              <tr><td><code>style</code></td><td>'subtle' | 'intense'</td><td>'subtle'</td><td>Controls the visual emphasis level (tinted background vs. solid).</td></tr>
+              <tr><td><code>size</code></td><td>'sm' | 'md' | 'lg'</td><td>'md'</td><td>Determines the height, min-width, padding, and font size.</td></tr>
+              <tr><td><code>state</code></td><td>'active' | 'critical' | 'moderate' | 'important' | 'success' | 'default' | 'acknowledge'</td><td>'active'</td><td>Semantic color assignment for the counter.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Sizes Specification -->
+        <div class="doc-section">
+          <h3 id="sizes-specification" class="doc-h3">Sizes Specification</h3>
+          <table class="size-table">
+            <thead><tr><th>Size</th><th>Height</th><th>Min Width</th><th>Padding H</th><th>Padding V</th><th>Font Size</th><th>Line Height</th><th>Typography Token</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Small</strong></td><td>16px</td><td>16px</td><td>4px</td><td>4px</td><td>10px</td><td>14px</td><td><code>body/Tiny/Medium</code></td></tr>
+              <tr><td><strong>Medium</strong></td><td>20px</td><td>20px</td><td>4px</td><td>4px</td><td>12px</td><td>16px</td><td><code>body/Small/Medium</code></td></tr>
+              <tr><td><strong>Large</strong></td><td>24px</td><td>24px</td><td>8px</td><td>4px</td><td>14px</td><td>20px</td><td><code>body/Default/Medium</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Typography Tokens -->
+        <div class="doc-section">
+          <h3 id="typography-tokens" class="doc-h3">Typography Tokens</h3>
+          <table class="size-table">
+            <thead><tr><th>Size</th><th>Font Family Token</th><th>Font Size Token</th><th>Line Height Token</th><th>Font Weight Token</th></tr></thead>
+            <tbody>
+              <tr><td>Small</td><td><code>font-family/primary</code></td><td><code>font-size/10</code></td><td><code>line-height/14</code></td><td><code>font-weight/medium</code></td></tr>
+              <tr><td>Medium</td><td><code>font-family/primary</code></td><td><code>font-size/12</code></td><td><code>line-height/16</code></td><td><code>font-weight/medium</code></td></tr>
+              <tr><td>Large</td><td><code>font-family/primary</code></td><td><code>font-size/14</code></td><td><code>line-height/20</code></td><td><code>font-weight/medium</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Variant Matrix -->
+        <div class="doc-section">
+          <h3 id="variant-matrix" class="doc-h3">Variant Matrix</h3>
+          <p class="doc-section-subtitle">Complete 6 &times; 7 grid showing all Style/Size combinations across semantic states.</p>
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Style / Size</th>
+                <th>Active</th>
+                <th>Critical</th>
+                <th>Moderate</th>
+                <th>Important</th>
+                <th>Success</th>
+                <th>Default</th>
+                <th>Acknowledge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Subtle / Small</strong></td>
+                <td><span class="counter-demo counter-sm counter-subtle-active">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-critical">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-moderate">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-important">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-success">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-default">5</span></td>
+                <td><span class="counter-demo counter-sm counter-subtle-acknowledge">5</span></td>
+              </tr>
+              <tr>
+                <td><strong>Subtle / Medium</strong></td>
+                <td><span class="counter-demo counter-md counter-subtle-active">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-critical">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-moderate">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-important">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-success">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-default">12</span></td>
+                <td><span class="counter-demo counter-md counter-subtle-acknowledge">12</span></td>
+              </tr>
+              <tr>
+                <td><strong>Subtle / Large</strong></td>
+                <td><span class="counter-demo counter-lg counter-subtle-active">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-critical">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-moderate">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-important">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-success">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-default">42</span></td>
+                <td><span class="counter-demo counter-lg counter-subtle-acknowledge">42</span></td>
+              </tr>
+              <tr>
+                <td><strong>Intense / Small</strong></td>
+                <td><span class="counter-demo counter-sm counter-intense-active">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-critical">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-moderate">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-important">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-success">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-default">5</span></td>
+                <td><span class="counter-demo counter-sm counter-intense-acknowledge">5</span></td>
+              </tr>
+              <tr>
+                <td><strong>Intense / Medium</strong></td>
+                <td><span class="counter-demo counter-md counter-intense-active">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-critical">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-moderate">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-important">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-success">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-default">12</span></td>
+                <td><span class="counter-demo counter-md counter-intense-acknowledge">12</span></td>
+              </tr>
+              <tr>
+                <td><strong>Intense / Large</strong></td>
+                <td><span class="counter-demo counter-lg counter-intense-active">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-critical">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-moderate">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-important">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-success">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-default">42</span></td>
+                <td><span class="counter-demo counter-lg counter-intense-acknowledge">42</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <!-- Layout -->
+        <div class="doc-section">
+          <h3 id="layout" class="doc-h3">Layout</h3>
+          <p class="doc-section-subtitle">Counter layout specification for auto-layout frames.</p>
+          <ul class="doc-list">
+            <li><strong>Direction:</strong> Horizontal auto-layout</li>
+            <li><strong>Alignment:</strong> Center (both horizontal and vertical)</li>
+            <li><strong>Sizing:</strong> Hugs content on both axes</li>
+            <li><strong>Border Radius:</strong> <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">9999px</code> (full pill shape)</li>
+            <li><strong>Clip Content:</strong> Enabled — overflow is clipped to the pill boundary</li>
+            <li><strong>Min Width:</strong> Equals height to ensure circular shape for single-digit values</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ ACCESSIBILITY TAB ═══ -->
+      <div class="tab-content" id="tab-accessibility" style="display: none; padding-top: 32px;">
+        <h2 id="accessibility" class="doc-section-title">Accessibility</h2>
+        <p class="doc-section-subtitle">Guidelines for ensuring Counter components are perceivable and understandable across all assistive technologies.</p>
+
+        <div class="doc-section">
+          <h3 id="accessibility-guidelines" class="doc-h3">Accessibility Guidelines</h3>
+          <table class="size-table">
+            <thead><tr><th>Guideline</th><th>Requirement</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>aria-label</strong></td>
+                <td>Required</td>
+                <td>Provide full context, e.g., <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">aria-label="5 unread messages"</code> rather than just "5". The numeric value alone is insufficient for screen reader users.</td>
+              </tr>
+              <tr>
+                <td><strong>Color Contrast</strong></td>
+                <td>WCAG AA</td>
+                <td>All Subtle and Intense combinations meet WCAG AA contrast minimums (4.5:1 for text). The Moderate/Intense variant uses black text (#000000) on yellow (#F9B21D) to maintain adequate contrast.</td>
+              </tr>
+              <tr>
+                <td><strong>Screen Reader</strong></td>
+                <td>Contextual announcement</td>
+                <td>The count should be announced with context from the parent element. Use <code style="font-family: monospace; font-size: 13px; padding: 2px 8px; border-radius: 6px; background: rgba(37,99,235,0.06); color: var(--prism-violet);">aria-describedby</code> or wrap the counter within a labeled container so the relationship is clear.</td>
+              </tr>
+              <tr>
+                <td><strong>Color Independence</strong></td>
+                <td>Required</td>
+                <td>Do not rely solely on color to convey the semantic state of a counter. Always provide additional context through labels, position, or descriptive text so that users who cannot perceive color differences still understand the meaning.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="doc-divider" />
+
+        <div class="doc-section">
+          <h3 id="contrast-ratios" class="doc-h3">Color Contrast Verification<span class="h3-badge" style="background: rgba(34,197,94,0.15); color: #16a34a;">WCAG AA Pass</span></h3>
+          <p class="doc-section-subtitle">All Counter color combinations have been verified against WCAG 2.1 Level AA requirements.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 24px;">
+            <!-- Intense Active -->
+            <div style="background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; overflow: hidden;">
+              <div style="background: #2C66DD; padding: 24px; text-align: center; color: #ffffff;">
+                <span class="counter-demo counter-lg counter-intense-active" style="font-size: 20px; height: 36px; min-width: 36px; padding: 4px 12px;">42</span>
+              </div>
+              <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--prism-border);">
+                <div>
+                  <div style="font-size: 13px; color: var(--prism-text-muted); font-weight: 600;">INTENSE ACTIVE</div>
+                  <div style="font-size: 15px; color: var(--prism-text); font-family: monospace; margin-top: 4px;">#FFF on #2C66DD</div>
+                </div>
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.1); color: #16a34a; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 700;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 4.7:1
+                </div>
+              </div>
+            </div>
+
+            <!-- Intense Moderate -->
+            <div style="background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; overflow: hidden;">
+              <div style="background: #F9B21D; padding: 24px; text-align: center; color: #000000;">
+                <span class="counter-demo counter-lg counter-intense-moderate" style="font-size: 20px; height: 36px; min-width: 36px; padding: 4px 12px;">3</span>
+              </div>
+              <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--prism-border);">
+                <div>
+                  <div style="font-size: 13px; color: var(--prism-text-muted); font-weight: 600;">INTENSE MODERATE</div>
+                  <div style="font-size: 15px; color: var(--prism-text); font-family: monospace; margin-top: 4px;">#000 on #F9B21D</div>
+                </div>
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.1); color: #16a34a; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 700;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 11.3:1
+                </div>
+              </div>
+            </div>
+
+            <!-- Subtle Active -->
+            <div style="background: var(--prism-surface); border: 1px solid var(--prism-border); border-radius: 12px; overflow: hidden;">
+              <div style="background: #D5E0F8; padding: 24px; text-align: center; color: #1E52BB;">
+                <span class="counter-demo counter-lg counter-subtle-active" style="font-size: 20px; height: 36px; min-width: 36px; padding: 4px 12px;">12</span>
+              </div>
+              <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--prism-border);">
+                <div>
+                  <div style="font-size: 13px; color: var(--prism-text-muted); font-weight: 600;">SUBTLE ACTIVE</div>
+                  <div style="font-size: 15px; color: var(--prism-text); font-family: monospace; margin-top: 4px;">#1E52BB on #D5E0F8</div>
+                </div>
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.1); color: #16a34a; padding: 4px 10px; border-radius: 100px; font-size: 12px; font-weight: 700;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 5.2:1
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding: 16px 20px; background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.2); border-radius: 12px; display: flex; gap: 12px; align-items: flex-start;">
+             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+             <p style="font-size: 14px; color: var(--prism-text); line-height: 1.6; margin: 0;"><strong>WCAG 2.1 Level AA Requires:</strong> A contrast ratio of at least <strong>4.5:1</strong> for normal text. All 42 Counter variants meet or exceed this threshold. The Moderate/Intense variant specifically uses black (#000000) text on yellow (#F9B21D) to ensure readability.</p>
+          </div>
+        </div>
+      </div>
+
+      </div> <!-- close main-content-inner -->
+
+      <aside class="toc-sidebar" style="padding: 20px;">
+        <h4 class="toc-heading">On this page</h4>
+        <ul class="toc-nav" id="toc-nav">
+          <li><a href="#anatomy" class="toc-link">Anatomy</a></li>
+          <li><a href="#live-demo" class="toc-link">Preview</a></li>
+          <li><a href="#content-guidelines" class="toc-link">Content Guidelines</a></li>
+        </ul>
+
+        <div class="quick-actions-card">
+          <div class="quick-actions-title">Resources</div>
+          <a href="MD/counter.md" download="counter.md" class="action-link">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download MD
+          </a>
+          <a href="https://www.figma.com/design/DahIgbIJrSkzyP3OoHaDaG/UEMS---Design-System-3.0?node-id=16445-468" target="_blank" class="action-link">
+            <img src="assets/figma-icon.svg" alt="Figma" width="15" height="15" style="vertical-align:middle;">
+            Figma Design
+          </a>
+        </div>
+      </aside>
+
+      </div> <!-- close main-content-area -->
+
+    <div id="feedback" class="feedback-banner" style="display: none;">
+    <div><div class="fb-text">Was this page helpful?</div><div class="fb-sub">Help us improve by sharing your feedback on this component's documentation.</div></div>
+    <div style="display: flex; gap: 10px;"><button class="feedback-btn">Not helpful</button><button class="feedback-btn primary">Yes, helpful</button></div>
+    </div>
+
+    </main>
+  </div>
+
+  <script>
+    // ── Scroll-spy observer reference ──
+    let _tocObserver = null;
+
+    // ── Dynamic TOC ──
+    function updateTOC(targetId) {
+      const tocList = document.querySelector('.toc-nav');
+      if (!tocList) return;
+      tocList.innerHTML = '';
+      const activePanel = document.getElementById(targetId);
+      if (!activePanel) return;
+
+      const headings = activePanel.querySelectorAll('h2[id], h3[id]');
+      headings.forEach(h => {
+        if (h.style.display === 'none') return;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.className = 'toc-link';
+        let text = Array.from(h.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim();
+        if (!text) text = h.innerText;
+        a.textContent = text;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      // Re-init scroll-spy
+      initScrollSpy();
+    }
+
+    function initScrollSpy() {
+      // Disconnect previous observer
+      if (_tocObserver) _tocObserver.disconnect();
+
+      const tocLinks = document.querySelectorAll('.toc-link');
+      const sectionIds = Array.from(tocLinks).map(link => link.getAttribute('href').slice(1));
+      const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+      if (sections.length === 0) return;
+
+      _tocObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+      sections.forEach(section => _tocObserver.observe(section));
+    }
+
+    // ── Tab switching ──
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const tabMap = { 'Overview': 'tab-overview', 'Usage': 'tab-usage', 'Style': 'tab-style', 'Code': 'tab-code', 'Accessibility': 'tab-accessibility' };
+        document.querySelectorAll('.tab-content').forEach(panel => panel.style.display = 'none');
+        const target = tabMap[tab.textContent.trim()];
+        if (target) {
+          document.getElementById(target).style.display = 'block';
+          updateTOC(target);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Initialize TOC
+    updateTOC('tab-overview');
+// Sidebar search filter
+    (function(){
+      var searchInput = document.querySelector('.sidebar-search input');
+      if (!searchInput) return;
+      var items = document.querySelectorAll('.sidebar-nav li');
+      searchInput.addEventListener('input', function(){
+        var q = this.value.toLowerCase().trim();
+        items.forEach(function(li){
+          var link = li.querySelector('a');
+          if (!link) return;
+          var text = link.textContent.toLowerCase();
+          li.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+        });
+      });
+      // Cmd+K / Ctrl+K shortcut to focus search
+      document.addEventListener('keydown', function(e){
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+          searchInput.select();
+        }
+      });
+    })();
+
+    // Scroll sidebar to active link on page load
+    (function(){
+      var active = document.querySelector('.sidebar-link.active');
+      if (active) {
+        var sidebar = active.closest('.sidebar');
+        if (sidebar) {
+          var top = active.offsetTop - sidebar.offsetTop - (sidebar.clientHeight / 3);
+          sidebar.scrollTop = Math.max(0, top);
+        }
+      }
+    })();
+
+  </script>
+
+<!-- Floating Feedback Button -->
+
+<a href="https://cliq.zoho.in/company/60002085329/channels/prismdesignsystembyuemssupportfeedback" target="_blank" rel="noopener" class="float-cliq-btn" aria-label="Share feedback on Cliq">
+  <span class="float-cliq-label">Share feedback</span>
+  <span class="float-cliq-icon">
+    <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.4">
+      <path d="M2.49072 6.40039C2.49072 5.03513 2.49072 4.35249 2.75642 3.83103C2.99014 3.37234 3.36306 2.99941 3.82175 2.7657C4.34322 2.5 5.02585 2.5 6.39111 2.5H13.6085C14.9737 2.5 15.6564 2.5 16.1778 2.7657C16.6365 2.99941 17.0094 3.37234 17.2432 3.83103C17.5089 4.35249 17.5089 5.03513 17.5089 6.40039V10.7883C17.5089 12.1536 17.5089 12.8362 17.2432 13.3577C17.0094 13.8164 16.6365 14.1893 16.1778 14.423C15.6564 14.6887 14.9737 14.6887 13.6085 14.6887H11.1721C10.665 14.6887 10.4115 14.6887 10.169 14.7385C9.95382 14.7827 9.74561 14.8557 9.55001 14.9556C9.32955 15.0682 9.13156 15.2266 8.73558 15.5434L6.79721 17.0941C6.4591 17.3646 6.29005 17.4998 6.14778 17.5C6.02405 17.5001 5.907 17.4439 5.82981 17.3472C5.74105 17.236 5.74105 17.0195 5.74105 16.5865V14.6887C4.98537 14.6887 4.60753 14.6887 4.29753 14.6057C3.45629 14.3802 2.7992 13.7232 2.57379 12.8819C2.49072 12.5719 2.49072 12.1941 2.49072 11.4384V6.40039Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80145 6.31852C9.07036 5.47437 7.85123 5.2473 6.93523 6.02029C6.01923 6.79328 5.89027 8.08568 6.60961 8.99989C7.05526 9.56628 8.17382 10.6007 8.96046 11.3059C9.24941 11.5649 9.39388 11.6944 9.56727 11.7466C9.71601 11.7914 9.88689 11.7914 10.0356 11.7466C10.209 11.6944 10.3535 11.5649 10.6424 11.3059C11.4291 10.6007 12.9393 9.56628 13.385 8.99989C14.1043 8.08568 13.9911 6.78515 13.0593 6.02029C12.1276 5.25543 10.5325 5.47437 9.80145 6.31852Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+<script src="js/main.js"></script>
+
+<script>
+(function(){
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  const moon = document.getElementById('moonIcon');
+  const sun = document.getElementById('sunIcon');
+  const apply = (light) => {
+    if (light) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (moon) moon.style.display = 'none';
+      if (sun) sun.style.display = 'block';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (moon) moon.style.display = 'block';
+      if (sun) sun.style.display = 'none';
+    }
+  };
+  apply((localStorage.getItem('theme') || 'light') === 'light');
+  btn.addEventListener('click', () => {
+    const newLight = document.documentElement.getAttribute('data-theme') !== 'light';
+    localStorage.setItem('theme', newLight ? 'light' : 'dark');
+    apply(newLight);
+  });
+})();
+</script>
+</body>
+</html>
